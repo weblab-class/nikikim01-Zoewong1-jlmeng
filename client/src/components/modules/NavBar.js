@@ -23,7 +23,7 @@ const GOOGLE_CLIENT_ID = "126273665028-0hk9qp3k313dhcaql812d8pdb9m3p545.apps.goo
              <nav className="NavBar-container">
                   <div className="u-flex u-flex-alignCenter">
                     <Link to="/" className="NavBar-link"><img src={tagHeartLogo} height="40"/></Link>
-                     <Link to="/NewEntry" className="NavBar-link">New Entry</Link>
+                     <Link to="/CreateEntry" className="NavBar-link">New Entry</Link>
                      <Link to="/AllEntries" className="NavBar-link">Entries</Link>
                      <Link to="/Calendar" className="NavBar-link">Calendar</Link>
                      <Link to="/Feed" className="NavBar-link">Feed</Link>
