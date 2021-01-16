@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 
+import EntryColors from "../modules/EntryColors.js";
+
+
+
 class CreateEntry extends Component {
   constructor(props) {
     super(props);
@@ -7,8 +11,6 @@ class CreateEntry extends Component {
     };
   }
 
-  // called when the "Feed" component "mounts", i.e.
-  // when it shows up on screen
   componentDidMount() {
     document.title = "Create a New Entry";
   }
@@ -16,8 +18,9 @@ class CreateEntry extends Component {
 
 
   render() {
-    
-
+    return (
+    <EntryColors/>
+    )
   }
 }
 

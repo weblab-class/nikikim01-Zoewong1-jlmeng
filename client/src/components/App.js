@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import NavBar from "./modules/NavBar.js";
+import CreateEntry from "./pages/CreateEntry.js";
 
 import "../utilities.css";
 
@@ -55,6 +56,8 @@ class App extends Component {
           />
         <Router>
           <NotFound default />
+          <CreateEntry path="/"/>
+          <CreateEntry path="/CreateEntry"/>
         </Router>
       </>
     );
