@@ -17,7 +17,7 @@ class AllEntries extends Component{
         return(
             <div>
                 <h1>January</h1>
-                <SingleEntry _id="123" title="Entry1" day="01"/>
+                <SingleEntry _id="123" title="Entry1" day="01" content="Hello"/>
             </div>
         )
     }

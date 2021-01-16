@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
 
 import "../../utilities.css";
 import "./SingleEntry.css";
 
 /** 
  * @param {string} _id of entry
- * @param {int} day of entry
+ * @param {string} day of entry
  * @param {string} title of entry
  * @param {string} content
 */
