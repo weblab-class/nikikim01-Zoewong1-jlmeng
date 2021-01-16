@@ -23,24 +23,13 @@ class EntryColors extends Component {
         //for each color in colors, add a circle of that color to the line
         const colors = ["#B8D4FF", "#B9D99C", "#CAB8FF", "#D99C9C",
         "#F5CCEA", "#F9D142", "#F8E963"];
-
-        let tempcircles = [];
-        
-        for (let i = 0; i < colors.length; i++) {
-            let color = colors[i];
-            let selected = false;
-            if (color === this.state.selectedColor) {
-                console.log(color);
-                let selected = true;
-            }
-            console.log(color);
-    
-           tempcircles = tempcircles.concat(<Circle key={i+color} bgColor={color} selected={selected} onClick={() => console.log("hello")}/>);
-        }
+        let selected = false;
 
         return (
             <div>
-                {this.state.circles}
+                {colors.map((color) => (
+                    <div onClick={() => this.colorClicked(color)}><Circle key={color} bgColor={color} selected={selected}/></div>
+                ))}
             </div>
         )
     
