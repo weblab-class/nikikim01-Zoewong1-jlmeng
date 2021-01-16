@@ -1,6 +1,10 @@
 .NavBar-container {
     padding: var(--s) var(--s);
     background-color: var(--midgrey);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  
   }
   
   .NavBar-title {

@@ -4,9 +4,6 @@ import "./Circle.css";
 class Circle extends Component {
     constructor(props) {
         super(props); //color
-        this.state = {
-            selected: false,
-        }
     }
 
     componentDidMount() {
@@ -24,9 +21,18 @@ class Circle extends Component {
             backgroundColor: this.props.bgColor
         }
 
-        return (
-            <div className="Circle-format" style={CircleStyle}> </div>
-        )
+
+        if (this.props.selected) {
+            return (
+                <div style={{CircleStyle, border: 10}}> </div>
+            )
+
+
+        } else {
+            return (
+                <div style={CircleStyle}> </div>
+            )
+        }
     }
 
 }
