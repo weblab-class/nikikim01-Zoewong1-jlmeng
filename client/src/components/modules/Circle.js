@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./Circle.css";
 
 class Circle extends Component {
     constructor(props) {
@@ -13,8 +14,18 @@ class Circle extends Component {
     }
 
     render(){
+        const CircleStyle = {
+            padding:10,
+            margin: 20,
+            display:"inline-block",
+            borderRadius: 100,
+            width:25,
+            height:25,
+            backgroundColor: this.props.bgColor
+        }
+
         return (
-            <div className="Circle" background-color={this.props.bgColor}></div>
+            <div className="Circle-format" style={CircleStyle}> </div>
         )
     }
 
