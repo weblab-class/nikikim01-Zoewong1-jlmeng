@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Router } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
+import CreateEntry from "./pages/CreateEntry.js";
 
 import "../utilities.css";
 
@@ -55,6 +56,7 @@ class App extends Component {
             userId={this.state.userId}
           />
           <NotFound default />
+          <CreateEntry path="/CreateEntry"/>
         </Router>
       </>
     );
