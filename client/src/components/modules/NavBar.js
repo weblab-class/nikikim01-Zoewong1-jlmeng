@@ -5,6 +5,7 @@ import GoogleLogin, { GoogleLogout } from "react-google-login";
 import "../../utilities.css";
 import "./NavBar.css";
 import tagHeartLogo from "../../public/images/tagHeartLogo.png";
+import settingsIcon from "../../public/images/settingsIcon.svg";
 
 // to identify our application to Google's authentication service
 const GOOGLE_CLIENT_ID = "126273665028-0hk9qp3k313dhcaql812d8pdb9m3p545.apps.googleusercontent.com";
@@ -23,7 +24,7 @@ const GOOGLE_CLIENT_ID = "126273665028-0hk9qp3k313dhcaql812d8pdb9m3p545.apps.goo
              <nav className="NavBar-container">
                   <div className="u-flex u-flex-alignCenter">
                     <Link to="/" className="NavBar-link"><img src={tagHeartLogo} height="40"/></Link>
-                     <Link to="/NewEntry" className="NavBar-link">New Entry</Link>
+                     <Link to="/CreateEntry" className="NavBar-link">New Entry</Link>
                      <Link to="/AllEntries" className="NavBar-link">Entries</Link>
                      <Link to="/Calendar" className="NavBar-link">Calendar</Link>
                      <Link to="/Feed" className="NavBar-link">Feed</Link>
@@ -32,6 +33,7 @@ const GOOGLE_CLIENT_ID = "126273665028-0hk9qp3k313dhcaql812d8pdb9m3p545.apps.goo
                      </div>
 
                      <div className="logInOut">
+                         <Link to="/Settings" className="NavBar-link"><img src={settingsIcon} height="40"></img></Link>
                      {this.props.userId ? (
                         <GoogleLogout
                             clientId={GOOGLE_CLIENT_ID}
