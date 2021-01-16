@@ -24,6 +24,7 @@
   --midgrey: #e0e0e0;
   --grey: #f7f7f7;
   --white: #fff;
+  --blue: #2A7DFA;
 
   --xs: 4px;
   --s: 8px;
@@ -57,6 +58,14 @@ form {
 
 .u-flex-alignCenter {
   align-items: center;
+}
+
+.u-inlineFlex {
+  display: inline-flex;
+}
+
+.u-flexStart{ 
+  align-items: flex-start;
 }
 
 .u-inlineBlock {

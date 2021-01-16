@@ -1,6 +1,6 @@
 .NavBar-container {
-    padding: var(--s) var(--m);
-    background-color: var(--primary);
+    padding: var(--s) var(--s);
+    background-color: var(--midgrey);
   }
   
   .NavBar-title {
@@ -8,19 +8,14 @@
     font-size: 20px;
   }
   
-  .NavBar-linkContainer {
-    margin-left: var(--l);
-  }
-  
   .NavBar-link,
   .NavBar-link:visited {
-    color: var(--white);
-    opacity: 0.6;
+    color: var(--black);
     text-decoration: none;
   }
   
   .NavBar-link:hover {
-    opacity: 0.8;
+    color: var(--blue);
   }
   
   .NavBar-link.NavBar-login {
@@ -31,3 +26,7 @@
     margin-left: var(--m);
   }
   
+  .logInOut {
+    display: flex;
+    align-items: flex-end;
+  }
