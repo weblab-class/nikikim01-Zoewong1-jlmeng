@@ -15,16 +15,31 @@ class Circle extends Component {
             padding:10,
             margin: 20,
             display:"inline-block",
-            borderRadius: 100,
+            borderRadius: "50%",
             width:25,
             height:25,
-            backgroundColor: this.props.bgColor
+            backgroundColor: this.props.bgColor,
+        }
+
+        const CircleSelected = {
+            padding:10,
+            margin: 20,
+            display:"inline-block",
+            borderRadius: "50%",
+            width:25,
+            height:25,
+            backgroundColor: this.props.bgColor,
+            borderWidth: 5,
+            borderColor: "#E0E0E0",
+            borderStyle: "solid"
         }
 
 
-        if (this.props.selected) {
+        if (this.props.selectedColor === this.props.bgColor) {
+            console.log(this.props.selectedColor)
             return (
-                <div style={{CircleStyle, border: 10}}> </div>
+                
+                <div style={CircleSelected}> </div>
             )
 
 

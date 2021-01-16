@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Circle from "./Circle.js";
+import "../../utilities.css";
 
 class EntryColors extends Component {
     constructor(props) {
@@ -23,12 +24,11 @@ class EntryColors extends Component {
         //for each color in colors, add a circle of that color to the line
         const colors = ["#B8D4FF", "#B9D99C", "#CAB8FF", "#D99C9C",
         "#F5CCEA", "#F9D142", "#F8E963"];
-        let selected = false;
 
         return (
             <div>
                 {colors.map((color) => (
-                    <div onClick={() => this.colorClicked(color)}><Circle key={color} bgColor={color} selected={selected}/></div>
+                    <div className="u-inlineBlock" onClick={() => this.colorClicked(color)}><Circle key={color} bgColor={color} selectedColor={this.state.selectedColor}/></div>
                 ))}
             </div>
         )
