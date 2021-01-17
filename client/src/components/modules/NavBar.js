@@ -33,7 +33,7 @@ const GOOGLE_CLIENT_ID = "126273665028-0hk9qp3k313dhcaql812d8pdb9m3p545.apps.goo
                      </div>
 
                      <div className="logInOut">
-                         <Link to="/Settings" className="NavBar-link"><img src={settingsIcon} height="40"></img></Link>
+                         <Link to="/Settings" className="NavBar-link"><img src={settingsIcon} height="40" className="NavBar-icon"></img></Link>
                      {this.props.userId ? (
                         <GoogleLogout
                             clientId={GOOGLE_CLIENT_ID}

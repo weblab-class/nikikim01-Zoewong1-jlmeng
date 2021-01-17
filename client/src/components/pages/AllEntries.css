@@ -1,0 +1,64 @@
+.AllEntries-iconContainer{
+    width: 40px;
+    height: 40px;
+    padding: var(--xs);
+    margin: var(--xs);
+}
+
+.AllEntries-iconSelected{
+    background: var(--bluegrey);
+    border: 1px solid var(--lightblue);
+    box-sizing: border-box;
+}
+
+.AllEntries-iconUnselected{
+    background: var(--white);
+    border: 1px solid var(--white);
+    box-sizing: border-box;
+}
+
+.AllEntries-icon{
+    width: 30px;
+    height: 30px;
+}
+
+.AllEntries-date{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 72px;
+    line-height: 87px;
+    text-transform: uppercase;
+    
+    margin: var(--m);
+    color: var(--midblue);
+}
+
+.AllEntries-addBox{
+    width: 1192px;
+    height: 47px;
+    background: var(--bluegrey);
+    box-shadow: 0px var(--xs) var(--xs) var(--midblue);
+    border-radius: 15px;
+    margin: var(--m) var(--s);
+}
+
+.AllEntries-add{
+    text-decoration: none;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #888383;
+}
+
+.AllEntries-addImg{
+    width: 244px;
+    height: 243px;
+    background: var(--bluegrey);
+    filter: drop-shadow(0px var(--xs) var(--xs) rgba(0, 0, 0, 0.25));
+    border-radius: 25px;
+    margin: var(--m);
+}
