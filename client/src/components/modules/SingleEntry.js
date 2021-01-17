@@ -4,6 +4,7 @@ import "../../utilities.css";
 import "./SingleEntry.css";
 
 /** 
+ * Proptypes
  * @param {string} _id of entry
  * @param {string} day of entry
  * @param {string} title of entry
@@ -13,6 +14,9 @@ import "./SingleEntry.css";
 class SingleEntry extends Component{
     constructor(props){
         super(props);
+        this.state = {
+            imageIncluded: false, //true if entry has image attached, false otherwise
+        }
     }
 
     componentDidMount(){}
