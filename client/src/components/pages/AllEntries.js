@@ -16,8 +16,8 @@ class AllEntries extends Component{
     render(){
         return(
             <div>
-                <h1>January</h1>
-                <SingleEntry _id="123" title="Entry1" day="01" content="Hello"/>
+                <h1 className = "months">January</h1>
+                <SingleEntry _id="123" title="Entry1" day="01" content="Hello" tag="school"/>
             </div>
         )
     }
