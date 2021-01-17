@@ -26,6 +26,17 @@
   --white: #fff;
   --blue: #2A7DFA;
 
+  /* TagHeart colors */
+  --lightblue: #B8D4FF;
+  --green: #B9D99C;
+  --purple:#CAB8FF;
+  --red: #D99C9C;
+  --pink: #F5CCEA;
+  --orange: #F9D142;
+  --yellow: #F8E963;
+  --midblue: #99C2FF;
+  --bluegrey: #E6F0FF;
+
   --xs: 4px;
   --s: 8px;
   --m: 16px;
@@ -73,6 +84,10 @@ form {
   align-items: flex-start;
 }
 
+.u-flexWrap{
+  flex-wrap: wrap;
+}
+
 .u-inlineBlock {
   display: inline-block;
 }
@@ -101,4 +116,12 @@ form {
 
 .u-link:hover {
   color: var(--primary--dim);
+}
+
+.u-margin-xs{
+  margin: var(--xs);
+}
+
+.u-margin-s{
+  margin: var(--s);
 }
