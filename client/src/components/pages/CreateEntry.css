@@ -26,8 +26,8 @@
     margin-bottom: 12%;
     display: flex;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
@@ -39,8 +39,8 @@
 .CreateEntry-heart:before,
 .CreateEntry-heart:after{
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     content: '';
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -84,9 +84,9 @@
 
 .CreateEntry-saveButton{
     display: inline-flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     width: 80%;
     background-color: #F5CCCC;
     font-size: 24px;
@@ -97,4 +97,43 @@
 
 .CreateEntry-saveText{
     font-family: Inter;
+}
+
+.CreateEntry-saveHeart{
+    display: flex;
+    justify-content: center;
+    margin-left: 6%;
+    margin-right: 6%;
+    width: 13px;
+    height: 13px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: #ffffff;
+}
+
+.CreateEntry-saveHeart:before,
+.CreateEntry-saveHeart:after{
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    content: '';
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #ffffff;
+
+}
+
+.CreateEntry-saveHeart:before{
+    bottom: 0px;
+    left: -8px;
+}
+
+.CreateEntry-saveHeart:after{
+    top: -8px;
+    right: 0px;
 }

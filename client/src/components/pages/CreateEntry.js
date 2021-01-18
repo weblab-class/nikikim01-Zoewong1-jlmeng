@@ -220,7 +220,11 @@ class CreateEntry extends Component {
           <button classname="CreateEntry-shareButton"><img classname="CreateEntry-share" src={shareButton}></img></button>
         </div>
 
-        <button className="CreateEntry-saveButton"><p className="CreateEntry-saveText">Save</p></button>
+        <button className="CreateEntry-saveButton">
+          <div className="CreateEntry-saveHeart"></div>
+          <p className="CreateEntry-saveText">Save</p>
+          <div className="CreateEntry-saveHeart"></div>
+          </button>
 
       </div>
 
