@@ -41,6 +41,8 @@
   --s: 8px;
   --m: 16px;
   --l: 24px;
+
+  background-color: #FAF9F9;
 }
 
 body {
