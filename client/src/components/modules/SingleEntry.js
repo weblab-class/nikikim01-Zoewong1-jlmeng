@@ -9,6 +9,7 @@ import "./SingleEntry.css";
  * @param {string} title of entry
  * @param {string} content
  * @param {boolean} viewMode true if Menu List, false if view Mode
+ * @param {string} tag associated with entry
 */
 class SingleEntry extends Component{
     constructor(props){
@@ -27,6 +28,8 @@ class SingleEntry extends Component{
                     <div className="SingleEntry-container">
                         <h1 className="SingleEntry-title">{this.props.title}</h1>
                         <p className="SingleEntry-content">{this.props.content}</p>
+                        {/* Tags that user might want to categorize entry with */}
+                        <div className="SingleEntry-tag">{this.props.tag}</div>
                     </div>
                 </div>
             )

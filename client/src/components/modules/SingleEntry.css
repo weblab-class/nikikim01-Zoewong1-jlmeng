@@ -72,3 +72,18 @@
     text-transform: capitalize;
     margin: var(--xs);
 }
+
+.SingleEntry-tag{
+    font-weight: 600;
+    font-size: 13px;
+    opacity: 70%;
+    text-transform: uppercase;
+
+    display: inline-block;
+
+    border-color: black;
+    border-radius: 10px;
+    background-color: rgb(170, 232, 188);
+    box-shadow: 0px var(--xs) var(--xs) var(--midblue);
+    padding: 1px 8px;
+}
