@@ -1,0 +1,23 @@
+.TitleForm-inputBox{
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background: var(--white);
+    box-shadow: 0px var(--xs) var(--xs) var(--midblue);
+    border-radius: 15px;
+    margin: var(--xs) var(--s);
+    padding: 0px 20px;
+}
+
+input{
+    font-family: Inter;
+    font-size: var(--m);
+    font-weight: 700;
+    border:0;
+    outline:0;
+}
+
+input:focus{
+    outline:none;
+}

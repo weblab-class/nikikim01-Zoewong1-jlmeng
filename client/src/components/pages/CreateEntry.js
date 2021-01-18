@@ -5,6 +5,7 @@ import "./CreateEntry.css"
 import moment from "moment";
 
 import Dropdown from "../modules/Dropdown.js";
+import TitleForm from "../modules/TitleForm.js";
 
 const months = [
   {
@@ -192,16 +193,26 @@ class CreateEntry extends Component {
     return (
   
     <>
-    <p>{years}</p>
-    <div className = "CreateEntry-date">
-      <Dropdown title="Month" items={months}/>
-      <Dropdown title="Day" items={days}/>
-      <Dropdown title="Year" items={years}/>
-    </div>
-        
-      <Dropdown className = "CreateEntry-journalChoice" title='Journal' items={journals}/>
+    <div className="CreateEntry-wrapper">
+      <div className="CreateEntry-inputSection">
 
-    <EntryColors/>
+        <div className = "CreateEntry-date">
+          <Dropdown className = "CreateEntry-month" title="Month" items={months}/>
+          <Dropdown className = "CreateEntry-day" title="Day" items={days}/>
+          <Dropdown className = "CreateEntry-year" title="Year" items={years}/>
+        </div>
+            
+          <Dropdown className = "CreateEntry-journalChoice" title='Journal' items={journals}/>
+          <TitleForm/>
+        <EntryColors/>
+
+      </div>
+      <div className="CreateEntry-monitorSection">
+        <h1> INSERT HEART MONITOR HERE</h1>
+      </div>
+
+    </div>
+   
     </>
     )
   }

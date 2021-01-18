@@ -1,0 +1,17 @@
+.CreateEntry-wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.CreateEntry-inputSection{
+    flex: 2 0;
+}
+
+.CreateEntry-monitorSection{
+    flex: 1 0;
+}
+
+.CreateEntry-journalChoice{
+    width: 100%;
+}

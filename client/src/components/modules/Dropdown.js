@@ -44,7 +44,7 @@ function Dropdown({ title, items, multiSelect = false}) {
             onClick={()=> toggle(!open)}
             >
                 <div className="Dropdown-header_title">
-                    <p className="Dropdown-header_title--bold">{title}</p>
+                    <p className="Dropdown-title">{title}</p>
                     <p className="Dropdown-icon"></p>
                 </div>
                 <div className="Dropdown-header_action">
