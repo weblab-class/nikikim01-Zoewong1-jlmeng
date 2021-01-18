@@ -55,7 +55,7 @@ class AllEntries extends Component{
                             <img src={viewModeIcon} className="AllEntries-icon" onClick={this.pressViewIcon}></img>
                         </div>;
             addEntryButton = <div className="u-flex u-flex-justifyCenter">
-                                <Link to="/CreateEntry" className="AllEntries-addBox">
+                                <Link to="/CreateEntry" className="AllEntries-addBox" style={{ textDecoration: 'none' }}>
                                     <p className="u-textCenter u-margin-s AllEntries-add">+ Add Entry</p>
                                 </Link>
                             </div>;
@@ -68,7 +68,7 @@ class AllEntries extends Component{
                             <img src={viewModeIcon} className="AllEntries-icon"></img>
                         </div>;
             addEntryButton = <div className="u-flexColumn u-flex-justifyCenter">
-                                <Link to="/CreateEntry" className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-addImg">
+                                <Link to="/CreateEntry" className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-addImg" style={{ textDecoration: 'none' }}>
                                         <img src={plusSign} height="98px" width="98px"></img>
                                 </Link>
                                 <p className="u-textCenter u-margin-xs AllEntries-add">Add Entry</p>
@@ -89,8 +89,8 @@ class AllEntries extends Component{
                     {menuIcon} {viewIcon}
                 </div>
                 <div className={this.state.viewMode ? "u-flexColumn" : "u-flexRow u-flex-justifyCenter u-flexWrap"}>
-                    <SingleEntry _id="123" title="Entry1" day="01" content="Hello" viewMode={this.state.viewMode} tag="school"/>
-                    <SingleEntry _id="123" title="Entry1" day="01" content="Hello" viewMode={this.state.viewMode} tag="school"/>
+                    <SingleEntry _id="123" title="Entry1" day="01" content="Hello" tag="school" viewMode={this.state.viewMode}/>
+                    <SingleEntry _id="123" title="Entry1" day="01" content="Hello" tag="school" viewMode={this.state.viewMode}/>
                     {addEntryButton}
                 </div>
             </div>
