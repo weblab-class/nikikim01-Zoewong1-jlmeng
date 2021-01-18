@@ -20,7 +20,7 @@ class Circle extends Component {
             height:25,
             backgroundColor: this.props.bgColor,
             borderWidth: 5,
-            borderColor: "#FFFFFF",
+            borderColor: "#FAF9F9",
             borderStyle: "solid"
         }
 
