@@ -23,6 +23,7 @@
 }
 
 .SingleEntry-container{
+    max-width: auto;
     width: 1056px;
     height: 120px;
 

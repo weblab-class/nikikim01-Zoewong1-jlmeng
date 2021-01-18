@@ -24,7 +24,9 @@ class AllEntries extends Component{
         }
     }
 
-    componentDidMount(){}
+    componentDidMount(){
+        document.title = "All Entries";
+    }
 
     pressMenuIcon = () => {this.setState({viewMode: true})};
     pressViewIcon = () => {this.setState({viewMode: false})};
