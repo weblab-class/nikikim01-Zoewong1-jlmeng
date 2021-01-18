@@ -37,7 +37,7 @@ function Dropdown({ title, items, multiSelect = false}) {
     return (
         <div className="Dropdown-wrapper ignore-onclickoutside">
             <div 
-            tabindex={0} 
+            tabIndex={0} 
             className="Dropdown-header" 
             role="button" 
             onKeyPress={() => toggle(!open)}
@@ -51,12 +51,11 @@ function Dropdown({ title, items, multiSelect = false}) {
                 </div>
             </div>
             {open && (
-                <ul className="Dropdown-list u-flex u-flexColumn" >
-                    {items.map(item => (
+                <ul className="Dropdown-list u-flex" >
+                    {items.map((item) => (
                         <li className="Dropdown-list-item" key={item.id}>
                             <button type="button" onClick={() => handleOnClick(item)}>
-                                <span>{item.value}</span>
-                                <span>{isItemInSelection(item)}</span>
+                                {item.value} {isItemInSelection(item)}
                             </button>
                         </li>
                     ))}

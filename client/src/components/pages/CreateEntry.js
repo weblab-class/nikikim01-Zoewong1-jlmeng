@@ -8,57 +8,163 @@ import Dropdown from "../modules/Dropdown.js";
 
 const months = [
   {
-    id: 1,
+    id: "Month1",
     value: 'January',
   },{
-    id: 2,
+    id: "Month2",
     value: 'February',
   },{
-    id: 3,
+    id: "Month3",
     value: 'March',
   },{
-    id: 4,
+    id: "Month4",
     value: 'April',
   },{
-    id: 5,
+    id: "Month5",
     value: 'May',
   },{
-    id: 6,
+    id: "Month6",
     value: 'June',
   },{
-    id: 7,
+    id: "Month7",
     value: 'July',
   },{
-    id: 8,
+    id: "Month8",
     value: 'August',
   },{
-    id: 9,
+    id: "Month9",
     value: 'September',
   },{
-    id: 10,
+    id: "Month10",
     value: 'October',
   },{
-    id: 11,
+    id: "Month11",
     value: 'November',
   },{
-    id: 12,
+    id: "Month12",
     value: 'December',
   },
-]
+];
 
-const days = []
+const days = [
+  {
+    id: "Day1",
+    value: 1,
+  },{
+    id: "Day2",
+    value: 2,
+  },{
+    id: "Day3",
+    value: 3,
+  },{
+    id: "Day4",
+    value: 4,
+  },{
+    id: "Day5",
+    value: 5,
+  },{
+    id: "Day6",
+    value: 6,
+  },{
+    id: "Day7",
+    value: 7,
+  },{
+    id: "Day8",
+    value: 8,
+  },{
+    id: "Day9",
+    value: 9,
+  },{
+    id: "Day10",
+    value: 10,
+  },{
+    id: "Day11",
+    value: 11,
+  },{
+    id: "Day12",
+    value: 12,
+  },{
+    id: "Day13",
+    value: 13,
+  },{
+    id: "Day14",
+    value: 14,
+  },{
+    id: "Day15",
+    value: 15,
+  },{
+    id: "Day16",
+    value: 16,
+  },{
+    id: "Day17",
+    value: 17,
+  },{
+    id: "Day18",
+    value: 18,
+  },{
+    id: "Day19",
+    value: 19,
+  },{
+    id: "Day20",
+    value: 20,
+  },{
+    id: "Day21",
+    value: 21,
+  },{
+    id: "Day22",
+    value: 22,
+  },{
+    id: "Day23",
+    value: 23,
+  },{
+    id: "Day24",
+    value: 24,
+  },{
+    id: "Day25",
+    value: 25,
+  },{
+    id: "Day26",
+    value: 26,
+  },{
+    id: "Day27",
+    value: 27,
+  },{
+    id: "Day28",
+    value: 28,
+  },{
+    id: "Day29",
+    value: 29,
+  },{
+    id: "Day30",
+    value: 30,
+  },{
+    id: "Day31",
+    value: 31,
+  }
+];
 
-const years = []
+const thisYear = new Date().getFullYear();
+
+const years = [];
+// let years = new Array();
+// for (let i = 0; i<150; i++) {
+//   let yr = thisYear-150+i+1;
+//   let tempDict = {id: yr, value: yr};
+//   years.push(tempDict);
+// }
+// console.log(years);
+
+
 
 const journals = [
   {
-    id: 1,
+    id: 'Journal1',
     value: 'School Journal',
   },{
-    id: 2,
+    id: 'Journal2',
     value: 'Work Journal',
   }
-]
+];
 
 
 
@@ -84,7 +190,9 @@ class CreateEntry extends Component {
     let month = this.state.today.format('MMMM');
     let year = this.state.today.format('YYYY')
     return (
+  
     <>
+    <p>{years}</p>
     <div className = "CreateEntry-date">
       <Dropdown title="Month" items={months}/>
       <Dropdown title="Day" items={days}/>
