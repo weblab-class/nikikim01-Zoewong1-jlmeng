@@ -4,9 +4,23 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    align-content: space-between;
     background: var(--white);
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
     border-radius: 15px;
     margin: var(--xs) var(--s);
     padding: 3px 20px;
+    
+}
+
+/* .EnterEntry-content{
+    
+} */
+
+.EnterEntry-mic{
+    display: flex;
+    box-shadow: none;
+    align-items: center;
+    justify-content: flex-end;
+    width: 25%;
 }

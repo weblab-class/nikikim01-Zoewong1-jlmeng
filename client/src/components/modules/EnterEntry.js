@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import "./EnterEntry.css";
 
+import mic from "../../public/images/mic.png";
+
 class EnterEntry extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +23,8 @@ class EnterEntry extends Component {
       render() {
         return (
             <div className="EnterEntry-contentBox">
-                <input placeholder='Today, I ...' onChange={this.handleChange}></input>
+                <input className="EnterEntry-content" placeholder='Today, I ...' onChange={this.handleChange}></input>
+                <button className="EnterEntry-mic"><img src={mic} alt="Record Button - Microphone Image"></img></button>
             </div>
         )
       }
