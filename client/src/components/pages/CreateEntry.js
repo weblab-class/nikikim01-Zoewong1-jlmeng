@@ -19,7 +19,10 @@ class CreateEntry extends Component {
 
   render() {
     return (
+    <>
+    <h1 className = "months">January</h1>
     <EntryColors/>
+    </>
     )
   }
 }

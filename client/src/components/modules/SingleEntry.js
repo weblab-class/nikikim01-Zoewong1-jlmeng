@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import samoyed from "../../public/images/samoyed.jpg";
 
 import "../../utilities.css";
 import "./SingleEntry.css";
@@ -15,7 +16,8 @@ class SingleEntry extends Component{
     constructor(props){
         super(props);
         this.state = {
-            imageIncluded: false, //true if entry has image attached, false otherwise
+            imageIncluded: true, //true if entry has image attached, false otherwise
+            imageUrl: "../../public/Samoyed.jpg",
         }
     }
 
@@ -23,11 +25,21 @@ class SingleEntry extends Component{
 
     render(){
         if (this.props.viewMode){
+
+            let dateBox = null;
+
+            if (this.state.imageIncluded){
+                dateBox = <img src={samoyed}></img>
+
+            }else{
+                dateBox = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SingleEntry-datebox">
+                            <h1 className="SingleEntry-date">{this.props.day}</h1>
+                        </div>;
+            }
+
             return (
                 <div className="u-flexRow u-flex-justifyCenter">
-                    <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SingleEntry-datebox">
-                        <h1 className="SingleEntry-date">{this.props.day}</h1>
-                    </div>
+                    {dateBox}
                     <div className="SingleEntry-container">
                         <h1 className="SingleEntry-title">{this.props.title}</h1>
                         <p className="SingleEntry-content">{this.props.content}</p>
@@ -35,11 +47,19 @@ class SingleEntry extends Component{
                 </div>
             )
         } else{
+            let dateImg = null;
+
+            if (this.state.imageIncluded){
+                
+            } else{
+                dateImg = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SingleEntry-dateImg">
+                            <h1 className="SingleEntry-date">{this.props.day}</h1>
+                        </div>;
+            }
+
             return (
                 <div className="u-flexColumn u-flex-justifyCenter">
-                    <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SingleEntry-dateImg">
-                        <h1 className="SingleEntry-date">{this.props.day}</h1>
-                    </div>
+                    {dateImg}
                     <p className="SingleEntry-viewTitle">{this.props.title}</p>
                 </div>
             )

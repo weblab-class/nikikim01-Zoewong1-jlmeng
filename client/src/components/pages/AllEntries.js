@@ -89,8 +89,8 @@ class AllEntries extends Component{
                     {menuIcon} {viewIcon}
                 </div>
                 <div className={this.state.viewMode ? "u-flexColumn" : "u-flexRow u-flex-justifyCenter u-flexWrap"}>
-                    <SingleEntry _id="123" title="Entry1" day="01" content="Hello" viewMode={this.state.viewMode}/>
-                    <SingleEntry _id="123" title="Entry1" day="01" content="Hello" viewMode={this.state.viewMode}/>
+                    <SingleEntry _id="123" title="Entry1" day="01" content="Hello" viewMode={this.state.viewMode} tag="school"/>
+                    <SingleEntry _id="123" title="Entry1" day="01" content="Hello" viewMode={this.state.viewMode} tag="school"/>
                     {addEntryButton}
                 </div>
             </div>
