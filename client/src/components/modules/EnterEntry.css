@@ -1,0 +1,12 @@
+.EnterEntry-contentBox{
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background: var(--white);
+    box-shadow: 0px var(--xs) var(--xs) var(--midblue);
+    border-radius: 15px;
+    margin: var(--xs) var(--s);
+    padding: 3px 20px;
+}

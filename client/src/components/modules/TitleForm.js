@@ -10,7 +10,6 @@ class TitleForm extends Component {
       }
 
       componentDidMount() {
-        document.title = "Create a New Entry";
       }
 
 

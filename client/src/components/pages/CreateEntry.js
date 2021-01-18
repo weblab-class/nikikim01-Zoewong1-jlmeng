@@ -6,6 +6,7 @@ import moment from "moment";
 
 import Dropdown from "../modules/Dropdown.js";
 import TitleForm from "../modules/TitleForm.js";
+import EnterEntry from "../modules/EnterEntry.js";
 
 const months = [
   {
@@ -204,6 +205,7 @@ class CreateEntry extends Component {
             
           <Dropdown className = "CreateEntry-journalChoice" title='Journal' items={journals}/>
           <TitleForm/>
+          <EnterEntry/>
         <EntryColors/>
 
       </div>
