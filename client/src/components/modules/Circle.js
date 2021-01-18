@@ -19,6 +19,9 @@ class Circle extends Component {
             width:25,
             height:25,
             backgroundColor: this.props.bgColor,
+            borderWidth: 5,
+            borderColor: "#FFFFFF",
+            borderStyle: "solid"
         }
 
         const CircleSelected = {
