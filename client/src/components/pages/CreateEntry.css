@@ -87,5 +87,14 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    width: 80%
+    width: 80%;
+    background-color: #F5CCCC;
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+    border-radius: 25px;
+}
+
+.CreateEntry-saveText{
+    font-family: Inter;
 }
