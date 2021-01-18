@@ -169,7 +169,6 @@ const journals = [
 ];
 
 
-
 class CreateEntry extends Component {
   constructor(props) {
     super(props);
