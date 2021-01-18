@@ -12,7 +12,7 @@ import "./SingleEntry.css";
  * @param {string} title of entry
  * @param {string} content
  * @param {boolean} viewMode true if Menu List, false if view Mode
- * @param {string} tag associated with entry
+ * @param {string} tags associated with entry
 */
 class SingleEntry extends Component{
     constructor(props){
@@ -26,6 +26,9 @@ class SingleEntry extends Component{
     componentDidMount(){}
 
     render(){
+        let url = "/SpecificEntry?".concat(this.props._id);
+        console.log(this.props._id);
+        console.log(url);
         if (this.props.viewMode){
 
             let dateBox = null;
@@ -34,21 +37,25 @@ class SingleEntry extends Component{
                 dateBox = <img src={samoyed}></img>
 
             }else{
-                dateBox = <Link to="/SpecificEntry" className="u-flex u-flex-justifyCenter u-flex-alignCenter SingleEntry-datebox" style={{ textDecoration: 'none' }}>
+                dateBox = <Link to={url} className="u-flex u-flex-justifyCenter u-flex-alignCenter SingleEntry-datebox" style={{ textDecoration: 'none' }}>
                             <h1 className="SingleEntry-date">{this.props.day}</h1>
                         </Link>;
             }
+
+
+            {/* Tags that user might want to categorize entry with */}
+            let tagsList = null;
+            tagsList = this.props.tags.map((tag) => (<div className="SingleEntry-tag">{tag}</div>));
 
             return (
                 <div className="u-flexRow u-flex-justifyCenter">
                     {dateBox}
                     <div className="SingleEntry-container">
-                        <Link to="/SpecificEntry" style={{ textDecoration: 'none' }}>
+                        <Link to={url} style={{ textDecoration: 'none' }}>
                             <h1 className="SingleEntry-title" >{this.props.title}</h1>
                         </Link>
                         <p className="SingleEntry-content">{this.props.content}</p>
-                        {/* Tags that user might want to categorize entry with */}
-                        <div className="SingleEntry-tag">{this.props.tag}</div>
+                        {tagsList}
                     </div>
                 </div>
             )
@@ -58,15 +65,15 @@ class SingleEntry extends Component{
             if (this.state.imageIncluded){
                 
             } else{
-                dateImg = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SingleEntry-dateImg">
-                            <h1 className="SingleEntry-date">{this.props.day}</h1>
-                        </div>;
+                dateImg = <Link to={url} className="u-flex u-flex-justifyCenter u-flex-alignCenter SingleEntry-dateImg" style={{ textDecoration: 'none' }}>
+                                <h1 className="SingleEntry-date">{this.props.day}</h1>
+                            </Link>;
             }
 
             return (
                 <div className="u-flexColumn u-flex-justifyCenter">
                     {dateImg}
-                    <p className="SingleEntry-viewTitle">{this.props.title}</p>
+                    <Link to={url} className="SingleEntry-viewTitle" style={{ textDecoration: 'none' }}>{this.props.title}</Link>
                 </div>
             )
         }

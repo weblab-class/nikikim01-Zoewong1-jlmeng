@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 
 const EntrySchema = new mongoose.Schema({
+  journal: String,
   title: String,
   month: String,
   year: String,
   day: String,
-  content: Mixed,
+  content: String,
   lastModDate: Date,
   tags: Array,
   colorMood: String,

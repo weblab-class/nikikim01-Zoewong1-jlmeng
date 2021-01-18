@@ -11,6 +11,8 @@ const express = require("express");
 
 // import models so we can interact with the database
 const User = require("./models/user");
+const Entry = require("./models/entry");
+const Journal = require("./models/journal");
 
 // import authentication library
 const auth = require("./auth");
@@ -41,6 +43,31 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
+
+router.get("/entries",(req,res) => {
+  Entry.find({month:req.query.month, year: req.query.year}).then((entries) => {
+    res.send(entries);
+  });
+});
+
+router.post("/entries",(req,res) => {
+  const newEntry = new Entry({
+    journal: req.body.journal,
+    title: req.body.title,
+    month: req.body.month,
+    year: req.body.year,
+    day: req.body.day,
+    content: req.body.content,
+    lastModDate: req.body.lastModDate,
+    tags: req.body.tags,
+    colorMood: req.body.colorMood,
+    heartRateData: req.body.heartRateData,
+    samplingRate: req.body.samplingRate,
+  });
+  newEntry.save().then(() => {
+    console.log("Successfully added new entry!");
+  })
+});
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {

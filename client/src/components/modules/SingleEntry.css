@@ -87,4 +87,5 @@
     background-color: rgb(170, 232, 188);
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
     padding: 1px 8px;
+    margin: var(--xs);
 }
