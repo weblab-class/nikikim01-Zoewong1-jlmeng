@@ -1,4 +1,6 @@
 .CreateEntry-wrapper{
+    padding-top: 25px;
+    padding-left: 25px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -68,18 +70,18 @@
 }
 
 .CreateEntry-addButton{
+    border-radius: 15px;
 }
 
 .CreateEntry-lockButton{
-
+    border-radius: 15px;
 }
 
-.CreateEntry-lock{
-    object-fit: cover;
-}
+/* .CreateEntry-lock{
+} */
 
 .CreateEntry-shareButton{
-
+    border-radius: 15px;
 }
 
 .CreateEntry-saveButton{

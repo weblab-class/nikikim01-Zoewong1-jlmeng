@@ -6,6 +6,7 @@ import "../modules/Dropdown.css";
 import moment from "moment";
 
 import Dropdown from "../modules/Dropdown.js";
+import JournalDropdown from "../modules/JournalDropdown.js";
 import TitleForm from "../modules/TitleForm.js";
 import EnterEntry from "../modules/EnterEntry.js";
 import plusSign from "../../public/images/plusSign.svg";
@@ -203,7 +204,7 @@ class CreateEntry extends Component {
           <Dropdown className = "CreateEntry-day" title="Day" items={days}/>
           <Dropdown className = "CreateEntry-year" title="Year" items={years}/>
         </div>
-        <Dropdown className = "CreateEntry-journalChoice" title='Journal' items={journals}/>
+        <JournalDropdown className = "CreateEntry-journalChoice" title='Journal' items={journals}/>
           
           <TitleForm/>
           <EnterEntry/>

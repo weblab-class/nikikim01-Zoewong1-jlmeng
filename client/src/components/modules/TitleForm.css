@@ -3,16 +3,18 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
     background: var(--white);
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
-    border-radius: 15px;
+    border-radius: 11px;
     margin: var(--xs) var(--s);
+    height: 4vh;
     padding: 0px 20px;
 }
 
 input{
     font-family: Inter;
-    font-size: var(--m);
+    font-size: 18px;
     font-weight: 700;
     border:0;
     outline:0;

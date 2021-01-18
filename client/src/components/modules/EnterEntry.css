@@ -6,10 +6,10 @@
     justify-content: space-between;
     background: var(--white);
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
-    border-radius: 15px;
+    border-radius: 11px;
     margin: var(--xs) var(--s);
-    height: 100vh;
-    padding: 3px 20px;
+    height: 60vh;
+    padding: 5px 20px;
     
 }
 

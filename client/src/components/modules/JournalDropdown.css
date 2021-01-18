@@ -1,6 +1,7 @@
-.Dropdown-wrapper{
-    display: inline-flex;
+.JournalDropdown-wrapper{
+    display: flex;
     flex-direction: column;
+    justify-content: center;
     flex-wrap: wrap;
     background: var(--white);
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
@@ -9,7 +10,7 @@
     
 }
 
-.Dropdown-icon {
+.JournalDropdown-icon {
     /* Inverse Triangle */
     position: relative;
     left: 30px;
@@ -20,9 +21,10 @@
 }
 
 
-.Dropdown-header{
+.JournalDropdown-header{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-direction: column;
     cursor: pointer;
     font-size: 18px;
     font-weight: 600;
@@ -33,14 +35,13 @@
 }
 
 
-.Dropdown-list {
+.JournalDropdown-list {
     display: flex;
+    flex-wrap: wrap;
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
     font-size: var(--m);
-    font-weight: 500;
     padding: 0;
     margin: 0;
-    max-height: 100px;
     overflow: auto;
     width: auto;
     margin-top: 20px;
@@ -49,7 +50,7 @@
 
 }
 
-.Dropdown-header_title{
+.JournalDropdown-header_title{
     display: flex;
     justify-content: space-between;
     cursor: pointer;
@@ -64,6 +65,7 @@ li {
 button {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
     background-color: var(--white);
     width: 100%;
@@ -73,6 +75,7 @@ button {
 }
 
 button:hover, button:focus {
+    display: flex;
     cursor: pointer;
     font-weight: 600;
     background-color: var(--midblue);
