@@ -1,4 +1,6 @@
 .CreateEntry-wrapper{
+    padding-top: 25px;
+    padding-left: 25px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -9,9 +11,136 @@
 }
 
 .CreateEntry-monitorSection{
+    display: inline-flex;
     flex: 1 0;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 .CreateEntry-journalChoice{
-    width: 100%;
+    width: 100vw;
+    color: red;
+}
+
+.CreateEntry-heart{
+    margin-top: 12%;
+    margin-bottom: 12%;
+    display: flex;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: #dd9999;
+}
+
+.CreateEntry-heart:before,
+.CreateEntry-heart:after{
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    content: '';
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #dd9999;
+
+}
+
+.CreateEntry-heart:before{
+    bottom: 0px;
+    left: -25px;
+}
+
+.CreateEntry-heart:after{
+    top: -25px;
+    right: 0px;
+}
+
+.CreateEntry-addLockShare{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 4%;
+    margin-bottom: 5%;
+}
+
+.CreateEntry-addButton{
+    border-radius: 15px;
+}
+
+.CreateEntry-lockButton{
+    border-radius: 15px;
+}
+
+/* .CreateEntry-lock{
+} */
+
+.CreateEntry-shareButton{
+    border-radius: 15px;
+}
+
+.CreateEntry-saveButton{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    background-color: #F5CCCC;
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+    border-radius: 25px;
+}
+
+.CreateEntry-saveText{
+    font-family: Inter;
+}
+
+.CreateEntry-saveHeart{
+    display: flex;
+    justify-content: center;
+    margin-left: 6%;
+    margin-right: 6%;
+    width: 13px;
+    height: 13px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: #ffffff;
+}
+
+.CreateEntry-saveHeart:before,
+.CreateEntry-saveHeart:after{
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    content: '';
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #ffffff;
+
+}
+
+.CreateEntry-saveHeart:before{
+    bottom: 0px;
+    left: -8px;
+}
+
+.CreateEntry-saveHeart:after{
+    top: -8px;
+    right: 0px;
+}
+
+.CreateEntry-webcam{
+    height: 50px;
+    width: 100px;
 }

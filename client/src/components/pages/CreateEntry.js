@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 
 import EntryColors from "../modules/EntryColors.js";
-import "./CreateEntry.css"
+import "./CreateEntry.css";
+import "../modules/Dropdown.css";
 import moment from "moment";
 
 import Dropdown from "../modules/Dropdown.js";
+import JournalDropdown from "../modules/JournalDropdown.js";
 import TitleForm from "../modules/TitleForm.js";
 import EnterEntry from "../modules/EnterEntry.js";
+import plusSign from "../../public/images/plusSign.svg";
+import lockButton from "../../public/images/lockButton.svg";
+import shareButton from "../../public/images/shareButton.svg";
+import Webcam from "react-webcam";
 
 const months = [
   {
@@ -147,15 +153,12 @@ const days = [
 
 const thisYear = new Date().getFullYear();
 
-const years = [];
-// let years = new Array();
-// for (let i = 0; i<150; i++) {
-//   let yr = thisYear-150+i+1;
-//   let tempDict = {id: yr, value: yr};
-//   years.push(tempDict);
-// }
-// console.log(years);
-
+let years = new Array();
+for (let i = 0; i<120; i++) {
+  let yr = thisYear-120+i+1;
+  let tempDict = {id: yr, value: yr};
+  years.push(tempDict);
+}
 
 
 const journals = [
@@ -181,7 +184,7 @@ class CreateEntry extends Component {
     document.title = "Create a New Entry";
   }
 
-  
+
 
 
 
@@ -201,15 +204,31 @@ class CreateEntry extends Component {
           <Dropdown className = "CreateEntry-day" title="Day" items={days}/>
           <Dropdown className = "CreateEntry-year" title="Year" items={years}/>
         </div>
-            
-          <Dropdown className = "CreateEntry-journalChoice" title='Journal' items={journals}/>
+        <JournalDropdown className = "CreateEntry-journalChoice" title='Journal' items={journals}/>
+          
           <TitleForm/>
           <EnterEntry/>
         <EntryColors/>
 
       </div>
       <div className="CreateEntry-monitorSection">
-        <h1> INSERT HEART MONITOR HERE</h1>
+
+        <div className="CreateEntry-heart"></div>
+
+        <div><Webcam /></div>
+
+        <div className="CreateEntry-addLockShare">
+          <button className="CreateEntry-addButton"><img src={plusSign}></img></button>
+          <button className="CreateEntry-lockButton"><img classname="CreateEntry-lock" src={lockButton}></img></button>
+          <button classname="CreateEntry-shareButton"><img classname="CreateEntry-share" src={shareButton}></img></button>
+        </div>
+
+        <button className="CreateEntry-saveButton">
+          <div className="CreateEntry-saveHeart"></div>
+          <p className="CreateEntry-saveText">Save</p>
+          <div className="CreateEntry-saveHeart"></div>
+          </button>
+
       </div>
 
     </div>

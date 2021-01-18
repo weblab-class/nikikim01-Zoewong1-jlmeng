@@ -12,6 +12,7 @@ import { socket } from "../client-socket.js";
 
 import { get, post } from "../utilities";
 import AllEntries from "./pages/AllEntries.js";
+//import TestOpenCV from "./pages/TestOpenCV.js";
 
 /**
  * Define the "App" component as a class.
@@ -62,6 +63,8 @@ class App extends Component {
           <CreateEntry path="/CreateEntry"/>
           <AllEntries path="/AllEntries"/>
           <SpecificEntry path="/SpecificEntry"/>
+          {//<TestOpenCV path="/TestOpenCV"/>
+          }
         </Router>
       </>
     );
