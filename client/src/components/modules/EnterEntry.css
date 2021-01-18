@@ -1,0 +1,34 @@
+.EnterEntry-contentBox{
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: var(--white);
+    box-shadow: 0px var(--xs) var(--xs) var(--midblue);
+    border-radius: 15px;
+    margin: var(--xs) var(--s);
+    padding: 3px 20px;
+    
+}
+
+/* .EnterEntry-content{
+    
+} */
+
+.EnterEntry-mic{
+    height: 48px;
+    width: 48px;
+    object-fit: scale-down;
+    box-shadow: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: var(--xs) -4px;
+    padding: 0px;
+
+    background: #FFFFFF;
+    border-radius: 100%;
+    box-sizing: border-box;
+}

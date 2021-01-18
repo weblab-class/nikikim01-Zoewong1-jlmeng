@@ -103,10 +103,36 @@
     margin: var(--s);
 }
 
+.SpecificEntry-heartRate{
+    width: 243px;
+    height: 243px;
+    background-color: #B8D4FF;
+    margin: var(--s);
+    padding: var(--s);
+    box-sizing: border-box;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 25px;
+}
+
+.SpecificEntry-Analysis{
+    width: 243px;
+    height: 243px;
+    background-color: #B8D4FF;
+    margin: var(--s);
+    padding: var(--s);
+    box-sizing: border-box;
+
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 25px;
+}
+
+
 .SpecificEntry-editIcon{
     position: sticky;
     width: 87px;
     height: 87px;
     left: 1333px;
     margin: var(--m);
+    background-image: "../../public/images/editIcon.svg";
 }
