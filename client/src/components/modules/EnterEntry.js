@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "./EnterEntry.css";
 
-import mic from "../../public/images/mic.png";
+import mic from "../../public/images/mic.svg";
 
 class EnterEntry extends Component {
     constructor(props) {

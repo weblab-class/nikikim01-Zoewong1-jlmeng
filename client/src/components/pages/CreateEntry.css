@@ -9,9 +9,83 @@
 }
 
 .CreateEntry-monitorSection{
+    display: inline-flex;
     flex: 1 0;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 .CreateEntry-journalChoice{
-    width: 100%;
+    width: 100vw;
+    color: red;
+}
+
+.CreateEntry-heart{
+    margin-top: 12%;
+    margin-bottom: 12%;
+    display: flex;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: #dd9999;
+}
+
+.CreateEntry-heart:before,
+.CreateEntry-heart:after{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    content: '';
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #dd9999;
+
+}
+
+.CreateEntry-heart:before{
+    bottom: 0px;
+    left: -25px;
+}
+
+.CreateEntry-heart:after{
+    top: -25px;
+    right: 0px;
+}
+
+.CreateEntry-addLockShare{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 4%;
+    margin-bottom: 5%;
+}
+
+.CreateEntry-addButton{
+}
+
+.CreateEntry-lockButton{
+
+}
+
+.CreateEntry-lock{
+    object-fit: cover;
+}
+
+.CreateEntry-shareButton{
+
+}
+
+.CreateEntry-saveButton{
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 80%
 }

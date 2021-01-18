@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
 import SingleEntry from "../modules/SingleEntry.js";
+import { get } from "../../utilities";
 
 // import images
 import menuListIcon from "../../public/images/menuListIcon.svg";
@@ -18,13 +19,26 @@ class AllEntries extends Component{
     constructor(props){
         super(props);
         this.state = {
-            entries: [],
+            // For Testing Purposes 
+            // entries: [{
+            //     _id:"123",
+            //     title:"Entry1",
+            //     day:"01",
+            //     content:"Hello",
+            //     tags:["school","math"],
+            // }],
+            entries:[],
             viewMode: true, //boolean 0: menu list, 1: view mode
             month:moment()
         }
     }
 
-    componentDidMount(){}
+    componentDidMount(){
+        document.title = "All Entries";
+        get("/api/entries",{month:this.state.month}).then((entryObjs) => {
+            this.setState({entries: entryObjs});
+        });
+    }
 
     pressMenuIcon = () => {this.setState({viewMode: true})};
     pressViewIcon = () => {this.setState({viewMode: false})};
@@ -33,15 +47,31 @@ class AllEntries extends Component{
         this.setState(
             prevState => ({ month: prevState.month.subtract(1, 'month') }),
             this._filterByMonth
-        )
+        );
     }
 
     _increaseMonth = () => {
         this.setState(
-            prevState => ({ month: prevState.month.add(1, 'month') }))
+            prevState => ({ month: prevState.month.add(1, 'month') })
+        );
     }
 
     render(){
+        let haveEntries = this.state.entries.length !== 0;
+        let entriesList = null;
+        if (haveEntries){
+            entriesList = this.state.entries.map((entryObj) => (
+                <SingleEntry 
+                    _id={entryObj._id}
+                    title={entryObj.title} 
+                    day={entryObj.day} 
+                    content={entryObj.content} 
+                    tags={entryObj.tags}
+                    viewMode={this.state.viewMode}
+                />
+            ));
+        }
+
         let menuIcon = null;
         let viewIcon = null;
         let addEntryButton = null;
@@ -59,6 +89,15 @@ class AllEntries extends Component{
                                     <p className="u-textCenter u-margin-s AllEntries-add">+ Add Entry</p>
                                 </Link>
                             </div>;
+            if(!haveEntries){
+                console.log("No Entries!");
+                entriesList = <div className="u-flexRow u-flex-justifyCenter">
+                                    <div className="AllEntries-addBox">
+                                        <p className="u-textCenter u-margin-s AllEntries-add" style={{"font-size":"32px"}}>NO STORIES IN MONGODB YET! ;(</p>
+                                    </div>
+                                </div>;
+            };
+            
         } else{
             console.log("View Mode");
             menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconUnselected">
@@ -73,6 +112,15 @@ class AllEntries extends Component{
                                 </Link>
                                 <p className="u-textCenter u-margin-xs AllEntries-add">Add Entry</p>
                             </div>;
+            if(!haveEntries){
+                console.log("No Entries!");
+                entriesList = <div className="u-flexColumn u-flex-justifyCenter">
+                                    <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-addImg">
+                                        <p className="u-textCenter u-margin-s AllEntries-add" style={{"font-size":"32px"}}>NO STORIES IN MONGODB YET! ;(</p>
+                                    </div>
+                                    <p className="u-textCenter u-margin-xs AllEntries-add">Awe man ;(</p>
+                                </div>;
+            };
         }
 
         let leftIconCode = <img src={leftIcon} onClick={this._decreaseMonth} className="AllEntries-iconContainer" height="25px"></img>;
@@ -89,8 +137,7 @@ class AllEntries extends Component{
                     {menuIcon} {viewIcon}
                 </div>
                 <div className={this.state.viewMode ? "u-flexColumn" : "u-flexRow u-flex-justifyCenter u-flexWrap"}>
-                    <SingleEntry _id="123" title="Entry1" day="01" content="Hello" tag="school" viewMode={this.state.viewMode}/>
-                    <SingleEntry _id="123" title="Entry1" day="01" content="Hello" tag="school" viewMode={this.state.viewMode}/>
+                    {entriesList}
                     {addEntryButton}
                 </div>
             </div>
