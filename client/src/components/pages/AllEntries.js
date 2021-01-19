@@ -29,26 +29,23 @@ class AllEntries extends Component{
         document.title = "All Entries";
 
         // For Testing Purposes 
-        this.setState({entries: [{
-            _id:"123",
-            journal:"Private",
-            title:"Entry1",
-            month:"January",
-            day:"01",
-            content:"Hello",
-            tags:["school","math"],
-        }]});
+        // this.setState({entries: [{
+        //     _id:"123",
+        //     journal:"Private",
+        //     title:"Entry1",
+        //     month:"January",
+        //     day:"01",
+        //     content:"Hello",
+        //     tags:["school","math"],
+        // }]});
 
-        // get("/api/entries",{month:this.state.month.format("MMMM"), year:this.state.month.format("YYYY"), journal:this.state.journal}).then((entryObjs) => {
-        //     this.setState({entries: entryObjs});
-        // });
-    }
-
-    componentDidUpdate(){
-        console.log(this.state.month.format("MMMM"));
-        // get("/api/entries",{month:this.state.month.format("MMMM"), year:this.state.month.format("YYYY"), journal:this.state.journal}).then((entryObjs) => {
-        //     this.setState({entries: entryObjs});
-        // });
+        get("/api/entries",{
+            month:this.state.month.format("MMMM"), 
+            year:this.state.month.format("YYYY"), 
+            // journal:this.state.journal,
+        }).then((entryObjs) => {
+            this.setState({entries: entryObjs});
+        });
     }
 
     pressMenuIcon = () => {this.setState({viewMode: true})};
@@ -65,6 +62,18 @@ class AllEntries extends Component{
         this.setState(
             prevState => ({ month: prevState.month.add(1, 'month') })
         );
+    }
+
+    _filterByMonth = () => {
+        console.log("Filtering Month");
+        console.log(this.state.month.format("MMMM"));
+        get("/api/entries",{
+            month:this.state.month.format("MMMM"), 
+            year:this.state.month.format("YYYY"), 
+            journal:this.state.journal
+        }).then((entryObjs) => {
+            this.setState({entries: entryObjs});
+        });
     }
 
     render(){

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Creatable from 'react-select/creatable';
+import CreatableSelect from 'react-select/creatable';
 
 const tags = [
     {
@@ -15,6 +15,12 @@ const tags = [
         label: 'Read when in need of pick me up'
     }
 ]
+
+const createTags = (label) => ({
+    label,
+    value: label,
+});
+
 const style = {
     control: base => ({
       ...base,
@@ -26,29 +32,62 @@ const style = {
   };
 
 class Tags extends Component {
+    state = {
+        inputValue: '',
+        value: [], 
+    }
 
-    handlechange = (newValue, actionMeta) => {
+    handleChange = (value, actionMeta) => {
         console.group('Value Changed');
-        console.log(newValue);
-        console.log('action: ${actionMeta.action}');
+        console.log(value);
+        console.log(`action: ${actionMeta.action}`);
         console.groupEnd();
+        this.setState({ value });
+    };
+
+    handleInputChange = (inputValue) => {
+        this.setState({ inputValue });
+      };
+
+    handleKeyDown = (event) => {
+    const { inputValue, value } = this.state;
+    if (!inputValue) return;
+    switch (event.key) {
+        case 'Enter':
+        case 'Tab':
+        console.group('Value Added');
+        console.log(value);
+        console.groupEnd();
+        this.setState({
+            inputValue: '',
+            value: [...value, createTags(inputValue)],
+        });
+        event.preventDefault();
+    }
     };
 
     render() {
-        return(
-            <Creatable
-                className="CreateEntry-dropdownButton"
-                styles={style}
-                components={{
-                  IndicatorSeparator: () => null
-                }}
-                isMulti
-                onChange={this.handleChange}
-                options = {tags}
-                placeholder='tag(s)'
-            />
+        const { inputValue, value } = this.state;
+        return (
+          <CreatableSelect
+            styles={style}
+            components={{
+                IndicatorSeparator: () => null
+            }}
+            inputValue={inputValue}
+            className="CreateEntry-dropdownButton"
+            isClearable
+            isMulti
+            onChange={this.handleChange}
+            onInputChange={this.handleInputChange}
+            onKeyDown={this.handleKeyDown}
+            placeholder='tag(s)'
+            value={value}
+            options = {tags}
+          />
         );
-    }
+      }
+
 }
 
 export default Tags;

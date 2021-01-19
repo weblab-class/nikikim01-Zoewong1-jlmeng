@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
+import "./HomePage.css";
 import "../../utilities.css";
 
-class Locked extends Component {
+class HomePage extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -13,7 +14,7 @@ class Locked extends Component {
 
     render() {
         return (
-            <h1>You are not logged in. Please log in to access this website.</h1>
+            <h1 className="HomePage-header">Our website is BEAUTIFUL. You are blind.</h1>
         );
     }   
 
@@ -21,4 +22,4 @@ class Locked extends Component {
 
 }
 
-export default Locked;
+export default HomePage;

@@ -6,7 +6,6 @@
 | This file defines the routes for your server.
 |
 */
-
 const express = require("express");
 
 // import models so we can interact with the database
@@ -22,6 +21,8 @@ const router = express.Router();
 
 //initialize socket
 const socketManager = require("./server-socket");
+
+const user_name = "Zoe Test"
 
 router.post("/login", auth.login);
 router.post("/logout", auth.logout);
@@ -47,13 +48,18 @@ router.post("/initsocket", (req, res) => {
 
 // ENTRIES
 router.get("/entries",(req,res) => {
-  Entry.find({month:req.query.month, year: req.query.year}).then((entries) => {
+  Entry.find({
+    month:req.query.month, 
+    year: req.query.year, 
+    // journal:req.query.journal
+  }).then((entries) => {
     res.send(entries);
   });
 });
 
 router.post("/entries",(req,res) => {
   const newEntry = new Entry({
+    user_id: req.body.user_id,
     journal: req.body.journal,
     title: req.body.title,
     month: req.body.month,
@@ -68,10 +74,36 @@ router.post("/entries",(req,res) => {
   });
   newEntry.save().then(() => {
     console.log("Successfully added new entry!");
+    // const response = {
+    //   message: "Successfullly sent post request to API\n".concat(req.body.journal),
+    //   tags: req.body.tags
+    // }
+    // res.send(response);
   })
+  const response = {
+    message: "Successfullly sent post request to API\n".concat(req.body.journal),
+    tags: req.body.tags
+  }
+  res.send(response);
 });
 
 // USER
+router.get("/user", (req, res) => {
+  User.findById(req.query.userid).then((user) => {
+    res.send(user);
+  });
+});
+
+router.post("/user", (req, res) => {
+  const newUser = new User({
+    name: req.body.name,
+    googleid: req.body.googleid,
+    avgRBPM: req.body.avgRBPM,
+  });
+  newEntry.save().then(()=> {
+    console.log("We got a new User!");
+  })
+});
 
 // JOURNAL
 

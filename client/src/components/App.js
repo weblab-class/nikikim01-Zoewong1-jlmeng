@@ -4,8 +4,12 @@ import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import NavBar from "./modules/NavBar.js";
 import CreateEntry from "./pages/CreateEntry.js";
+import CreateEntry1 from "./pages/CreateEntry1.js";
 import SpecificEntry from "./pages/SpecificEntry.js";
 import Analysis from "./pages/Analysis.js";
+import Profile from "./pages/Profile.js";
+import Locked from "./pages/Locked.js";
+import HomePage from "./pages/HomePage.js";
 
 import "../utilities.css";
 
@@ -46,7 +50,8 @@ class App extends Component {
   };
 
   handleLogout = () => {
-    this.setState({ userId: undefined });
+    console.log('Logged out Successfully!')
+    this.setState({ userId: null });
     post("/api/logout");
   };
 
@@ -59,14 +64,29 @@ class App extends Component {
             userId={this.state.userId}
           />
         <Router>
-          <NotFound default />
-          <CreateEntry path="/"/>
-          <CreateEntry path="/CreateEntry"/>
-          <AllEntries path="/AllEntries"/>
-          <SpecificEntry path="/SpecificEntry"/>
-          <Analysis path="/Analysis"/>
-          {//<TestOpenCV path="/TestOpenCV"/>
+          {this.state.userId && 
+            <>
+            <HomePage path="/"/>
+            <CreateEntry1 path="/CreateEntry"/>
+          {/* <CreateEntry path="/CreateEntry"/> */}
+            <AllEntries path="/AllEntries"/>
+            <SpecificEntry path="/SpecificEntry"/>
+            <Analysis path="/Analysis"/>
+            <Profile path="/Profile:userId"
+              userId = {this.state.userId}
+            />
+            {//<TestOpenCV path="/TestOpenCV"/>
+            }
+            </>
           }
+          
+
+
+          {!this.state.userId && 
+            <Locked path="/"/>
+          }
+          
+          <NotFound default />
         </Router>
       </>
     );
