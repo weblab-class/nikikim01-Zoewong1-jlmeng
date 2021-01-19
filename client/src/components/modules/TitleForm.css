@@ -8,7 +8,7 @@
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
     border-radius: 11px;
     margin: var(--m) var(--s);
-    height: 4vh;
+    height: 5vh;
     padding: 0px 20px;
     box-sizing: border-box;
 }
