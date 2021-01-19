@@ -11,12 +11,10 @@ import plusSign from "../../public/images/plusSign.svg";
 import lockButton from "../../public/images/lockButton.svg";
 import shareButton from "../../public/images/shareButton.svg";
 import Webcam from "react-webcam";
-<<<<<<< HEAD
 import MonthsDropdown from "../modules/MonthsDropdown.js";
 import DaysDropdown from "../modules/DaysDropdown.js";
 import YearsDropdown from "../modules/YearsDropdown.js";
 import JournalsDropdown from "../modules/JournalsDropdown.js";
-=======
 import WebcamCapture from "../modules/WebcamCapture.js";
 
 const months = [
@@ -175,7 +173,6 @@ const journals = [
     value: 'Work Journal',
   }
 ];
->>>>>>> 7e5e63520df797871f0151f022f5312e787cd26c
 
 class CreateEntry extends Component {
   constructor(props) {
