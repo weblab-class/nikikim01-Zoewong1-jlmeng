@@ -7,6 +7,7 @@ import CreateEntry from "./pages/CreateEntry.js";
 import CreateEntry1 from "./pages/CreateEntry1.js";
 import SpecificEntry from "./pages/SpecificEntry.js";
 import Analysis from "./pages/Analysis.js";
+import Profile from "./pages/Profile.js";
 
 import "../utilities.css";
 
@@ -67,6 +68,7 @@ class App extends Component {
           <AllEntries path="/AllEntries"/>
           <SpecificEntry path="/SpecificEntry"/>
           <Analysis path="/Analysis"/>
+          <Profile path="/Profile:userId"/>
           {//<TestOpenCV path="/TestOpenCV"/>
           }
         </Router>

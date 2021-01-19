@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const UserSchema = new mongoose.Schema({
   name: String,
   googleid: String,
-  avgRBPM: Number,
+  // avgRBPM: Number,
 });
 
 // compile model from schema
