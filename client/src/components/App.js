@@ -76,6 +76,7 @@ class App extends Component {
             <Profile path="/Profile:userId"
               userId = {this.state.userId}
             />
+            <NotFound default />
             {//<TestOpenCV path="/TestOpenCV"/>
             }
             </>
@@ -84,14 +85,20 @@ class App extends Component {
 
 
           {!this.state.userId && 
+
+          <>
             <Locked path="/"
+            default
             handleLogin={this.handleLogin}
             handleLogout={this.handleLogout}
             userId={this.state.userId}
             />
+            
+
+            </>
           }
           
-          <NotFound default />
+          
         </Router>
       </>
     );
