@@ -1,47 +1,41 @@
-import React, { useState, Component } from "react";
-import Select, { components } from "react-select";
-// import dropdownButton from "../../public/images/dropdownButton.svg";
-// import dropdownUpButton from "../..public/images/dropdownUpButton.svg";
+
+import React, { Component } from "react";
+import Creatable from 'react-select/creatable';
 
 const journals = [
-    {
-      value: 'Journal1',
-      label: 'School Journal',
-    },{
-      value: 'Journal2',
-      label: 'Work Journal',
-    }
-  ];
+{
+    value: 'Journal1',
+    label: 'School Journal',
+},{
+    value: 'Journal2',
+    label: 'Work Journal',
+}
+];
 
 class JournalsDropdown extends Component {
-    state = {
-        selectedOption: null,
-    };
 
-    handleChange = selectedOption => {
-        this.setState({ selectedOption });
-        console.log("Option selected:", selectedOption);
+    handlechange = (newValue, actionMeta) => {
+        console.group('Value Changed');
+        console.log(newValue);
+        console.log('action: ${actionMeta.action}');
+        console.groupEnd();
     };
-
 
     render() {
-        const { selectedOption } = this.state;
-        
-        return (
-            <Select
+        return(
+            <Creatable
+                className="CreateEntry-dropdownButton JournalsDropdown-button"
                 styles={{
                     indicatorSeparator: () => {},
-                }}
-                className = "CreateEntry-dropdownButton JournalsDropdown-button"
-                placeholder="Journal Name"
-                value={selectedOption}
+                  }}
                 onChange={this.handleChange}
-                options={journals}
-                />
+                options = {journals}
+                placeholder='Journal Name'
+            />
         );
     }
-
 }
+  
 
 export default JournalsDropdown;
 

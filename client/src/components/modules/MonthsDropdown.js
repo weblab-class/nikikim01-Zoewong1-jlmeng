@@ -1,7 +1,6 @@
 import React, { useState, Component } from "react";
 import Select from "react-select";
 
-
 const months = [
     {
       value: "Month1",

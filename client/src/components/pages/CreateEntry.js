@@ -16,6 +16,7 @@ import DaysDropdown from "../modules/DaysDropdown.js";
 import YearsDropdown from "../modules/YearsDropdown.js";
 import JournalsDropdown from "../modules/JournalsDropdown.js";
 import WebcamCapture from "../modules/WebcamCapture.js";
+import Tags from "../modules/Tags.js";
 
 const months = [
   {
@@ -218,6 +219,7 @@ class CreateEntry extends Component {
           
           <TitleForm saved={this.state.saved}/>
           <EnterEntry saved={this.state.saved}/>
+          <Tags/>
         <EntryColors saved={this.state.saved}/>
 
       </div>
