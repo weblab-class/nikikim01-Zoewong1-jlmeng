@@ -220,7 +220,7 @@ class CreateEntry extends Component {
           <button className="u-flex u-flex-justifyCenter u-flex-alignCenter CreateEntry-button">
             <img src={lockButton} width="51.49px" height="51.49px"></img>
             </button>
-          <button classname="u-flex u-flex-justifyCenter u-flex-alignCenter CreateEntry-button">
+          <button className="u-flex u-flex-justifyCenter u-flex-alignCenter CreateEntry-button">
             <img src={shareButton} width="59px" height="59px"></img>
             </button>
         </div>
