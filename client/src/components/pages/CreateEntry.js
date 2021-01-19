@@ -13,6 +13,7 @@ import plusSign from "../../public/images/plusSign.svg";
 import lockButton from "../../public/images/lockButton.svg";
 import shareButton from "../../public/images/shareButton.svg";
 import Webcam from "react-webcam";
+import WebcamCapture from "../modules/WebcamCapture.js";
 
 const months = [
   {
@@ -171,7 +172,6 @@ const journals = [
   }
 ];
 
-
 class CreateEntry extends Component {
   constructor(props) {
     super(props);
@@ -211,7 +211,7 @@ class CreateEntry extends Component {
 
         <div className="CreateEntry-heart"></div>
 
-        {/* <div><Webcam /></div> */}
+       <div><WebcamCapture /></div>
 
         <div className="u-flexRow u-justifyCenter">
           <button className="u-flex u-flex-justifyCenter u-flex-alignCenter CreateEntry-button">
