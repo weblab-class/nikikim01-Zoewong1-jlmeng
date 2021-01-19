@@ -60,7 +60,8 @@ class AllEntries extends Component{
 
     _increaseMonth = () => {
         this.setState(
-            prevState => ({ month: prevState.month.add(1, 'month') })
+            prevState => ({ month: prevState.month.add(1, 'month') }),
+            this._filterByMonth
         );
     }
 

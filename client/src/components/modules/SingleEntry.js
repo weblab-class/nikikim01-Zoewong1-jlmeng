@@ -19,7 +19,7 @@ class SingleEntry extends Component{
         super(props);
         this.state = {
             imageIncluded: false, //true if entry has image attached, false otherwise
-            imageUrl: "../../public/Samoyed.jpg",
+            imageUrl: "../../public/images/samoyed.jpg",
         }
     }
 
@@ -27,8 +27,6 @@ class SingleEntry extends Component{
 
     render(){
         let url = "/SpecificEntry?".concat(this.props._id);
-        console.log(this.props._id);
-        console.log(url);
         if (this.props.viewMode){
 
             let dateBox = null;

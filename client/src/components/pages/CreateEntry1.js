@@ -97,6 +97,11 @@ class CreateEntry extends Component {
     }
   }
 
+  refreshPage = () => {
+    // window.location = window.location;
+    window.location.reload();
+  }
+
   changeMonth = (event) => {
         this.setState({month: event.target.value});
         if (["January", "March","May","July","August","October","December"].includes(event.target.value)){ 
@@ -130,10 +135,6 @@ class CreateEntry extends Component {
     console.group('Value Changed');
     console.log(newValue);
     console.groupEnd();
-    // let temp = [];
-    // for(var val in newValue){
-    //   temp.push(val.label);
-    // };
     const temp = newValue.map((val) => (val.label));
     console.log(temp);
     this.setState({tags: temp,});
@@ -148,7 +149,8 @@ class CreateEntry extends Component {
       console.log(this.state.colorMood);
       alert("You are missing some information in this journal entry!");
     } else{
-      this.setState({saved:true});
+      alert("Congratulations");
+      this.refreshPage();
       console.log("Submitted Entry");
       post("/api/entries",{
           user_id: user_name,
@@ -163,27 +165,24 @@ class CreateEntry extends Component {
           lastModDate: new Date(),
           heartRateData: [77,88],
           samplingRate: 100,
-      }).then((entry) => {
-          console.log(entry)});
+      }).then((response) => {
+          console.log(response)});
+      this.setState({
+        month: moment().format("MMMM"),
+        year: moment().format("YYYY"),
+        day: moment().format("D"),
+        journal: null,
+        colorMood: null,
+        title: null,
+        content: null,
+        saved: true, 
+        tags: [],
+      });
     }
-    this.setState({
-      month: moment().format("MMMM"),
-      year: moment().format("YYYY"),
-      day: moment().format("D"),
-      journal: null,
-      colorMood: null,
-      title: null,
-      content: null,
-      saved: false, 
-      tags: [],
-    });
+
   };
 
   render() {
-    if (this.state.saved){
-        alert("Congratulations!");
-    }
-
     console.log(this.state.title);
     console.log(this.state.content);
     console.log(this.state.journal);
@@ -191,7 +190,6 @@ class CreateEntry extends Component {
 
     return (
     <>
-    
     <div className="CreateEntry-wrapper">
       <div className="CreateEntry-inputSection">
         <div className = "u-flexRow">
