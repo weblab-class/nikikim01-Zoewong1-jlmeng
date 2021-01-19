@@ -189,6 +189,27 @@
     border: none;
 }
 
+.CreateEntry-creatable{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #888383;
+    font-family: Inter;
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between; */
+    background: var(--white);
+    box-shadow: 0px var(--xs) var(--xs) var(--midblue);
+    border-radius: 11px;
+    margin: var(--s);
+    padding: 5px var(--s);
+    border: none;
+}
+
 .MonthsDropdown-button{
     width: 175px;
 }

@@ -22,6 +22,8 @@ const router = express.Router();
 //initialize socket
 const socketManager = require("./server-socket");
 
+const user_name = "Zoe Test"
+
 router.post("/login", auth.login);
 router.post("/logout", auth.logout);
 router.get("/whoami", (req, res) => {
@@ -56,24 +58,33 @@ router.get("/entries",(req,res) => {
 });
 
 router.post("/entries",(req,res) => {
-  // const newEntry = new Entry({
-  //   user_id: req.body.journal,
-  //   journal: req.body.journal,
-  //   title: req.body.title,
-  //   month: req.body.month,
-  //   year: req.body.year,
-  //   day: req.body.day,
-  //   content: req.body.content,
-  //   lastModDate: req.body.lastModDate,
-  //   tags: req.body.tags,
-  //   colorMood: req.body.colorMood,
-  //   heartRateData: req.body.heartRateData,
-  //   samplingRate: req.body.samplingRate,
-  // });
-  // newEntry.save().then(() => {
-  //   console.log("Successfully added new entry!");
-  // })
-  res.send({message: "Successfullly sent post request to API"});
+  const newEntry = new Entry({
+    user_id: req.body.user_id,
+    journal: req.body.journal,
+    title: req.body.title,
+    month: req.body.month,
+    year: req.body.year,
+    day: req.body.day,
+    content: req.body.content,
+    lastModDate: req.body.lastModDate,
+    tags: req.body.tags,
+    colorMood: req.body.colorMood,
+    heartRateData: req.body.heartRateData,
+    samplingRate: req.body.samplingRate,
+  });
+  newEntry.save().then(() => {
+    console.log("Successfully added new entry!");
+    // const response = {
+    //   message: "Successfullly sent post request to API\n".concat(req.body.journal),
+    //   tags: req.body.tags
+    // }
+    // res.send(response);
+  })
+  const response = {
+    message: "Successfullly sent post request to API\n".concat(req.body.journal),
+    tags: req.body.tags
+  }
+  res.send(response);
 });
 
 // USER
