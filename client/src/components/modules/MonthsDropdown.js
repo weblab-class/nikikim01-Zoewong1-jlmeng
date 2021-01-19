@@ -1,7 +1,6 @@
 import React, { useState, Component } from "react";
 import Select from "react-select";
 
-
 const months = [
     {
       value: "Month1",
@@ -42,6 +41,15 @@ const months = [
     },
   ];
 
+const style = {
+  control: base => ({
+    ...base,
+    border: 0,
+    // This line disable the blue border
+    boxShadow: "none",
+    
+  })
+};
 
 class MonthsDropdown extends Component {
     state = {
@@ -58,8 +66,9 @@ class MonthsDropdown extends Component {
 
         return (
             <Select
-                styles={{
-                  indicatorSeparator: () => {},
+                styles={style}
+                components={{
+                  IndicatorSeparator: () => null
                 }}
                 className = "CreateEntry-dropdownButton MonthsDropdown-button"
                 placeholder="Month"

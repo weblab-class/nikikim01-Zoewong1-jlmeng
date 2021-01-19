@@ -164,6 +164,7 @@
 }
 
 .CreateEntry-dropdownButton{
+    
     font-family: Inter;
     font-style: normal;
     font-weight: normal;
@@ -181,10 +182,12 @@
     border-radius: 11px;
     margin: var(--s);
     padding: 5px var(--m);
+    
 }
 
 .MonthsDropdown-button{
     width: 175px;
+    border-color: white;
 }
 
 .DaysDropdown-button{
