@@ -12,6 +12,7 @@ import EnterEntry from "../modules/EnterEntry.js";
 import plusSign from "../../public/images/plusSign.svg";
 import lockButton from "../../public/images/lockButton.svg";
 import shareButton from "../../public/images/shareButton.svg";
+import Webcam from "react-webcam";
 
 const months = [
   {
@@ -171,7 +172,6 @@ const journals = [
 ];
 
 
-
 class CreateEntry extends Component {
   constructor(props) {
     super(props);
@@ -189,8 +189,8 @@ class CreateEntry extends Component {
     let day = this.state.today.format('D');
     let month = this.state.today.format('MMMM');
     let year = this.state.today.format('YYYY')
+    
     return (
-  
     <>
     <div className="CreateEntry-wrapper">
       <div className="CreateEntry-inputSection">
@@ -210,6 +210,8 @@ class CreateEntry extends Component {
       <div className="CreateEntry-monitorSection">
 
         <div className="CreateEntry-heart"></div>
+
+        {/* <div><Webcam /></div> */}
 
         <div className="u-flexRow u-justifyCenter">
           <button className="u-flex u-flex-justifyCenter u-flex-alignCenter CreateEntry-button">

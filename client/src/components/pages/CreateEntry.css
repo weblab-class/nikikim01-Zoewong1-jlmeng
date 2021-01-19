@@ -136,3 +136,8 @@
     top: -8px;
     right: 0px;
 }
+
+.CreateEntry-webcam{
+    height: 50px;
+    width: 100px;
+}
