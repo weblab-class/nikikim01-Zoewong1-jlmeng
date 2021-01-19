@@ -52,7 +52,7 @@ router.get("/entries",(req,res) => {
     month:req.query.month, 
     year: req.query.year, 
     // journal:req.query.journal
-  }).then((entries) => {
+  }).sort({day: 1}).then((entries) => {
     res.send(entries);
   });
 });
