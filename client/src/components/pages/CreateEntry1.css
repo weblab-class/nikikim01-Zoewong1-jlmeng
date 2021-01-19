@@ -1,0 +1,212 @@
+/* Overall */
+.CreateEntry-wrapper{
+    padding-top: 25px;
+    padding-left: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* Right portion of page => Heart Monitor Section */
+
+.CreateEntry-monitorSection{
+    display: inline-flex;
+    flex: 1 0;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Beating Heart */
+.CreateEntry-heart{
+    margin-top: 12%;
+    margin-bottom: 12%;
+    display: flex;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: #dd9999;
+}
+
+.CreateEntry-heart:before,
+.CreateEntry-heart:after{
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    content: '';
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #dd9999;
+
+}
+
+.CreateEntry-heart:before{
+    bottom: 0px;
+    left: -25px;
+}
+
+.CreateEntry-heart:after{
+    top: -25px;
+    right: 0px;
+}
+
+/* Heart Monitor */
+
+.CreateEntry-webcam{
+    height: 50px;
+    width: 100px;
+}
+
+/* add, lock, share buttons */
+
+.CreateEntry-button{ 
+    width: 100px;
+    height: 100px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    border: none;
+    margin: var(--m);
+}
+
+.CreateEntry-addLockShare{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 4%;
+    margin-bottom: 5%;
+}
+
+/* Save Button */
+
+.CreateEntry-saveButton{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    background-color: #F5CCCC;
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+    border-radius: 25px;
+    margin: var(--m);
+    border: none;
+}
+
+.CreateEntry-saveText{
+    font-family: Inter;
+}
+
+.CreateEntry-saveHeart{
+    display: flex;
+    justify-content: center;
+    margin-left: 6%;
+    margin-right: 6%;
+    width: 13px;
+    height: 13px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: #ffffff;
+}
+
+.CreateEntry-saveHeart:before,
+.CreateEntry-saveHeart:after{
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    content: '';
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #ffffff;
+
+}
+
+.CreateEntry-saveHeart:before{
+    bottom: 0px;
+    left: -8px;
+}
+
+.CreateEntry-saveHeart:after{
+    top: -8px;
+    right: 0px;
+}
+
+/* Left portion of page => Journal Input Section */
+
+.CreateEntry-inputSection{
+    flex: 2 0;
+}
+
+.CreateEntry-journalChoice{
+    width: 682px;
+    height: 50px;
+    margin: var(--m);
+}
+
+/* Month - Day - Year Dropdowns  */
+
+.CreateEntry-selectContent{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #888383;
+    font-family: Inter;
+    border: none;
+}
+
+.CreateEntry-dropdownButton{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #888383;
+    font-family: Inter;
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between; */
+    background: var(--white);
+    box-shadow: 0px var(--xs) var(--xs) var(--midblue);
+    border-radius: 11px;
+    margin: var(--s);
+    padding: 5px var(--m);
+    border: none;
+}
+
+.MonthsDropdown-button{
+    width: 175px;
+}
+
+.DaysDropdown-button{
+    width: 125px;
+}
+
+.YearsDropdown-button{
+    width: 130px;
+}
+
+.WebCamera{
+    width: 415px;
+    height: 283px;
+    left: 883px;
+    top: 337px;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+}

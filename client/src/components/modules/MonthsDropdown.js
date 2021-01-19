@@ -44,6 +44,10 @@ const months = [
 
 
 class MonthsDropdown extends Component {
+  constructor(props){
+    super(props);
+    
+  }
     state = {
         selectedOption: null,
     };
@@ -66,7 +70,7 @@ class MonthsDropdown extends Component {
                 value={selectedOption}
                 onChange={this.handleChange}
                 options={months}
-                />
+              />
         );
     }
 

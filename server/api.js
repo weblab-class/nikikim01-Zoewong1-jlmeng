@@ -6,7 +6,6 @@
 | This file defines the routes for your server.
 |
 */
-
 const express = require("express");
 
 // import models so we can interact with the database
@@ -47,36 +46,34 @@ router.post("/initsocket", (req, res) => {
 
 // ENTRIES
 router.get("/entries",(req,res) => {
-<<<<<<< HEAD
   Entry.find({
     month:req.query.month, 
     year: req.query.year, 
     journal:req.query.journal
   }).then((entries) => {
-=======
-  Entry.find({month:req.query.month, year: req.query.year}).then((entries) => {
->>>>>>> 8a78fb530d71d4d075bfb50bca262ade953a409c
     res.send(entries);
   });
 });
 
 router.post("/entries",(req,res) => {
-  const newEntry = new Entry({
-    journal: req.body.journal,
-    title: req.body.title,
-    month: req.body.month,
-    year: req.body.year,
-    day: req.body.day,
-    content: req.body.content,
-    lastModDate: req.body.lastModDate,
-    tags: req.body.tags,
-    colorMood: req.body.colorMood,
-    heartRateData: req.body.heartRateData,
-    samplingRate: req.body.samplingRate,
-  });
-  newEntry.save().then(() => {
-    console.log("Successfully added new entry!");
-  })
+  // const newEntry = new Entry({
+  //   user_id: req.body.journal,
+  //   journal: req.body.journal,
+  //   title: req.body.title,
+  //   month: req.body.month,
+  //   year: req.body.year,
+  //   day: req.body.day,
+  //   content: req.body.content,
+  //   lastModDate: req.body.lastModDate,
+  //   tags: req.body.tags,
+  //   colorMood: req.body.colorMood,
+  //   heartRateData: req.body.heartRateData,
+  //   samplingRate: req.body.samplingRate,
+  // });
+  // newEntry.save().then(() => {
+  //   console.log("Successfully added new entry!");
+  // })
+  res.send({message: "Successfullly sent post request to API"});
 });
 
 // USER
