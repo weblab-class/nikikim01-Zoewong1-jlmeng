@@ -26,7 +26,7 @@ class Locked extends Component {
                 <div className="Locked-container">
                     <div className="Locked-welcome u-flex">
                         <Link to="/" className="Locked-logo u-flex"><img src={Welcome} height="200"/></Link>
-                        <h1 className="Locked-header">Please Log In to access our platform!</h1>
+                        <h1 className="Locked-header">Please log in to access our platform!</h1>
                     </div>
                 
                 
