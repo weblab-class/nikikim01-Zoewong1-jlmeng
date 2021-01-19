@@ -1,0 +1,38 @@
+/* Overall */
+.Analysis-header{
+    font-family: sans-serif;
+    color: var(--darkblue);
+    padding-left: 2%;
+}
+    /* Top Section */
+    .Analysis-wordGraphBox{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        font-family: Inter;
+    }
+
+
+    /* Mid Section */
+    .Analysis-trackerAvgBPM{
+        display: flex;
+    }
+        
+        .Analysis-moodTracker{
+            flex: 1;
+        }
+
+        .Analysis-AvgHeartRate{
+            flex: 1;
+        }
+
+    /* Bottom Section */
+    .Analysis-disclaimer{
+        font-family: Inter;
+        display: flex;
+        opacity: 80%;
+        font-weight: 600;
+        margin: 2%;
+        bottom: 0;
+        position: fixed;
+    }
