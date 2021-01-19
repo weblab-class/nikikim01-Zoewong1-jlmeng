@@ -23,7 +23,7 @@ class EnterEntry extends Component {
       render() {
         return (
             <div className="EnterEntry-contentBox">
-                <input className="EnterEntry-content" placeholder='Today, I ...' onChange={this.handleChange}></input>
+                <textarea className="EnterEntry-content" placeholder='Today, I ...' onChange={this.handleChange}></textarea>
                 <button className="EnterEntry-mic"><img src={mic} alt="Record Button - Microphone Image"></img></button>
             </div>
         )

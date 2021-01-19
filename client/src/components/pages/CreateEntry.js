@@ -177,6 +177,7 @@ class CreateEntry extends Component {
     super(props);
     this.state = {
       today: moment(),
+      saved: false, 
     };
   }
 
@@ -184,11 +185,23 @@ class CreateEntry extends Component {
     document.title = "Create a New Entry";
   }
 
+  componentDidUpdate(){
+    if (this.state.saved){
+      console.log("Create Entry toggle");
+      this.setState({
+        saved:false,
+      });
+    }
+  }
 
   render() {
     let day = this.state.today.format('D');
     let month = this.state.today.format('MMMM');
     let year = this.state.today.format('YYYY')
+
+    if (this.state.saved){
+        alert("Congratulations!");
+    }
     
     return (
     <>
@@ -202,9 +215,9 @@ class CreateEntry extends Component {
         </div>
         <JournalDropdown className = "CreateEntry-journalChoice" title='Journal' items={journals}/>
           
-          <TitleForm/>
-          <EnterEntry/>
-        <EntryColors/>
+          <TitleForm saved={this.state.saved}/>
+          <EnterEntry saved={this.state.saved}/>
+        <EntryColors saved={this.state.saved}/>
 
       </div>
       <div className="CreateEntry-monitorSection">
@@ -225,18 +238,19 @@ class CreateEntry extends Component {
             </button>
         </div>
 
-        <button className="CreateEntry-saveButton">
+        <button className="CreateEntry-saveButton" onClick={() => {
+            this.setState({
+              saved:true})}
+          }>
           <div className="CreateEntry-saveHeart"></div>
           <p className="CreateEntry-saveText">Save</p>
           <div className="CreateEntry-saveHeart"></div>
         </button>
 
       </div>
-
     </div>
-   
     </>
-    )
+    );
   }
 }
 

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const EntrySchema = new mongoose.Schema({
+  user_id: String,
   journal: String,
   title: String,
   month: String,
@@ -12,7 +13,6 @@ const EntrySchema = new mongoose.Schema({
   colorMood: String,
   heartRateData: Array,
   samplingRate: Number,
-
 });
 
 // compile model from schema

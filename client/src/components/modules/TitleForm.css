@@ -15,10 +15,13 @@
 
 input{
     font-family: Inter;
-    font-size: 18px;
-    font-weight: 700;
-    border:0;
-    outline:0;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    border: none;
+
+    color: #888383;
+
 }
 
 input:focus{
