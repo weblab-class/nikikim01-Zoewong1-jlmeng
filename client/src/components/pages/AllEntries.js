@@ -20,14 +20,14 @@ class AllEntries extends Component{
         super(props);
         this.state = {
             // For Testing Purposes 
-            // entries: [{
-            //     _id:"123",
-            //     title:"Entry1",
-            //     day:"01",
-            //     content:"Hello",
-            //     tags:["school","math"],
-            // }],
-            entries:[],
+            entries: [{
+                _id:"123",
+                title:"Entry1",
+                day:"01",
+                content:"Hello",
+                tags:["school","math"],
+            }],
+            // entries:[],
             viewMode: true, //boolean 0: menu list, 1: view mode
             month:moment()
         }
@@ -35,9 +35,13 @@ class AllEntries extends Component{
 
     componentDidMount(){
         document.title = "All Entries";
-        get("/api/entries",{month:this.state.month}).then((entryObjs) => {
-            this.setState({entries: entryObjs});
-        });
+        // get("/api/entries",{month:this.state.month}).then((entryObjs) => {
+        //     this.setState({entries: entryObjs});
+        // });
+    }
+
+    componentDidUpdate(){
+        console.log(this.state.month.format("MMMM"));
     }
 
     pressMenuIcon = () => {this.setState({viewMode: true})};

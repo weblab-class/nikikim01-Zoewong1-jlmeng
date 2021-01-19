@@ -54,7 +54,7 @@ function Dropdown({ title, items, multiSelect = false}) {
                 <ul className="Dropdown-list u-flex" >
                     {items.map((item) => (
                         <li className="Dropdown-list-item" key={item.id}>
-                            <button type="button" onClick={() => handleOnClick(item)}>
+                            <button className="Dropdown-button" type="button" onClick={() => handleOnClick(item)}>
                                 {item.value} {isItemInSelection(item)}
                             </button>
                         </li>

@@ -62,7 +62,7 @@ li {
     list-style-type: none;
 }
 
-button {
+.JournalDropdown-button {
     display: flex;
     justify-content: space-between;
     flex-direction: column;

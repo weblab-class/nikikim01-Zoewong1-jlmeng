@@ -185,10 +185,6 @@ class CreateEntry extends Component {
   }
 
 
-
-
-
-
   render() {
     let day = this.state.today.format('D');
     let month = this.state.today.format('MMMM');
@@ -215,17 +211,23 @@ class CreateEntry extends Component {
 
         <div className="CreateEntry-heart"></div>
 
-        <div className="CreateEntry-addLockShare">
-          <button className="CreateEntry-addButton"><img src={plusSign}></img></button>
-          <button className="CreateEntry-lockButton"><img classname="CreateEntry-lock" src={lockButton}></img></button>
-          <button classname="CreateEntry-shareButton"><img classname="CreateEntry-share" src={shareButton}></img></button>
+        <div className="u-flexRow u-justifyCenter">
+          <button className="u-flex u-flex-justifyCenter u-flex-alignCenter CreateEntry-button">
+            <img src={plusSign} width="48.51px" height="48.51px"></img>
+          </button>
+          <button className="u-flex u-flex-justifyCenter u-flex-alignCenter CreateEntry-button">
+            <img src={lockButton} width="51.49px" height="51.49px"></img>
+            </button>
+          <button classname="u-flex u-flex-justifyCenter u-flex-alignCenter CreateEntry-button">
+            <img src={shareButton} width="59px" height="59px"></img>
+            </button>
         </div>
 
         <button className="CreateEntry-saveButton">
           <div className="CreateEntry-saveHeart"></div>
           <p className="CreateEntry-saveText">Save</p>
           <div className="CreateEntry-saveHeart"></div>
-          </button>
+        </button>
 
       </div>
 

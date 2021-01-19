@@ -54,7 +54,7 @@ function JournalDropdown({ title, items, multiSelect = false}) {
                 <ul className="JournalDropdown-list u-flex" >
                     {items.map((item) => (
                         <li className="JournalDropdown-list-item" key={item.id}>
-                            <button type="button" onClick={() => handleOnClick(item)}>
+                            <button className="JournalDropdown-button" type="button" onClick={() => handleOnClick(item)}>
                                 {item.value} {isItemInSelection(item)}
                             </button>
                         </li>

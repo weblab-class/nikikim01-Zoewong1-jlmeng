@@ -61,7 +61,7 @@ li {
     list-style-type: none;
 }
 
-button {
+.Dropdown-button{
     display: flex;
     justify-content: space-between;
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);

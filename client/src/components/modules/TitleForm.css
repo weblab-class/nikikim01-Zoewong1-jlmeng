@@ -7,9 +7,10 @@
     background: var(--white);
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
     border-radius: 11px;
-    margin: var(--xs) var(--s);
+    margin: var(--m) var(--s);
     height: 4vh;
     padding: 0px 20px;
+    box-sizing: border-box;
 }
 
 input{
