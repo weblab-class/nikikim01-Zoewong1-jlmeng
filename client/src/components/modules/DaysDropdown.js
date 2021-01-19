@@ -99,6 +99,15 @@ const days = [
     }
   ];
 
+  const style = {
+    control: base => ({
+      ...base,
+      border: 0,
+      // This line disable the blue border
+      boxShadow: "none",
+      
+    })
+  };
 
 class DaysDropdown extends Component {
     state = {
@@ -115,8 +124,9 @@ class DaysDropdown extends Component {
 
         return (
             <Select
-                styles={{
-                  indicatorSeparator: () => {},
+                styles={style}
+                components={{
+                  IndicatorSeparator: () => null
                 }}
                 className = "CreateEntry-dropdownButton DaysDropdown-button"
                 placeholder="Day"

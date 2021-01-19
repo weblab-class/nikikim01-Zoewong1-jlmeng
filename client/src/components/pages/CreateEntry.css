@@ -187,6 +187,7 @@
 
 .MonthsDropdown-button{
     width: 175px;
+    border-color: white;
 }
 
 .DaysDropdown-button{
@@ -205,8 +206,4 @@
 
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-}
-
-Select{
-    border: none !important;
 }

@@ -15,6 +15,15 @@ const tags = [
         label: 'Read when in need of pick me up'
     }
 ]
+const style = {
+    control: base => ({
+      ...base,
+      border: 0,
+      // This line disable the blue border
+      boxShadow: "none",
+      
+    })
+  };
 
 class Tags extends Component {
 
@@ -29,9 +38,10 @@ class Tags extends Component {
         return(
             <Creatable
                 className="CreateEntry-dropdownButton"
-                styles={{
-                    indicatorSeparator: () => {},
-                  }}
+                styles={style}
+                components={{
+                  IndicatorSeparator: () => null
+                }}
                 isMulti
                 onChange={this.handleChange}
                 options = {tags}

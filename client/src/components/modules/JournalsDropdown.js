@@ -12,6 +12,16 @@ const journals = [
 }
 ];
 
+const style = {
+    control: base => ({
+      ...base,
+      border: 0,
+      // This line disable the blue border
+      boxShadow: "none",
+      
+    })
+  };
+
 class JournalsDropdown extends Component {
 
     handlechange = (newValue, actionMeta) => {
@@ -25,9 +35,10 @@ class JournalsDropdown extends Component {
         return(
             <Creatable
                 className="CreateEntry-dropdownButton JournalsDropdown-button"
-                styles={{
-                    indicatorSeparator: () => {},
-                  }}
+                styles={style}
+                components={{
+                  IndicatorSeparator: () => null
+                }}
                 onChange={this.handleChange}
                 options = {journals}
                 placeholder='Journal Name'
