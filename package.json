@@ -16,7 +16,7 @@
   "license": "ISC",
   "homepage": "",
   "engines": {
-    "node": "15.5.10",
+    "node": "15.5.1",
     "npm": "7.3.0"
   },
   "dependencies": {
