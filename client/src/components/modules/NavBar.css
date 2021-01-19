@@ -32,9 +32,12 @@
   
   .logInOut {
     display: flex;
-    align-items: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .NavBar-icon{
     margin: 0 var(--s);
   }
+
+  
