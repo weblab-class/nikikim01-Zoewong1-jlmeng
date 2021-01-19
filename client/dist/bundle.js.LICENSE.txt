@@ -4,7 +4,21 @@ object-assign
 @license MIT
 */
 
+/*! exports provided: default */
+
 /*! https://mths.be/utf8js v2.1.2 by @mathias */
+
+/*! no static exports found */
+
+/*! react */
+
+/*!******************************!*\
+  !*** ./src/react-webcam.tsx ***!
+  \******************************/
+
+/*!**************************************************************************************!*\
+  !*** external {"root":"React","commonjs2":"react","commonjs":"react","amd":"react"} ***!
+  \**************************************************************************************/
 
 /** @license React v0.19.1
  * scheduler.production.min.js
@@ -32,3 +46,7 @@ object-assign
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+
+//! moment.js
+
+//! moment.js locale configuration

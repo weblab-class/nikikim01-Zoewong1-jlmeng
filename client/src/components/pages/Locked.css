@@ -23,12 +23,14 @@
 .Locked-header{
     margin: 0;
     font-size: 40px;
+    font-weight: 200;
     text-align: center;
 }
 
 .Locked-loginButton{
     justify-content: center;
-    height: 140px;
+/*     height: 140px;
+    width: auto; */
     
 }
 

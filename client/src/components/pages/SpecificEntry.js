@@ -48,7 +48,7 @@ class SpecificEntry extends Component {
     return (
         <>
         <div className="u-flexColumn u-flex-alignCenter">
-            <div className="u-flexRow u-flex-alignCenter SpecificEntry-dateBox">
+            <div className="u-flexRow u-flex-alignCenter SpecificEntry-dateBox" style={{color:this.state.colorMood}}>
                 <div className="u-flexRow SpecificEntry-firstHalf">
                     <p className="SpecificEntry-month">{this.state.month}</p>
                     <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SpecificEntry-circle">
