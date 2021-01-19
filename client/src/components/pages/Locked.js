@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
-import tagHeartLogo from "../../public/images/tagHeartLogo.png";
+import Welcome from "../../public/images/Welcome.svg";
 
 
 import "../../utilities.css";
@@ -25,8 +25,7 @@ class Locked extends Component {
             <div className="Locked-entire">
                 <div className="Locked-container">
                     <div className="Locked-welcome u-flex">
-                        <h1 className="Locked-header">Welcome to</h1>
-                        <Link to="/" className="Locked-logo u-flex"><img src={tagHeartLogo} height="70"/></Link>
+                        <Link to="/" className="Locked-logo u-flex"><img src={Welcome} height="200"/></Link>
                         <h1 className="Locked-header">Please Log In to access our platform!</h1>
                     </div>
                 
