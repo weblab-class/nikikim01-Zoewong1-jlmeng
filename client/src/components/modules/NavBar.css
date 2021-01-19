@@ -30,7 +30,7 @@
     margin-left: var(--m);
   }
   
-  .logInOut {
+  .NavBar-logInOutSettings {
     display: flex;
     align-items: flex-end;
   }
@@ -38,3 +38,5 @@
   .NavBar-icon{
     margin: 0 var(--s);
   }
+
+  

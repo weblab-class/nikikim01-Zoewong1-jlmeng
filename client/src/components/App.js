@@ -62,8 +62,8 @@ class App extends Component {
         <Router>
           <NotFound default />
           <CreateEntry path="/"/>
-          <CreateEntry1 path="/CreateEntry1"/>
-          <CreateEntry path="/CreateEntry"/>
+          <CreateEntry1 path="/CreateEntry"/>
+          {/* <CreateEntry path="/CreateEntry"/> */}
           <AllEntries path="/AllEntries"/>
           <SpecificEntry path="/SpecificEntry"/>
           <Analysis path="/Analysis"/>

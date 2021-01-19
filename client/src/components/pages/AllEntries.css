@@ -12,8 +12,8 @@
 }
 
 .AllEntries-iconUnselected{
-    background: var(--white);
-    border: 1px solid var(--white);
+    background: #FAf9f9;
+    border: 1px solid  #FAf9f9;
     box-sizing: border-box;
 }
 

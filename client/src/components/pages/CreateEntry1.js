@@ -114,43 +114,80 @@ class CreateEntry extends Component {
       if (this.state.month === "February"){
           days = event.target.value % 4 === 0 ? days29 : days28;
       }
-    }  
-  changeJournal = (event) => {this.setState({journal: event.target.value});}
-  changeTitle = (event) => {this.setState({title: event.target.value});}
-  changeContent = (event) => {this.setState({content: event.target.value});}
-  changeColor = (color) => {this.setState({color: color});}
-
-  handleChange = (newValue, actionMeta) => {
+    }
+  changeJournal = (newValue, actionMeta) => {
     console.group('Value Changed');
     console.log(newValue);
     console.groupEnd();
-    const temp = newValue.map((newValue) => (newValue.label));
+    this.setState({journal: newValue.label});
+    };
+  changeTitle = (event) => {this.setState({title: event.target.value});}
+  changeContent = (event) => {this.setState({content: event.target.value});}
+  changeColor = (newColor) => {
+    this.setState({colorMood: newColor});
+  }
+  changeTag = (newValue, actionMeta) => {
+    console.group('Value Changed');
+    console.log(newValue);
+    console.groupEnd();
+    // let temp = [];
+    // for(var val in newValue){
+    //   temp.push(val.label);
+    // };
+    const temp = newValue.map((val) => (val.label));
+    console.log(temp);
     this.setState({tags: temp,});
     };
 
   addEntry = () => {
-    console.log("Submitted Entry");
-    post("/api/entries",{
-        user_id: user_name,
-        journal: this.state.journal,
-        title: this.state.title,
-        month: this.state.month,
-        year: this.state.year,
-        day: this.state.day,
-        content: this.state.content,
-        colorMood: this.state.color,
-        tags: this.state.tags,
-        lastModDate: '2021-01-09',
-        heartRateData: [77,88],
-        samplingRate: 100,
-    }).then((entry) => {
-        console.log(entry)});
+
+    if (this.state.title === null || this.state.content === null || this.state.journal === null || this.state.colorMood === null){
+      console.log(this.state.title);
+      console.log(this.state.content);
+      console.log(this.state.journal);
+      console.log(this.state.colorMood);
+      alert("You are missing some information in this journal entry!");
+    } else{
+      this.setState({saved:true});
+      console.log("Submitted Entry");
+      post("/api/entries",{
+          user_id: user_name,
+          journal: this.state.journal,
+          title: this.state.title,
+          month: this.state.month,
+          year: this.state.year,
+          day: this.state.day,
+          content: this.state.content,
+          colorMood: this.state.colorMood,
+          tags: this.state.tags,
+          lastModDate: new Date(),
+          heartRateData: [77,88],
+          samplingRate: 100,
+      }).then((entry) => {
+          console.log(entry)});
+    }
+    this.setState({
+      month: moment().format("MMMM"),
+      year: moment().format("YYYY"),
+      day: moment().format("D"),
+      journal: null,
+      colorMood: null,
+      title: null,
+      content: null,
+      saved: false, 
+      tags: [],
+    });
   };
 
   render() {
     if (this.state.saved){
         alert("Congratulations!");
     }
+
+    console.log(this.state.title);
+    console.log(this.state.content);
+    console.log(this.state.journal);
+    console.log(this.state.colorMood);
 
     return (
     <>
@@ -174,7 +211,7 @@ class CreateEntry extends Component {
                 components={{
                   IndicatorSeparator: () => null
                 }}
-                onChange={this.handleChange}
+                onChange={this.changeJournal}
                 options = {journals}
                 placeholder='Journal Name'
             />
@@ -193,13 +230,15 @@ class CreateEntry extends Component {
                 }}
                 isMulti
                 isClearable
-                onChange={this.handleChange}
+                onChange={this.changeTag}
                 options = {tags}
                 placeholder='Tag(s)'
         />
         <div>
             {colorList.map((color) => (
-                <div className="u-inlineBlock" onClick={() => this.changeColor(color)}><Circle key={color} bgColor={color} selectedColor={this.state.color}/></div>
+                <div className="u-inlineBlock" onClick={() => this.changeColor(color)}>
+                  <Circle key={color} bgColor={color} selectedColor={this.state.colorMood}/>
+                </div>
             ))}
         </div>
       </div>
