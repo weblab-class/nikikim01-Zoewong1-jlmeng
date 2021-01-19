@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { Router } from "@reach/router";
 
+
+import { get } from "../../utilities";
 import "../../utilities.css";
 
 
@@ -8,6 +11,8 @@ class Profile extends Component {
         super(props);
         this.state={
             GoodVibes: 0,
+            user: undefined,
+            loading: true,
         }
     }
 
@@ -19,11 +24,11 @@ class Profile extends Component {
 
     componentDidMount(){
         document.title = 'Profile Page';
-        get(`/api/user`, { userid: this.props.userId }).then((user) => this.setState({ user: user }));
+        get(`/api/user`, { userId: this.props.userId }).then((user) => this.setState({ user: user, loading:false }));
     }
 
     render(){
-        if (!this.state.user) {
+        if (this.state.loading) {
             return <div> Loading! </div>;}
         return (
             <>

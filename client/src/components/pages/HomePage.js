@@ -14,7 +14,9 @@ class HomePage extends Component {
 
     render() {
         return (
-            <h1 className="HomePage-header">Our website is BEAUTIFUL. You are blind.</h1>
+            <div className="HomePage-entire">
+                <h1 className="HomePage-header">Our Home Page is BEAUTIFUL. You are blind.</h1>
+            </div>
         );
     }   
 

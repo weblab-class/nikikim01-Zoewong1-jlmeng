@@ -58,11 +58,12 @@ class App extends Component {
   render() {
     return (
       <>
+        {this.state.userId &&
           <NavBar
             handleLogin={this.handleLogin}
             handleLogout={this.handleLogout}
             userId={this.state.userId}
-          />
+          />}
         <Router>
           {this.state.userId && 
             <>
@@ -83,7 +84,11 @@ class App extends Component {
 
 
           {!this.state.userId && 
-            <Locked path="/"/>
+            <Locked path="/"
+            handleLogin={this.handleLogin}
+            handleLogout={this.handleLogout}
+            userId={this.state.userId}
+            />
           }
           
           <NotFound default />
