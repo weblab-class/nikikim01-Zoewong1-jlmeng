@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import Creatable from 'react-select/creatable';
+import CreatableSelect from 'react-select/creatable';
 
 const journals = [
 {
@@ -11,6 +11,11 @@ const journals = [
     label: 'Work Journal',
 }
 ];
+
+const createJournals = (label) => ({
+    label,
+    value: label,
+});
 
 const style = {
     control: base => ({
@@ -23,24 +28,55 @@ const style = {
   };
 
 class JournalsDropdown extends Component {
+    state = {
+        inputValue: '',
+        value: [], 
+    }
 
-    handlechange = (newValue, actionMeta) => {
+    handleChange = (value, actionMeta) => {
         console.group('Value Changed');
-        console.log(newValue);
-        console.log('action: ${actionMeta.action}');
+        console.log(value);
+        console.log(`action: ${actionMeta.action}`);
         console.groupEnd();
+        this.setState({ value });
+    };
+
+    handleInputChange = (inputValue) => {
+        this.setState({ inputValue });
+      };
+
+    handleKeyDown = (event) => {
+    const { inputValue, value } = this.state;
+    if (!inputValue) return;
+    switch (event.key) {
+        case 'Enter':
+        case 'Tab':
+        console.group('Value Added');
+        console.log(value);
+        console.groupEnd();
+        this.setState({
+            inputValue: '',
+            value: [...value, createJournals(inputValue)],
+        });
+        event.preventDefault();
+    }
     };
 
     render() {
+        const { inputValue, value } = this.state;
         return(
-            <Creatable
+            <CreatableSelect
                 className="CreateEntry-dropdownButton JournalsDropdown-button"
                 styles={style}
                 components={{
                   IndicatorSeparator: () => null
                 }}
+                isClearable
+                inputValue={inputValue}
                 onChange={this.handleChange}
+                onInputChange={this.handleInputChange}
                 options = {journals}
+                value={value}
                 placeholder='Journal Name'
             />
         );
