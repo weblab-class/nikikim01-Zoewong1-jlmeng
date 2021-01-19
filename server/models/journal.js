@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 
 const JournalSchema = new mongoose.Schema({
   title: String,
-  entryID: String,
   startDate: Date,
   lastModDate: Date,
 

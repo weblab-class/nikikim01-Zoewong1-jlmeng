@@ -1,6 +1,10 @@
 import React, { useState, Component } from "react";
 import useOnclickOutside from 'react-cool-onclickoutside';
+import Select from "react-select";
 import "./Dropdown.css";
+
+
+const options = []
 
 
 function Dropdown({ title, items, multiSelect = false}) {

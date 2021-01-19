@@ -5,14 +5,16 @@ import "./CreateEntry.css";
 import "../modules/Dropdown.css";
 import moment from "moment";
 
-import Dropdown from "../modules/Dropdown.js";
-import JournalDropdown from "../modules/JournalDropdown.js";
 import TitleForm from "../modules/TitleForm.js";
 import EnterEntry from "../modules/EnterEntry.js";
 import plusSign from "../../public/images/plusSign.svg";
 import lockButton from "../../public/images/lockButton.svg";
 import shareButton from "../../public/images/shareButton.svg";
 import Webcam from "react-webcam";
+import MonthsDropdown from "../modules/MonthsDropdown.js";
+import DaysDropdown from "../modules/DaysDropdown.js";
+import YearsDropdown from "../modules/YearsDropdown.js";
+import JournalsDropdown from "../modules/JournalsDropdown.js";
 import WebcamCapture from "../modules/WebcamCapture.js";
 
 const months = [
@@ -161,7 +163,6 @@ for (let i = 0; i<120; i++) {
   years.push(tempDict);
 }
 
-
 const journals = [
   {
     id: 'Journal1',
@@ -177,6 +178,7 @@ class CreateEntry extends Component {
     super(props);
     this.state = {
       today: moment(),
+      saved: false, 
     };
   }
 
@@ -184,27 +186,39 @@ class CreateEntry extends Component {
     document.title = "Create a New Entry";
   }
 
+  componentDidUpdate(){
+    if (this.state.saved){
+      console.log("Create Entry toggle");
+      this.setState({
+        saved:false,
+      });
+    }
+  }
 
   render() {
     let day = this.state.today.format('D');
     let month = this.state.today.format('MM');
     let year = this.state.today.format('YYYY')
+
+    if (this.state.saved){
+        alert("Congratulations!");
+    }
     
     return (
     <>
+    
     <div className="CreateEntry-wrapper">
       <div className="CreateEntry-inputSection">
-
         <div className = "CreateEntry-date">
-          <Dropdown className = "CreateEntry-month" title="Month" items={months}/>
-          <Dropdown className = "CreateEntry-day" title="Day" items={days}/>
-          <Dropdown className = "CreateEntry-year" title="Year" items={years}/>
+          <MonthsDropdown/>
+          <DaysDropdown/>
+          <YearsDropdown/>
         </div>
-        <JournalDropdown className = "CreateEntry-journalChoice" title='Journal' items={journals}/>
+        <JournalsDropdown />
           
-          <TitleForm/>
-          <EnterEntry/>
-        <EntryColors/>
+          <TitleForm saved={this.state.saved}/>
+          <EnterEntry saved={this.state.saved}/>
+        <EntryColors saved={this.state.saved}/>
 
       </div>
       <div className="CreateEntry-monitorSection">
@@ -225,18 +239,19 @@ class CreateEntry extends Component {
             </button>
         </div>
 
-        <button className="CreateEntry-saveButton">
+        <button className="CreateEntry-saveButton" onClick={() => {
+            this.setState({
+              saved:true})}
+          }>
           <div className="CreateEntry-saveHeart"></div>
           <p className="CreateEntry-saveText">Save</p>
           <div className="CreateEntry-saveHeart"></div>
         </button>
 
       </div>
-
     </div>
-   
     </>
-    )
+    );
   }
 }
 

@@ -1,3 +1,4 @@
+/* Overall */
 .CreateEntry-wrapper{
     padding-top: 25px;
     padding-left: 25px;
@@ -6,23 +7,17 @@
     justify-content: space-between;
 }
 
-.CreateEntry-inputSection{
-    flex: 2 0;
-}
+/* Right portion of page => Heart Monitor Section */
 
 .CreateEntry-monitorSection{
     display: inline-flex;
     flex: 1 0;
     flex-direction: column;
     align-items: center;
-    
+
 }
 
-.CreateEntry-journalChoice{
-    width: 682px;
-    height: 50px;
-    margin: var(--m);
-}
+/* Beating Heart */
 
 .CreateEntry-heart{
     margin-top: 12%;
@@ -63,13 +58,16 @@
     right: 0px;
 }
 
-.CreateEntry-addLockShare{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 4%;
-    margin-bottom: 5%;
+/* Heart Monitor */
+
+.CreateEntry-webcam{
+    height: 50px;
+    width: 100px;
 }
-.CreateEntry-button{
+
+/* add, lock, share buttons */
+
+.CreateEntry-button{ 
     width: 100px;
     height: 100px;
     background: #FFFFFF;
@@ -78,6 +76,15 @@
     border: none;
     margin: var(--m);
 }
+
+.CreateEntry-addLockShare{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 4%;
+    margin-bottom: 5%;
+}
+
+/* Save Button */
 
 .CreateEntry-saveButton{
     display: inline-flex;
@@ -137,7 +144,63 @@
     right: 0px;
 }
 
-.CreateEntry-webcam{
+/* Left portion of page => Journal Input Section */
+
+.CreateEntry-inputSection{
+    flex: 2 0;
+}
+
+.CreateEntry-journalChoice{
+    width: 682px;
     height: 50px;
-    width: 100px;
+    margin: var(--m);
+}
+
+/* Month - Day - Year Dropdowns  */
+
+.CreateEntry-date{
+    display: flex;
+    flex-direction: row;
+}
+
+.CreateEntry-dropdownButton{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #888383;
+    font-family: Inter;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: var(--white);
+    box-shadow: 0px var(--xs) var(--xs) var(--midblue);
+    border-radius: 11px;
+    margin: var(--s);
+    padding: 5px var(--m);
+}
+
+.MonthsDropdown-button{
+    width: 175px;
+}
+
+.DaysDropdown-button{
+    width: 125px;
+}
+
+.YearsDropdown-button{
+    width: 130px;
+}
+
+.WebCamera{
+    width: 415px;
+    height: 283px;
+    left: 883px;
+    top: 337px;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
 }

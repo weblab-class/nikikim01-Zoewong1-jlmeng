@@ -58,7 +58,10 @@ class MonthsDropdown extends Component {
 
         return (
             <Select
-                className = "MonthsDropdown-button"
+                styles={{
+                  indicatorSeparator: () => {},
+                }}
+                className = "CreateEntry-dropdownButton MonthsDropdown-button"
                 placeholder="Month"
                 value={selectedOption}
                 onChange={this.handleChange}
