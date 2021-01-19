@@ -16,17 +16,7 @@ class TitleForm extends Component {
 
       componentDidMount() {
       }
-
-      componentDidUpdate(){
-        console.log(this.state.title);
-        if(this.props.saved){
-          console.log("Title Form toggle");
-            this.setState({
-            title:'',
-          })
-        }
-      }
-
+      
       handleChange = (event) => {
           this.setState({ title: event.target.value });
       };

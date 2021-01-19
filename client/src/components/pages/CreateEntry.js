@@ -5,14 +5,17 @@ import "./CreateEntry.css";
 import "../modules/Dropdown.css";
 import moment from "moment";
 
-import Dropdown from "../modules/Dropdown.js";
-import JournalDropdown from "../modules/JournalDropdown.js";
 import TitleForm from "../modules/TitleForm.js";
 import EnterEntry from "../modules/EnterEntry.js";
 import plusSign from "../../public/images/plusSign.svg";
 import lockButton from "../../public/images/lockButton.svg";
 import shareButton from "../../public/images/shareButton.svg";
 import Webcam from "react-webcam";
+import MonthsDropdown from "../modules/MonthsDropdown.js";
+import DaysDropdown from "../modules/DaysDropdown.js";
+import YearsDropdown from "../modules/YearsDropdown.js";
+import JournalsDropdown from "../modules/JournalsDropdown.js";
+import WebcamCapture from "../modules/WebcamCapture.js";
 
 const months = [
   {
@@ -171,7 +174,6 @@ const journals = [
   }
 ];
 
-
 class CreateEntry extends Component {
   constructor(props) {
     super(props);
@@ -205,15 +207,15 @@ class CreateEntry extends Component {
     
     return (
     <>
+    
     <div className="CreateEntry-wrapper">
       <div className="CreateEntry-inputSection">
-
         <div className = "CreateEntry-date">
-          <Dropdown className = "CreateEntry-month" title="Month" items={months}/>
-          <Dropdown className = "CreateEntry-day" title="Day" items={days}/>
-          <Dropdown className = "CreateEntry-year" title="Year" items={years}/>
+          <MonthsDropdown/>
+          <DaysDropdown/>
+          <YearsDropdown/>
         </div>
-        <JournalDropdown className = "CreateEntry-journalChoice" title='Journal' items={journals}/>
+        <JournalsDropdown />
           
           <TitleForm saved={this.state.saved}/>
           <EnterEntry saved={this.state.saved}/>
@@ -224,7 +226,7 @@ class CreateEntry extends Component {
 
         <div className="CreateEntry-heart"></div>
 
-        {/* <div><Webcam /></div> */}
+       <div><WebcamCapture /></div>
 
         <div className="u-flexRow u-justifyCenter">
           <button className="u-flex u-flex-justifyCenter u-flex-alignCenter CreateEntry-button">
