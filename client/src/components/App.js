@@ -9,6 +9,7 @@ import SpecificEntry from "./pages/SpecificEntry.js";
 import Analysis from "./pages/Analysis.js";
 import Profile from "./pages/Profile.js";
 import Locked from "./pages/Locked.js";
+import HomePage from "./pages/HomePage.js";
 
 import "../utilities.css";
 
@@ -65,9 +66,9 @@ class App extends Component {
         <Router>
           {this.state.userId && 
             <>
-            <CreateEntry path="/"/>
+            <HomePage path="/"/>
             <CreateEntry1 path="/CreateEntry"/>
-            {/* <CreateEntry path="/CreateEntry"/> */}
+          {/* <CreateEntry path="/CreateEntry"/> */}
             <AllEntries path="/AllEntries"/>
             <SpecificEntry path="/SpecificEntry"/>
             <Analysis path="/Analysis"/>
