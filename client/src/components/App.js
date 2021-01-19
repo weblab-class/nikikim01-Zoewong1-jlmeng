@@ -65,6 +65,7 @@ class App extends Component {
           <AllEntries path="/AllEntries"/>
           <SpecificEntry path="/SpecificEntry"/>
           <Analysis path="/Analysis"/>
+          <Profile path="/Profile:userId"/>
           {//<TestOpenCV path="/TestOpenCV"/>
           }
         </Router>
