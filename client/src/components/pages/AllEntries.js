@@ -88,6 +88,7 @@ class AllEntries extends Component{
                     day={entryObj.day} 
                     content={entryObj.content} 
                     tags={entryObj.tags}
+                    colorMood={entryObj.colorMood}
                     viewMode={this.state.viewMode}
                 />
             ));

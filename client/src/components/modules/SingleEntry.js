@@ -13,6 +13,7 @@ import "./SingleEntry.css";
  * @param {string} content
  * @param {boolean} viewMode true if Menu List, false if view Mode
  * @param {string} tags associated with entry
+ * @param {string} colorMood
 */
 class SingleEntry extends Component{
     constructor(props){
@@ -50,7 +51,7 @@ class SingleEntry extends Component{
                     {dateBox}
                     <div className="SingleEntry-container">
                         <Link to={url} style={{ textDecoration: 'none' }}>
-                            <h1 className="SingleEntry-title" >{this.props.title}</h1>
+                            <h1 className="SingleEntry-title" style={{color:this.props.colorMood}}>{this.props.title}</h1>
                         </Link>
                         <p className="SingleEntry-content">{this.props.content}</p>
                         {tagsList}
@@ -71,7 +72,7 @@ class SingleEntry extends Component{
             return (
                 <div className="u-flexColumn u-flex-justifyCenter">
                     {dateImg}
-                    <Link to={url} className="SingleEntry-viewTitle" style={{ textDecoration: 'none' }}>{this.props.title}</Link>
+                    <Link to={url} className="SingleEntry-viewTitle" style={{ textDecoration: 'none', color:this.props.colorMood }}>{this.props.title}</Link>
                 </div>
             )
         }
