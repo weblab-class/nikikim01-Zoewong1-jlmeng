@@ -6,6 +6,7 @@ import NavBar from "./modules/NavBar.js";
 import CreateEntry from "./pages/CreateEntry.js";
 import SpecificEntry from "./pages/SpecificEntry.js";
 import Analysis from "./pages/Analysis.js";
+import Profile from "./pages/Profile.js";
 
 import "../utilities.css";
 
