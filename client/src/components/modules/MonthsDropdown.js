@@ -58,6 +58,12 @@ class MonthsDropdown extends Component {
 
         return (
             <Select
+                styles={{
+                  indicatorSeparator: () => {},
+                  border: 0,
+                  boxShadow: null,
+                  outline: 'none',
+                }}
                 className = "MonthsDropdown-button"
                 placeholder="Month"
                 value={selectedOption}
