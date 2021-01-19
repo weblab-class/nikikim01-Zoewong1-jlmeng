@@ -5254,6 +5254,11 @@
   "resolved" "https://registry.npmjs.org/react-webcam/-/react-webcam-5.2.2.tgz"
   "version" "5.2.2"
 
+"react-with-important-style@^0.2.2":
+  "integrity" "sha1-i2hf5dzduDhwfcyn0bJ+JIJva2Y="
+  "resolved" "https://registry.npmjs.org/react-with-important-style/-/react-with-important-style-0.2.2.tgz"
+  "version" "0.2.2"
+
 "react@^15.0.0 || ^16.0.0", "react@^16.14.0", "react@^16.3.0 || ^17.0.0", "react@>=16.3.0", "react@>=16.x.x":
   "integrity" "sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.14.0.tgz"

@@ -4,6 +4,7 @@ import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import NavBar from "./modules/NavBar.js";
 import CreateEntry from "./pages/CreateEntry.js";
+import CreateEntry1 from "./pages/CreateEntry1.js";
 import SpecificEntry from "./pages/SpecificEntry.js";
 import Analysis from "./pages/Analysis.js";
 import Profile from "./pages/Profile.js";
@@ -65,7 +66,8 @@ class App extends Component {
           {this.state.userId && 
             <>
             <CreateEntry path="/"/>
-            <CreateEntry path="/CreateEntry"/>
+            <CreateEntry1 path="/CreateEntry"/>
+            {/* <CreateEntry path="/CreateEntry"/> */}
             <AllEntries path="/AllEntries"/>
             <SpecificEntry path="/SpecificEntry"/>
             <Analysis path="/Analysis"/>

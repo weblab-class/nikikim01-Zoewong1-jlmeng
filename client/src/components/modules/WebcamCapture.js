@@ -25,9 +25,9 @@ class WebcamCapture extends React.Component {
     render() {
 
         const videoConstraints = {
-            width: 320,
-            height: 240,
-            facingMode: "user"
+            width: 415,
+            height: 283,
+            facingMode: "user",
         };
 
         /* debugger
@@ -122,7 +122,7 @@ class WebcamCapture extends React.Component {
             //<InnerHTML html={html} />
             //<iframe src="https://docs.opencv.org/master/dd/d00/tutorial_js_video_display.html"></iframe>
                 
-        <Webcam mirrored={true} screenshotFormat="image/jpeg" videoConstraints={videoConstraints} />
+        <Webcam mirrored={true} screenshotFormat="image/jpeg" className="WebCamera" videoConstraints={videoConstraints} />
 /*         <Helmet>
             <div>
                 <table cellpadding="0" cellspacing="0" width="0" border="0">
