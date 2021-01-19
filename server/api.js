@@ -72,6 +72,22 @@ router.post("/entries",(req,res) => {
 });
 
 // USER
+router.get("/user", (req, res) => {
+  User.findById(req.query.userid).then((user) => {
+    res.send(user);
+  });
+});
+
+router.post("/user", (req, res) => {
+  const newUser = new User({
+    name: req.body.name,
+    googleid: req.body.googleid,
+    avgRBPM: req.body.avgRBPM,
+  });
+  newEntry.save().then(()=> {
+    console.log("We got a new User!");
+  })
+});
 
 // JOURNAL
 

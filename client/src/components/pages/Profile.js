@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import "../../utilities.css";
 
 
@@ -41,7 +42,7 @@ class Profile extends Component {
 
             <div className="Profile-entryGalleryContainer">
 
-                
+
             </div>
 
             </>
