@@ -47,15 +47,7 @@ router.post("/initsocket", (req, res) => {
 
 // ENTRIES
 router.get("/entries",(req,res) => {
-<<<<<<< HEAD
-  Entry.find({
-    month:req.query.month, 
-    year: req.query.year, 
-    journal:req.query.journal
-  }).then((entries) => {
-=======
   Entry.find({month:req.query.month, year: req.query.year}).then((entries) => {
->>>>>>> 8a78fb530d71d4d075bfb50bca262ade953a409c
     res.send(entries);
   });
 });

@@ -16,14 +16,14 @@ class Analysis extends Component {
             <div className="Analysis-wordBoxes">
                 <h1 className="Analysis-header">Most commonly used words when heart rate is... </h1>
 
-                <div className="Analysis-wordGraphBox">
-                    <div className="Analysis-belowAverage">
+                <div className="Analysis-wordGraphWrapper">
+                    <div className="Analysis-graphContainer">
                         <h3>BELOW AVERAGE</h3>
                     </div>
-                    <div className="Analysis-Average">
+                    <div className="Analysis-graphContainer">
                         <h3>AVERAGE</h3>
                     </div>
-                    <div className="Analysis-aboveAverage">
+                    <div className="Analysis-graphContainer">
                         <h3>ABOVE AVERAGE</h3>
                     </div>
                 </div>
@@ -31,8 +31,16 @@ class Analysis extends Component {
             </div>
 
             <div className="Analysis-trackerAvgBPM">
-                <h1 className="Analysis-header Analysis-moodTracker">Mood Tracker</h1>
-                <h1 className="Analysis-header Analysis-AvgHeartRate">Average Heart Rate</h1>
+                <div className="Analysis-moodTracker">
+                    <h1 className="Analysis-header">Mood Tracker</h1>
+                    <div className="Analysis-graphContainer">
+                </div>
+
+                </div>
+                <div className="Analysis-AvgHeartRate">
+                    <h1 className="Analysis-header">Average Heart Rate</h1>
+                    <div className="Analysis-graphContainer"></div>
+                </div>
             </div>
 
             <div ><p className="Analysis-disclaimer">The content on this website is not intended to be a substitute
