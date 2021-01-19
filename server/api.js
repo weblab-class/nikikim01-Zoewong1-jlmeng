@@ -44,12 +44,18 @@ router.post("/initsocket", (req, res) => {
 // | write your API methods below!|
 // |------------------------------|
 
+
+// ENTRIES
 router.get("/entries",(req,res) => {
+<<<<<<< HEAD
   Entry.find({
     month:req.query.month, 
     year: req.query.year, 
     journal:req.query.journal
   }).then((entries) => {
+=======
+  Entry.find({month:req.query.month, year: req.query.year}).then((entries) => {
+>>>>>>> 8a78fb530d71d4d075bfb50bca262ade953a409c
     res.send(entries);
   });
 });
@@ -72,6 +78,10 @@ router.post("/entries",(req,res) => {
     console.log("Successfully added new entry!");
   })
 });
+
+// USER
+
+// JOURNAL
 
 // anything else falls to this "not found" case
 router.all("*", (req, res) => {

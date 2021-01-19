@@ -4,6 +4,9 @@ import Select from "react-select";
 import "./Dropdown.css";
 
 
+const options = []
+
+
 function Dropdown({ title, items, multiSelect = false}) {
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState([]); 

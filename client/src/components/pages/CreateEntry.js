@@ -163,7 +163,6 @@ for (let i = 0; i<120; i++) {
   years.push(tempDict);
 }
 
-
 const journals = [
   {
     id: 'Journal1',
