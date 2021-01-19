@@ -187,7 +187,7 @@ class CreateEntry extends Component {
 
   render() {
     let day = this.state.today.format('D');
-    let month = this.state.today.format('MMMM');
+    let month = this.state.today.format('MM');
     let year = this.state.today.format('YYYY')
     
     return (

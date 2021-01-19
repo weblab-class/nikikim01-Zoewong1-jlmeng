@@ -2,14 +2,32 @@ import React, { Component } from "react";
 import Webcam from "react-webcam";
 
 class WebcamCapture extends React.Component {
+
+    constructor(props) {
+        super(props);
+/*         this.state = {
+            webcamRef: React.useRef(null)
+        } */
+    }
+
+    capture = () => {
+        React.useCallback(
+        () => {
+          const imageSrc = webcamRef.current.getScreenshot();
+        },
+        [webcamRef]
+    );
+    }
+    
     render() {
-      const videoConstraints = {
-        width: 300,
-        height: 200,
-        facingMode: "user"
-      };
+
+        const videoConstraints = {
+            width: 320,
+            height: 240,
+            facingMode: "user"
+        };
    
-      return <Webcam videoConstraints={videoConstraints} />;
+        return (<Webcam mirrored={true} screenshotFormat="image/jpeg" videoConstraints={videoConstraints} />);
     }
   }
 
