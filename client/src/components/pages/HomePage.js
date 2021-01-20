@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import "./HomePage.css";
 import "../../utilities.css";
+import { Link } from "@reach/router";
+import FountainPen from "../../public/images/FountainPen.svg";
 
 class HomePage extends Component {
     constructor(props){
@@ -14,9 +16,30 @@ class HomePage extends Component {
 
     render() {
         return (
-            <div className="HomePage-entire">
-                <h1 className="HomePage-header">Our Home Page is BEAUTIFUL. You are blind.</h1>
+            <>  
+            <div className="HomePage-container">
+                <Link to="/CreateEntry"><img src={FountainPen} className="HomePage-editPen u-editPen"></img></Link>
+                <Link to="/AllEntries" className="HomePage-journalGrouped ">
+                    <div className="u-backCover"/>
+                    <div className="u-fakePage"/>
+                    <div className="u-closeClasp"/>
+                    <div className="u-fakePage"/>
+                    <div className="u-frontCover"/>
+                </Link>
+
+                <Link to="/AllEntries" className="HomePage-journalGrouped ">
+                    <div className="HomePage-backCover"/>
+                    <div className="HomePage-fakePage"/>
+                    <div className="HomePage-closeClasp"/>
+                    <div className="HomePage-fakePage"/>
+                    <div className="HomePage-frontCover"/>
+                </Link>
+
             </div>
+                
+                
+                
+            </>
         );
     }   
 

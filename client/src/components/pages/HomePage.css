@@ -1,21 +1,126 @@
-.HomePage-header{
-    font-size: 150px;
+.HomePage-journalGrouped{
+    display:flex;
+    height: 40vh;
+    justify-content: space-between;
 }
 
-.HomePage-entire{
-    height: 100vh;
-    width: 100vw;
+.HomePage-editPen{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-repeat:no-repeat;
-    background: -webkit-linear-gradient( to left top, #B8D4FF, #F5CCCC);
-    background: -moz-linear-gradient( to left top, #B8D4FF, #F5CCCC);
-    background: -ms-linear-gradient( to left top, #B8D4FF, #F5CCCC);
-    background: -o-linear-gradient( to left top, #B8D4FF, #F5CCCC);
-    background: linear-gradient( to left top, #B8D4FF, #F5CCCC);
 }
+
+.HomePage-container{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* Realistic-Looking Journal */
+/* backCover fakePage frontCover closeClasp */
+.HomePage-backCover{
+    position: absolute;
+    width: 634px;
+    height: 784px;
+    left: 283px;
+    top: 120px;
+  
+    background: linear-gradient(0deg, rgba(151, 238, 107, 1), rgba(151, 238, 107, 1)), url(../../public/images/dark-leather.png);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+  }
+  
+  
+  .HomePage-fakePage{
+    position: absolute;
+    width: 9px;
+    height: 773px;
+    left: 900px;
+    top: 121px;
+  
+    background: #FCFDF8;
+  }
+  
+  
+  .HomePage-frontCover{
+    position: absolute;
+    width: 19px;
+    height: 84px;
+    left: 900px;
+    top: 461px;
+  
+    background: #C4C4C4;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .HomePage-closeClasp{
+    position: absolute;
+    width: 617px;
+    height: 784px;
+    left: 283px;
+    top: 111px;
+  
+    background: linear-gradient(0deg, rgba(80, 27, 0, 0.2), rgba(80, 27, 0, 0.2)), url(../../public/images/dark-leather.png);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    
+  }
+
+  /* Realistic-Looking Journal */
+/* backCover fakePage frontCover closeClasp */
+.u-backCover{
+    position: absolute;
+    width: 634px;
+    height: 784px;
+    left: 383px;
+    top: 120px;
+  
+    background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(../../public/images/dark-leather.png);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+  }
+  
+  
+  .u-fakePage{
+    position: absolute;
+    width: 9px;
+    height: 773px;
+    left: 1000px;
+    top: 121px;
+  
+    background: #FCFDF8;
+  }
+  
+  
+  .u-frontCover{
+    position: absolute;
+    width: 19px;
+    height: 84px;
+    left: 1000px;
+    top: 461px;
+  
+    background: #C4C4C4;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  
+  .u-closeClasp{
+    position: absolute;
+    width: 617px;
+    height: 784px;
+    left: 383px;
+    top: 111px;
+  
+    background: linear-gradient(0deg, rgba(80, 27, 0, 0.2), rgba(80, 27, 0, 0.2)), url(../../public/images/dark-leather.png);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    
+  }
