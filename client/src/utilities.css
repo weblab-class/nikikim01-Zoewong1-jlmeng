@@ -41,7 +41,20 @@
   /* TagHeart colors */
   --highlighterDarkPink: #F58DCC;
   --highlighterPink: #F9A8D3;
-  --highlighterRed: #f9a7aa:
+  --highlighterRed: #f9a7aa;
+  --highlighterOrange: #F9B783;
+  --highlighterYellow: #FAF983;
+  --highlighterGreen: #AAF984;
+  --highlighterTurquoise: #81E1C9;
+  --highlighterBlue: #8DDFF7;
+  --highlighterDarkBlue: #8DC0F9;
+  --highlighterViolet: #D38EF9;
+  --PinkBlush: #FAE9F1;
+  --CreamyBlush: #F8E7E0;
+  --MilkyYellow: #F4EFAE;
+  --HintOfMint: #E9F6ED;
+  --TouchOfTurquoise: #DEF3F6;
+  --LilacHaze: #F2E7F8;
 
 
 
@@ -56,7 +69,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Alegreya Sans', sans-serif;
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
