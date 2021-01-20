@@ -61,3 +61,13 @@
     border-radius: 25px;
     margin: var(--m);
 }
+
+.AllEntries-happySun{
+    display: flex;
+    margin-left: 55vh;
+}
+
+.AllEntries-editPen{
+    height: 18vh;
+    transform: rotate(-20deg);
+}

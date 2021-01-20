@@ -11,7 +11,8 @@ import Profile from "./pages/Profile.js";
 import Locked from "./pages/Locked.js";
 import HomePage from "./pages/HomePage.js";
 import LockedJournal from "./pages/LockedJournal.js";
-import Calendar from "./Pages/Calendar.js";
+import Calendar from "./pages/Calendar.js";
+import NewEntry from "./pages/NewEntry.js";
 
 import "../utilities.css";
 
@@ -80,6 +81,7 @@ class App extends Component {
             <Profile path="/Profile:userId"
               userId = {this.state.userId}
             />
+            <NewEntry path="/NewEntry"/>
             <NotFound default />
             {//<TestOpenCV path="/TestOpenCV"/>
             }

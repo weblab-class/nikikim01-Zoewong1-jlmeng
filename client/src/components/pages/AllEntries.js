@@ -9,6 +9,8 @@ import viewModeIcon from "../../public/images/viewModeIcon.svg";
 import plusSign from "../../public/images/plusSign.svg";
 import leftIcon from "../../public/images/leftIcon.svg";
 import rightIcon from "../../public/images/rightIcon.svg";
+import HappySun from "../../public/images/HappySun.svg";
+import FountainPen from "../../public/images/FountainPen.svg";
 
 
 import "../../utilities.css";
@@ -150,6 +152,7 @@ class AllEntries extends Component{
 
         return(
             <div>
+                
                 <div className="u-flexRow u-flex-alignCenter">
                     <h1 className="u-flex u-flex-alignCenter AllEntries-date">
                         {leftIconCode}
@@ -157,7 +160,10 @@ class AllEntries extends Component{
                         {rightIconCode}
                     </h1>
                     {menuIcon} {viewIcon}
+                    <Link to="/MoodTracker"><img src={HappySun} height="180" className="AllEntries-happySun"></img></Link>
+                    <Link to="/CreateEntry"><img src={FountainPen} className="AllEntries-editPen u-editPen"></img></Link>
                 </div>
+                
                 <div className={this.state.viewMode ? "u-flexColumn" : "u-flexRow u-flex-justifyCenter u-flexWrap"}>
                     {entriesList}
                     {addEntryButton}

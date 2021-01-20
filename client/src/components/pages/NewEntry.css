@@ -1,0 +1,65 @@
+/* Group 16 */
+.NewEntry-background{
+    position: absolute;
+    width: 1329px;
+    height: 872px;
+    left: 55px;
+    top: 109px;
+}
+
+
+
+/* Rectangle 4 */
+.NewEntry-backCover{
+    position: absolute;
+    width: 723.53px;
+    height: 870.89px;
+    left: 760.47px;
+    top: 110.11px;
+
+    background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(../../public/images/dark-leather.png);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+/* Rectangle 25 */
+.NewEntry-clasp{
+    position: absolute;
+    width: 20.18px;
+    height: 93.31px;
+    left: 1463.82px;
+    top: 488.9px;
+
+    background: #C4C4C4;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Rectangle 5 */
+.NewEntry-frontCover{
+position: absolute;
+width: 705.47px;
+height: 870.89px;
+left: 55px;
+top: 109px;
+
+background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(../../public/images/dark-leather.png);
+border: 1px solid #000000;
+box-sizing: border-box;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 5px;
+}
+
+/* Rectangle 26 */
+.NewEntry-page{
+    position: absolute;
+    width: 1381.19px;
+    height: 855.34px;
+    left: 69.87px;
+    top: 117.89px;
+
+    background: #FAFBF5;
+}
