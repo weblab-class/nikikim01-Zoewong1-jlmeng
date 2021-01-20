@@ -7,6 +7,9 @@
     top: 109px;
 }
 
+.NewEntry-split{
+    display: flex;
+}
 
 
 /* Rectangle 4 */

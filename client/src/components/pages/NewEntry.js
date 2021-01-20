@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./NewEntry.css";
 import EnterEntry from "../modules/EnterEntry.js";
 
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
 class NewEntry extends Component{
     constructor(props){
         super(props);
@@ -12,14 +15,19 @@ class NewEntry extends Component{
 
     render(){
         return (
-            <div className="NewEntry-background">
-                <div className="NewEntry-backCover"/>
-                <div className="NewEntry-frontCover"/>
-                <div className="NewEntry-page"/>
-                <div className="NewEntry-clasp"/>
+            <div className="NewEntry-background NewEntry-split">
+                <div className="NewEntry-journal">
+                    <div className="NewEntry-backCover"/>
+                    <div className="NewEntry-frontCover"/>
+                    <div className="NewEntry-page"/>
+                    <div className="NewEntry-clasp"/>
+                </div>
 
                 <div className="NewEntry-contentBox">
-                    
+                    <Editor>
+                    <textarea
+                    disabled/>
+                    </Editor>
 
                 </div>
 
