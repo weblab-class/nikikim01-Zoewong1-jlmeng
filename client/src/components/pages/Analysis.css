@@ -1,6 +1,5 @@
 /* Overall */
 .Analysis-header{
-    font-family: sans-serif;
     color: var(--darkblue);
     flex: 1;
     padding-left: 2%;
@@ -48,7 +47,6 @@
 
     /* Bottom Section */
     .Analysis-disclaimer{
-        font-family: Inter;
         display: flex;
         opacity: 80%;
         font-weight: 600;
