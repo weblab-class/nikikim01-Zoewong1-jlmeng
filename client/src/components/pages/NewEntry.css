@@ -1,8 +1,8 @@
 /* Group 16 */
 .NewEntry-background{
     position: absolute;
-    width: 1329px;
-    height: 872px;
+    width: 95vw;
+    height: 80vw;
     left: 55px;
     top: 109px;
 }
@@ -12,13 +12,29 @@
 }
 
 
+
+/* Rectangle 25 */
+.NewEntry-clasp{
+    position: absolute;
+    width: 1.5vw;
+    height: 6vw;
+    left: 42vw;
+    top: 22vw;
+
+    background: #C4C4C4;
+    border: 1px solid #857d7d;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
 /* Rectangle 4 */
 .NewEntry-backCover{
     position: absolute;
-    width: 723.53px;
-    height: 870.89px;
-    left: 760.47px;
-    top: 110.11px;
+    width: 45vw;
+    height: 50vw;
+    left: 45vw;
+    top: 5vw;
 
     background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(../../public/images/dark-leather.png);
     border: 1px solid #000000;
@@ -26,28 +42,12 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
 }
-
-/* Rectangle 25 */
-.NewEntry-clasp{
-    position: absolute;
-    width: 20.18px;
-    height: 93.31px;
-    left: 1463.82px;
-    top: 488.9px;
-
-    background: #C4C4C4;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
 /* Rectangle 5 */
 .NewEntry-frontCover{
 position: absolute;
-width: 705.47px;
-height: 870.89px;
-left: 55px;
-top: 109px;
+width: 45vw;
+height: 50vw;
+top: 5vw;
 
 background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(../../public/images/dark-leather.png);
 border: 1px solid #000000;
@@ -57,12 +57,32 @@ border-radius: 5px;
 }
 
 /* Rectangle 26 */
-.NewEntry-page{
+.NewEntry-rightpage{
     position: absolute;
-    width: 1381.19px;
-    height: 855.34px;
-    left: 69.87px;
-    top: 117.89px;
+    width: 40vw;
+    height: 49vw;
+    top: 0.3vw;
 
     background: #FAFBF5;
+}
+
+.NewEntry-leftpage{
+    position: absolute;
+    width: 40vw;
+    height: 49vw;
+    top: 0.3vw;
+    left: 5vw;
+    background: #FAFBF5;
+}
+
+.NewEntry-journal{
+    width: 100vw;
+    height: 50vw;
+    left: 55px;
+    top: 109px;
+}
+
+.NewEntry-contentBox{
+    padding: 1vw;
+
 }

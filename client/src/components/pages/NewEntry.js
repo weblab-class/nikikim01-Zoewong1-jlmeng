@@ -17,18 +17,22 @@ class NewEntry extends Component{
         return (
             <div className="NewEntry-background NewEntry-split">
                 <div className="NewEntry-journal">
-                    <div className="NewEntry-backCover"/>
-                    <div className="NewEntry-frontCover"/>
-                    <div className="NewEntry-page"/>
-                    <div className="NewEntry-clasp"/>
-                </div>
+                    <div className="NewEntry-backCover">
+                        <div className="NewEntry-clasp"/>
+                        <div className="NewEntry-rightpage">
+                            <div className="NewEntry-contentBox">
+                                <Editor>
+                                <textarea
+                                disabled/>
+                                </Editor>
 
-                <div className="NewEntry-contentBox">
-                    <Editor>
-                    <textarea
-                    disabled/>
-                    </Editor>
-
+                            </div>    
+                        </div>
+                    </div>
+                    <div className="NewEntry-frontCover">
+                        <div className="NewEntry-leftpage"/>
+                    </div>
+                    
                 </div>
 
             </div>
