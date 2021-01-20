@@ -3,7 +3,7 @@
     height: 80vh;
     justify-content: space-between;
 }
-
+/* 
 .HomePage-journal1,
 .HomePage-journal2{
   display:flex;
@@ -21,7 +21,7 @@
 .HomePage-journals{
   display: flex;
   justify-content: space-between;
-}
+} */
 
 .HomePage-editPen{
     display: flex;
