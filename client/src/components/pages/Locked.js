@@ -23,7 +23,7 @@ class Locked extends Component {
         return (
             <>
                 <div className="u-flex u-flex-alignCenter u-flex-justifyCenter">
-                    <img src={LeatherJournal}></img>
+                    <img className="Locked-journal" src={LeatherJournal}></img>
                 </div>
            
             </>
