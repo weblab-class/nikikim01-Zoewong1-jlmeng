@@ -29,15 +29,10 @@ const GOOGLE_CLIENT_ID = "126273665028-0hk9qp3k313dhcaql812d8pdb9m3p545.apps.goo
                 <>
                 <div className="u-flex u-flex-alignCenter">
                     <Link to="/" className="NavBar-link"><img src={tagHeartLogo} height="40"/></Link>
-                    <Link to="/CreateEntry" className="NavBar-link">New Entry</Link>
-                    <Link to="/AllEntries" className="NavBar-link">Entries</Link>
-                    <Link to="/Calendar" className="NavBar-link">Calendar</Link>
-                    <Link to="/Feed" className="NavBar-link">Feed</Link>
-                    <Link to="/Analysis" className="NavBar-link">Analysis</Link>
-                    <Link to={"/Profile/"+ this.props.userId} className="NavBar-link">Profile</Link>
+                    {/* <Link to="/Feed" className="NavBar-link">Feed</Link> */}
+                    {/* <Link to={"/Profile/"+ this.props.userId} className="NavBar-link">Profile</Link> */}
                 </div>
                 <div className="NavBar-logInOutSettings">
-                <Link to="/Settings" className="NavBar-link"><img src={settingsIcon} height="40" className="NavBar-icon"></img></Link>
                 <GoogleLogout
                     clientId={GOOGLE_CLIENT_ID}
                     buttonText="Logout"
