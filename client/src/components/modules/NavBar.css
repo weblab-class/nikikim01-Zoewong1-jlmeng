@@ -2,6 +2,7 @@
     padding: var(--s) var(--s);
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
   
   }
@@ -32,6 +33,8 @@
   .NavBar-logInOutSettings {
     display: flex;
     align-items: flex-end;
+    justify-content: center;
+    margin-right: 2vw;
   }
 
   .NavBar-icon{

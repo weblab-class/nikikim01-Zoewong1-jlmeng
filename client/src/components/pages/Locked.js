@@ -7,8 +7,8 @@ import Welcome from "../../public/images/Welcome.svg";
 
 import "../../utilities.css";
 import "./Locked.css";
+import LeatherJournal from "../../public/images/LeatherJournal.svg";
 
-const GOOGLE_CLIENT_ID = "126273665028-0hk9qp3k313dhcaql812d8pdb9m3p545.apps.googleusercontent.com";
 
 class Locked extends Component {
     constructor(props){
@@ -22,36 +22,10 @@ class Locked extends Component {
     render() {
         return (
             <>
-            <div className="Locked-entire">
-                <div className="Locked-container">
-                    <div className="Locked-welcome u-flex">
-                        <Link to="/" className="Locked-logo u-flex"><img src={Welcome} height="200"/></Link>
-                        <h1 className="Locked-header">Please log in to access our platform!</h1>
-                    </div>
-                
-                
-                <div className="Locked-loginButton u-flex">
-                    {this.props.userId ? (
-                        <GoogleLogout
-                        className='Locked-google'
-                        clientId={GOOGLE_CLIENT_ID}
-                        buttonText="Logout"
-                        onLogoutSuccess={this.props.handleLogout}
-                        onFailure={(err) => console.log(err)}
-                    />
-                    ):(
-                        <GoogleLogin
-                            clientId={GOOGLE_CLIENT_ID}
-                            buttonText="Login"
-                            onSuccess={this.props.handleLogin}
-                            onFailure={(err) => console.log(err)}
-                        />
-
-                    )}
+                <div className="u-flex u-flex-alignCenter u-flex-justifyCenter">
+                    <img src={LeatherJournal}></img>
                 </div>
-            </div>
            
-           </div>
             </>
         );
     }   

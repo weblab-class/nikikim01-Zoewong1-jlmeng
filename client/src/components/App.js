@@ -60,12 +60,12 @@ class App extends Component {
   render() {
     return (
       <>
-        {this.state.userId &&
+        
           <NavBar
             handleLogin={this.handleLogin}
             handleLogout={this.handleLogout}
             userId={this.state.userId}
-          />}
+          />
         <Router>
           <LockedJournal path="/LockedJournal"/>
           {this.state.userId && 
