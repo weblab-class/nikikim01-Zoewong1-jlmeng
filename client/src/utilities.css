@@ -26,8 +26,8 @@
   --white: #fff;
   --blue: #2A7DFA;
 
-  /* TagHeart colors */
-  --lightblue: #B8D4FF;
+  /* old TagHeart colors */
+  /* --lightblue: #B8D4FF;
   --green: #B9D99C;
   --purple:#CAB8FF;
   --red: #D99C9C;
@@ -36,7 +36,14 @@
   --yellow: #F8E963;
   --midblue: #99C2FF;
   --bluegrey: #E6F0FF;
-  --darkblue: #699FFF;
+  --darkblue: #699FFF; */
+
+  /* TagHeart colors */
+  --highlighterDarkPink: #F58DCC;
+  --highlighterPink: #F9A8D3;
+  --highlighterRed: #f9a7aa:
+
+
 
   --xs: 4px;
   --s: 8px;
