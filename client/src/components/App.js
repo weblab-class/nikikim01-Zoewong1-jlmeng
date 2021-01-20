@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage.js";
 import LockedJournal from "./pages/LockedJournal.js";
 import Calendar from "./pages/Calendar.js";
 import NewEntry from "./pages/NewEntry.js";
+import MoodTracker from "./pages/MoodTracker.js";
 
 import "../utilities.css";
 
@@ -82,6 +83,7 @@ class App extends Component {
               userId = {this.state.userId}
             />
             <NewEntry path="/NewEntry"/>
+            <MoodTracker path="/MoodTracker"/>
             <NotFound default />
             {//<TestOpenCV path="/TestOpenCV"/>
             }
