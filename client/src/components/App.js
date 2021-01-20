@@ -10,6 +10,8 @@ import Analysis from "./pages/Analysis.js";
 import Profile from "./pages/Profile.js";
 import Locked from "./pages/Locked.js";
 import HomePage from "./pages/HomePage.js";
+import LockedJournal from "./pages/LockedJournal.js";
+import Calendar from "./Pages/Calendar.js";
 
 import "../utilities.css";
 
@@ -65,6 +67,7 @@ class App extends Component {
             userId={this.state.userId}
           />}
         <Router>
+          <LockedJournal path="/LockedJournal"/>
           {this.state.userId && 
             <>
             <HomePage path="/"/>
@@ -73,6 +76,7 @@ class App extends Component {
             <AllEntries path="/AllEntries"/>
             <SpecificEntry path="/SpecificEntry"/>
             <Analysis path="/Analysis"/>
+            <Calendar path="/Calendar"/>
             <Profile path="/Profile:userId"
               userId = {this.state.userId}
             />
