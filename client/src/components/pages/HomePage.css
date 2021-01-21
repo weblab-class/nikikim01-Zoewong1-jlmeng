@@ -11,6 +11,10 @@
     align-items: center;
 }
 
+.HomePage-button{
+  max-width: 100%;
+  height: auto;
+}
 
 
 /* Realistic-Looking Journal */

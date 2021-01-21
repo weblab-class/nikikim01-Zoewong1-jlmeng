@@ -21,10 +21,10 @@ class HomePage extends Component {
             <>  
             <div className="HomePage-container">
 
-                <Link to="/CreateEntry"><img src={EditPen} className="HomePage-editPen u-editPen"></img></Link>
+                <Link to="/CreateEntry"><img src={EditPen} className="HomePage-button HomePage-editPen u-editPen"></img></Link>
             
-                <Link to="/AllEntries"><img src={LeatherJournal}/></Link>
-                <Link to="/MoodTracker"><img src={RedFlower}/></Link>
+                <Link to="/AllEntries"><img className="HomePage-button" src={LeatherJournal}/></Link>
+                <Link to="/MoodTracker"><img className="HomePage-button" src={RedFlower}/></Link>
 
             </div>
                 
