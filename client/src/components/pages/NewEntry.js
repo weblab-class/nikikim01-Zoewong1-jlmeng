@@ -197,7 +197,10 @@ class NewEntry extends Component{
                     </div>
                     <div className="NewEntry-frontCover">
                           <div className="NewEntry-leftpage u-flex u-flexColumn">
-                          <Creatable
+
+                            <img src={Tape}/>
+
+                            <Creatable
                             className="NewEntry-creatable"
                             styles={style}
                             components={{
@@ -209,8 +212,6 @@ class NewEntry extends Component{
                             options = {tags}
                             placeholder='Tag(s)'
                             />
-
-                            <img src={Tape}/>
 
                               <div className="NewEntry-moods ">
                                 <div className="btnHappy" onClick={() => this.changeColor("FFD300", 'Happy')}></div>
