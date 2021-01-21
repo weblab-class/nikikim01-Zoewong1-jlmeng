@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Circle.css";
 
+
 class Circle extends Component {
     constructor(props) {
         super(props); //color
@@ -11,6 +12,7 @@ class Circle extends Component {
     }
 
     render(){
+        
         const CircleStyle = {
             padding:10,
             margin: 20,
@@ -48,7 +50,9 @@ class Circle extends Component {
 
         } else {
             return (
+                <>
                 <div style={CircleStyle}> </div>
+                </>
             )
         }
     }

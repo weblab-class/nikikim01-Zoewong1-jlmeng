@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import "./NewEntry.css";
 import moment from "moment";
 import Creatable from 'react-select/creatable';
-import Circle from "../modules/Circle.js";
 
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+
 
 const style = {
   control: base => ({
@@ -27,7 +27,6 @@ for (let i = numOfYears; i>0; i--) {
 
 const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const dayList31 = ["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"];
-const colorList = ["#B8D4FF", "#B9D99C", "#CAB8FF", "#D99C9C","#F5CCEA", "#F9D142", "#F8E963"];
 
 // temporary values
 const tags = [{
@@ -207,13 +206,22 @@ class NewEntry extends Component{
                             options = {tags}
                             placeholder='Tag(s)'
                             />
-                            <div>
-                              {colorList.map((color) => (
-                                <div className="u-inlineBlock" onClick={() => this.changeColor(color)}>
-                                  <Circle key={color} bgColor={color} selectedColor={this.state.colorMood}/>
-                                </div>
-                                ))}
-                            </div>
+
+                              <div className="NewEntry-moods ">
+                                <a href="#" className="btnHappy NewEntry-faces"></a>
+                                <a href="#" className="btnLaugh NewEntry-faces"></a>
+                                <a href="#" className="btnKiss NewEntry-faces"></a>
+                                <a href="#" className="btnSmile NewEntry-faces"></a>
+                                <a href="#" className="btnSurprise NewEntry-faces"></a>
+                                <a href="#" className="btnUgh NewEntry-faces"></a>
+                                <a href="#" className="btnMeh NewEntry-faces"></a>
+                                <a href="#" className="btnDea NewEntry-faces"></a>
+                                <a href="#" className="btnSick NewEntry-faces"></a>
+                                <a href="#" className="btnTears NewEntry-faces"></a>
+                                <a href="#" className="btnMad NewEntry-faces"></a>
+                                
+                              </div>
+
                         </div>
                     </div>
                     

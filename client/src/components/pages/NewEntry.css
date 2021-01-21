@@ -1,4 +1,4 @@
-/* Group 16 */
+/* FontAwesome Icons used: https://fontawesome.com/ */
 .NewEntry-background{
     position: absolute;
     width: 95vw;
@@ -106,4 +106,399 @@ border-radius: 5px;
 .NewEntry-contentBox{
     padding: 1vw;
 
+}
+
+
+.btnSick{
+    display: inline-block;
+    text-decoration: none;
+    color:#54C452;/*IconColor*/
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: url(../../public/images/sickFace.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #54C452;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(65, 225, 81, 0.5), 0 2px 2px rgba(13, 89, 20, 0.19);
+    border-bottom: solid 2px #70944d;
+}
+.btnSick .fa {
+    line-height: 80px;
+}
+.btnSick:active {/*onClick*/
+    background-image: url(../../public/images/sickFace.svg);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+}
+
+.btnMad{
+
+    display: inline-block;
+    text-decoration: none;
+    color:#E35B5B;/*IconColor*/
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-family: "Font Awesome 5 Free";
+    font-size: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: url(../../public/images/Mad.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-color: #E35B5B;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(235, 131, 119, 0.5), 0 2px 2px rgba(150, 10, 10, 0.19);
+    border-bottom: solid 2px #881e1e;
+}
+
+.btnMad .fa {
+    line-height: 80px;
+}
+.btnMad:active {/*onClick*/
+    background-image: url(../../public/images/Mad.svg);
+    background-size: 85%;
+    background-position: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+}
+
+.btnHappy{
+
+    display: inline-block;
+    text-decoration: none;
+    color:#FFD300;/*IconColor*/
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-family: "Font Awesome 5 Free";
+    font-size: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: url(../../public/images/Happy.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-color: #FFD300;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(213, 209, 104, 0.5), 0 2px 2px rgba(150, 134, 10, 0.19);
+    border-bottom: solid 2px #d3c205;
+}
+
+.btnHappy .fa {
+    line-height: 80px;
+}
+.btnHappy:active {/*onClick*/
+    background-image: url(../../public/images/Happy.svg);
+    background-size: 85%;
+    background-position: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+}
+
+.btnTears{
+
+    display: inline-block;
+    text-decoration: none;
+    color:#6BA0FC;/*IconColor*/
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-family: "Font Awesome 5 Free";
+    font-size: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: url(../../public/images/SadTears.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-color: #6BA0FC;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(213, 209, 104, 0.5), 0 2px 2px rgba(150, 134, 10, 0.19);
+    border-bottom: solid 2px #182ae9;
+}
+
+.btnTears .fa {
+    line-height: 80px;
+}
+.btnTears:active {/*onClick*/
+    background-image: url(../../public/images/SadTears.svg);
+    background-size: 85%;
+    background-position: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+}
+
+.btnKiss{
+
+    display: inline-block;
+    text-decoration: none;
+    color:#F173D2;/*IconColor*/
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-family: "Font Awesome 5 Free";
+    font-size: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: url(../../public/images/KissWink.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-color: #F173D2;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(225, 146, 213, 0.5), 0 2px 2px rgba(109, 24, 102, 0.19);
+    border-bottom: solid 2px #b234bd;
+}
+
+.btnKiss .fa {
+    line-height: 80px;
+}
+.btnKiss:active {/*onClick*/
+    background-image: url(../../public/images/KissWink.svg);
+    background-size: 85%;
+    background-position: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+}
+
+
+.btnSurprise{
+
+    display: inline-block;
+    text-decoration: none;
+    color:#fec085;/*IconColor*/
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-family: "Font Awesome 5 Free";
+    font-size: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: url(../../public/images/Surprise.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-color: #fec085;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(247, 191, 123, 0.5), 0 2px 2px rgba(168, 100, 17, 0.19);
+    border-bottom: solid 2px #bd7434;
+}
+
+.btnSurprise .fa {
+    line-height: 80px;
+}
+.btnSurprise:active {/*onClick*/
+    background-image: url(../../public/images/Surprise.svg);
+    background-size: 85%;
+    background-position: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+}
+
+
+.btnDead{
+
+    display: inline-block;
+    text-decoration: none;
+    color:#000000;/*IconColor*/
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-family: "Font Awesome 5 Free";
+    font-size: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: url(../../public/images/Dead.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-color: #000000;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(92, 89, 92, 0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: solid 2px #100012;
+}
+
+.btnDead .fa {
+    line-height: 80px;
+}
+.btnDead:active {/*onClick*/
+    background-image: url(../../public/images/Dead.svg);
+    background-size: 85%;
+    background-position: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+}
+
+
+.btnLaugh{
+
+    display: inline-block;
+    text-decoration: none;
+    color:#965AEA;/*IconColor*/
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-family: "Font Awesome 5 Free";
+    font-size: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: url(../../public/images/Laugh.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-color: #965AEA;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(247, 191, 123, 0.5), 0 2px 2px rgba(168, 100, 17, 0.19);
+    border-bottom: solid 2px #3a0f6c;
+}
+
+.btnLaugh .fa {
+    line-height: 80px;
+}
+.btnLaugh:active {/*onClick*/
+    background-image: url(../../public/images/Laugh.svg);
+    background-size: 85%;
+    background-position: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+}
+.btnUgh{
+
+    display: inline-block;
+    text-decoration: none;
+    color:#9A6A44;/*IconColor*/
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-family: "Font Awesome 5 Free";
+    font-size: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: url(../../public/images/Ugh.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-color: #9A6A44;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(247, 191, 123, 0.5), 0 2px 2px rgba(168, 100, 17, 0.19);
+    border-bottom: solid 2px #482e12;
+}
+
+.btnUgh .fa {
+    line-height: 80px;
+}
+.btnUgh:active {/*onClick*/
+    background-image: url(../../public/images/Ugh.svg);
+    background-size: 85%;
+    background-position: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+}
+.btnMeh{
+
+    display: inline-block;
+    text-decoration: none;
+    color:#717D7E;/*IconColor*/
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-family: "Font Awesome 5 Free";
+    font-size: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: url(../../public/images/Meh.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-color: #717D7E;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(247, 191, 123, 0.5), 0 2px 2px rgba(168, 100, 17, 0.19);
+    border-bottom: solid 2px #332d3a;
+}
+
+.btnMeh .fa {
+    line-height: 80px;
+}
+.btnMeh:active {/*onClick*/
+    background-image: url(../../public/images/Meh.svg);
+    background-size: 85%;
+    background-position: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+}
+.btnSmile{
+
+    display: inline-block;
+    text-decoration: none;
+    color:#0BB5FF;/*IconColor*/
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    font-family: "Font Awesome 5 Free";
+    font-size: 40px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    font-weight: bold;
+    background-image: url(../../public/images/Smile.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80%;
+    background-color: #0BB5FF;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+    box-shadow: inset 0 2px 0 rgba(247, 191, 123, 0.5), 0 2px 2px rgba(168, 100, 17, 0.19);
+    border-bottom: solid 2px #332d3a;
+}
+
+.btnSmile .fa {
+    line-height: 80px;
+}
+.btnSmile:active {/*onClick*/
+    background-image: url(../../public/images/Smile.svg);
+    background-size: 85%;
+    background-position: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
+    border-bottom: none;
+}
+
+.NewEntry-faces{
+    size: 80%;
 }
