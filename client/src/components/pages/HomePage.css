@@ -1,27 +1,4 @@
-.HomePage-journalGrouped{
-    display:flex;
-    height: 80vh;
-    justify-content: space-between;
-}
-/* 
-.HomePage-journal1,
-.HomePage-journal2{
-  display:flex;
-  width: 100%;
-}
 
-.HomePage-journal1{
-  background-image: url(../../public/images/LeatherJournal.svg);
-}
-
-.HomePage-journal2{
-  background-image: url(../../public/images/LeatherJournal.svg);
-}
-
-.HomePage-journals{
-  display: flex;
-  justify-content: space-between;
-} */
 
 .HomePage-editPen{
     display: flex;
@@ -30,6 +7,8 @@
 .HomePage-container{
     display: flex;
     flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
