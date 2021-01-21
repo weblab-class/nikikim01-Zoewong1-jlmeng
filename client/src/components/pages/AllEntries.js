@@ -153,15 +153,20 @@ class AllEntries extends Component{
         return(
             <div>
                 
-                <div className="u-flexRow u-flex-alignCenter">
+                <div className="AllEntries-Header u-flexRow u-flex-alignCenter">
+                    <div className="AllEntries-leftHeader">
                     <h1 className="u-flex u-flex-alignCenter AllEntries-date">
                         {leftIconCode}
                         <span>{this.state.month.format('MMMM YYYY')}</span>
                         {rightIconCode}
+                        {menuIcon} {viewIcon}
                     </h1>
-                    {menuIcon} {viewIcon}
+                    
+                    </div>
+                    <div className="AllEntries-rightHeader u-flex u-flex-alignCenter">
                     <Link to="/MoodTracker"><img src={HappySun} height="180" className="AllEntries-happySun"></img></Link>
                     <Link to="/CreateEntry"><img src={FountainPen} className="AllEntries-editPen u-editPen"></img></Link>
+                    </div>
                 </div>
                 
                 <div className={this.state.viewMode ? "u-flexColumn" : "u-flexRow u-flex-justifyCenter u-flexWrap"}>

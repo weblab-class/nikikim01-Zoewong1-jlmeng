@@ -64,10 +64,15 @@
 
 .AllEntries-happySun{
     display: flex;
-    margin-left: 55vh;
 }
 
 .AllEntries-editPen{
     height: 18vh;
     transform: rotate(-20deg);
+}
+
+.AllEntries-Header{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }

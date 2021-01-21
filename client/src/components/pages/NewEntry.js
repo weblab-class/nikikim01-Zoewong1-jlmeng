@@ -5,6 +5,7 @@ import Creatable from 'react-select/creatable';
 
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import Tape from "../../public/images/Tape.svg";
 
 
 const style = {
@@ -112,8 +113,9 @@ class NewEntry extends Component{
     }
   changeTitle = (event) => {this.setState({title: event.target.value});}
   changeContent = (event) => {this.setState({content: event.target.value});}
-  changeColor = (newColor) => {
+  changeColor = (newColor, mood) => {
     this.setState({colorMood: newColor});
+    console.log('mood is', mood);
   }
   changeTag = (newValue, actionMeta) => {
     console.group('Value Changed');
@@ -162,12 +164,13 @@ class NewEntry extends Component{
         }
     
       };
+      
     
 
     render(){
-      console.log(this.state.title);
-      console.log(this.state.content);
-      console.log(this.state.colorMood);
+      console.log("The title is ", this.state.title);
+      console.log("Current Input: ", this.state.content);
+      console.log('Currently set mood color is', this.state.colorMood);
         return (
             <div className="NewEntry-background NewEntry-split">
                 <div className="NewEntry-journal">
@@ -193,7 +196,7 @@ class NewEntry extends Component{
                         </div>
                     </div>
                     <div className="NewEntry-frontCover">
-                          <div className="NewEntry-leftpage">
+                          <div className="NewEntry-leftpage u-flex u-flexColumn">
                           <Creatable
                             className="NewEntry-creatable"
                             styles={style}
@@ -207,18 +210,20 @@ class NewEntry extends Component{
                             placeholder='Tag(s)'
                             />
 
+                            <img src={Tape}/>
+
                               <div className="NewEntry-moods ">
-                                <a href="#" className="btnHappy NewEntry-faces"></a>
-                                <a href="#" className="btnLaugh NewEntry-faces"></a>
-                                <a href="#" className="btnKiss NewEntry-faces"></a>
-                                <a href="#" className="btnSmile NewEntry-faces"></a>
-                                <a href="#" className="btnSurprise NewEntry-faces"></a>
-                                <a href="#" className="btnUgh NewEntry-faces"></a>
-                                <a href="#" className="btnMeh NewEntry-faces"></a>
-                                <a href="#" className="btnDea NewEntry-faces"></a>
-                                <a href="#" className="btnSick NewEntry-faces"></a>
-                                <a href="#" className="btnTears NewEntry-faces"></a>
-                                <a href="#" className="btnMad NewEntry-faces"></a>
+                                <div className="btnHappy" onClick={() => this.changeColor("FFD300", 'Happy')}></div>
+                                <div className="btnLaugh" onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
+                                <div className="btnKiss" onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
+                                <div className="btnSmile" onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
+                                <div className="btnSurprise" onClick={() => this.changeColor("fec085", "Surprise")}></div>
+                                <div className="btnUgh" onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
+                                <div className="btnMeh" onClick={() => this.changeColor("717D7E", "Meh")}></div>
+                                <div className="btnDead" onClick={() => this.changeColor("000000", 'Dead')}></div>
+                                <div className="btnSick" onClick={() => this.changeColor("54C452", "Sick")}></div>
+                                <div className="btnTears" onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
+                                <div className="btnMad"onClick={() => this.changeColor("E35B5B", "Mad")}></div>
                                 
                               </div>
 
