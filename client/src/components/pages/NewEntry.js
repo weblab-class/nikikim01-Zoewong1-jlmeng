@@ -231,7 +231,7 @@ class NewEntry extends Component{
       console.log("Current Input: ", this.state.content);
       console.log('Currently set mood color is', this.state.colorMood);
         return (
-
+<>
           <div className="NewEntry-container">
             <div className="NewEntry-dateLocation">
               <div className='emptiness'></div>  {/* blank box*/}
@@ -254,7 +254,9 @@ class NewEntry extends Component{
                     <div className="NewEntry-backCover">
                         <div className="NewEntry-clasp"/>
                         <div className="NewEntry-rightpage">
-                              
+                        <div className="NewEntry-titleBox">
+                            <input className="NewEntry-title" placeholder='Title' onChange={this.changeTitle}></input>
+                        </div>
                             <div className="NewEntry-contentBox">
                                 <Editor
                                 toolbar={{
@@ -326,9 +328,14 @@ class NewEntry extends Component{
                         </div>
                     </div>
                     
+                    
                 </div>
-
             </div>
+
+<button className="NewEntry-saveButton" onClick={this.addEntry}>
+<p className="NewEntry-saveText">Save</p>
+</button>
+</>
 
         );
     }

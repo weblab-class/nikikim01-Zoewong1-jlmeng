@@ -100,7 +100,7 @@
 }
 
 .CreateEntry-saveText{
-    font-family: Inter;
+    font-family: Alegreya;
 }
 
 .CreateEntry-saveHeart{
@@ -157,7 +157,7 @@
 /* Month - Day - Year Dropdowns  */
 
 .CreateEntry-selectContent{
-    font-family: Inter;
+    font-family: Alegreya;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -187,7 +187,7 @@
 }
 
 .CreateEntry-creatable{
-    font-family: Inter;
+    font-family: Alegreya;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;

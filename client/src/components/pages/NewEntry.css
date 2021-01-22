@@ -41,7 +41,9 @@
     display: flex;
 }
 
+
 .NewEntry-selectContent{
+    font-family: "Alegreya";
     border-top: .1vw solid black;
     border-right: .1vw solid black;
     border-left: .1vw solid black;
@@ -524,4 +526,25 @@ div.rdw-option-wrapper{
 
 div.notranslate.public-DraftEditor-content{
     height: 49vw
+}
+
+.NewEntry-saveButton{
+    position: relative;
+    height: 15vw;
+    width: 15vw;
+    z-index: 5;
+}
+
+.NewEntry-title{
+    color: black;
+    background-color: #fafbf5;
+}
+
+.NewEntry-titleBox{
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    height: 5vh;
+    padding-left: 1vw;
+    box-sizing: border-box;
 }
