@@ -1,4 +1,9 @@
 /* FontAwesome Icons used: https://fontawesome.com/ */
+.NewEntry-container{
+    display: flex;
+    align-items: center;
+}
+
 .NewEntry-background{
     position: absolute;
     width: 95vw;
@@ -9,11 +14,6 @@
 
 .NewEntry-split{
     display: flex;
-}
-
-.NewEntry-date{
-    display: flex;
-    transform: rotate(90deg);
 }
 
 .NewEntry-dropdownButton{
@@ -97,13 +97,6 @@ border-radius: 5px;
     justify-content: space-between;
 }
 
-.NewEntry-journal{
-    width: 100vw;
-    height: 50vw;
-    left: 55px;
-    top: 109px;
-}
-
 .NewEntry-contentBox{
     padding: 1vw;
 
@@ -114,8 +107,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#54C452;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 4vw;
+    height: 4vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -145,8 +138,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#E35B5B;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 4vw;
+    height: 4vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -178,8 +171,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#FFD300;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 4vw;
+    height: 4vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -211,8 +204,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#6BA0FC;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 4vw;
+    height: 4vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -244,8 +237,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#F173D2;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 4vw;
+    height: 4vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -278,8 +271,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#fec085;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 4vw;
+    height: 4vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -312,8 +305,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#000000;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 4vw;
+    height: 4vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -346,8 +339,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#965AEA;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 4vw;
+    height: 4vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -378,8 +371,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#9A6A44;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 4vw;
+    height: 4vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -410,8 +403,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#717D7E;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 4vw;
+    height: 4vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -442,8 +435,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#0BB5FF;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: auto;
+    height: auto;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -484,4 +477,9 @@ border-radius: 5px;
 .NewEntry-images{
     display: flex;
     justify-content: center;
+}
+
+.NewEntry-moods{
+    flex-wrap: nowrap;
+    /* white-space: nowrap; */
 }

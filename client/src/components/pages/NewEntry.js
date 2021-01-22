@@ -3,7 +3,7 @@ import "./NewEntry.css";
 import moment from "moment";
 import Creatable from 'react-select/creatable';
 import { get, post } from "../../utilities";
-// import WebcamCapture from "../..";"
+import Webcam from "react-webcam";
 
 
 import { Editor } from 'react-draft-wysiwyg';
@@ -231,22 +231,26 @@ class NewEntry extends Component{
       console.log("Current Input: ", this.state.content);
       console.log('Currently set mood color is', this.state.colorMood);
         return (
+
+          <div className="NewEntry-container">
+           <div className = "NewEntry-date u-flex u-flexRow">
+              <div className="NewEntry-dropdownButton">
+                <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
+                </div>
+                <div className="NewEntry-dropdownButton">
+                <select className="NewEntry-selectContent" value={this.state.day} onChange={this.changeDay}>{days}</select>
+                </div>
+                <div className="NewEntry-dropdownButton">
+                <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
+                </div>
+            </div>
             <div className="NewEntry-background NewEntry-split">
-                <div className="NewEntry-journal">
+  
+                {/* <div className="NewEntry-journal"> */}
                     <div className="NewEntry-backCover">
                         <div className="NewEntry-clasp"/>
                         <div className="NewEntry-rightpage">
-                              <div className = "NewEntry-date u-flexRow">
-                                  <div className="NewEntry-dropdownButton">
-                                    <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
-                                    </div>
-                                    <div className="NewEntry-dropdownButton">
-                                    <select className="NewEntry-selectContent" value={this.state.day} onChange={this.changeDay}>{days}</select>
-                                    </div>
-                                    <div className="NewEntry-dropdownButton">
-                                    <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
-                                    </div>
-                                </div>
+                              
                             <div className="NewEntry-contentBox">
                                 <Editor className="NewEntry-editor">
                                 <input type="text" className="NewEntry-content" overflow="auto" placeholder="Today, I..."></input>
@@ -310,6 +314,8 @@ class NewEntry extends Component{
                 </div>
 
             </div>
+
+            // </div>
         );
     }
 }
