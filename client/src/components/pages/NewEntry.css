@@ -474,3 +474,14 @@ border-radius: 5px;
     background-color: white;
 } */
 
+.NewEntry-img{
+    height: 20vh;
+    width: auto;
+    display: flex;
+
+}
+
+.NewEntry-images{
+    display: flex;
+    justify-content: center;
+}

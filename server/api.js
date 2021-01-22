@@ -53,19 +53,22 @@ router.post("/initsocket", (req, res) => {
 router.post("/uploadImage", auth.ensureLoggedIn, (req, res) => {
   if (typeof (req.body.image) !== 'string') {
     throw new Error("Can only handle images encoded as strings. Got type: "
-    + typeof (req.body.image));
+      + typeof (req.body.image));
   }
   User.findById(req.user._id).then(user => {
-    if (user.imageNames.length >= 10) {
-      // not allowing more than 10 images
+    if (user.imageNames.length >= 1) {
+      // don't allow anyone to have more than 3 images (not race condition safe)
       res.status(412).send({
-        message: "You can't post anymore new images :( We're poor college students"
+        message: "You can't post a new image! You already have 3!"
       });
-    } return uploadImagePromise(req.body.image);
+    }
+    // only start uploading the image once we know we really want to, since
+    // uploading costs money! (if you do it too much)
+    return uploadImagePromise(req.body.image);
   }).then(imageName => {
-    return User.updateOne({_id: req.user._id},
-      {$push: {imageNames: imageName}});
-  }).then(users => {
+    return User.updateOne({ _id: req.user._id },
+      { $push: { imageNames: imageName } });
+  }).then(user => {
     res.send({}); // success!
   }).catch(err => {
     console.log("ERR: upload image: " + err);

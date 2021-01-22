@@ -3,6 +3,7 @@ import "./NewEntry.css";
 import moment from "moment";
 import Creatable from 'react-select/creatable';
 import { get, post } from "../../utilities";
+// import WebcamCapture from "../..";"
 
 
 import { Editor } from 'react-draft-wysiwyg';
@@ -88,7 +89,7 @@ class NewEntry extends Component{
       document.title="Create a new entry!";
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps){
         if (this.state.saved){
           console.log("Create Entry toggle");
           this.setState({saved:false,});
@@ -268,7 +269,7 @@ class NewEntry extends Component{
                               <div className="NewEntry-images">
                               {
                               this.state.images.map((image, index) => (
-                              <img src={image} key={index} />
+                              <img src={image} className="NewEntry-img" key={index} />
                               ))
                               }
                             </div>

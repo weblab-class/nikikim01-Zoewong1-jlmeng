@@ -29,6 +29,7 @@
     "draft-js": "^0.11.7",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
+    "fund": "^1.0.0",
     "google-auth-library": "^6.1.4",
     "moment": "2.29.1",
     "moment-range": "^4.0.2",
