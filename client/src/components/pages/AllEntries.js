@@ -17,6 +17,11 @@ import "../../utilities.css";
 import "./AllEntries.css";
 import moment from "moment";
 
+
+/**
+ * @param userId
+ * @param username
+ */
 class AllEntries extends Component{
     constructor(props){
         super(props);
@@ -44,6 +49,7 @@ class AllEntries extends Component{
         get("/api/entries",{
             month:this.state.month.format("MMMM"), 
             year:this.state.month.format("YYYY"), 
+            user_id:this.props.userId,
             // journal:this.state.journal,
         }).then((entryObjs) => {
             this.setState({entries: entryObjs});
@@ -155,23 +161,22 @@ class AllEntries extends Component{
                 
                 <div className="AllEntries-Header u-flexRow u-flex-alignCenter">
                     <div className="AllEntries-leftHeader">
-                    <h1 className="u-flex u-flex-alignCenter AllEntries-date">
-                        {leftIconCode}
-                        <span>{this.state.month.format('MMMM YYYY')}</span>
-                        {rightIconCode}
-                        {menuIcon} {viewIcon}
-                    </h1>
-                    
+                        <h1 className="u-flex u-flex-alignCenter AllEntries-date">
+                            {leftIconCode}
+                            <span>{this.state.month.format('MMMM YYYY')}</span>
+                            {rightIconCode}
+                            {/* {menuIcon} {viewIcon} */}
+                        </h1>
                     </div>
                     <div className="AllEntries-rightHeader u-flex u-flex-alignCenter">
-                    <Link to="/MoodTracker"><img src={HappySun} height="180" className="AllEntries-happySun"></img></Link>
-                    <Link to="/CreateEntry"><img src={FountainPen} className="AllEntries-editPen u-editPen"></img></Link>
+                        <Link to="/MoodTracker"><img src={HappySun} height="100px" className="AllEntries-happySun"></img></Link>
+                        <Link to="/CreateEntry"><img src={FountainPen} height="80px" className="AllEntries-editPen u-editPen"></img></Link>
                     </div>
                 </div>
-                
+                <hr style={{"border-style":"double", "margin":"0 16px"}}></hr>
                 <div className={this.state.viewMode ? "u-flexColumn" : "u-flexRow u-flex-justifyCenter u-flexWrap"}>
                     {entriesList}
-                    {addEntryButton}
+                    {/* {addEntryButton} */}
                 </div>
             </div>
         )

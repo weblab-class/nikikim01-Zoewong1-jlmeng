@@ -2,7 +2,7 @@
     width: 40px;
     height: 40px;
     padding: var(--xs);
-    margin: var(--xs);
+    margin: var(--m);
 }
 
 .AllEntries-iconSelected{
@@ -27,7 +27,7 @@
     font-weight: bold;
     font-size: 72px;
     line-height: 87px;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     
     margin: var(--m);
     color: var(--midblue);
@@ -44,7 +44,6 @@
 
 .AllEntries-add{
     text-decoration: none;
-    font-family: Inter;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
