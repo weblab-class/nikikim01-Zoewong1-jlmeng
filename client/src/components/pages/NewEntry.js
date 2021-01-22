@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./NewEntry.css";
 import moment from "moment";
 import Creatable from 'react-select/creatable';
+import { get, post } from "../../utilities";
+
 
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
@@ -74,6 +76,8 @@ class NewEntry extends Component{
             content: null,
             saved: false, 
             tags: [],
+                  images: [],
+
         }
     }
 

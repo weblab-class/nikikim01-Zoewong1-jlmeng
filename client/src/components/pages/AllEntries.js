@@ -10,7 +10,7 @@ import plusSign from "../../public/images/plusSign.svg";
 import leftIcon from "../../public/images/leftIcon.svg";
 import rightIcon from "../../public/images/rightIcon.svg";
 import HappySun from "../../public/images/HappySun.svg";
-import FountainPen from "../../public/images/FountainPen.svg";
+import EditPen from "../../public/images/EditPen.svg";
 
 
 import "../../utilities.css";
@@ -165,7 +165,7 @@ class AllEntries extends Component{
                     </div>
                     <div className="AllEntries-rightHeader u-flex u-flex-alignCenter">
                     <Link to="/MoodTracker"><img src={HappySun} height="180" className="AllEntries-happySun"></img></Link>
-                    <Link to="/CreateEntry"><img src={FountainPen} className="AllEntries-editPen u-editPen"></img></Link>
+                    <Link to="/NewEntry"><img src={EditPen} className="AllEntries-editPen u-editPen"></img></Link>
                     </div>
                 </div>
                 
