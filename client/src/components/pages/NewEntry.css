@@ -129,8 +129,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#54C452;/*IconColor*/
-    width: 4vw;
-    height: 4vw;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -160,8 +160,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#E35B5B;/*IconColor*/
-    width: 4vw;
-    height: 4vw;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -193,8 +193,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#FFD300;/*IconColor*/
-    width: 4vw;
-    height: 4vw;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -226,8 +226,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#6BA0FC;/*IconColor*/
-    width: 4vw;
-    height: 4vw;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -259,8 +259,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#F173D2;/*IconColor*/
-    width: 4vw;
-    height: 4vw;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -293,8 +293,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#fec085;/*IconColor*/
-    width: 4vw;
-    height: 4vw;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -327,8 +327,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#000000;/*IconColor*/
-    width: 4vw;
-    height: 4vw;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -361,8 +361,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#965AEA;/*IconColor*/
-    width: 4vw;
-    height: 4vw;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -393,8 +393,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#9A6A44;/*IconColor*/
-    width: 4vw;
-    height: 4vw;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -425,8 +425,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#717D7E;/*IconColor*/
-    width: 4vw;
-    height: 4vw;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -498,15 +498,17 @@ border-radius: 5px;
 }
 
 .NewEntry-moods{
+    display: flex;
     flex-wrap: nowrap;
-    /* white-space: nowrap; */
+    justify-content: space-between;
+    padding: 5px;
+
 }
 
 div.rdw-editor-toolbar{
     height: 10vh;
     background-color: #fafbf5;
     border: none;
-    margin-bottom: 4.5vh;
 }
 
 div.rdw-option-wrapper{
