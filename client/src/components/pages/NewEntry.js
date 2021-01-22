@@ -82,14 +82,29 @@ class NewEntry extends Component{
     }
 
     componentDidMount() {
-        document.title = "Create a new entry!"
+      if (this.props.userId) {
+        this.loadImages();
+      };
+      document.title="Create a new entry!";
     }
 
     componentDidUpdate(){
         if (this.state.saved){
           console.log("Create Entry toggle");
           this.setState({saved:false,});
+        };
+        if (prevProps.userId !== this.props.userId && this.props.userId) {
+          // just logged in. reload images
+          this.loadImages();
         }
+      }
+
+      // Functions to control images //
+
+      loadImages = () => {
+        get("/api/getImages").then(images => {
+          this.setState({ images: images });
+        });
       }
 
     refreshPage = () => {
@@ -97,16 +112,54 @@ class NewEntry extends Component{
         window.location.reload();
       }
 
-      changeMonth = (event) => {
-        this.setState({month: event.target.value});
-        if (["January", "March","May","July","August","October","December"].includes(event.target.value)){ 
-            days = days31;
-        } else if (event.target.value === "February"){
-            days = (this.state.year % 4 === 0 ) ? days29 : days28;
-        } else{
-            days = days30;
-        }
-    }
+      deleteImages = () => {
+        post("/api/deleteImages").then(this.loadImages);
+      }
+
+      uploadImage = (event) => {
+        const fileInput = event.target;
+        console.log(fileInput);
+        this.readImage(fileInput.files[0]).then(image => {
+          fileInput.value = null;
+          return post("/api/uploadImage", { image: image }).then(this.loadImages);
+        }).catch(err => {
+          console.log(err);
+        });
+      };
+
+
+    readImage = (blob) => {
+      return new Promise((resolve, reject) => {
+        const r = new FileReader();
+        r.onloadend = () => {
+          if (r.error) {
+            reject(r.error.message);
+            return;
+          } else if (r.result.length < 50) {
+            // too short. probably just failed to read, or ridiculously small image
+            reject("small image? or truncated response");
+            return;
+          } else if (!r.result.startsWith("data:image/")) {
+            reject("not an image!");
+            return;
+          } else {
+            resolve(r.result);
+          }
+        };
+        r.readAsDataURL(blob);
+      });
+    };
+
+    changeMonth = (event) => {
+      this.setState({month: event.target.value});
+      if (["January", "March","May","July","August","October","December"].includes(event.target.value)){ 
+          days = days31;
+      } else if (event.target.value === "February"){
+          days = (this.state.year % 4 === 0 ) ? days29 : days28;
+      } else{
+          days = days30;
+      }
+  }
 
   changeDay = (event) => {this.setState({day: event.target.value});}
   changeYear = (event) => {
@@ -204,6 +257,23 @@ class NewEntry extends Component{
 
                             <img src={Tape}/>
 
+                            <div className="NewEntry-imageControls">
+                              <button type="button" onClick={this.deleteImages}>
+                              Scrap All Images
+                              </button>
+                              <label htmlFor="fileInput">Click to add an image</label>
+                              <input className="NewEntry-uploadImage" type="file" name="files[]" accept="image/*" onChange={this.uploadImage} />
+                              </div>
+                              <div className="NewEntry-images">
+                              {
+                              this.state.images.map((image, index) => (
+                              <img src={image} key={index} />
+                              ))
+                              }
+                            </div>
+
+
+
                             <Creatable
                             className="NewEntry-creatable"
                             styles={style}
@@ -222,7 +292,7 @@ class NewEntry extends Component{
                                 <div className="btnLaugh" onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
                                 <div className="btnKiss" onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
                                 <div className="btnSmile" onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
-                                <div className="btnSurprise" onClick={() => this.changeColor("fec085", "Surprise")}></div>
+                                <div className="btnSurprise" onClick={() => this.changeColor("FEC085", "Surprise")}></div>
                                 <div className="btnUgh" onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
                                 <div className="btnMeh" onClick={() => this.changeColor("717D7E", "Meh")}></div>
                                 <div className="btnDead" onClick={() => this.changeColor("000000", 'Dead')}></div>
