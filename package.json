@@ -36,6 +36,7 @@
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.12",
     "node-cache": "^5.1.2",
+    "node-gyp": "^7.1.2",
     "nodemon": "^2.0.7",
     "react": "^16.14.0",
     "react-cool-onclickoutside": "^1.5.9",

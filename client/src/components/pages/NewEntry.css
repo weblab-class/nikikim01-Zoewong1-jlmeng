@@ -13,6 +13,7 @@
 .NewEntry-datePositioner{
     position: absolute;
     left: 52vw;
+    top: 4.5vw;
 }
 
 .NewEntry-background{
@@ -20,6 +21,7 @@
     width: 95vw;
     height: 80vw;
     left: 5vw;
+    top: 1.5vw;
 }
 
 .NewEntry-date{
@@ -45,15 +47,14 @@
     border-left: .1vw solid black;
     border-bottom: .1vw solid #fafbf5;
     display: absolute;
+    top: 2vw;
     font-size: 2vw;
-    margin-top: 2.8vw;
     background-color: #fafbf5;
     border-radius: 10px 10px 0 0;
     z-index: 1;
     margin-right: 0.5vw;
     
 }
-
 
 /* Rectangle 25 */
 .NewEntry-clasp{
@@ -68,7 +69,6 @@
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
 
 /* Rectangle 4 */
 .NewEntry-backCover{
@@ -119,11 +119,12 @@ border-radius: 5px;
 }
 
 .NewEntry-contentBox{
-    padding: 1vw;
-
+    padding: .5vh;
+    overflow: scroll;
+    height: 95%;
+    width: 38vw;
 }
-
-
+/* MOOD FACES */
 .btnSick{
     display: inline-block;
     text-decoration: none;
@@ -484,10 +485,6 @@ border-radius: 5px;
     border-bottom: none;
 }
 
-/* .NewEntry-uploadImage{
-    background-color: white;
-} */
-
 .NewEntry-img{
     height: 20vh;
     width: auto;
@@ -503,4 +500,26 @@ border-radius: 5px;
 .NewEntry-moods{
     flex-wrap: nowrap;
     /* white-space: nowrap; */
+}
+
+div.rdw-editor-toolbar{
+    height: 10vh;
+    background-color: #fafbf5;
+    border: none;
+    margin-bottom: 4.5vh;
+}
+
+div.rdw-option-wrapper{
+    height: 3vh;
+    width: 3vh;
+    min-width: .2vh;
+    background: #c3cde6;
+}
+
+.rdw-dropdown-selectedtext{
+    background: #c3cde6;
+}
+
+div.notranslate.public-DraftEditor-content{
+    height: 49vw
 }

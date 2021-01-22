@@ -247,7 +247,7 @@ class NewEntry extends Component{
                       <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
                       </div>
                     </div>
-                    </div>
+                  </div>
                   </div>
             <div className="NewEntry-background NewEntry-split">
   
@@ -256,12 +256,23 @@ class NewEntry extends Component{
                         <div className="NewEntry-rightpage">
                               
                             <div className="NewEntry-contentBox">
-                                <Editor className="NewEntry-editor">
-                                <input type="text" className="NewEntry-content" overflow="auto" placeholder="Today, I..."></input>
-                                </Editor>
+                                <Editor
+                                toolbar={{
+                                  options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list',
+                                  'colorPicker', 'link', 'embedded', 'emoji', 'image','history'],
+                                  inline: {
+                                    options: ['bold', 'italic', 'underline', 'strikethrough'],
+                                    bold: { className: 'bordered-option-classname' },
+                                    italic: { className: 'bordered-option-classname' },
+                                    underline: { className: 'bordered-option-classname' },
+                                    strikethrough: { className: 'bordered-option-classname' },
+                                    code: { className: 'bordered-option-classname' },
+                                  },}}
+                                placeholder="Today was an amazing day! I..."/>
                             </div>    
                         </div>
                     </div>
+                    
                     <div className="NewEntry-frontCover">
                           <div className="NewEntry-leftpage u-flex u-flexColumn">
 
