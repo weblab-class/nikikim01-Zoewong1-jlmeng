@@ -75,7 +75,7 @@ class CreateEntry extends Component {
         month: moment().format("MMMM"),
         year: moment().format("YYYY"),
         day: moment().format("D"),
-        journal: null,
+        // journal: null,
         colorMood: null,
         title: null,
         content: null,
@@ -119,12 +119,12 @@ class CreateEntry extends Component {
           days = event.target.value % 4 === 0 ? days29 : days28;
       }
     }
-  changeJournal = (newValue, actionMeta) => {
-    console.group('Value Changed');
-    console.log(newValue);
-    console.groupEnd();
-    this.setState({journal: newValue.label});
-    };
+  // changeJournal = (newValue, actionMeta) => {
+  //   console.group('Value Changed');
+  //   console.log(newValue);
+  //   console.groupEnd();
+  //   this.setState({journal: newValue.label});
+  //   };
   changeTitle = (event) => {this.setState({title: event.target.value});}
   changeContent = (event) => {this.setState({content: event.target.value});}
   changeColor = (newColor) => {
@@ -141,10 +141,13 @@ class CreateEntry extends Component {
 
   addEntry = () => {
 
-    if (this.state.title === null || this.state.content === null || this.state.journal === null || this.state.colorMood === null){
+    if (this.state.title === null || 
+      this.state.content === null || 
+      // this.state.journal === null || 
+      this.state.colorMood === null){
       console.log(this.state.title);
       console.log(this.state.content);
-      console.log(this.state.journal);
+      // console.log(this.state.journal);
       console.log(this.state.colorMood);
       alert("You are missing some information in this journal entry!");
     } else{
@@ -153,7 +156,7 @@ class CreateEntry extends Component {
       console.log("Submitted Entry");
       post("/api/entries",{
           user_id: this.props.userId,
-          journal: this.state.journal,
+          // journal: this.state.journal,
           title: this.state.title,
           month: this.state.month,
           year: this.state.year,
@@ -170,7 +173,7 @@ class CreateEntry extends Component {
         month: moment().format("MMMM"),
         year: moment().format("YYYY"),
         day: moment().format("D"),
-        journal: null,
+        // journal: null,
         colorMood: null,
         title: null,
         content: null,
@@ -184,7 +187,7 @@ class CreateEntry extends Component {
   render() {
     console.log(this.state.title);
     console.log(this.state.content);
-    console.log(this.state.journal);
+    // console.log(this.state.journal);
     console.log(this.state.colorMood);
 
     return (
@@ -202,7 +205,7 @@ class CreateEntry extends Component {
             <select className="CreateEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
             </div>
         </div>
-        <Creatable
+        {/* <Creatable
                 className="CreateEntry-creatable"
                 styles={style}
                 components={{
@@ -211,7 +214,7 @@ class CreateEntry extends Component {
                 onChange={this.changeJournal}
                 options = {journals}
                 placeholder='Journal Name'
-            />
+            /> */}
         <div className="TitleForm-inputBox">
             <input placeholder='Title' onChange={this.changeTitle}></input>
         </div>

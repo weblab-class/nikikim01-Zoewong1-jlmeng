@@ -35,17 +35,6 @@ class AllEntries extends Component{
     componentDidMount(){
         document.title = "All Entries";
 
-        // For Testing Purposes 
-        // this.setState({entries: [{
-        //     _id:"123",
-        //     journal:"Private",
-        //     title:"Entry1",
-        //     month:"January",
-        //     day:"01",
-        //     content:"Hello",
-        //     tags:["school","math"],
-        // }]});
-
         get("/api/entries",{
             month:this.state.month.format("MMMM"), 
             year:this.state.month.format("YYYY"), 
