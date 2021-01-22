@@ -4,6 +4,7 @@ import moment from "moment";
 import Creatable from 'react-select/creatable';
 import { get, post } from "../../utilities";
 import Webcam from "react-webcam";
+import HeartMonitor from "../modules/HeartMonitor.js";
 
 
 import { Editor } from 'react-draft-wysiwyg';
@@ -236,7 +237,7 @@ class NewEntry extends Component{
             <div className="NewEntry-dateLocation">
               <div className='emptiness'></div>  {/* blank box*/}
               <div className="NewEntry-datePositioner">
-                <div className = "NewEntry-date">
+                <div className = "NewEntry,-date">
                     <div className="NewEntry-dropdownButton">
                       <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
                       </div>
@@ -279,6 +280,7 @@ class NewEntry extends Component{
                           <div className="NewEntry-leftpage u-flex u-flexColumn">
 
                             <img src={Tape}/>
+                            <HeartMonitor />
 
                             <div className="NewEntry-imageControls">
                               <button type="button" onClick={this.deleteImages}>
