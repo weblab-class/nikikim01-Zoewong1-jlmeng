@@ -76,7 +76,7 @@ class NewEntry extends Component{
             content: null,
             saved: false, 
             tags: [],
-                  images: [],
+            images: [],
 
         }
     }
@@ -99,6 +99,11 @@ class NewEntry extends Component{
         }
       }
 
+      refreshPage = () => {
+        // window.location = window.location;
+        window.location.reload();
+      }
+
       // Functions to control images //
 
       loadImages = () => {
@@ -107,11 +112,7 @@ class NewEntry extends Component{
         });
       }
 
-    refreshPage = () => {
-        // window.location = window.location;
-        window.location.reload();
-      }
-
+  
       deleteImages = () => {
         post("/api/deleteImages").then(this.loadImages);
       }
