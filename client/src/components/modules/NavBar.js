@@ -8,7 +8,7 @@ import TagHeartLogo from "../../public/images/TagHeartLogo.svg";
 import settingsIcon from "../../public/images/settingsIcon.svg";
 
 // to identify our application to Google's authentication service
-const GOOGLE_CLIENT_ID = "126273665028-0hk9qp3k313dhcaql812d8pdb9m3p545.apps.googleusercontent.com";
+const GOOGLE_CLIENT_ID = "982536960811-6taskpv3uhgkihm76ej75g5i03u1g0mf.apps.googleusercontent.com";
 
 /**
  * The navigation bar at the top of all pages. 

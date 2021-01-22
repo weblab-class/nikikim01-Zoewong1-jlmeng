@@ -12,9 +12,12 @@ const imageCache = new NodeCache({ stdTTL: 7200, checkperiod: 3600 });
 
 // TODO: replace this projectId with your own GCP project id!
 const storageInfo = { projectId: "abiding-arch-301905" };
-if (process.env.GCP_PRIVATE_KEY && process.env.GCP_CLIENT_EMAIL) {
-    storageInfo.credentials = { private_key: process.env.GCP_PRIVATE_KEY, client_email: process.env.GCP_CLIENT_EMAIL };
-}
+// if (process.env.GCP_PRIVATE_KEY && process.env.GCP_CLIENT_EMAIL) {
+//     storageInfo.credentials = { private_key: process.env.GCP_PRIVATE_KEY.replace(/\\n/gm, '\n'), client_email: process.env.GCP_CLIENT_EMAIL };
+// }
+const path = require('path'); // only need here 
+storageInfo.keyFilename = path.join(__dirname, '../gcpcredentials.json');
+console.log(storageInfo);
 const storage = new Storage(storageInfo);
 
 // TODO: replace this bucket name with your own bucket inside your project

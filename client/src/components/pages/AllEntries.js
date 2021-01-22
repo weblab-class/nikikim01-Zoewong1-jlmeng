@@ -49,7 +49,7 @@ class AllEntries extends Component{
         get("/api/entries",{
             month:this.state.month.format("MMMM"), 
             year:this.state.month.format("YYYY"), 
-            user_id:this.props.userId,
+            user_id:Object(this.props.userId),
             // journal:this.state.journal,
         }).then((entryObjs) => {
             this.setState({entries: entryObjs});

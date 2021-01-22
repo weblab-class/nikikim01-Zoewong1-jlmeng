@@ -76,7 +76,7 @@ class NewEntry extends Component{
             content: null,
             saved: false, 
             tags: [],
-                  images: [],
+            images: [],
 
         }
     }
@@ -93,10 +93,15 @@ class NewEntry extends Component{
           console.log("Create Entry toggle");
           this.setState({saved:false,});
         };
-        if (prevProps.userId !== this.props.userId && this.props.userId) {
-          // just logged in. reload images
-          this.loadImages();
-        }
+        // if (prevProps.userId !== this.props.userId && this.props.userId) {
+        //   // just logged in. reload images
+        //   this.loadImages();
+        // }
+      }
+
+      refreshPage = () => {
+        // window.location = window.location;
+        window.location.reload();
       }
 
       // Functions to control images //
@@ -107,11 +112,7 @@ class NewEntry extends Component{
         });
       }
 
-    refreshPage = () => {
-        // window.location = window.location;
-        window.location.reload();
-      }
-
+  
       deleteImages = () => {
         post("/api/deleteImages").then(this.loadImages);
       }
@@ -195,7 +196,7 @@ class NewEntry extends Component{
           this.refreshPage();
           console.log("Submitted Entry");
           post("/api/entries",{
-              user_id: user_name,
+              user_id: this.props.userId,
               title: this.state.title,
               month: this.state.month,
               year: this.state.year,

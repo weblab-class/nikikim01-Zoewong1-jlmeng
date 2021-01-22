@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const EntrySchema = new mongoose.Schema({
-  user_id: String,
+  user_id: Object,
   title: String,
   month: String,
   year: String,
