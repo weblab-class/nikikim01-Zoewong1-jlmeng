@@ -32,6 +32,7 @@ class App extends Component {
     super(props);
     this.state = {
       userId: undefined,
+      username: undefined,
     };
   }
 
@@ -39,7 +40,10 @@ class App extends Component {
     get("/api/whoami").then((user) => {
       if (user._id) {
         // they are registed in the database, and currently logged in.
-        this.setState({ userId: user._id });
+        this.setState({ 
+          userId: user._id,
+          username: user.name,
+        });
       }
     });
   }
@@ -49,6 +53,7 @@ class App extends Component {
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
       this.setState({ userId: user._id });
+      console.log(user._id.valueOf());
       post("/api/initsocket", { socketid: socket.id });
     });
   };
@@ -72,18 +77,18 @@ class App extends Component {
           <LockedJournal path="/LockedJournal"/>
           {this.state.userId && 
             <>
-            <HomePage path="/"/>
-            <CreateEntry1 path="/CreateEntry"/>
+            <HomePage userId={this.state.userId} username={this.state.username} path="/"/>
+            <CreateEntry1 userId={this.state.userId} username={this.state.username} path="/CreateEntry"/>
           {/* <CreateEntry path="/CreateEntry"/> */}
-            <AllEntries path="/AllEntries"/>
-            <SpecificEntry path="/SpecificEntry"/>
-            <Analysis path="/Analysis"/>
-            <Calendar path="/Calendar"/>
+            <AllEntries userId={this.state.userId} username={this.state.username} path="/AllEntries"/>
+            <SpecificEntry userId={this.state.userId} username={this.state.username} path="/SpecificEntry"/>
+            <Analysis userId={this.state.userId} username={this.state.username} path="/Analysis"/>
+            <Calendar userId={this.state.userId} username={this.state.username} path="/Calendar"/>
             <Profile path="/Profile:userId"
               userId = {this.state.userId}
             />
-            <NewEntry path="/NewEntry"/>
-            <MoodTracker path="/MoodTracker"/>
+            <NewEntry userId={this.state.userId} username={this.state.username} path="/NewEntry"/>
+            <MoodTracker userId={this.state.userId} username={this.state.username} path="/MoodTracker"/>
             <NotFound default />
             {//<TestOpenCV path="/TestOpenCV"/>
             }

@@ -127,7 +127,8 @@ router.get("/entry",(req,res) => {
 router.get("/entries",(req,res) => {
   Entry.find({
     month:req.query.month, 
-    year: req.query.year, 
+    year: req.query.year,
+    user_id: req.query.user_id, 
     // journal:req.query.journal
   }).sort({day: 1}).then((entries) => {
     res.send(entries);

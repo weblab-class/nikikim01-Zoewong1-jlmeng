@@ -14,7 +14,9 @@ import "./SingleEntry.css";
  * @param {boolean} viewMode true if Menu List, false if view Mode
  * @param {string} tags associated with entry
  * @param {string} colorMood
-*/
+ * @param userId
+ * @param username
+ */
 class SingleEntry extends Component{
     constructor(props){
         super(props);
@@ -36,9 +38,7 @@ class SingleEntry extends Component{
                 dateBox = <img src={samoyed}></img>
 
             }else{
-                dateBox = <Link to={url} className="u-flex u-flex-justifyCenter u-flex-alignCenter SingleEntry-datebox" style={{ textDecoration: 'none' }}>
-                            <h1 className="SingleEntry-date">{this.props.day}</h1>
-                        </Link>;
+                dateBox = <Link to={url} className="SingleEntry-date" style={{ textDecoration: 'none' }}>{this.props.day}</Link>;
             }
 
 
@@ -47,8 +47,9 @@ class SingleEntry extends Component{
             tagsList = this.props.tags.map((tag) => (<div className="SingleEntry-tag">{tag}</div>));
 
             return (
-                <div className="u-flexRow u-flex-justifyCenter">
+                <div className="u-flexRow u-flex-alignCenter">
                     {dateBox}
+                    <p>{}</p>
                     <div className="SingleEntry-container">
                         <Link to={url} style={{ textDecoration: 'none' }}>
                             <h1 className="SingleEntry-title" style={{color:this.props.colorMood}}>{this.props.title}</h1>

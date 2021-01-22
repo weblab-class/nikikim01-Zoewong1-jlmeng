@@ -2,6 +2,7 @@
 
 .HomePage-editPen{
     display: flex;
+    margin: 8px;
 }
 
 .HomePage-container{

@@ -14,8 +14,6 @@ import WebcamCapture from "../modules/WebcamCapture.js";
 
 import mic from "../../public/images/mic.svg";
 
-const user_name = "Zoe Test"
-
 const style = {
     control: base => ({
       ...base,
@@ -88,6 +86,7 @@ class CreateEntry extends Component {
 
   componentDidMount() {
     document.title = "Create a New Entry (Combined)";
+    console.log(this.props.user_id);
   }
 
   componentDidUpdate(){
@@ -153,7 +152,7 @@ class CreateEntry extends Component {
       this.refreshPage();
       console.log("Submitted Entry");
       post("/api/entries",{
-          user_id: user_name,
+          user_id: this.props.userId,
           journal: this.state.journal,
           title: this.state.title,
           month: this.state.month,

@@ -11,13 +11,12 @@
 }
 
 .SingleEntry-date{
-    font-family: Inter;
     font-style: normal;
     font-weight: bold;
-    font-size: 64px;
-    text-align: center;
+    font-size: 130px;
+    text-align: left;
     text-transform: uppercase;
-    margin: var(--s);
+    margin: 0px var(--l);
 
     color: black;
 }
@@ -36,7 +35,6 @@
 }
 
 .SingleEntry-title{
-    font-family: Inter;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
@@ -45,7 +43,6 @@
 }
 
 .SingleEntry-content{
-    font-family: Inter;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -65,7 +62,6 @@
 
 .SingleEntry-viewTitle{
     text-align: center;
-    font-family: Inter;
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
