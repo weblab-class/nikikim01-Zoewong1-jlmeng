@@ -233,20 +233,24 @@ class NewEntry extends Component{
         return (
 
           <div className="NewEntry-container">
-           <div className = "NewEntry-date u-flex u-flexRow">
-              <div className="NewEntry-dropdownButton">
-                <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
-                </div>
-                <div className="NewEntry-dropdownButton">
-                <select className="NewEntry-selectContent" value={this.state.day} onChange={this.changeDay}>{days}</select>
-                </div>
-                <div className="NewEntry-dropdownButton">
-                <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
-                </div>
-            </div>
+            <div className="NewEntry-dateLocation">
+              <div className='emptiness'></div>  {/* blank box*/}
+              <div className="NewEntry-datePositioner">
+                <div className = "NewEntry-date">
+                    <div className="NewEntry-dropdownButton">
+                      <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
+                      </div>
+                      <div className="NewEntry-dropdownButton">
+                      <select className="NewEntry-selectContent" value={this.state.day} onChange={this.changeDay}>{days}</select>
+                      </div>
+                      <div className="NewEntry-dropdownButton">
+                      <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
             <div className="NewEntry-background NewEntry-split">
   
-                {/* <div className="NewEntry-journal"> */}
                     <div className="NewEntry-backCover">
                         <div className="NewEntry-clasp"/>
                         <div className="NewEntry-rightpage">
@@ -315,7 +319,6 @@ class NewEntry extends Component{
 
             </div>
 
-            // </div>
         );
     }
 }

@@ -1,15 +1,34 @@
 /* FontAwesome Icons used: https://fontawesome.com/ */
 .NewEntry-container{
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+.emptiness{
+    width: 55vw;
+}
+
+.NewEntry-datePositioner{
+    position: absolute;
+    left: 52vw;
 }
 
 .NewEntry-background{
     position: absolute;
     width: 95vw;
     height: 80vw;
-    left: 55px;
-    top: 109px;
+    left: 5vw;
+}
+
+.NewEntry-date{
+    display: flex;
+    flex-direction: row;
+}
+.NewEntry-dateLocation{
+    display: flex;
+    flex-direction: row;
 }
 
 .NewEntry-split{
@@ -18,20 +37,22 @@
 
 .NewEntry-dropdownButton{
     display: flex;
-    padding: 1vh;
 }
 
 .NewEntry-selectContent{
-    border: none;
+    border-top: .1vw solid black;
+    border-right: .1vw solid black;
+    border-left: .1vw solid black;
+    border-bottom: .1vw solid #fafbf5;
+    display: absolute;
+    font-size: 2vw;
+    margin-top: 2.8vw;
+    background-color: #fafbf5;
+    border-radius: 10px 10px 0 0;
+    z-index: 1;
+    margin-right: 0.5vw;
+    
 }
-
-/* .NewEntry-editor{} */
-
-/* .NewEntry-contentBox{
-    resize: none;
-    max-width: 100%;
-    max-height: 100%;
-} */
 
 
 /* Rectangle 25 */
