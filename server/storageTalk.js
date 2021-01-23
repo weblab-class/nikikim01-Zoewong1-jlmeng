@@ -53,6 +53,7 @@ const generateObjectName = () => {
  *   to access this file. If the promise will be rejected upon any errors.
  */
 const uploadImagePromise = (image) => {
+    console.log("in uploadImagePromise function of storageTalk.js");
     const name = generateObjectName();
     imageCache.set(name, image); // update the cache with this new value
 
@@ -90,15 +91,20 @@ const uploadImagePromise = (image) => {
  *    file does not exist.
  */
 const downloadImagePromise = (name) => {
+    console.log("in downloadImagePromise function of storageTalk.js");
+    console.log(name);
     // data[0] is the file data
     const cachedValue = imageCache.get(name);
     if (typeof (cachedValue) === 'string') {
         // this is a valid cached value. just return that!
+        console.log("valid cached value");
         return Promise.resolve(cachedValue);
     } // end of cache stuff
 
     return bucket.file(name).download().then(data => {
+        // console.log(data);
         const image = data[0].toString();
+        // console.log(image);
         imageCache.set(name, image); // update cache with downloaded data
         return image;
     });

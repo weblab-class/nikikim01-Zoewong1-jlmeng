@@ -1,45 +1,56 @@
 /* FontAwesome Icons used: https://fontawesome.com/ */
+
 .NewEntry-background{
     position: absolute;
     width: 95vw;
     height: 80vw;
-    left: 55px;
-    top: 109px;
+    left: 5vw;
+    top: 1.5vw;
+}
+
+.NewEntry-date{
+    display: flex;
+    flex-direction: row;
+
+    position: absolute;
+    left:20%;
+    top: -4%;
 }
 
 .NewEntry-split{
     display: flex;
 }
 
-.NewEntry-date{
-    display: flex;
-}
-
 .NewEntry-dropdownButton{
     display: flex;
-    padding: 1vh;
+    font-family: Alegreya;
 }
+
 
 .NewEntry-selectContent{
-    border: none;
+    font-family: "Alegreya";
+    border-top: .1vw solid black;
+    border-right: .1vw solid black;
+    border-left: .1vw solid black;
+    border-bottom: .1vw solid #fafbf5;
+    display: absolute;
+    top: 2vw;
+    font-size: 2vw;
+    background-color: #fafbf5;
+    border-radius: 10px 10px 0 0;
+    z-index: 1;
+    margin-right: 0.5vw;
+    
 }
-
-/* .NewEntry-editor{} */
-
-/* .NewEntry-contentBox{
-    resize: none;
-    max-width: 100%;
-    max-height: 100%;
-} */
-
 
 /* Rectangle 25 */
 .NewEntry-clasp{
     position: absolute;
-    width: 1.5vw;
-    height: 6vw;
-    left: 42vw;
-    top: 22vw;
+    width: 3.2%;
+    height: 15%;
+    left: 94%;
+    top: 40%;
+    z-index: 5;
 
     background: #C4C4C4;
     border: 1px solid #857d7d;
@@ -47,14 +58,13 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-
 /* Rectangle 4 */
 .NewEntry-backCover{
     position: absolute;
-    width: 45vw;
-    height: 50vw;
-    left: 45vw;
-    top: 5vw;
+    width: 47%;
+    height: 85%;
+    left: 50%;
+    top: 10%;
 
     background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(../../public/images/dark-leather.png);
     border: 1px solid #2e2626;
@@ -65,9 +75,10 @@
 /* Rectangle 5 */
 .NewEntry-frontCover{
 position: absolute;
-width: 45vw;
-height: 50vw;
-top: 5vw;
+width: 47%;
+height: 85%;
+left: 3%;
+top: 10%;
 
 background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(../../public/images/dark-leather.png);
 border: 1px solid #2e2626;
@@ -79,42 +90,36 @@ border-radius: 5px;
 /* Rectangle 26 */
 .NewEntry-rightpage{
     position: absolute;
-    width: 40vw;
-    height: 49vw;
-    top: 0.3vw;
+    width: 90%;
+    height: 98%;
+    top: 1%;
 
     background: #FAFBF5;
 }
 
 .NewEntry-leftpage{
     position: absolute;
-    width: 40vw;
-    height: 49vw;
-    top: 0.3vw;
-    left: 5vw;
+    width: 91%;
+    height: 98%;
+    top: 1%;
+    left: 10%;
     background: #FAFBF5;
+    z-index: 1;
     justify-content: space-between;
 }
 
-.NewEntry-journal{
-    width: 100vw;
-    height: 50vw;
-    left: 55px;
-    top: 109px;
-}
-
 .NewEntry-contentBox{
-    padding: 1vw;
+    padding: .5vh;
+    width: 88%;
 
 }
-
-
+/* MOOD FACES */
 .btnSick{
     display: inline-block;
     text-decoration: none;
     color:#54C452;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -144,8 +149,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#E35B5B;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -177,8 +182,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#FFD300;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -210,8 +215,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#6BA0FC;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -243,8 +248,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#F173D2;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -277,8 +282,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#fec085;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -311,8 +316,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#000000;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -345,8 +350,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#965AEA;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -377,8 +382,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#9A6A44;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -409,8 +414,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#717D7E;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: 3.5vw;
+    height: 3.5vw;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -441,8 +446,8 @@ border-radius: 5px;
     display: inline-block;
     text-decoration: none;
     color:#0BB5FF;/*IconColor*/
-    width: 8vh;
-    height: 8vh;
+    width: auto;
+    height: auto;
     border-radius: 50%;
     text-align: center;
     vertical-align: middle;
@@ -469,10 +474,6 @@ border-radius: 5px;
     border-bottom: none;
 }
 
-/* .NewEntry-uploadImage{
-    background-color: white;
-} */
-
 .NewEntry-img{
     height: 20vh;
     width: auto;
@@ -483,4 +484,74 @@ border-radius: 5px;
 .NewEntry-images{
     display: flex;
     justify-content: center;
+    margin-left: 1%;
+}
+
+.NewEntry-imageControls{
+    margin-left: 1%;
+}
+
+.NewEntry-moods{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 5px;
+
+}
+
+div.rdw-editor-toolbar{
+    font-family: Alegreya;
+    background-color: #fafbf5;
+    border: none;
+}
+
+div.rdw-option-wrapper{
+    background: #c3cde6;
+}
+
+.rdw-dropdown-selectedtext{
+    background: #c3cde6;
+    
+}
+
+.NewEntry-saveButton{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+    left: 60%;
+    bottom: -2%;
+    transform: rotate(-10deg);
+    z-index: 5;
+    border: none;
+    background: none;
+    padding: 0;
+    
+}
+
+.NewEntry-bookmark{
+    width: 60%;
+}
+
+.NewEntry-title{
+    color: black;
+    background-color: #fafbf5;
+    z-index: 0;
+    width: 85%;
+}
+
+.NewEntry-titleBox{
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    margin-top: 3%;
+    padding-left: 3%;
+    align-content: center;
+    box-sizing: border-box;
+}
+
+.NewEntry-tagsBar{
+    height: 5%;
+    margin-left: 1%;
+    margin-right: 1%;
 }

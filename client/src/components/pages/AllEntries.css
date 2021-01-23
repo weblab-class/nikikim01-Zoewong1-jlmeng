@@ -63,8 +63,13 @@
 
 .AllEntries-happySun{
     display: flex;
+    height: 4vh;
+    padding-right: 5vw;
 }
 
+.AllEntries-border{
+    border: .25vw;
+}
 .AllEntries-editPen{
     height: 18vh;
     transform: rotate(-160deg);

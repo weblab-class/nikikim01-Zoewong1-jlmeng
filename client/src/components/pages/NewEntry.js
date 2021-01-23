@@ -3,18 +3,20 @@ import "./NewEntry.css";
 import moment from "moment";
 import Creatable from 'react-select/creatable';
 import { get, post } from "../../utilities";
-// import WebcamCapture from "../..";"
+import Webcam from "react-webcam";
+import HeartMonitor from "../modules/HeartMonitor.js";
+import SaveBookmark from "../../public/images/SaveBookmark.svg";
 
-
+import {EditorState} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import Tape from "../../public/images/Tape.svg";
 
 
 const style = {
   control: base => ({
     ...base,
-    border: 0,
+    fontFamily: 'Alegreya',
+    backgroundColor: '#fafbf5',
     // This line disable the blue border
     boxShadow: "none",
   })
@@ -74,96 +76,111 @@ class NewEntry extends Component{
             day: moment().format("D"),
             colorMood: null,
             title: null,
-            content: null,
+            content: EditorState.createEmpty(),
             saved: false, 
             tags: [],
-            images: [],
+            imageURL: "",
+            imageName: "",
 
         }
     }
 
     componentDidMount() {
-      if (this.props.userId) {
-        this.loadImage();
-      };
+      // if (this.props.userId) {
+      //   this.loadImage();
+      // };
       document.title="Create a new entry!";
     }
 
-    componentDidUpdate(prevProps){
-        if (this.state.saved){
-          console.log("Create Entry toggle");
-          this.setState({saved:false,});
-        };
-        // if (prevProps.userId !== this.props.userId && this.props.userId) {
-        //   // just logged in. reload images
-        //   this.loadImages();
-        // }
-      }
-
-      refreshPage = () => {
-        // window.location = window.location;
-        window.location.reload();
-      }
-
-      // Functions to control images //
-
-      loadImage = () => {
-        get("/api/getImage").then(images => {
-          this.setState({ images: images });
-        });
-      }
-
-  
-      deleteImage = () => {
-        post("/api/deleteImage").then(this.loadImage);
-      }
-
-      uploadImage = (event) => {
-        const fileInput = event.target;
-        console.log(fileInput);
-        console.log(fileInput.files[0]);
-        this.readImage(fileInput.files[0]).then(image => {
-          fileInput.value = null;
-          return post("/api/uploadImage", { image: image }).then(this.loadImage);
-        }).catch(err => {
-          console.log(err);
-        });
+  componentDidUpdate(prevProps){
+      if (this.state.saved){
+        console.log("Create Entry toggle");
+        this.setState({saved:false,});
       };
+      if (prevProps.userId !== this.props.userId && this.props.userId) {
+        // just logged in. reload images
+        this.loadImages();
+      }
+    }
 
+    refreshPage = () => {
+      // window.location = window.location;
+      window.location.reload();
+    }
 
-    readImage = (blob) => {
-      return new Promise((resolve, reject) => {
-        const r = new FileReader();
-        r.onloadend = () => {
-          if (r.error) {
-            reject(r.error.message);
-            return;
-          } else if (r.result.length < 50) {
-            // too short. probably just failed to read, or ridiculously small image
-            reject("small image? or truncated response");
-            return;
-          } else if (!r.result.startsWith("data:image/")) {
-            reject("not an image!");
-            return;
-          } else {
-            resolve(r.result);
-          }
-        };
-        r.readAsDataURL(blob);
+    // Functions to control images //
+
+    loadImage = (receivedImage=this.state.imageURL) => {
+      console.log(receivedImage);
+      get("/api/getImage",{image: receivedImage }).then(data => {
+        console.log(data);
+        this.setState({ 
+          imageURL: data.image,
+          imageName: data.imageName,
+        });
+      });
+    }
+
+    deleteImage = () => {
+      post("/api/deleteImage", {image: this.state.imageName}).then(() => {
+        this.setState({
+          imageURL: "",
+          imageName: "",
+        })
+      });
+    }
+
+    uploadImage = (event) => {
+      const fileInput = event.target;
+      console.log(fileInput.files[0]);
+      if (this.state.imageName !== ""){
+        console.log("Now replacing Picture");
+        this.deleteImage();
+      }
+      this.readImage(fileInput.files[0]).then(image => {
+        fileInput.value = null;
+        return post("/api/uploadImage", { image: image }).then((respObj) => {
+        console.log(respObj.image);
+        this.loadImage(respObj.image); 
+      });
+      }).catch(err => {
+        console.log(err);
       });
     };
 
-    changeMonth = (event) => {
-      this.setState({month: event.target.value});
-      if (["January", "March","May","July","August","October","December"].includes(event.target.value)){ 
-          days = days31;
-      } else if (event.target.value === "February"){
-          days = (this.state.year % 4 === 0 ) ? days29 : days28;
-      } else{
-          days = days30;
-      }
-  }
 
+  readImage = (blob) => {
+    return new Promise((resolve, reject) => {
+      const r = new FileReader();
+      r.onloadend = () => {
+        if (r.error) {
+          reject(r.error.message);
+          return;
+        } else if (r.result.length < 50) {
+          // too short. probably just failed to read, or ridiculously small image
+          reject("small image? or truncated response");
+          return;
+        } else if (!r.result.startsWith("data:image/")) {
+          reject("not an image!");
+          return;
+        } else {
+          resolve(r.result);
+        }
+      };
+      r.readAsDataURL(blob);
+    });
+  };
+
+  changeMonth = (event) => {
+    this.setState({month: event.target.value});
+    if (["January", "March","May","July","August","October","December"].includes(event.target.value)){ 
+        days = days31;
+    } else if (event.target.value === "February"){
+        days = (this.state.year % 4 === 0 ) ? days29 : days28;
+    } else{
+        days = days30;
+    }
+  }
   changeDay = (event) => {this.setState({day: event.target.value});}
   changeYear = (event) => {
       this.setState({year: event.target.value});
@@ -172,7 +189,10 @@ class NewEntry extends Component{
       }
     }
   changeTitle = (event) => {this.setState({title: event.target.value});}
-  changeContent = (event) => {this.setState({content: event.target.value});}
+  changeContent = (event) => {
+    console.log(event);
+    this.setState({content: event.target.value});
+  }
   changeColor = (newColor, mood) => {
     this.setState({colorMood: newColor});
     console.log('mood is', mood);
@@ -184,131 +204,160 @@ class NewEntry extends Component{
     const temp = newValue.map((val) => (val.label));
     console.log(temp);
     this.setState({tags: temp,});
-    };
+  };
 
-    addEntry = () => {
+  addEntry = () => {
+    if (this.state.title === null){
+      alert("Your journal entry needs a title!");
+    } else if (this.state.content === null){
+      alert("You still need to type the content of this journal entry!");
+    } else if (this.state.colorMood === null){
+      alert("You still have to choose a color Mood for this journal entry!");
+    } else{
+      alert("Congratulations");
+      this.refreshPage();
+      console.log("Submitted Entry");
+      post("/api/entries",{
+          user_id: this.props.userId,
+          title: this.state.title,
+          month: this.state.month,
+          year: this.state.year,
+          day: this.state.day,
+          content: this.state.content,
+          colorMood: this.state.colorMood,
+          tags: this.state.tags,
+          lastModDate: new Date(),
+          heartRateData: [77,88],
+          samplingRate: 100,
+          imageName: this.state.imageName,
+      })
+      // .then((response) => {
+      //     console.log(response)});
+      //   this.setState({
+      //     month: moment().format("MMMM"),
+      //     year: moment().format("YYYY"),
+      //     day: moment().format("D"),
+      //     colorMood: null,
+      //     title: null,
+      //     content: null,
+      //     saved: true, 
+      //     tags: [],
 
-        if (this.state.title === null || this.state.content === null || this.state.colorMood === null){
-          console.log(this.state.title);
-          console.log(this.state.content);
-          console.log(this.state.colorMood);
-          alert("You are missing some information in this journal entry!");
-        } else{
-          alert("Congratulations");
-          this.refreshPage();
-          console.log("Submitted Entry");
-          post("/api/entries",{
-              user_id: this.props.userId,
-              title: this.state.title,
-              month: this.state.month,
-              year: this.state.year,
-              day: this.state.day,
-              content: this.state.content,
-              colorMood: this.state.colorMood,
-              tags: this.state.tags,
-              lastModDate: new Date(),
-              heartRateData: [77,88],
-              samplingRate: 100,
-          }).then((response) => {
-              console.log(response)});
-          this.setState({
-            month: moment().format("MMMM"),
-            year: moment().format("YYYY"),
-            day: moment().format("D"),
-            colorMood: null,
-            title: null,
-            content: null,
-            saved: true, 
-            tags: [],
-          });
-        }
-    
-      };
+      //   });
+    }
+  
+  };
       
-    
-
     render(){
       console.log("The title is ", this.state.title);
       console.log("Current Input: ", this.state.content);
       console.log('Currently set mood color is', this.state.colorMood);
         return (
-            <div className="NewEntry-background NewEntry-split">
-                <div className="NewEntry-journal">
-                    <div className="NewEntry-backCover">
-                        <div className="NewEntry-clasp"/>
-                        <div className="NewEntry-rightpage">
-                              <div className = "NewEntry-date u-flexRow">
-                                  <div className="NewEntry-dropdownButton">
-                                    <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
-                                    </div>
-                                    <div className="NewEntry-dropdownButton">
-                                    <select className="NewEntry-selectContent" value={this.state.day} onChange={this.changeDay}>{days}</select>
-                                    </div>
-                                    <div className="NewEntry-dropdownButton">
-                                    <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
-                                    </div>
-                                </div>
-                            <div className="NewEntry-contentBox">
-                                <Editor className="NewEntry-editor">
-                                <input type="text" className="NewEntry-content" overflow="auto" placeholder="Today, I..."></input>
-                                </Editor>
-                            </div>    
-                        </div>
+          <>  
+          <div className="NewEntry-entirety">
+            <div className="NewEntry-backCover">
+              <div className="NewEntry-clasp"/>
+                <div className="NewEntry-rightpage">
+                  {/* date [start] */}
+                  <div className = "NewEntry-date">
+                    <div className="NewEntry-dropdownButton">
+                      <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
                     </div>
-                    <div className="NewEntry-frontCover">
-                          <div className="NewEntry-leftpage u-flex u-flexColumn">
-
-                            <img src={Tape}/>
-
-                            <div className="NewEntry-imageControls">
-                              <button type="button" onClick={this.deleteImage}>Delete Image</button>
-                              <label htmlFor="fileInput">Click to add an image</label>
-                              <input className="NewEntry-uploadImage" type="file" name="files[]" accept="image/*" onChange={this.uploadImage} />
-                              </div>
-                              <div className="NewEntry-images">
-                              {
-                              this.state.images.map((image, index) => (
-                              <img src={image} className="NewEntry-img" key={index} />
-                              ))
-                              }
-                            </div>
-
-
-
-                            <Creatable
-                            className="NewEntry-creatable"
-                            styles={style}
-                            components={{
-                              IndicatorSeparator: () => null
-                            }}
-                            isMulti
-                            isClearable
-                            onChange={this.changeTag}
-                            options = {tags}
-                            placeholder='Tag(s)'
-                            />
-
-                              <div className="NewEntry-moods ">
-                                <div className="btnHappy" onClick={() => this.changeColor("FFD300", 'Happy')}></div>
-                                <div className="btnLaugh" onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
-                                <div className="btnKiss" onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
-                                <div className="btnSmile" onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
-                                <div className="btnSurprise" onClick={() => this.changeColor("FEC085", "Surprise")}></div>
-                                <div className="btnUgh" onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
-                                <div className="btnMeh" onClick={() => this.changeColor("717D7E", "Meh")}></div>
-                                <div className="btnDead" onClick={() => this.changeColor("000000", 'Dead')}></div>
-                                <div className="btnSick" onClick={() => this.changeColor("54C452", "Sick")}></div>
-                                <div className="btnTears" onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
-                                <div className="btnMad"onClick={() => this.changeColor("E35B5B", "Mad")}></div>
-                                
-                              </div>
-
-                        </div>
+                    <div className="NewEntry-dropdownButton">
+                      <select className="NewEntry-selectContent" value={this.state.day} onChange={this.changeDay}>{days}</select>
                     </div>
-                    
+                    <div className="NewEntry-dropdownButton">
+                      <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
+                    </div>
+                  </div>
+                  {/* date [end] */}
                 </div>
 
-            </div>
+                {/* title [start] */}
+                <div className="NewEntry-titleBox">
+                  <input className="NewEntry-title" placeholder='Title' onChange={this.changeTitle}></input>
+                </div>
+                {/* title [end] */}
+
+                {/* text area [start] */}
+                <div className="NewEntry-contentBox">
+                    <Editor
+                      editorStyle={{ overflowY: scroll}, {height: "60vh"}}
+                      toolbar={{
+                        options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list',
+                        'colorPicker', 'link', 'embedded', 'emoji', 'image','history'],
+                        inline: {
+                          options: ['bold', 'italic', 'underline', 'strikethrough'],
+                          bold: { className: 'bordered-option-classname' },
+                          italic: { className: 'bordered-option-classname' },
+                          underline: { className: 'bordered-option-classname' },
+                          strikethrough: { className: 'bordered-option-classname' },
+                          code: { className: 'bordered-option-classname' },
+                        },}}
+                      placeholder="Today was an amazing day! I..."/>
+                      onEditorStateChange={this.editorStateChange}
+                </div>   
+                {/* text area [end] */}
+                                  
+                {/* save button [start] */}
+                <button className="NewEntry-saveButton" onClick={this.addEntry}>
+                  <img className="NewEntry-bookmark" src={SaveBookmark}></img>
+                </button>
+                {/* save button [end] */}
+
+                </div>
+                  {/* frontcover [start] */}
+                  <div className="NewEntry-frontCover">
+                    {/* whitepage left [start] */}
+                    <div className="NewEntry-leftpage u-flex u-flexColumn">
+                      <HeartMonitor className="NewEntry-HeartMonitor"/>
+
+                      {/* gcp [start] */}
+                      <div className="NewEntry-imageControls">
+                        <button type="button" onClick={this.deleteImage}>Delete Image</button>
+                        <label htmlFor="fileInput">Click to add an image</label>
+                        <input className="NewEntry-uploadImage" type="file" id="default" name="default" accept="image/*" onChange={this.uploadImage} />
+                      </div>
+                      <div className="NewEntry-images">
+                        <img src={this.state.imageURL} className="NewEntry-img"/>
+                      </div>
+                      {/* gcp [end] */}
+
+                      {/* tags [start] */}
+                      <Creatable
+                        className="NewEntry-tagsBar"
+                        styles={style}
+                        components={{
+                          IndicatorSeparator: () => null}}
+                        isMulti
+                        isClearable
+                        onChange={this.changeTag}
+                        options = {tags}
+                        placeholder='Tag(s)'
+                      />
+                      {/* tags [end] */}
+
+                      {/* moods [start] */}
+                      <div className="NewEntry-moods ">
+                        <div className="btnHappy" onClick={() => this.changeColor("FFD300", 'Happy')}></div>
+                        <div className="btnLaugh" onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
+                        <div className="btnKiss" onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
+                        <div className="btnSmile" onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
+                        <div className="btnSurprise" onClick={() => this.changeColor("FEC085", "Surprise")}></div>
+                        <div className="btnUgh" onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
+                        <div className="btnMeh" onClick={() => this.changeColor("717D7E", "Meh")}></div>
+                        <div className="btnDead" onClick={() => this.changeColor("000000", 'Dead')}></div>
+                        <div className="btnSick" onClick={() => this.changeColor("54C452", "Sick")}></div>
+                        <div className="btnTears" onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
+                        <div className="btnMad"onClick={() => this.changeColor("E35B5B", "Mad")}></div>
+                      </div>
+                      {/* moods [end]*/}
+                    </div> {/* whitepage left [end] */}
+                  </div> {/* front cover [end] */}
+                </div>
+
+</>
+
         );
     }
 }

@@ -100,7 +100,7 @@
 }
 
 .CreateEntry-saveText{
-    font-family: Inter;
+    font-family: Alegreya;
 }
 
 .CreateEntry-saveHeart{
@@ -157,7 +157,7 @@
 /* Month - Day - Year Dropdowns  */
 
 .CreateEntry-selectContent{
-    font-family: Inter;
+    font-family: Alegreya;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -174,10 +174,6 @@
     line-height: 24px;
 
     color: #888383;
-    /* display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between; */
     background: var(--white);
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
     border-radius: 11px;
@@ -187,17 +183,13 @@
 }
 
 .CreateEntry-creatable{
-    font-family: Inter;
+    font-family: Alegreya;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 24px;
 
     color: #888383;
-    /* display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between; */
     background: var(--white);
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
     border-radius: 11px;

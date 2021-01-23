@@ -11,6 +11,7 @@ import leftIcon from "../../public/images/leftIcon.svg";
 import rightIcon from "../../public/images/rightIcon.svg";
 import HappySun from "../../public/images/HappySun.svg";
 import EditPen from "../../public/images/EditPen.svg";
+import MOOD from "../../public/images/MOOD.svg";
 
 
 import "../../utilities.css";
@@ -158,11 +159,11 @@ class AllEntries extends Component{
                         </h1>
                     </div>
                     <div className="AllEntries-rightHeader u-flex u-flex-alignCenter">
-                    <Link to="/MoodTracker"><img src={HappySun} height="180" className="AllEntries-happySun"></img></Link>
+                    <div className="AllEntries-border"><Link to="/MoodTracker"><img src={MOOD} height="180" className="AllEntries-happySun"></img></Link></div>
                     <Link to="/NewEntry"><img src={EditPen} className="AllEntries-editPen u-editPen"></img></Link>
                     </div>
                 </div>
-                <hr style={{"border-style":"double", "margin":"0 16px"}}></hr>
+                <hr style={{"borderStyle":"double", "margin":"0 16px"}}></hr>
                 <div className={this.state.viewMode ? "u-flexColumn" : "u-flexRow u-flex-justifyCenter u-flexWrap"}>
                     {entriesList}
                     {/* {addEntryButton} */}

@@ -31,11 +31,13 @@
     "express-session": "^1.17.1",
     "fund": "^1.0.0",
     "google-auth-library": "^6.1.4",
+    "kissfft-js": "^0.1.8",
     "moment": "2.29.1",
     "moment-range": "^4.0.2",
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.12",
     "node-cache": "^5.1.2",
+    "node-gyp": "^7.1.2",
     "nodemon": "^2.0.7",
     "react": "^16.14.0",
     "react-cool-onclickoutside": "^1.5.9",
@@ -54,7 +56,8 @@
     "react-with-important-style": "^0.2.2",
     "socket.io": "^2.4.1",
     "socket.io-client": "^2.4.0",
-    "url-loader": "^4.1.1"
+    "url-loader": "^4.1.1",
+    "web-vitals": "^1.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",

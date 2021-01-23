@@ -12,6 +12,7 @@ const EntrySchema = new mongoose.Schema({
   colorMood: String,
   heartRateData: Array,
   samplingRate: Number,
+  imageName: String,
 });
 
 // compile model from schema
