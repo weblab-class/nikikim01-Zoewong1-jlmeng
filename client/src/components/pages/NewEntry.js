@@ -3,6 +3,7 @@ import "./NewEntry.css";
 import moment from "moment";
 import Creatable from 'react-select/creatable';
 import { get, post } from "../../utilities";
+// import WebcamCapture from "../..";"
 
 
 import { Editor } from 'react-draft-wysiwyg';
@@ -83,12 +84,12 @@ class NewEntry extends Component{
 
     componentDidMount() {
       if (this.props.userId) {
-        this.loadImages();
+        this.loadImage();
       };
       document.title="Create a new entry!";
     }
 
-    componentDidUpdate(){
+    componentDidUpdate(prevProps){
         if (this.state.saved){
           console.log("Create Entry toggle");
           this.setState({saved:false,});
@@ -106,23 +107,24 @@ class NewEntry extends Component{
 
       // Functions to control images //
 
-      loadImages = () => {
-        get("/api/getImages").then(images => {
+      loadImage = () => {
+        get("/api/getImage").then(images => {
           this.setState({ images: images });
         });
       }
 
   
-      deleteImages = () => {
-        post("/api/deleteImages").then(this.loadImages);
+      deleteImage = () => {
+        post("/api/deleteImage").then(this.loadImage);
       }
 
       uploadImage = (event) => {
         const fileInput = event.target;
         console.log(fileInput);
+        console.log(fileInput.files[0]);
         this.readImage(fileInput.files[0]).then(image => {
           fileInput.value = null;
-          return post("/api/uploadImage", { image: image }).then(this.loadImages);
+          return post("/api/uploadImage", { image: image }).then(this.loadImage);
         }).catch(err => {
           console.log(err);
         });
@@ -259,16 +261,14 @@ class NewEntry extends Component{
                             <img src={Tape}/>
 
                             <div className="NewEntry-imageControls">
-                              <button type="button" onClick={this.deleteImages}>
-                              Scrap All Images
-                              </button>
+                              <button type="button" onClick={this.deleteImage}>Delete Image</button>
                               <label htmlFor="fileInput">Click to add an image</label>
                               <input className="NewEntry-uploadImage" type="file" name="files[]" accept="image/*" onChange={this.uploadImage} />
                               </div>
                               <div className="NewEntry-images">
                               {
                               this.state.images.map((image, index) => (
-                              <img src={image} key={index} />
+                              <img src={image} className="NewEntry-img" key={index} />
                               ))
                               }
                             </div>

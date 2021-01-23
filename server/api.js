@@ -25,8 +25,6 @@ const socketManager = require("./server-socket");
 //for uploading images
 const { uploadImagePromise, deleteImagePromise, downloadImagePromise } = require("./storageTalk.js");
 
-const user_name = "Zoe Test"
-
 router.post("/login", auth.login);
 router.post("/logout", auth.logout);
 router.get("/whoami", (req, res) => {
@@ -47,70 +45,6 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 // | write your API methods below!|
 // |------------------------------|
-
-//images
-
-router.post("/uploadImage", auth.ensureLoggedIn, (req, res) => {
-  if (typeof (req.body.image) !== 'string') {
-    throw new Error("Can only handle images encoded as strings. Got type: "
-    + typeof (req.body.image));
-  }
-  User.findById(req.user._id).then(user => {
-    if (user.imageNames.length >= 10) {
-      // not allowing more than 10 images
-      res.status(412).send({
-        message: "You can't post anymore new images :( We're poor college students"
-      });
-    } return uploadImagePromise(req.body.image);
-  }).then(imageName => {
-    return User.updateOne({_id: req.user._id},
-      {$push: {imageNames: imageName}});
-  }).then(users => {
-    res.send({}); // success!
-  }).catch(err => {
-    console.log("ERR: upload image: " + err);
-    res.status(500).send({
-      message: "error uploading",
-    });
-  })
-});
-
-router.get('/getImages', auth.ensureLoggedIn, (req, res) => {
-  User.findById(req.user._id).then(user=>{
-    Promise.all(
-      user.imageNames.map(imageName => downloadImagePromise(imageName).catch( err =>
-        "Err: could not find image"))).then(images =>
-          {res.send(images);}).catch(err =>{
-            console.log("ERR getImages this shouldn't happen!");
-            res.status(500).send({
-              message: "unknown error"
-            });
-          });
-  })
-})
-
-
-router.post("/deleteImages", auth.ensureLoggedIn, (req, res) => {
-  User.findById(req.user._id).then(user=> {
-    return Promise.all(user.imageNames.map(imageName => {
-      return Promise.all([deleteImagePromise(imageName), Promise.resolve(imageName)])
-    }));
-  }).then(successesAndNames => {
-    //get names of removed images
-    return successesAndNames.filter(
-      successAndName => successAndName[0]).map(
-        successAndName => successAndName[1]);
-  }).then((removedNames)=>{
-    return User.findOneAndUpdate({_id:req.user._id},
-      {$pullAll: { imageNames: removedNames}}); // remove those names
-  }).then(user=> {
-    // success!
-    res.send({});
-  }).catch(err => {
-    console.log("ERR: failed to delete image: " + err);
-    res.status(500).send()
-  });
-});
 
 // ENTRIES
 router.get("/entry",(req,res) => {
@@ -185,12 +119,13 @@ router.post("/user", (req, res) => {
 
 //images
 router.post("/uploadImage", auth.ensureLoggedIn, (req, res) => {
+  console.log("IN API");
   if (typeof (req.body.image) !== 'string') {
     throw new Error("Can only handle images encoded as strings. Got type: "
       + typeof (req.body.image));
   }
   User.findById(req.user._id).then(user => {
-    if (user.imageNames.length >= 3) {
+    if (user.imageNames.length >= 1) {
       // don't allow anyone to have more than 3 images (not race condition safe)
       res.status(412).send({
         message: "You can't post a new image! You already have 3!"
@@ -212,7 +147,7 @@ router.post("/uploadImage", auth.ensureLoggedIn, (req, res) => {
   })
 });
 
-router.get("/getImages", auth.ensureLoggedIn, (req, res) => {
+router.get("/getImage", auth.ensureLoggedIn, (req, res) => {
   User.findById(req.user._id).then(user => {
     Promise.all(
       user.imageNames.map(imageName => downloadImagePromise(imageName)
@@ -228,13 +163,14 @@ router.get("/getImages", auth.ensureLoggedIn, (req, res) => {
   });
 });
 
-router.post("/deleteImages", auth.ensureLoggedIn, (req, res) => {
+router.post("/deleteImage", auth.ensureLoggedIn, (req, res) => {
   User.findById(req.user._id).then(user => {
     return Promise.all(user.imageNames.map(imageName => {
       return Promise.all([deleteImagePromise(imageName), Promise.resolve(imageName)])
     }));
   }).then(successesAndNames => {
     // get names of removed images
+    console.log(successesAndNames);
     return successesAndNames.filter(
       successAndName => successAndName[0]).map(
         successAndName => successAndName[1]);
@@ -249,7 +185,6 @@ router.post("/deleteImages", auth.ensureLoggedIn, (req, res) => {
     res.status(500).send()
   });
 });
-
 
 
 // anything else falls to this "not found" case
