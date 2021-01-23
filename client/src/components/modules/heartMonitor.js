@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
 import {Helmet} from "react-helmet";
+import "./heartMonitor.css";
 
 class HeartMonitor extends Component {
     constructor(props) {
@@ -18,8 +19,8 @@ class HeartMonitor extends Component {
             <script src="/fft.js"></script>
             <script src="/copy.js"></script>
 	        </Helmet>
-            <h1>Hello HeartRate with Live Video</h1>
-	        <canvas id="output" ></canvas>
+            <h1 className="heartMonitor-text">Hello HeartRate with Live Video</h1>
+	        <canvas className="heartMonitor-webcam" id="output" ></canvas>
           <video hidden playsInline autoPlay></video>
           <p id="heartrate">Calibrating...</p>
           <canvas id="myChart" height="70%"></canvas>

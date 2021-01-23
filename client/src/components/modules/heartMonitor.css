@@ -1,0 +1,9 @@
+.heartMonitor-webcam{
+    display: flex;
+    justify-content: center;
+}
+
+.heartMonitor-text{
+   display: flex;
+   justify-content: center;
+}

@@ -5,17 +5,18 @@ import Creatable from 'react-select/creatable';
 import { get, post } from "../../utilities";
 import Webcam from "react-webcam";
 import HeartMonitor from "../modules/HeartMonitor.js";
+import SaveBookmark from "../../public/images/SaveBookmark.svg";
 
 
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import Tape from "../../public/images/Tape.svg";
 
 
 const style = {
   control: base => ({
     ...base,
-    border: 0,
+    fontFamily: 'Alegreya',
+    backgroundColor: '#fafbf5',
     // This line disable the blue border
     boxShadow: "none",
   })
@@ -232,34 +233,36 @@ class NewEntry extends Component{
       console.log("Current Input: ", this.state.content);
       console.log('Currently set mood color is', this.state.colorMood);
         return (
-<>
-          <div className="NewEntry-container">
-            <div className="NewEntry-dateLocation">
-              <div className='emptiness'></div>  {/* blank box*/}
-              <div className="NewEntry-datePositioner">
-                <div className = "NewEntry,-date">
-                    <div className="NewEntry-dropdownButton">
-                      <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
-                      </div>
-                      <div className="NewEntry-dropdownButton">
-                      <select className="NewEntry-selectContent" value={this.state.day} onChange={this.changeDay}>{days}</select>
-                      </div>
-                      <div className="NewEntry-dropdownButton">
-                      <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-            <div className="NewEntry-background NewEntry-split">
-  
+<>  <div className="NewEntry-entirety">
                     <div className="NewEntry-backCover">
                         <div className="NewEntry-clasp"/>
                         <div className="NewEntry-rightpage">
+
+                          {/* date [start] */}
+                            <div className = "NewEntry-date">
+                                  <div className="NewEntry-dropdownButton">
+                                    <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
+                                    </div>
+                                    <div className="NewEntry-dropdownButton">
+                                    <select className="NewEntry-selectContent" value={this.state.day} onChange={this.changeDay}>{days}</select>
+                                    </div>
+                                    <div className="NewEntry-dropdownButton">
+                                    <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
+                                    </div>
+                                  </div>
+                              </div>
+                          {/* date [end] */}
+
+                          {/* title [start] */}
                         <div className="NewEntry-titleBox">
                             <input className="NewEntry-title" placeholder='Title' onChange={this.changeTitle}></input>
                         </div>
+                        {/* title [end] */}
+
+                          {/* text area [start] */}
                             <div className="NewEntry-contentBox">
                                 <Editor
+                                editorStyle={{ overflowY: scroll}, {height: "60vh"}}
                                 toolbar={{
                                   options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list',
                                   'colorPicker', 'link', 'embedded', 'emoji', 'image','history'],
@@ -272,16 +275,21 @@ class NewEntry extends Component{
                                     code: { className: 'bordered-option-classname' },
                                   },}}
                                 placeholder="Today was an amazing day! I..."/>
-                            </div>    
+                            </div>   
+                                  {/* text area [end] */}
+                                  
+                                  {/* save button [start] */}
+                                  <button className="NewEntry-saveButton" onClick={this.addEntry}>
+                                    <img className="NewEntry-bookmark" src={SaveBookmark}></img>
+                                  </button>
+                                  {/* save button [end] */}
                         </div>
-                    </div>
-                    
-                    <div className="NewEntry-frontCover">
-                          <div className="NewEntry-leftpage u-flex u-flexColumn">
+                    <div className="NewEntry-frontCover">{/* frontcover [start] */}
+                                  
+                          <div className="NewEntry-leftpage u-flex u-flexColumn"> {/* whitepage left [start] */}
+                            <HeartMonitor className="NewEntry-HeartMonitor"/>
 
-                            <img src={Tape}/>
-                            <HeartMonitor />
-
+                            {/* gcp [start] */}
                             <div className="NewEntry-imageControls">
                               <button type="button" onClick={this.deleteImages}>
                               Scrap All Images
@@ -290,53 +298,47 @@ class NewEntry extends Component{
                               <input className="NewEntry-uploadImage" type="file" name="files[]" accept="image/*" onChange={this.uploadImage} />
                               </div>
                               <div className="NewEntry-images">
-                              {
-                              this.state.images.map((image, index) => (
+                              {this.state.images.map((image, index) => (
                               <img src={image} className="NewEntry-img" key={index} />
-                              ))
-                              }
-                            </div>
+                              ))}</div>
+                            {/* gcp [end] */}
 
-
-
+                            {/* tags [start] */}
                             <Creatable
-                            className="NewEntry-creatable"
+                            className="NewEntry-tagsBar"
                             styles={style}
                             components={{
-                              IndicatorSeparator: () => null
-                            }}
+                              IndicatorSeparator: () => null}}
                             isMulti
                             isClearable
                             onChange={this.changeTag}
                             options = {tags}
                             placeholder='Tag(s)'
                             />
-
-                              <div className="NewEntry-moods ">
-                                <div className="btnHappy" onClick={() => this.changeColor("FFD300", 'Happy')}></div>
-                                <div className="btnLaugh" onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
-                                <div className="btnKiss" onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
-                                <div className="btnSmile" onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
-                                <div className="btnSurprise" onClick={() => this.changeColor("FEC085", "Surprise")}></div>
-                                <div className="btnUgh" onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
-                                <div className="btnMeh" onClick={() => this.changeColor("717D7E", "Meh")}></div>
-                                <div className="btnDead" onClick={() => this.changeColor("000000", 'Dead')}></div>
-                                <div className="btnSick" onClick={() => this.changeColor("54C452", "Sick")}></div>
-                                <div className="btnTears" onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
-                                <div className="btnMad"onClick={() => this.changeColor("E35B5B", "Mad")}></div>
-                                
-                              </div>
-
-                        </div>
+                            {/* tags [end] */}
+                                {/* moods [start] */}
+                                <div className="NewEntry-moods ">
+                                  <div className="btnHappy" onClick={() => this.changeColor("FFD300", 'Happy')}></div>
+                                  <div className="btnLaugh" onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
+                                  <div className="btnKiss" onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
+                                  <div className="btnSmile" onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
+                                  <div className="btnSurprise" onClick={() => this.changeColor("FEC085", "Surprise")}></div>
+                                  <div className="btnUgh" onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
+                                  <div className="btnMeh" onClick={() => this.changeColor("717D7E", "Meh")}></div>
+                                  <div className="btnDead" onClick={() => this.changeColor("000000", 'Dead')}></div>
+                                  <div className="btnSick" onClick={() => this.changeColor("54C452", "Sick")}></div>
+                                  <div className="btnTears" onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
+                                  <div className="btnMad"onClick={() => this.changeColor("E35B5B", "Mad")}></div>
+                                  
+                                </div>
+                               {/* moods [end]*/}
+                        </div> {/* whitepage left [end] */}
+                    </div> {/* front cover [end] */}
+                    
+                    
+                
                     </div>
-                    
-                    
-                </div>
-            </div>
 
-<button className="NewEntry-saveButton" onClick={this.addEntry}>
-<p className="NewEntry-saveText">Save</p>
-</button>
 </>
 
         );
