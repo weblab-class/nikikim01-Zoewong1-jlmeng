@@ -7,6 +7,7 @@ const EntrySchema = new mongoose.Schema({
   year: String,
   day: String,
   content: String,
+  jsonContent: mongoose.Schema.Types.Mixed,
   lastModDate: Date,
   tags: Array,
   colorMood: String,

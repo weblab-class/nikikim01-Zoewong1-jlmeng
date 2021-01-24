@@ -13,10 +13,10 @@
 .SingleEntry-date{
     font-style: normal;
     font-weight: bold;
-    font-size: 130px;
+    font-size: 110px;
     text-align: left;
     text-transform: uppercase;
-    margin: 0px var(--l);
+    margin: 0px 40px 0px var(--l);
 
     color: black;
 }

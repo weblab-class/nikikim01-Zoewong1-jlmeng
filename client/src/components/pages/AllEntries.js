@@ -87,6 +87,7 @@ class AllEntries extends Component{
                     content={entryObj.content} 
                     tags={entryObj.tags}
                     colorMood={entryObj.colorMood}
+                    jsonContent={entryObj.jsonContent}
                     viewMode={this.state.viewMode}
                 />
             ));
@@ -113,7 +114,7 @@ class AllEntries extends Component{
                 console.log("No Entries!");
                 entriesList = <div className="u-flexRow u-flex-justifyCenter">
                                     <div className="AllEntries-addBox">
-                                        <p className="u-textCenter u-margin-s AllEntries-add" style={{"font-size":"32px"}}>NO STORIES IN MONGODB YET! ;(</p>
+                                        <p className="u-textCenter u-margin-s AllEntries-add" style={{"fontSize":"32px"}}>NO STORIES IN MONGODB YET! ;(</p>
                                     </div>
                                 </div>;
             };

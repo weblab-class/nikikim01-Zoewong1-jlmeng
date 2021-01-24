@@ -75,6 +75,7 @@ router.post("/entries",(req,res) => {
     year: req.body.year,
     day: req.body.day,
     content: req.body.content,
+    jsonContent: req.body.jsonContent,
     lastModDate: req.body.lastModDate,
     tags: req.body.tags,
     colorMood: req.body.colorMood,

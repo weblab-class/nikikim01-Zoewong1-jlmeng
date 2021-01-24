@@ -7,7 +7,7 @@ import Webcam from "react-webcam";
 import HeartMonitor from "../modules/HeartMonitor.js";
 import SaveBookmark from "../../public/images/SaveBookmark.svg";
 
-import {EditorState} from "draft-js";
+import {EditorState, RichUtils, convertToRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
@@ -76,12 +76,13 @@ class NewEntry extends Component{
             day: moment().format("D"),
             colorMood: null,
             title: null,
-            content: EditorState.createEmpty(),
+            content: "",
+            jsonContent: null,
+            editorState: EditorState.createEmpty(),
             saved: false, 
             tags: [],
             imageURL: "",
             imageName: "",
-
         }
     }
 
@@ -189,10 +190,6 @@ class NewEntry extends Component{
       }
     }
   changeTitle = (event) => {this.setState({title: event.target.value});}
-  changeContent = (event) => {
-    console.log(event);
-    this.setState({content: event.target.value});
-  }
   changeColor = (newColor, mood) => {
     this.setState({colorMood: newColor});
     console.log('mood is', mood);
@@ -205,6 +202,17 @@ class NewEntry extends Component{
     console.log(temp);
     this.setState({tags: temp,});
   };
+  changeEditorState = (state) => {
+    console.log("Called editorStateChange");
+    let currentContent = state.getCurrentContent();
+    console.log(currentContent.getPlainText());
+    console.log(JSON.stringify(convertToRaw(currentContent)));
+    this.setState({
+      editorState: state,
+      content: currentContent.getPlainText(),
+      jsonContent: JSON.stringify(convertToRaw(currentContent)),
+    });
+  }
 
   addEntry = () => {
     if (this.state.title === null){
@@ -224,12 +232,14 @@ class NewEntry extends Component{
           year: this.state.year,
           day: this.state.day,
           content: this.state.content,
+          jsonContent: this.state.jsonContent,
           colorMood: this.state.colorMood,
           tags: this.state.tags,
           lastModDate: new Date(),
           heartRateData: [77,88],
           samplingRate: 100,
           imageName: this.state.imageName,
+
       })
       // .then((response) => {
       //     console.log(response)});
@@ -247,31 +257,49 @@ class NewEntry extends Component{
     }
   
   };
+
+  handleKeyCommand = (command) => {
+    const newState = RichUtils.handleKeyCommand(this.state.editorState, command);
+    if (newState) {
+      this.changeEditorState(newState);
+      return 'handled';
+    }
+    return 'not-handled';
+  }
       
     render(){
       console.log("The title is ", this.state.title);
       console.log("Current Input: ", this.state.content);
       console.log('Currently set mood color is', this.state.colorMood);
+      
+      let deleteButton = null;
+      let image = null;
+
+      if (this.state.imageURL !== ""){
+        deleteButton = <button type="button" onClick={this.deleteImage}>X</button>;
+        image = <div className="NewEntry-images">
+                  <img src={this.state.imageURL} className="NewEntry-img"/>
+                </div>;
+      }
         return (
           <>  
           <div className="NewEntry-entirety">
             <div className="NewEntry-backCover">
               <div className="NewEntry-clasp"/>
-                <div className="NewEntry-rightpage">
-                  {/* date [start] */}
-                  <div className = "NewEntry-date">
-                    <div className="NewEntry-dropdownButton">
-                      <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
-                    </div>
-                    <div className="NewEntry-dropdownButton">
-                      <select className="NewEntry-selectContent" value={this.state.day} onChange={this.changeDay}>{days}</select>
-                    </div>
-                    <div className="NewEntry-dropdownButton">
-                      <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
-                    </div>
+              <div className="NewEntry-rightpage">
+                {/* date [start] */}
+                <div className = "NewEntry-date">
+                  <div className="NewEntry-dropdownButton">
+                    <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
                   </div>
-                  {/* date [end] */}
+                  <div className="NewEntry-dropdownButton">
+                    <select className="NewEntry-selectContent" value={this.state.day} onChange={this.changeDay}>{days}</select>
+                  </div>
+                  <div className="NewEntry-dropdownButton">
+                    <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
+                  </div>
                 </div>
+                {/* date [end] */}
 
                 {/* title [start] */}
                 <div className="NewEntry-titleBox">
@@ -281,81 +309,87 @@ class NewEntry extends Component{
 
                 {/* text area [start] */}
                 <div className="NewEntry-contentBox">
-                    <Editor
-                      editorStyle={{ overflowY: scroll}, {height: "60vh"}}
-                      toolbar={{
-                        options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list',
-                        'colorPicker', 'link', 'embedded', 'emoji', 'image','history'],
-                        inline: {
-                          options: ['bold', 'italic', 'underline', 'strikethrough'],
-                          bold: { className: 'bordered-option-classname' },
-                          italic: { className: 'bordered-option-classname' },
-                          underline: { className: 'bordered-option-classname' },
-                          strikethrough: { className: 'bordered-option-classname' },
-                          code: { className: 'bordered-option-classname' },
-                        },}}
-                      placeholder="Today was an amazing day! I..."/>
-                      onEditorStateChange={this.editorStateChange}
+                  <Editor
+                    editorState={this.state.editorState}
+                    editorStyle={{ overflowY: scroll}, {height: "60vh"}, {padding:"0% 3%"}}
+                    toolbar={{
+                      options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list',
+                      'colorPicker', 'link', 'embedded', 'emoji', 'image','history'],
+                      inline: {
+                        options: ['bold', 
+                                  'italic', 
+                                  'underline', 
+                                  'strikethrough',
+                                ],
+                        bold: { className: 'bordered-option-classname' },
+                        italic: { className: 'bordered-option-classname' },
+                        underline: { className: 'bordered-option-classname' },
+                        strikethrough: { className: 'bordered-option-classname' },
+                        code: { className: 'bordered-option-classname' },
+                      },}}
+                    placeholder="Today was an amazing day! I..."
+                    handleKeyCommand={this.handleKeyCommand}
+                    onEditorStateChange={this.changeEditorState}/>
                 </div>   
                 {/* text area [end] */}
-                                  
-                {/* save button [start] */}
-                <button className="NewEntry-saveButton" onClick={this.addEntry}>
+              </div>
+
+              {/* save button [start] */}
+              <button className="NewEntry-saveButton" onClick={this.addEntry}>
                   <img className="NewEntry-bookmark" src={SaveBookmark}></img>
                 </button>
-                {/* save button [end] */}
+              {/* save button [end] */}
 
+            </div>
+
+            {/* frontcover [start] */}
+            <div className="NewEntry-frontCover">
+              {/* whitepage left [start] */}
+              <div className="NewEntry-leftpage u-flex u-flexColumn">
+                <HeartMonitor className="NewEntry-HeartMonitor"/>
+
+                {/* gcp [start] */}
+                <div className="NewEntry-imageControls">
+                  {/* <label htmlFor="fileInput">Click to add an image </label> */}
+                  <input className="NewEntry-uploadImage" type="file" id="default" name="default" accept="image/*" onChange={this.uploadImage} style={{fontSize:"16px"}}/>
+                  {deleteButton}
                 </div>
-                  {/* frontcover [start] */}
-                  <div className="NewEntry-frontCover">
-                    {/* whitepage left [start] */}
-                    <div className="NewEntry-leftpage u-flex u-flexColumn">
-                      <HeartMonitor className="NewEntry-HeartMonitor"/>
+                {image}
+                {/* gcp [end] */}
 
-                      {/* gcp [start] */}
-                      <div className="NewEntry-imageControls">
-                        <button type="button" onClick={this.deleteImage}>Delete Image</button>
-                        <label htmlFor="fileInput">Click to add an image</label>
-                        <input className="NewEntry-uploadImage" type="file" id="default" name="default" accept="image/*" onChange={this.uploadImage} />
-                      </div>
-                      <div className="NewEntry-images">
-                        <img src={this.state.imageURL} className="NewEntry-img"/>
-                      </div>
-                      {/* gcp [end] */}
+                {/* tags [start] */}
+                <Creatable
+                  className="NewEntry-tagsBar"
+                  styles={style}
+                  components={{
+                    IndicatorSeparator: () => null}}
+                  isMulti
+                  isClearable
+                  onChange={this.changeTag}
+                  options = {tags}
+                  placeholder='Tag(s)'
+                />
+                {/* tags [end] */}
 
-                      {/* tags [start] */}
-                      <Creatable
-                        className="NewEntry-tagsBar"
-                        styles={style}
-                        components={{
-                          IndicatorSeparator: () => null}}
-                        isMulti
-                        isClearable
-                        onChange={this.changeTag}
-                        options = {tags}
-                        placeholder='Tag(s)'
-                      />
-                      {/* tags [end] */}
-
-                      {/* moods [start] */}
-                      <div className="NewEntry-moods ">
-                        <div className="btnHappy" onClick={() => this.changeColor("FFD300", 'Happy')}></div>
-                        <div className="btnLaugh" onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
-                        <div className="btnKiss" onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
-                        <div className="btnSmile" onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
-                        <div className="btnSurprise" onClick={() => this.changeColor("FEC085", "Surprise")}></div>
-                        <div className="btnUgh" onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
-                        <div className="btnMeh" onClick={() => this.changeColor("717D7E", "Meh")}></div>
-                        <div className="btnDead" onClick={() => this.changeColor("000000", 'Dead')}></div>
-                        <div className="btnSick" onClick={() => this.changeColor("54C452", "Sick")}></div>
-                        <div className="btnTears" onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
-                        <div className="btnMad"onClick={() => this.changeColor("E35B5B", "Mad")}></div>
-                      </div>
-                      {/* moods [end]*/}
-                    </div> {/* whitepage left [end] */}
-                  </div> {/* front cover [end] */}
+                {/* moods [start] */}
+                <div className="NewEntry-moods ">
+                  <div className="btnHappy" onClick={() => this.changeColor("FFD300", 'Happy')}></div>
+                  <div className="btnLaugh" onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
+                  <div className="btnKiss" onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
+                  <div className="btnSmile" onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
+                  <div className="btnSurprise" onClick={() => this.changeColor("FEC085", "Surprise")}></div>
+                  <div className="btnUgh" onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
+                  <div className="btnMeh" onClick={() => this.changeColor("717D7E", "Meh")}></div>
+                  <div className="btnDead" onClick={() => this.changeColor("000000", 'Dead')}></div>
+                  <div className="btnSick" onClick={() => this.changeColor("54C452", "Sick")}></div>
+                  <div className="btnTears" onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
+                  <div className="btnMad"onClick={() => this.changeColor("E35B5B", "Mad")}></div>
                 </div>
+                {/* moods [end]*/}
 
+              </div> {/* whitepage left [end] */}
+            </div> {/* front cover [end] */}
+          </div>
 </>
 
         );

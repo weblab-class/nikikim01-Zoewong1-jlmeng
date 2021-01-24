@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import samoyed from "../../public/images/samoyed.jpg";
 
+import {EditorState, RichUtils, convertToRaw, convertFromRaw} from "draft-js";
+import { Editor } from 'react-draft-wysiwyg';
+import { convertToHTML} from 'draft-convert';
+
 import "../../utilities.css";
 import "./SingleEntry.css";
 
@@ -14,6 +18,7 @@ import "./SingleEntry.css";
  * @param {boolean} viewMode true if Menu List, false if view Mode
  * @param {string} tags associated with entry
  * @param {string} colorMood
+ * @param {string} jsonContent 
  * @param userId
  * @param username
  */
@@ -23,13 +28,26 @@ class SingleEntry extends Component{
         this.state = {
             imageIncluded: false, //true if entry has image attached, false otherwise
             imageUrl: "../../public/images/samoyed.jpg",
+            editorState: EditorState.createEmpty(),
         }
     }
 
-    componentDidMount(){}
+    componentDidMount(){
+        console.log(this.props.jsonContent);
+
+        let jsonContent = JSON.parse(this.props.jsonContent);
+        console.log(jsonContent);
+        let state = EditorState.createWithContent(convertFromRaw(jsonContent));
+        console.log(convertToHTML(state.getCurrentContent()));
+
+        this.setState({
+            editorState: EditorState.createWithContent(convertFromRaw(jsonContent)),
+        });
+    }
 
     render(){
         let url = "/SpecificEntry?".concat(this.props._id);
+
         if (this.props.viewMode){
 
             let dateBox = null;
@@ -47,7 +65,7 @@ class SingleEntry extends Component{
             tagsList = this.props.tags.map((tag) => (<div className="SingleEntry-tag">{tag}</div>));
 
             return (
-                <div className="u-flexRow u-flex-alignCenter">
+                <div className="u-flexRow u-flex-alignCenter u-flex-justifyCenter">
                     {dateBox}
                     <p>{}</p>
                     <div className="SingleEntry-container">

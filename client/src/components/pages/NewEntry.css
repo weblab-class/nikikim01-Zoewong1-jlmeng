@@ -1,5 +1,11 @@
 /* FontAwesome Icons used: https://fontawesome.com/ */
 
+
+.NewEntry-entirety{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 .NewEntry-background{
     position: absolute;
     width: 95vw;
@@ -12,9 +18,11 @@
     display: flex;
     flex-direction: row;
 
-    position: absolute;
+    /* position: absolute;
     left:20%;
-    top: -4%;
+    top: -4%; */
+    margin: -6% 0% 0% 0%;
+    justify-content: flex-start;
 }
 
 .NewEntry-split{
@@ -39,7 +47,9 @@
     background-color: #fafbf5;
     border-radius: 10px 10px 0 0;
     z-index: 1;
-    margin-right: 0.5vw;
+    margin-left: 0.5vw;
+    /* margin-bottom: 4px; */
+    padding: var(--xs) var(--xs) 0px var(--xs);
     
 }
 
@@ -74,17 +84,17 @@
 }
 /* Rectangle 5 */
 .NewEntry-frontCover{
-position: absolute;
-width: 47%;
-height: 85%;
-left: 3%;
-top: 10%;
+    position: absolute;
+    width: 47%;
+    height: 85%;
+    left: 3%;
+    top: 10%;
 
-background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(../../public/images/dark-leather.png);
-border: 1px solid #2e2626;
-box-sizing: border-box;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 5px;
+    background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(../../public/images/dark-leather.png);
+    border: 1px solid #2e2626;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
 }
 
 /* Rectangle 26 */
@@ -105,12 +115,12 @@ border-radius: 5px;
     left: 10%;
     background: #FAFBF5;
     z-index: 1;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .NewEntry-contentBox{
     padding: .5vh;
-    width: 88%;
+    /* width: 88%; */
 
 }
 /* MOOD FACES */
@@ -488,7 +498,10 @@ border-radius: 5px;
 }
 
 .NewEntry-imageControls{
+    display: flex;
     margin-left: 1%;
+    justify-content: space-between;
+    margin-bottom: var(--xs);
 }
 
 .NewEntry-moods{
@@ -496,7 +509,6 @@ border-radius: 5px;
     flex-wrap: nowrap;
     justify-content: space-between;
     padding: 5px;
-
 }
 
 div.rdw-editor-toolbar{
@@ -519,8 +531,10 @@ div.rdw-option-wrapper{
     align-content: center;
     justify-content: center;
     position: absolute;
-    left: 60%;
-    bottom: -2%;
+    /* left: 60%;
+    bottom: -2%; */
+    right: -80px;
+    bottom: -8px;
     transform: rotate(-10deg);
     z-index: 5;
     border: none;
@@ -531,13 +545,15 @@ div.rdw-option-wrapper{
 
 .NewEntry-bookmark{
     width: 60%;
+    height: auto;
 }
 
 .NewEntry-title{
     color: black;
     background-color: #fafbf5;
     z-index: 0;
-    width: 85%;
+    width: 90%;
+    font-size: 24px;
 }
 
 .NewEntry-titleBox{
@@ -545,7 +561,7 @@ div.rdw-option-wrapper{
     justify-content: flex-start;
     align-content: center;
     margin-top: 3%;
-    padding-left: 3%;
+    margin-left: 3%;
     align-content: center;
     box-sizing: border-box;
 }
@@ -554,4 +570,5 @@ div.rdw-option-wrapper{
     height: 5%;
     margin-left: 1%;
     margin-right: 1%;
+    margin-bottom: 1%;
 }
