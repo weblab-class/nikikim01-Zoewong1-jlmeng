@@ -8,7 +8,7 @@
     .Analysis-wordGraphWrapper{
         display: flex;
         flex-direction: row;
-        font-family: Alegreya;
+        font-family: 'Alegreya Sans', sans-serif;
         padding-left: 3%;
         padding-right: 3%;
     }

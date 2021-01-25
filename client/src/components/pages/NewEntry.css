@@ -31,12 +31,12 @@
 
 .NewEntry-dropdownButton{
     display: flex;
-    font-family: Alegreya;
+    font-family: 'Alegreya Sans', sans-serif;
 }
 
 
 .NewEntry-selectContent{
-    font-family: "Alegreya";
+    font-family: 'Alegreya Sans', sans-serif;
     border-top: .1vw solid black;
     border-right: .1vw solid black;
     border-left: .1vw solid black;
@@ -512,7 +512,7 @@
 }
 
 div.rdw-editor-toolbar{
-    font-family: Alegreya;
+    font-family: 'Alegreya Sans', sans-serif;
     background-color: #fafbf5;
     border: none;
 }
