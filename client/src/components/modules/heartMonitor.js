@@ -19,11 +19,13 @@ class HeartMonitor extends Component {
             <script src="/fft.js"></script>
             <script src="/copy.js"></script>
 	        </Helmet>
-            <h1 className="heartMonitor-text">Hello HeartRate with Live Video</h1>
-	        <canvas className="heartMonitor-webcam" id="output" ></canvas>
-          <video hidden playsInline autoPlay></video>
-          <p id="heartrate">Calibrating...</p>
-          <canvas id="myChart" height="70%"></canvas>
+          <div className="u-flexRow u-flex-justifyCenter">
+            <h1 className="">Hello HeartRate with Live Video</h1>
+            <canvas className="" id="output" ></canvas>
+            <video hidden playsInline autoPlay></video>
+            <p id="heartrate">Calibrating...</p>
+            <canvas id="myChart" height="70%"></canvas>
+          </div>
 
         </div>
       )
