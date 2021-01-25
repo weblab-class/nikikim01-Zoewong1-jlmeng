@@ -5,6 +5,7 @@ import samoyed from "../../public/images/samoyed.jpg";
 import {EditorState, RichUtils, convertToRaw, convertFromRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML} from 'draft-convert';
+import {htmlParser} from "./htmlParser";
 
 import "../../utilities.css";
 import "./SingleEntry.css";
