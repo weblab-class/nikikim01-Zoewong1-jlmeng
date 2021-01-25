@@ -27,7 +27,7 @@ class HomePage extends Component {
             <div className="HomePage-container">
         
                     <Link to="/NewEntry"><img src={EditPen} className="HomePage-button HomePage-editPen u-editPen"></img></Link>
-                <Link to="/AllEntries" className="HomePage-journalPic"><h1 className="HomePage-name">{this.props.username}</h1></Link>
+                    <Link to="/AllEntries" className="HomePage-journalPic HomePage-name">{this.props.username}</Link>
                     <Link to="/MoodTracker"><img className="HomePage-button" src={RedFlower}/></Link>
 
                 
