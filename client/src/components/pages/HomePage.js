@@ -26,13 +26,11 @@ class HomePage extends Component {
             <>  
             <div className="HomePage-container">
         
-                <div>
                     <Link to="/NewEntry"><img src={EditPen} className="HomePage-button HomePage-editPen u-editPen"></img></Link>
-                </div>
-                <Link to="/AllEntries"><img className="HomePage-button" src={LeatherJournal}/></Link>
-                <div>
+                <Link to="/AllEntries" className="HomePage-journalPic"><h1 className="HomePage-name">{this.props.username}</h1></Link>
                     <Link to="/MoodTracker"><img className="HomePage-button" src={RedFlower}/></Link>
-                </div>
+
+                
 
             </div>
                 
