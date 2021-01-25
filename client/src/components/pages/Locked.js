@@ -21,9 +21,21 @@ class Locked extends Component {
     render() {
         return (
             <>
-                <div className="u-flex u-flex-alignCenter u-flex-justifyCenter">
-                    <img className="Locked-journal" src={LeatherJournal}></img>
-                </div>
+                {/* <div className="u-flex u-flex-alignCenter u-flex-justifyCenter">
+                    <Link to="/Info" className="Locked-journalPic Locked-name">Tag Heart</Link>
+                </div> */}
+                <a href="./Info">
+                    <div className="Locked-Journal">
+                        <div className="back"></div>
+                        <div className="page6"></div>
+                        <div className="page5"></div>
+                        <div className="page4"></div>
+                        <div className="page3"></div>
+                        <div className="page2"></div>
+                        <div className="page1"></div>
+                        <div className="front"></div>
+                    </div>
+                </a>
            
             </>
         );

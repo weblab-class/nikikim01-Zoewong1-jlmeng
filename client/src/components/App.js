@@ -14,6 +14,7 @@ import LockedJournal from "./pages/LockedJournal.js";
 import Calendar from "./pages/Calendar.js";
 import NewEntry from "./pages/NewEntry.js";
 import MoodTracker from "./pages/MoodTracker.js";
+import Info from "./pages/Info.js";
 
 import "../utilities.css";
 
@@ -67,7 +68,6 @@ class App extends Component {
   render() {
     return (
       <>
-        
           <NavBar
             handleLogin={this.handleLogin}
             handleLogout={this.handleLogout}
@@ -100,12 +100,14 @@ class App extends Component {
           {!this.state.userId && 
 
           <>
+          <Info path="/Info"/>
             <Locked path="/"
             default
             handleLogin={this.handleLogin}
             handleLogout={this.handleLogout}
             userId={this.state.userId}
             />
+            
             
 
             </>
