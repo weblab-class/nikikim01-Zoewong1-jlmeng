@@ -1,9 +1,10 @@
-.heartMonitor-webcam{
+.HeartMonitor-webcam{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
-.heartMonitor-text{
+.HeartMonitor-text{
    display: flex;
    justify-content: center;
 }
