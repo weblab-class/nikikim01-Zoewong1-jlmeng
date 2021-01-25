@@ -152,7 +152,3 @@ form {
 .u-margin-s{
   margin: var(--s);
 }
-
-.u-editPen{
-  height: 45vh;
-}

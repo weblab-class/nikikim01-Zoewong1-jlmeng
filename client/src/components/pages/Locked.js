@@ -26,14 +26,14 @@ class Locked extends Component {
                 </div> */}
                 <a href="./Info">
                     <div className="Locked-Journal">
-                        <div className="back"></div>
-                        <div className="page6"></div>
-                        <div className="page5"></div>
-                        <div className="page4"></div>
-                        <div className="page3"></div>
-                        <div className="page2"></div>
-                        <div className="page1"></div>
-                        <div className="front"></div>
+                        <div className="Locked-back"></div>
+                        <div className="Locked-page6"></div>
+                        <div className="Locked-page5"></div>
+                        <div className="Locked-page4"></div>
+                        <div className="Locked-page3"></div>
+                        <div className="Locked-page2"></div>
+                        <div className="Locked-page1"></div>
+                        <div className="Locked-front"></div>
                     </div>
                 </a>
            

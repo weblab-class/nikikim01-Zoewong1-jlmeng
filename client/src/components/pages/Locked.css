@@ -50,7 +50,7 @@ color: #fafbf5;
   margin: 0;
 }
 
-.front, .back, .page1, .page2, .page3, .page4, .page5, .page6 {
+.Locked-front, .Locked-back, .Locked-page1, .Locked-page2, .Locked-page3, .Locked-page4, .Locked-page5, .Locked-page6 {
   transform-style: preserve-3d;
   position: absolute;
   width: 100%;
@@ -62,85 +62,85 @@ color: #fafbf5;
   background-repeat: no-repeat;
 }
 
-.front{
+.Locked-front{
     background-image: url(../../public/images/frontLeatherCover.svg);
     background-size: 100%;
 }
-.back{
+.Locked-back{
   background-image: url(../../public/images/backLeatherCover.svg);
   background-size: 100%;
 
 }
 
-.front, .page1, .page3, .page5 {
+.Locked-front, .Locked-page1, .Locked-page3, .Locked-page5 {
   border-bottom-right-radius: .5em;
   border-top-right-radius: .5em;
 }
 
-.back, .page2, .page4, .page6 {
+.Locked-back, .Locked-page2, .Locked-page4, .Locked-page6 {
   border-bottom-right-radius: .5em;
   border-top-right-radius: .5em;
 }
 
-.page1, .page2 { 
+.Locked-page1, .Locked-page2 { 
   background: #efefef;
 }
 
-.page3 {
+.Locked-page3 {
   background: #f5f5f5;
 }
 
-.page4 {
+.Locked-page4 {
   background: #f5f5f5;
 }
 
-.page5 {
+.Locked-page5 {
   /* background: #fafafa; */
   background-image: url(../../public/images/clickHere.svg);
   background-size: 100%;
 }
 
-.page6 {
+.Locked-page6 {
   /* background: #fdfdfd; */
   background-image: url(../../public/images/learnMore.svg);
   background-size: 100%;
 }
 
-.Locked-Journal:hover .front {
+.Locked-Journal:hover .Locked-front {
   transform: rotateY(-160deg) scale(1.1);
   box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
 }
 
-.Locked-Journal:hover .page1 {
+.Locked-Journal:hover .Locked-page1 {
   transform: rotateY(-150deg) scale(1.1);
   box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
 }
 
-.Locked-Journal:hover .page2 {
+.Locked-Journal:hover .Locked-page2 {
   transform: rotateY(-30deg) scale(1.1);
   box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
 }
 
-.Locked-Journal:hover .page3 {
+.Locked-Journal:hover .Locked-page3 {
   transform: rotateY(-140deg) scale(1.1);
   box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
 }
 
-.Locked-Journal:hover .page4 {
+.Locked-Journal:hover .Locked-page4 {
   transform: rotateY(-40deg) scale(1.1);
   box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
 }
 
-.Locked-Journal:hover .page5 {
+.Locked-Journal:hover .Locked-page5 {
   transform: rotateY(-130deg) scale(1.1);
   box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
 }
 
-.Locked-Journal:hover .page6 {
+.Locked-Journal:hover .Locked-page6 {
   transform: rotateY(-50deg) scale(1.1);
   box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
 }
 
-.Locked-Journal:hover .back {
+.Locked-Journal:hover .Locked-back {
   transform: rotateY(-20deg) scale(1.1);
 }
