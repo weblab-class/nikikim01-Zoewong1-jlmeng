@@ -15,7 +15,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 const style = {
   control: base => ({
     ...base,
-    fontFamily: 'Alegreya',
+    fontFamily: 'Alegreya Sans',
     backgroundColor: '#fafbf5',
     // This line disable the blue border
     boxShadow: "none",
