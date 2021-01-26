@@ -1,0 +1,52 @@
+.MoodTracker-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.MoodTracker-easel{
+    background-image: url(https://storage.googleapis.com/tagheart/blankCanvas.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 50%;
+}
+
+.MoodTracker-canvas{
+    position: absolute;
+    height: 80vh;
+}
+
+.MoodTracker-brush{
+    position: absolute;
+    z-index: 20;
+    width: 100vw;
+    height: 100vh;
+    left: 55%;
+    top: -4%;
+}
+
+
+.MoodTracker-palette{
+    width: 30vw;
+    position: absolute;
+    left: 48%;
+    top: 50%;
+}
+
+.MoodTracker-Hearts{
+    width: 80%;
+    height: 80%;
+    flex-wrap: wrap;
+    margin: 0px;
+}
+
+.MoodTracker-Heart{
+    margin: 1.4%;
+}
