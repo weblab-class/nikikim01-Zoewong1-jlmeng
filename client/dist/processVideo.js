@@ -106,6 +106,10 @@ function ProcessVideo() {
 
     // Heartrate
     var heartrate;
+    var heartrates = [];
+    var avgHeartrate;
+
+    var actualTimes = [];
 
 
     async function pollctx(){
@@ -126,17 +130,28 @@ function ProcessVideo() {
 	if (times.length > timesLen){
             times.shift();
             curPollFreq = 1/(times.reduce((a, b) => a + b, 0)/timesLen/1000);
-
             if (isNaN(heartrate)){
-		heartrate = maxInd*curPollFreq/arrLen*30;
+                heartrate = maxInd*curPollFreq/arrLen*30;
+                tstart = performance.now();
             }
 
             heartrate = heartrate + ( maxInd*curPollFreq/arrLen*30 - heartrate)*.01;
             heartrateIndicator = document.getElementById('heartrate')
 	    // need to calibrate again, quick *4 fix for now
             heartrateIndicator.textContent = "Predicted heartrate: " + Math.round(heartrate)*3 + " BPM"
+            if (!isNaN(heartrate)) {
+                heartrates.push(Math.round(heartrate)*3);
+                console.log(heartrates)
+                actualTimes.push(Math.round(performance.now()-tstart)/1000);
+                console.log(actualTimes)
+                const avg = heartrates => heartrates.reduce((a,b) => a+b, 0) / heartrates.length;
+                avgHeartrate = Math.round(avg(heartrates));
+                console.log(avgHeartrate);
+            }
+    }
+    
+  
 
-	}
 	t0 = performance.now();
 //	requestAnimationFrame(pollctx);
     }
@@ -162,3 +177,5 @@ function ProcessVideo() {
 //    pollctx();
 
 };
+
+

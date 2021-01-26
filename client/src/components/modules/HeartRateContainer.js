@@ -2,9 +2,11 @@ import React from "react";
 import {Helmet} from "react-helmet";
 import "./HeartRateContainer.css";
 import "../../utilities.css"
+/* import {heartrates} from "../../../dist/processVideo.js"; */
 
 class HeartRateContainer extends React.Component {
-  render() {
+	
+	render() {
     return (
 	<div className="HeartRateContainer-div" style={{justifyContent: "center", textAlign: "center"}}>
 	    <Helmet>
@@ -34,6 +36,7 @@ class HeartRateContainer extends React.Component {
 				</thead>
 			</table>
 			<p id="heartrate">Calibrating...</p>
+			{/* <p>{heartrates}</p> */}
 
 	    </div>
 	    <p className="err" id="errorMessage"></p>
