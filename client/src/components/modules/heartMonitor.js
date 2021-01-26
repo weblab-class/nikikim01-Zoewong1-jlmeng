@@ -13,19 +13,19 @@ class HeartMonitor extends Component {
     render() {
 
       return(
-        <div>
+        <div className="HeartMonitor-div" style={{justifyContent: "center", textAlign: "center"}}>
           <Helmet>
             <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
             <script src="/fft.js"></script>
             <script src="/copy.js"></script>
 	        </Helmet>
-          <div style={{justifyContent: "center"}}>
-            <h1 className="HeartMonitor-text">Hello HeartRate with Live Video</h1>
-            <canvas className="HeartMonitor-webcam" id="output"></canvas>
-            <video hidden playsInline autoPlay></video>
+          <div className="u-flexColumn u-flex-justifyCenter" style={{justifyContent: "center"}}>
+            <h1 className="HeartMonitor-text">Lightly place your finger on the webcam.</h1>
+            <canvas className="HeartMonitor-webcam center" id="output"></canvas>
+            <video className='center' hidden playsInline autoPlay></video>
             <p id="heartrate">Calibrating...</p>
           </div>
-          <canvas id="myChart" height="70%"></canvas>
+          <canvas id="myChart" height="5%" style={{visibility: "hidden"}}></canvas>
 
         </div>
       )

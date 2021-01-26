@@ -7,4 +7,11 @@
 .HeartMonitor-text{
    display: flex;
    justify-content: center;
+   font-size: medium;
+}
+
+.center { margin: 0 auto; width: 400px; }
+
+.HeartMonitor-div{
+    width: 100%;
 }
