@@ -43,10 +43,59 @@
 .MoodTracker-Hearts{
     width: 80%;
     height: 80%;
-    flex-wrap: wrap;
-    margin: 0px;
+    display: inline-grid;
+    justify-items: center;
+    justify-content: center;
+    grid-template-columns: 12vw 12vw 12vw 12vw ;
+    grid-template-rows: 14vw 14vw 14vw;
+    margin: 2vh;
 }
 
 .MoodTracker-Heart{
     margin: 1.4%;
+}
+
+.blackHeart{
+    transform: rotate(-3deg);
+    height: 40%;
+}
+
+.happyBlueHeart{
+    transform: rotate(-9deg);
+}
+
+.greenHeart{
+    transform: rotate(8deg);
+}
+
+.redHeart{
+    transform: rotate(-9deg);
+}
+
+.greyHeart{
+    transform: rotate(4deg);
+}
+
+.purpleHeart{
+    transform: rotate(10deg);
+}
+
+.brownHeart{
+    transform: rotate(-4deg);
+}
+
+.pinkHeart{
+    transform: rotate(6deg);
+}
+
+.orangeHeart{
+    transform: rotate(-7deg);
+}
+
+.yellowHeart{
+    transform: rotate(7deg);
+}
+
+.sadBlueHeart{
+    transform: rotate(-3deg);
 }
