@@ -17,6 +17,8 @@ import MOOD from "../../public/images/MOOD.svg";
 import "../../utilities.css";
 import "./AllEntries.css";
 import moment from "moment";
+import Tooltip from '@material-ui/core/Tooltip';
+import Fade from '@material-ui/core/Fade';
 
 
 /**
@@ -160,15 +162,25 @@ class AllEntries extends Component{
                         </h1>
                     </div>
                     <div className="AllEntries-rightHeader u-flex u-flex-alignCenter">
-                    <div className="AllEntries-border"><Link to="/MoodTracker"><img src={MOOD} height="180" className="AllEntries-happySun"></img></Link></div>
-                    <Link to="/NewEntry"><img src={EditPen} className="AllEntries-editPen u-editPen"></img></Link>
+
+                    <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="See Mood Tracker">
+                        <div className="AllEntries-border"><Link to="/MoodTracker"><img src={MOOD} height="180" className="AllEntries-happySun"></img></Link></div>
+                    </Tooltip>
+
+                    <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Create New Entry!">
+                        <Link to="/NewEntry"><img src={EditPen} className="AllEntries-editPen u-editPen"></img></Link>
+                    </Tooltip>
+
                     </div>
                 </div>
                 <hr style={{"borderStyle":"double", "margin":"0 16px"}}></hr>
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Ooh~ What happened on this day?">
                 <div className={this.state.viewMode ? "u-flexColumn" : "u-flexRow u-flex-justifyCenter u-flexWrap"}>
                     {entriesList}
+                
                     {/* {addEntryButton} */}
                 </div>
+                </Tooltip>
             </div>
         )
     }
