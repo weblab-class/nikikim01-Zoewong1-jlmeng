@@ -97,6 +97,24 @@ router.post("/entries",(req,res) => {
   res.send(response);
 });
 
+router.post("/editEntry", (req,res) => {
+  Entry.updateOne(
+    {_id: req.body._id},
+    { $set: {
+        title: req.body.title,
+        content: req.body.content,
+        jsonContent: req.body.jsonContent,
+        colorMood: req.body.colorMood,
+        imageName: req.body.imageName,
+        tags: req.body.tags,
+        lastModDate: req.body.lastModDate,
+      }
+    }).then((response) => {
+      console.log(response);
+      res.send(response);
+    });
+});
+
 // USER
 router.get("/user", (req, res) => {
   User.findById(req.query.userid).then((user) => {

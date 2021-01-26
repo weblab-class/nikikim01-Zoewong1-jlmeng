@@ -3,6 +3,8 @@
 .HomePage-editPen{
     display: flex;
     margin: 2%;
+    height: 45vh;
+
 }
 
 .HomePage-container{
@@ -26,12 +28,12 @@
   width: 39%;
   height: 90%;
   left: 35%;
-  z-index: -5;
   padding: 0px;
   overflow-x: hidden; 
 
   background: url(../../public/images/LeatherJournal.svg);
   background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .HomePage-name{
@@ -39,16 +41,15 @@ position: absolute;
 flex-wrap: wrap;
 
 overflow-wrap: wrap;
-
+text-shadow:-3px -3px rgba(0, 0, 0, .2);
 font-family: Alegreya Sans;
 font-style: normal;
-font-weight: normal;
-font-size: 12vh;
-line-height: 14vh;
-width: 100%;
+font-weight: 700;
+font-size: 8vw;
+line-height: 30vw;
 text-align: center;
-z-index: 5;
 
-color: #FFFFFF;
+text-decoration: none;
+
+color: #fafbf5;
 }
-

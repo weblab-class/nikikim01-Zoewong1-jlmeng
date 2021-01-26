@@ -71,7 +71,7 @@ class SingleEntry extends Component{
                     <p>{}</p>
                     <div className="SingleEntry-container">
                         <Link to={url} style={{ textDecoration: 'none' }}>
-                            <h1 className="SingleEntry-title" style={{color:this.props.colorMood}}>{this.props.title}</h1>
+                            <h1 className="SingleEntry-title" style={{color:"#".concat(this.props.colorMood)}}>{this.props.title}</h1>
                         </Link>
                         <p className="SingleEntry-content">{this.props.content}</p>
                         {tagsList}
@@ -92,7 +92,7 @@ class SingleEntry extends Component{
             return (
                 <div className="u-flexColumn u-flex-justifyCenter">
                     {dateImg}
-                    <Link to={url} className="SingleEntry-viewTitle" style={{ textDecoration: 'none', color:this.props.colorMood }}>{this.props.title}</Link>
+                    <Link to={url} className="SingleEntry-viewTitle" style={{ textDecoration: 'none', color:"#".concat(this.props.colorMood)}}>{this.props.title}</Link>
                 </div>
             )
         }

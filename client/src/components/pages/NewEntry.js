@@ -47,13 +47,13 @@ const tags = [{
         label: 'Read when in need of pick me up'
     }]
 
-const journals = [{
-        value: 'Journal1',
-        label: 'School Journal',
-    },{
-        value: 'Journal2',
-        label: 'Work Journal',
-    }]
+// const journals = [{
+//         value: 'Journal1',
+//         label: 'School Journal',
+//     },{
+//         value: 'Journal2',
+//         label: 'Work Journal',
+//     }]
 
 // const tagList = ["School","Really Good Day","Read when in need of pick me up"];
 // const journalList = ['School Journal','Work Journal'];
@@ -101,7 +101,7 @@ class NewEntry extends Component{
       };
       if (prevProps.userId !== this.props.userId && this.props.userId) {
         // just logged in. reload images
-        this.loadImages();
+        this.loadImage();
       }
     }
 
@@ -112,7 +112,7 @@ class NewEntry extends Component{
 
     // Functions to control images //
 
-    loadImage = (receivedImage=this.state.imageURL) => {
+    loadImage = (receivedImage=this.state.imageName) => {
       console.log(receivedImage);
       get("/api/getImage",{image: receivedImage }).then(data => {
         console.log(data);
@@ -208,7 +208,7 @@ class NewEntry extends Component{
     let currentContent = state.getCurrentContent();
     console.log(currentContent.getPlainText());
     console.log(JSON.stringify(convertToRaw(currentContent)));
-    console.log(convertToHTML(currentContent));
+    console.log(convertToHTML(currentContent))
     this.setState({
       editorState: state,
       content: currentContent.getPlainText(),
