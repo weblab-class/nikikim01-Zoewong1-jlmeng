@@ -91,10 +91,10 @@ class AllEntries extends Component{
 
         if (this.state.viewMode){
             console.log("Menu List");
-            menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconSelected">
+            menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconSelected" style={{margin:"4px 4px 4px 16px"}}>
                             <img src={"https://storage.googleapis.com/tagheart/menuListIcon.svg"} className="AllEntries-icon"></img>
                         </div>;
-            viewIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconUnselected">
+            viewIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconUnselected" style={{margin:"4px"}}>
                             <img src={"https://storage.googleapis.com/tagheart/viewModeIcon.svg"} className="AllEntries-icon" onClick={this.pressViewIcon}></img>
                         </div>;
             addEntryButton = <div className="u-flex u-flex-justifyCenter">
@@ -113,10 +113,10 @@ class AllEntries extends Component{
             
         } else{
             console.log("View Mode");
-            menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconUnselected">
+            menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconUnselected" style={{margin:"4px 4px 4px 16px"}}>
                             <img src={"https://storage.googleapis.com/tagheart/menuListIcon.svg"} className="AllEntries-icon" onClick={this.pressMenuIcon}></img>
                         </div>;
-            viewIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconSelected">
+            viewIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconSelected" style={{margin:"4px"}}>
                             <img src={"https://storage.googleapis.com/tagheart/viewModeIcon.svg"} className="AllEntries-icon"></img>
                         </div>;
             addEntryButton = <div className="u-flexColumn u-flex-justifyCenter">
@@ -148,7 +148,7 @@ class AllEntries extends Component{
                             {leftIconCode}
                             <span>{this.state.month.format('MMMM YYYY')}</span>
                             {rightIconCode}
-                            {/* {menuIcon} {viewIcon} */}
+                            {menuIcon} {viewIcon}
                         </h1>
                     </div>
                     <div className="AllEntries-rightHeader u-flex u-flex-alignCenter">
@@ -166,8 +166,6 @@ class AllEntries extends Component{
                 <hr style={{"borderStyle":"double", "margin":"0 16px"}}></hr>
                 <div className={this.state.viewMode ? "u-flexColumn" : "u-flexRow u-flex-justifyCenter u-flexWrap"}>
                     {entriesList}
-                
-                    {/* {addEntryButton} */}
                 </div>
             </div>
         )
