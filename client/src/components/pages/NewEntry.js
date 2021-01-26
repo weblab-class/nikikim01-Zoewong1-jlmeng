@@ -358,7 +358,7 @@ class NewEntry extends Component{
                 
                 <div className="NewEntry-imageControls">
                   {/* <label htmlFor="fileInput">Click to add an image </label> */}
-                  <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Pics speak 1000 words...">
+                  <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Pics say 1000 words...">
                   <input className="NewEntry-uploadImage" type="file" id="default" name="default" accept="image/*" onChange={this.uploadImage} style={{fontSize:"16px"}}/>
                   </Tooltip>
                   {deleteButton}
@@ -385,17 +385,17 @@ class NewEntry extends Component{
                 {/* moods [start] */}
                 <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="How are you feeling?">
                 <div className="NewEntry-moods ">
-                  <div className="btnHappy" onClick={() => this.changeColor("FFD300", 'Happy')}></div>
-                  <div className="btnLaugh" onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
-                  <div className="btnKiss" onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
-                  <div className="btnSmile" onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
-                  <div className="btnSurprise" onClick={() => this.changeColor("FEC085", "Surprise")}></div>
-                  <div className="btnUgh" onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
-                  <div className="btnMeh" onClick={() => this.changeColor("717D7E", "Meh")}></div>
-                  <div className="btnDead" onClick={() => this.changeColor("000000", 'Dead')}></div>
-                  <div className="btnSick" onClick={() => this.changeColor("54C452", "Sick")}></div>
-                  <div className="btnTears" onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
-                  <div className="btnMad"onClick={() => this.changeColor("E35B5B", "Mad")}></div>
+                  <div className={this.state.colorMood === "FFD300" ? "btnHappyActive btnHappy" : "btnHappy"} onClick={() => this.changeColor("FFD300", 'Happy')}></div>
+                  <div className={this.state.colorMood === "965AEA" ? "btnLaughActive btnLaugh" : "btnLaugh"} onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
+                  <div className={this.state.colorMood === "F173D2" ? "btnKissActive btnKiss" : "btnKiss"} onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
+                  <div className={this.state.colorMood === "0BB5FF" ? "btnSmileActive btnSmile" : "btnSmile"} onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
+                  <div className={this.state.colorMood === "FEC085" ? "btnSurpriseActive btnSurprise" : "btnSurprise"} onClick={() => this.changeColor("FEC085", "Surprise")}></div>
+                  <div className={this.state.colorMood === "9A6A44" ? "btnUghActive btnUgh" : "btnUgh"} onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
+                  <div className={this.state.colorMood === "717D7E" ? "btnMehActive btnMeh" : "btnMeh"} onClick={() => this.changeColor("717D7E", "Meh")}></div>
+                  <div className={this.state.colorMood === "000000" ? "btnDeadActive btnDead" : "btnDead"} onClick={() => this.changeColor("000000", 'Dead')}></div>
+                  <div className={this.state.colorMood === "54C452" ? "btnSickActive btnSick" : "btnSick"} onClick={() => this.changeColor("54C452", "Sick")}></div>
+                  <div className={this.state.colorMood === "6BA0FC" ? "btnTearsActive btnTears" : "btnTears"} onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
+                  <div className={this.state.colorMood === "E35B5B" ? "btnMadActive btnMad" : "btnMad"} onClick={() => this.changeColor("E35B5B", "Mad")}></div>
                 </div>
                 </Tooltip>
                 {/* moods [end]*/}
