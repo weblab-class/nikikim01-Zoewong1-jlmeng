@@ -179,7 +179,7 @@
 .btnMad .fa {
     line-height: 80px;
 }
-.btnMad:active {/*onClick*/
+.btnMadActive {/*onClick*/
     background-image: url(https://storage.googleapis.com/tagheart/Mad.svg);
     background-size: 85%;
     background-position: center;
@@ -212,7 +212,7 @@
 .btnHappy .fa {
     line-height: 80px;
 }
-.btnHappy:active {/*onClick*/
+.btnHappyActive {/*onClick*/
     background-image: url(https://storage.googleapis.com/tagheart/Happy.svg);
     background-size: 85%;
     background-position: center;
@@ -245,7 +245,7 @@
 .btnTears .fa {
     line-height: 80px;
 }
-.btnTears:active {/*onClick*/
+.btnTearsActive {/*onClick*/
     background-image: url(https://storage.googleapis.com/tagheart/SadTears.svg);
     background-size: 85%;
     background-position: center;
@@ -278,7 +278,7 @@
 .btnKiss .fa {
     line-height: 80px;
 }
-.btnKiss:active {/*onClick*/
+.btnKissActive {/*onClick*/
     background-image: url(https://storage.googleapis.com/tagheart/KissWink.svg);
     background-size: 85%;
     background-position: center;
@@ -312,7 +312,7 @@
 .btnSurprise .fa {
     line-height: 80px;
 }
-.btnSurprise:active {/*onClick*/
+.btnSurpriseActive {/*onClick*/
     background-image: url(https://storage.googleapis.com/tagheart/Surprise.svg);
     background-size: 85%;
     background-position: center;
@@ -346,7 +346,7 @@
 .btnDead .fa {
     line-height: 80px;
 }
-.btnDead:active {/*onClick*/
+.btnDeadActive {/*onClick*/
     background-image: url(https://storage.googleapis.com/tagheart/Dead.svg);
     background-size: 85%;
     background-position: center;
@@ -380,7 +380,7 @@
 .btnLaugh .fa {
     line-height: 80px;
 }
-.btnLaugh:active {/*onClick*/
+.btnLaughActive {/*onClick*/
     background-image: url(https://storage.googleapis.com/tagheart/Laugh.svg);
     background-size: 85%;
     background-position: center;
@@ -412,7 +412,7 @@
 .btnUgh .fa {
     line-height: 80px;
 }
-.btnUgh:active {/*onClick*/
+.btnUghActive {/*onClick*/
     background-image: url(https://storage.googleapis.com/tagheart/Ugh.svg);
     background-size: 85%;
     background-position: center;
@@ -444,7 +444,7 @@
 .btnMeh .fa {
     line-height: 80px;
 }
-.btnMeh:active {/*onClick*/
+.btnMehActive {/*onClick*/
     background-image: url(https://storage.googleapis.com/tagheart/Meh.svg);
     background-size: 85%;
     background-position: center;
@@ -476,7 +476,7 @@
 .btnSmile .fa {
     line-height: 80px;
 }
-.btnSmile:active {/*onClick*/
+.btnSmileActive {/*onClick*/
     background-image: url(https://storage.googleapis.com/tagheart/Smile.svg);
     background-size: 85%;
     background-position: center;
