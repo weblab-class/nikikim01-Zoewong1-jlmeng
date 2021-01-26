@@ -65,6 +65,13 @@ class App extends Component {
     post("/api/logout");
   };
 
+  OnRouteChange = ({ action }) => (
+    <Location>
+      {({ location }) => <OnRouteChangeWorker location={location} action={action} />}
+    </Location>
+  )
+  
+
   render() {
     return (
       <>
