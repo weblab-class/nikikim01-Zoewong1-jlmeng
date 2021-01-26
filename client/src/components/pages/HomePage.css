@@ -2,14 +2,16 @@
 
 .HomePage-editPen{
     display: flex;
-    margin: 8px;
+    margin: 2%;
 }
 
 .HomePage-container{
     display: flex;
+    margin-left: 8%;
+    margin-right: 10%;
     flex-direction: row-reverse;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
+    align-content: center;
 }
 
 .HomePage-button{
@@ -18,114 +20,35 @@
 }
 
 
-/* Realistic-Looking Journal */
-/* backCover fakePage frontCover closeClasp */
-.HomePage-backCover{
-    position: absolute;
-    width: 634px;
-    height: 784px;
-    left: 283px;
-    top: 120px;
-  
-    background: linear-gradient(0deg, rgba(151, 238, 107, 1), rgba(151, 238, 107, 1)), url(../../public/images/dark-leather.png);
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-  }
-  
-  
-  .HomePage-fakePage{
-    position: absolute;
-    width: 9px;
-    height: 773px;
-    left: 900px;
-    top: 121px;
-  
-    background: #FCFDF8;
-  }
-  
-  
-  .HomePage-frontCover{
-    position: absolute;
-    width: 19px;
-    height: 84px;
-    left: 900px;
-    top: 461px;
-  
-    background: #C4C4C4;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  .HomePage-closeClasp{
-    position: absolute;
-    width: 617px;
-    height: 784px;
-    left: 283px;
-    top: 111px;
-  
-    background: linear-gradient(0deg, rgba(80, 27, 0, 0.2), rgba(80, 27, 0, 0.2)), url(../../public/images/dark-leather.png);
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    
-  }
+.HomePage-journalPic{
+  position: absolute;
+  top: 12%;
+  width: 39%;
+  height: 90%;
+  left: 35%;
+  z-index: -5;
+  padding: 0px;
+  overflow-x: hidden; 
 
-  /* Realistic-Looking Journal */
-/* backCover fakePage frontCover closeClasp */
-.u-backCover{
-    position: absolute;
-    width: 634px;
-    height: 784px;
-    left: 383px;
-    top: 120px;
-  
-    background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(../../public/images/dark-leather.png);
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-  }
-  
-  
-  .u-fakePage{
-    position: absolute;
-    width: 9px;
-    height: 773px;
-    left: 1000px;
-    top: 121px;
-  
-    background: #FCFDF8;
-  }
-  
-  
-  .u-frontCover{
-    position: absolute;
-    width: 19px;
-    height: 84px;
-    left: 1000px;
-    top: 461px;
-  
-    background: #C4C4C4;
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  }
-  
-  .u-closeClasp{
-    position: absolute;
-    width: 617px;
-    height: 784px;
-    left: 383px;
-    top: 111px;
-  
-    background: linear-gradient(0deg, rgba(80, 27, 0, 0.2), rgba(80, 27, 0, 0.2)), url(../../public/images/dark-leather.png);
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    
-  }
+  background: url(../../public/images/LeatherJournal.svg);
+  background-repeat: no-repeat;
+}
+
+.HomePage-name{
+position: absolute;
+flex-wrap: wrap;
+
+overflow-wrap: wrap;
+
+font-family: Alegreya Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 12vh;
+line-height: 14vh;
+width: 100%;
+text-align: center;
+z-index: 5;
+
+color: #FFFFFF;
+}
+

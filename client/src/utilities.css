@@ -73,6 +73,8 @@ body {
   font-weight: 300;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width:100%;
+  overflow-x:hidden;
 }
 
 form {

@@ -10,6 +10,7 @@ import SaveBookmark from "../../public/images/SaveBookmark.svg";
 import {EditorState, RichUtils, convertToRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { convertToHTML } from "draft-convert";
 
 
 const style = {
@@ -207,6 +208,7 @@ class NewEntry extends Component{
     let currentContent = state.getCurrentContent();
     console.log(currentContent.getPlainText());
     console.log(JSON.stringify(convertToRaw(currentContent)));
+    console.log(convertToHTML(currentContent));
     this.setState({
       editorState: state,
       content: currentContent.getPlainText(),
@@ -346,9 +348,9 @@ class NewEntry extends Component{
             <div className="NewEntry-frontCover">
               {/* whitepage left [start] */}
               <div className="NewEntry-leftpage u-flex u-flexColumn">
-                <div className="u-flexRow u-justifyCenter">
+                {/* <div className="u-flexRow u-justifyCenter">
                   <HeartMonitor className="NewEntry-HeartMonitor"/>
-                </div>
+                </div> */}
 
                 {/* gcp [start] */}
                 <div className="NewEntry-imageControls">

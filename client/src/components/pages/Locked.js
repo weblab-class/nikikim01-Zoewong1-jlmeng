@@ -2,7 +2,6 @@ import React, { Component } from "react";
 
 import { Link } from "@reach/router";
 import GoogleLogin, { GoogleLogout } from "react-google-login";
-import Welcome from "../../public/images/Welcome.svg";
 
 
 import "../../utilities.css";
