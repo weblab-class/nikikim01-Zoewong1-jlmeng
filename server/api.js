@@ -69,7 +69,6 @@ router.get("/entries",(req,res) => {
 router.post("/entries",(req,res) => {
   const newEntry = new Entry({
     user_id: req.body.user_id,
-    journal: req.body.journal,
     title: req.body.title,
     month: req.body.month,
     year: req.body.year,
@@ -81,6 +80,7 @@ router.post("/entries",(req,res) => {
     colorMood: req.body.colorMood,
     heartRateData: req.body.heartRateData,
     samplingRate: req.body.samplingRate,
+    imageName: req.body.imageName,
   });
   newEntry.save().then(() => {
     console.log("Successfully added new entry!");
@@ -127,7 +127,6 @@ router.post("/user", (req, res) => {
     name: req.body.name,
     googleid: req.body.googleid,
     avgRBPM: req.body.avgRBPM,
-    imageNames: [String],
   });
   newEntry.save().then(()=> {
     console.log("We got a new User!");
