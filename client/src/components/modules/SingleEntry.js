@@ -4,7 +4,6 @@ import { Link } from "@reach/router";
 import {EditorState, RichUtils, convertToRaw, convertFromRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML} from 'draft-convert';
-import {htmlParser} from './htmlParser';
 
 import "../../utilities.css";
 import "./SingleEntry.css";

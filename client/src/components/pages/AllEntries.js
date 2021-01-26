@@ -32,7 +32,6 @@ class AllEntries extends Component{
             month:this.state.month.format("MMMM"), 
             year:this.state.month.format("YYYY"), 
             user_id:Object(this.props.userId),
-            // journal:this.state.journal,
         }).then((entryObjs) => {
             this.setState({entries: entryObjs});
         });
@@ -61,7 +60,7 @@ class AllEntries extends Component{
         get("/api/entries",{
             month:this.state.month.format("MMMM"), 
             year:this.state.month.format("YYYY"), 
-            journal:this.state.journal
+            user_id:Object(this.props.userId),
         }).then((entryObjs) => {
             this.setState({entries: entryObjs});
         });
