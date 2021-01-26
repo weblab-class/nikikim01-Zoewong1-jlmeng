@@ -74,14 +74,10 @@ class App extends Component {
     console.log(`Logged in as ${res.profileObj.name}`);
     const userToken = res.tokenObj.id_token;
     post("/api/login", { token: userToken }).then((user) => {
-<<<<<<< HEAD
       this.setState({
         userId: user._id,
         username: user.name,
       });
-=======
-      this.setState({ userId: user._id, username: user.name });
->>>>>>> d81c02124f91b4685a438e9b5f448e8bac70e46f
       console.log(user._id.valueOf());
       post("/api/initsocket", { socketid: socket.id });
     });
