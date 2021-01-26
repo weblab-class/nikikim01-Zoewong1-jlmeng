@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router } from "@reach/router";
+import { Router, Location } from "@reach/router";
 import NotFound from "./pages/NotFound.js";
 import Skeleton from "./pages/Skeleton.js";
 import NavBar from "./modules/NavBar.js";
@@ -23,6 +23,27 @@ import { socket } from "../client-socket.js";
 import { get, post } from "../utilities";
 import AllEntries from "./pages/AllEntries.js";
 //import TestOpenCV from "./pages/TestOpenCV.js";
+
+class OnRouteChangeWorker extends React.Component {
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      this.props.action()
+    }
+  }
+
+  render() {
+    return null
+  }
+}
+
+
+const OnRouteChange = ({ action }) => (
+    
+  <Location>
+    {({ location }) => <OnRouteChangeWorker location={location} action={action} />}
+  </Location>
+)
+
 
 /**
  * Define the "App" component as a class.
@@ -64,12 +85,6 @@ class App extends Component {
     this.setState({ userId: null });
     post("/api/logout");
   };
-
-  OnRouteChange = ({ action }) => (
-    <Location>
-      {({ location }) => <OnRouteChangeWorker location={location} action={action} />}
-    </Location>
-  )
   
 
   render() {
@@ -122,6 +137,7 @@ class App extends Component {
           
           
         </Router>
+        <OnRouteChange action={() => { window.scrollTo(0, 0) }} />
       </>
     );
   }
