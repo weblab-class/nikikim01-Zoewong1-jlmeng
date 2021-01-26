@@ -5,13 +5,11 @@ import Creatable from 'react-select/creatable';
 import { get, post } from "../../utilities";
 import Webcam from "react-webcam";
 import HeartMonitor from "../modules/HeartMonitor.js";
-import SaveBookmark from "../../public/images/SaveBookmark.svg";
 
 import {EditorState, RichUtils, convertToRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from "draft-convert";
-
 
 const style = {
   control: base => ({
@@ -283,120 +281,124 @@ class NewEntry extends Component{
                   <img src={this.state.imageURL} className="NewEntry-img"/>
                 </div>;
       }
-        return (
-          <>  
-          <div className="NewEntry-entirety">
-            <div className="NewEntry-backCover">
-              <div className="NewEntry-clasp"/>
-              <div className="NewEntry-rightpage">
-                {/* date [start] */}
-                <div className = "NewEntry-date">
-                  <div className="NewEntry-dropdownButton">
-                    <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
-                  </div>
-                  <div className="NewEntry-dropdownButton">
-                    <select className="NewEntry-selectContent" value={this.state.day} onChange={this.changeDay}>{days}</select>
-                  </div>
-                  <div className="NewEntry-dropdownButton">
-                    <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
-                  </div>
-                </div>
-                {/* date [end] */}
 
-                {/* title [start] */}
-                <div className="NewEntry-titleBox">
-                  <input className="NewEntry-title" placeholder='Title' onChange={this.changeTitle}></input>
+      return (
+      <>  
+        <div className="NewEntry-entirety">
+          <div className="NewEntry-backCover">
+            <div className="NewEntry-clasp"/>
+            <div className="NewEntry-rightpage">
+              {/* date [start] */}
+              <div className = "NewEntry-date">
+                <div className="NewEntry-dropdownButton">
+                  <select className="NewEntry-selectContent" value={this.state.month} onChange={this.changeMonth}>{months}</select>
                 </div>
-                {/* title [end] */}
-
-                {/* text area [start] */}
-                <div className="NewEntry-contentBox">
-                  <Editor
-                    editorState={this.state.editorState}
-                    editorStyle={{ overflowY: scroll}, {height: "60vh"}, {padding:"0% 3%"}}
-                    toolbar={{
-                      options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list',
-                      'colorPicker', 'link', 'embedded', 'emoji', 'image','history'],
-                      inline: {
-                        options: ['bold', 
-                                  'italic', 
-                                  'underline', 
-                                  'strikethrough',
-                                ],
-                        bold: { className: 'bordered-option-classname' },
-                        italic: { className: 'bordered-option-classname' },
-                        underline: { className: 'bordered-option-classname' },
-                        strikethrough: { className: 'bordered-option-classname' },
-                        code: { className: 'bordered-option-classname' },
-                      },}}
-                    placeholder="Today was an amazing day! I..."
-                    handleKeyCommand={this.handleKeyCommand}
-                    onEditorStateChange={this.changeEditorState}/>
-                </div>   
-                {/* text area [end] */}
+                <div className="NewEntry-dropdownButton">
+                  <select className="NewEntry-selectContent" value={this.state.day} onChange={this.changeDay}>{days}</select>
+                </div>
+                <div className="NewEntry-dropdownButton">
+                  <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
+                </div>
               </div>
+              {/* date [end] */}
 
-              {/* save button [start] */}
-              <button className="NewEntry-saveButton" onClick={this.addEntry}>
-                  <img className="NewEntry-bookmark" src={SaveBookmark}></img>
-                </button>
-              {/* save button [end] */}
+              {/* title [start] */}
+              <div className="NewEntry-titleBox">
+                <input className="NewEntry-title" placeholder='Title' onChange={this.changeTitle}></input>
+              </div>
+              {/* title [end] */}
 
+              {/* text area [start] */}
+              <div className="NewEntry-contentBox">
+                <Editor
+                  editorState={this.state.editorState}
+                  editorStyle={{ overflowY: scroll}, {height: "60vh"}, {padding:"0% 3%"}}
+                  toolbar={{
+                    options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list',
+                    'colorPicker', 'link', 'embedded', 'emoji', 'image','history'],
+                    inline: {
+                      options: ['bold', 
+                                'italic', 
+                                'underline', 
+                                'strikethrough',
+                              ],
+                      bold: { className: 'bordered-option-classname' },
+                      italic: { className: 'bordered-option-classname' },
+                      underline: { className: 'bordered-option-classname' },
+                      strikethrough: { className: 'bordered-option-classname' },
+                      code: { className: 'bordered-option-classname' },
+                    },}}
+                  placeholder="Today was an amazing day! I..."
+                  handleKeyCommand={this.handleKeyCommand}
+                  onEditorStateChange={this.changeEditorState}/>
+              </div>   
+              {/* text area [end] */}
             </div>
-
-            {/* frontcover [start] */}
-            <div className="NewEntry-frontCover">
-              {/* whitepage left [start] */}
-              <div className="NewEntry-leftpage u-flex u-flexColumn">
-                {/* <div className="u-flexRow u-justifyCenter">
-                  <HeartMonitor className="NewEntry-HeartMonitor"/>
-                </div> */}
-
-                {/* gcp [start] */}
-                <div className="NewEntry-imageControls">
-                  {/* <label htmlFor="fileInput">Click to add an image </label> */}
-                  <input className="NewEntry-uploadImage" type="file" id="default" name="default" accept="image/*" onChange={this.uploadImage} style={{fontSize:"16px"}}/>
-                  {deleteButton}
-                </div>
-                {image}
-                {/* gcp [end] */}
-
-                {/* tags [start] */}
-                <Creatable
-                  className="NewEntry-tagsBar"
-                  styles={style}
-                  components={{
-                    IndicatorSeparator: () => null}}
-                  isMulti
-                  isClearable
-                  onChange={this.changeTag}
-                  options = {tags}
-                  placeholder='Tag(s)'
-                />
-                {/* tags [end] */}
-
-                {/* moods [start] */}
-                <div className="NewEntry-moods ">
-                  <div className="btnHappy" onClick={() => this.changeColor("FFD300", 'Happy')}></div>
-                  <div className="btnLaugh" onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
-                  <div className="btnKiss" onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
-                  <div className="btnSmile" onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
-                  <div className="btnSurprise" onClick={() => this.changeColor("FEC085", "Surprise")}></div>
-                  <div className="btnUgh" onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
-                  <div className="btnMeh" onClick={() => this.changeColor("717D7E", "Meh")}></div>
-                  <div className="btnDead" onClick={() => this.changeColor("000000", 'Dead')}></div>
-                  <div className="btnSick" onClick={() => this.changeColor("54C452", "Sick")}></div>
-                  <div className="btnTears" onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
-                  <div className="btnMad"onClick={() => this.changeColor("E35B5B", "Mad")}></div>
-                </div>
-                {/* moods [end]*/}
-
-              </div> {/* whitepage left [end] */}
-            </div> {/* front cover [end] */}
           </div>
-</>
 
-        );
-    }
+          {/* save button [start] */}
+          <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Save Me!">
+            <button className="NewEntry-saveButton" onClick={this.addEntry}>
+              <img className="NewEntry-bookmark" src={"https://storage.googleapis.com/tagheart/SaveBookmark.svg"}></img>
+            </button>
+          </Tooltip>
+          {/* save button [end] */}
+
+          {/* frontcover [start] */}
+          <div className="NewEntry-frontCover">
+            {/* whitepage left [start] */}
+            <div className="NewEntry-leftpage u-flex u-flexColumn">
+              {/* <div className="u-flexRow u-justifyCenter">
+                <HeartMonitor className="NewEntry-HeartMonitor"/>
+              </div> */}
+
+              {/* gcp [start] */}
+              <div className="NewEntry-imageControls">
+                {/* <label htmlFor="fileInput">Click to add an image </label> */}
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Pics say 1000 words...">
+                  <input className="NewEntry-uploadImage" type="file" id="default" name="default" accept="image/*" onChange={this.uploadImage} style={{fontSize:"16px"}}/>
+                </Tooltip>
+                {deleteButton}
+              </div>
+              {image}
+              {/* gcp [end] */}
+
+              {/* tags [start] */}
+              <Creatable
+                className="NewEntry-tagsBar"
+                styles={style}
+                components={{
+                  IndicatorSeparator: () => null}}
+                isMulti
+                isClearable
+                onChange={this.changeTag}
+                options = {tags}
+                placeholder='Tag(s)'
+              />
+              {/* tags [end] */}
+
+              {/* moods [start] */}
+              <div className="NewEntry-moods ">
+                <div className={this.state.colorMood === "FFD300" ? "btnHappyActive btnHappy" : "btnHappy"} onClick={() => this.changeColor("FFD300", 'Happy')}></div>
+                <div className={this.state.colorMood === "965AEA" ? "btnLaughActive btnLaugh" : "btnLaugh"} onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
+                <div className={this.state.colorMood === "F173D2" ? "btnKissActive btnKiss" : "btnKiss"} onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
+                <div className={this.state.colorMood === "0BB5FF" ? "btnSmileActive btnSmile" : "btnSmile"} onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
+                <div className={this.state.colorMood === "FEC085" ? "btnSurpriseActive btnSurprise" : "btnSurprise"} onClick={() => this.changeColor("FEC085", "Surprise")}></div>
+                <div className={this.state.colorMood === "9A6A44" ? "btnUghActive btnUgh" : "btnUgh"} onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
+                <div className={this.state.colorMood === "717D7E" ? "btnMehActive btnMeh" : "btnMeh"} onClick={() => this.changeColor("717D7E", "Meh")}></div>
+                <div className={this.state.colorMood === "000000" ? "btnDeadActive btnDead" : "btnDead"} onClick={() => this.changeColor("000000", 'Dead')}></div>
+                <div className={this.state.colorMood === "54C452" ? "btnSickActive btnSick" : "btnSick"} onClick={() => this.changeColor("54C452", "Sick")}></div>
+                <div className={this.state.colorMood === "6BA0FC" ? "btnTearsActive btnTears" : "btnTears"} onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
+                <div className={this.state.colorMood === "E35B5B" ? "btnMadActive btnMad" : "btnMad"} onClick={() => this.changeColor("E35B5B", "Mad")}></div>
+              </div>
+              {/* moods [end]*/}
+
+            </div> {/* whitepage left [end] */}
+          </div> {/* front cover [end] */}
+        </div>
+      </>
+      )
+    };
 }
+
 export default NewEntry;

@@ -6,7 +6,6 @@ import GoogleLogin, { GoogleLogout } from "react-google-login";
 
 import "../../utilities.css";
 import "./Locked.css";
-import LeatherJournal from "../../public/images/LeatherJournal.svg";
 
 import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';

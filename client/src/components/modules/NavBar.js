@@ -4,8 +4,6 @@ import GoogleLogin, { GoogleLogout } from "react-google-login";
 
 import "../../utilities.css";
 import "./NavBar.css";
-import TagHeartLogo from "../../public/images/TagHeartLogo.svg";
-import settingsIcon from "../../public/images/settingsIcon.svg";
 
 // to identify our application to Google's authentication service
 const GOOGLE_CLIENT_ID = "982536960811-6taskpv3uhgkihm76ej75g5i03u1g0mf.apps.googleusercontent.com";
@@ -28,7 +26,7 @@ const GOOGLE_CLIENT_ID = "982536960811-6taskpv3uhgkihm76ej75g5i03u1g0mf.apps.goo
                 {this.props.userId ? (
                 <>
                 <div className="u-flex u-flex-alignCenter">
-                    <Link to="/" className="NavBar-link"><img src={TagHeartLogo} height="80"/></Link>
+                    <Link to="/" className="NavBar-link"><img src={"https://storage.googleapis.com/tagheart/TagHeartLogo.svg"} height="80"/></Link>
                     {/* <Link to="/Feed" className="NavBar-link">Feed</Link> */}
                     {/* <Link to={"/Profile/"+ this.props.userId} className="NavBar-link">Profile</Link> */}
                 </div>
@@ -43,7 +41,7 @@ const GOOGLE_CLIENT_ID = "982536960811-6taskpv3uhgkihm76ej75g5i03u1g0mf.apps.goo
                 </>
                 ) : (
                 <>
-                <Link to="/" className="NavBar-link"><img src={TagHeartLogo} height="80"/></Link>
+                <Link to="/" className="NavBar-link"><img src={"https://storage.googleapis.com/tagheart/TagHeartLogo.svg"} height="80"/></Link>
                 <div className="NavBar-logInOutSettings">
                 <GoogleLogin
                     clientId={GOOGLE_CLIENT_ID}

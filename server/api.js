@@ -61,7 +61,7 @@ router.get("/entries",(req,res) => {
     year: req.query.year,
     user_id: req.query.user_id, 
     // journal:req.query.journal
-  }).sort({day: 1}).then((entries) => {
+  }).sort({day: -1}).then((entries) => {
     res.send(entries);
   });
 });

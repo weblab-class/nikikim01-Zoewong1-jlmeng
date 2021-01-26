@@ -3,8 +3,6 @@ import React, { Component } from "react";
 import "./HomePage.css";
 import "../../utilities.css";
 import { Link } from "@reach/router";
-import EditPen from "../../public/images/EditPen.svg";
-import RedFlower from "../../public/images/RedFlower.svg";
 
 import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';
@@ -28,7 +26,7 @@ class HomePage extends Component {
             <>  
             <div className="HomePage-container">
                 <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Create New Entry!">
-                    <div><Link to="/NewEntry"><img src={EditPen} className="HomePage-button HomePage-editPen u-editPen"></img></Link></div>
+                    <div><Link to="/NewEntry"><img src={"https://storage.googleapis.com/tagheart/EditPen.svg"} className="HomePage-button HomePage-editPen u-editPen"></img></Link></div>
                 </Tooltip>
                     
                 <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="See All Entries">
@@ -36,7 +34,7 @@ class HomePage extends Component {
                 </Tooltip>
 
                 <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="See Mood Tracker">
-                    <div><Link to="/MoodTracker"><img className="HomePage-button" src={RedFlower}/></Link></div>
+                    <div><Link to="/MoodTracker"><img className="HomePage-button" src={"https://storage.googleapis.com/tagheart/RedFlower.svg"}/></Link></div>
                 </Tooltip>
                     
                 

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "@reach/router";
-import samoyed from "../../public/images/samoyed.jpg";
 
 import {EditorState, RichUtils, convertToRaw, convertFromRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
@@ -54,7 +53,7 @@ class SingleEntry extends Component{
             let dateBox = null;
 
             if (this.state.imageIncluded){
-                dateBox = <img src={samoyed}></img>
+                dateBox = <img src={"https://storage.googleapis.com/tagheart/samoyed.jpg"}></img>
 
             }else{
                 dateBox = <Link to={url} className="SingleEntry-date" style={{ textDecoration: 'none' }}>{this.props.day}</Link>;

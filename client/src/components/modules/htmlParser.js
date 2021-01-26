@@ -67,10 +67,9 @@ export function htmlParser(jsonObj, entryID){
         let type = (block.type === "unstyled") ? "p" : ((block.type === "unordered-list-item") ? "ul" : "ol");
 
         if (prevType !== type){
-            if (prevType === null) html = html.concat("<p>")
-            else if (prevType === "unordered-list-item" || prevType === "unordered-list-item"){
-                
-            }
+            if (prevType !== null) html = html.concat("</",prevType,">");
+            html = html.concat("<",type);
+
         }
 
         prevType = type;

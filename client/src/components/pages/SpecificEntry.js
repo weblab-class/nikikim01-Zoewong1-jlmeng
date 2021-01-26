@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import {get, post} from "../../utilities.js"
 // import {useLocation} from "react-router-dom";
-import editIcon from "../../public/images/editIcon.svg";
-import samoyed from "../../public/images/samoyed.jpg";
 import "./SpecificEntry.css";
 import Creatable from 'react-select/creatable';
 import {EditorState, RichUtils, convertToRaw, convertFromRaw} from "draft-js";
@@ -317,7 +315,7 @@ readImage = (blob) => {
             {tagsBar}
             {moodBox}
         </div>
-        <img src={editIcon} className="SpecificEntry-editIcon" onClick={this.editEntry}></img>
+        <img src={"https://storage.googleapis.com/tagheart/editIcon.svg"} className="SpecificEntry-editIcon" onClick={this.editEntry}></img>
         
         </>
     );

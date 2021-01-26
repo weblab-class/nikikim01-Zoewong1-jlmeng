@@ -7,12 +7,8 @@ import moment from "moment";
 
 import {post} from "../../utilities.js"
 import Circle from "../modules/Circle.js";
-import plusSign from "../../public/images/plusSign.svg";
-import lockButton from "../../public/images/lockButton.svg";
-import shareButton from "../../public/images/shareButton.svg";
 import WebcamCapture from "../modules/WebcamCapture.js";
 
-import mic from "../../public/images/mic.svg";
 
 const style = {
     control: base => ({
@@ -220,7 +216,7 @@ class CreateEntry extends Component {
         </div>
         <div className="EnterEntry-contentBox">
             <textarea className="EnterEntry-content" placeholder='Today, I ...' onChange={this.changeContent}></textarea>
-            <button className="EnterEntry-mic"><img src={mic} alt="Record Button - Microphone Image"></img></button>
+            <button className="EnterEntry-mic"><img src={"https://storage.googleapis.com/tagheart/mic.svg"} alt="Record Button - Microphone Image"></img></button>
         </div>
         <Creatable
                 className="CreateEntry-creatable"
@@ -248,13 +244,13 @@ class CreateEntry extends Component {
        <div className="u-flex u-flex-justifyCenter u-flex-alignCenter"><WebcamCapture/></div>
         <div className="u-flexRow u-justifyCenter">
           <button className="u-flex u-flex-justifyCenter u-flex-alignCenter CreateEntry-button">
-            <img src={plusSign} width="48.51px" height="48.51px"></img>
+            <img src={"https://storage.googleapis.com/tagheart/plusSign.svg"} width="48.51px" height="48.51px"></img>
           </button>
           <button className="u-flex u-flex-justifyCenter u-flex-alignCenter CreateEntry-button">
-            <img src={lockButton} width="51.49px" height="51.49px"></img>
+            <img src={"https://storage.googleapis.com/tagheart/lockButton.svg"} width="51.49px" height="51.49px"></img>
             </button>
           <button className="u-flex u-flex-justifyCenter u-flex-alignCenter CreateEntry-button">
-            <img src={shareButton} width="59px" height="59px"></img>
+            <img src={"https://storage.googleapis.com/tagheart/shareButton.svg"} width="59px" height="59px"></img>
             </button>
         </div>
 
