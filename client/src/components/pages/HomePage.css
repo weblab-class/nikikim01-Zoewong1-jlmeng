@@ -28,7 +28,6 @@
   width: 39%;
   height: 90%;
   left: 35%;
-  z-index: -50;
   padding: 0px;
   overflow-x: hidden; 
 
@@ -50,7 +49,6 @@ font-size: 8vw;
 line-height: 30vw;
 text-align: center;
 
-z-index: 50;
 text-decoration: none;
 
 color: #fafbf5;
