@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';
 
+
 import "./NewEntry.css";
 import moment from "moment";
 import Creatable from 'react-select/creatable';
