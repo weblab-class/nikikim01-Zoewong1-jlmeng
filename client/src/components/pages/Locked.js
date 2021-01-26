@@ -8,6 +8,9 @@ import "../../utilities.css";
 import "./Locked.css";
 import LeatherJournal from "../../public/images/LeatherJournal.svg";
 
+import Tooltip from '@material-ui/core/Tooltip';
+import Fade from '@material-ui/core/Fade';
+
 
 class Locked extends Component {
     constructor(props){
@@ -24,6 +27,8 @@ class Locked extends Component {
                 {/* <div className="u-flex u-flex-alignCenter u-flex-justifyCenter">
                     <Link to="/Info" className="Locked-journalPic Locked-name">Tag Heart</Link>
                 </div> */}
+
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="CLICK ME!!">
                 <a href="./Info">
                     <div className="Locked-Journal">
                         <div className="Locked-back"></div>
@@ -36,6 +41,7 @@ class Locked extends Component {
                         <div className="Locked-front"></div>
                     </div>
                 </a>
+                </Tooltip>
            
             </>
         );

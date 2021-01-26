@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import Tooltip from '@material-ui/core/Tooltip';
+import Fade from '@material-ui/core/Fade';
+
 import "./NewEntry.css";
 import moment from "moment";
 import Creatable from 'react-select/creatable';
@@ -335,9 +338,11 @@ class NewEntry extends Component{
               </div>
 
               {/* save button [start] */}
-              <button className="NewEntry-saveButton" onClick={this.addEntry}>
+              <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Save Me!">
+                <button className="NewEntry-saveButton" onClick={this.addEntry}>
                   <img className="NewEntry-bookmark" src={SaveBookmark}></img>
                 </button>
+                </Tooltip>
               {/* save button [end] */}
 
             </div>
@@ -351,15 +356,20 @@ class NewEntry extends Component{
                 </div>
 
                 {/* gcp [start] */}
+                
                 <div className="NewEntry-imageControls">
                   {/* <label htmlFor="fileInput">Click to add an image </label> */}
+                  <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Pics speak 1000 words...">
                   <input className="NewEntry-uploadImage" type="file" id="default" name="default" accept="image/*" onChange={this.uploadImage} style={{fontSize:"16px"}}/>
+                  </Tooltip>
                   {deleteButton}
                 </div>
                 {image}
+                
                 {/* gcp [end] */}
 
                 {/* tags [start] */}
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Tag your entry!">
                 <Creatable
                   className="NewEntry-tagsBar"
                   styles={style}
@@ -370,10 +380,11 @@ class NewEntry extends Component{
                   onChange={this.changeTag}
                   options = {tags}
                   placeholder='Tag(s)'
-                />
+                /></Tooltip>
                 {/* tags [end] */}
 
                 {/* moods [start] */}
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="How are you feeling?">
                 <div className="NewEntry-moods ">
                   <div className="btnHappy" onClick={() => this.changeColor("FFD300", 'Happy')}></div>
                   <div className="btnLaugh" onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
@@ -387,6 +398,7 @@ class NewEntry extends Component{
                   <div className="btnTears" onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
                   <div className="btnMad"onClick={() => this.changeColor("E35B5B", "Mad")}></div>
                 </div>
+                </Tooltip>
                 {/* moods [end]*/}
 
               </div> {/* whitepage left [end] */}
