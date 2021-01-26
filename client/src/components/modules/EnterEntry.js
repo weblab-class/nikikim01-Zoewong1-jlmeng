@@ -2,8 +2,6 @@ import React, { Component } from "react";
 
 import "./EnterEntry.css";
 
-import mic from "../../public/images/mic.svg";
-
 class EnterEntry extends Component {
     constructor(props) {
         super(props);
@@ -24,7 +22,7 @@ class EnterEntry extends Component {
         return (
             <div className="EnterEntry-contentBox">
                 <textarea className="EnterEntry-content" placeholder='Today, I ...' onChange={this.handleChange}></textarea>
-                <button className="EnterEntry-mic"><img src={mic} alt="Record Button - Microphone Image"></img></button>
+                <button className="EnterEntry-mic"><img src={"https://storage.googleapis.com/tagheart/mic.svg"} alt="Record Button - Microphone Image"></img></button>
             </div>
         )
       }

@@ -3,16 +3,6 @@ import { Link } from "@reach/router";
 import SingleEntry from "../modules/SingleEntry.js";
 import { get } from "../../utilities";
 
-// import images
-import menuListIcon from "../../public/images/menuListIcon.svg";
-import viewModeIcon from "../../public/images/viewModeIcon.svg";
-import plusSign from "../../public/images/plusSign.svg";
-import leftIcon from "../../public/images/leftIcon.svg";
-import rightIcon from "../../public/images/rightIcon.svg";
-import HappySun from "../../public/images/HappySun.svg";
-import EditPen from "../../public/images/EditPen.svg";
-import MOOD from "../../public/images/MOOD.svg";
-
 
 import "../../utilities.css";
 import "./AllEntries.css";
@@ -102,10 +92,10 @@ class AllEntries extends Component{
         if (this.state.viewMode){
             console.log("Menu List");
             menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconSelected">
-                            <img src={menuListIcon} className="AllEntries-icon"></img>
+                            <img src={"https://storage.googleapis.com/tagheart/menuListIcon.svg"} className="AllEntries-icon"></img>
                         </div>;
             viewIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconUnselected">
-                            <img src={viewModeIcon} className="AllEntries-icon" onClick={this.pressViewIcon}></img>
+                            <img src={"https://storage.googleapis.com/tagheart/viewModeIcon.svg"} className="AllEntries-icon" onClick={this.pressViewIcon}></img>
                         </div>;
             addEntryButton = <div className="u-flex u-flex-justifyCenter">
                                 <Link to="/CreateEntry" className="AllEntries-addBox" style={{ textDecoration: 'none' }}>
@@ -124,14 +114,14 @@ class AllEntries extends Component{
         } else{
             console.log("View Mode");
             menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconUnselected">
-                            <img src={menuListIcon} className="AllEntries-icon" onClick={this.pressMenuIcon}></img>
+                            <img src={"https://storage.googleapis.com/tagheart/menuListIcon.svg"} className="AllEntries-icon" onClick={this.pressMenuIcon}></img>
                         </div>;
             viewIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconSelected">
-                            <img src={viewModeIcon} className="AllEntries-icon"></img>
+                            <img src={"https://storage.googleapis.com/tagheart/viewModeIcon.svg"} className="AllEntries-icon"></img>
                         </div>;
             addEntryButton = <div className="u-flexColumn u-flex-justifyCenter">
                                 <Link to="/CreateEntry" className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-addImg" style={{ textDecoration: 'none' }}>
-                                        <img src={plusSign} height="98px" width="98px"></img>
+                                        <img src={"https://storage.googleapis.com/tagheart/plusSign.svg"} height="98px" width="98px"></img>
                                 </Link>
                                 <p className="u-textCenter u-margin-xs AllEntries-add">Add Entry</p>
                             </div>;
@@ -146,8 +136,8 @@ class AllEntries extends Component{
             };
         }
 
-        let leftIconCode = <img src={leftIcon} onClick={this._decreaseMonth} className="AllEntries-iconContainer" height="25px"></img>;
-        let rightIconCode = this.state.month.clone().add(1, 'hour') > moment() ? null : <img src={rightIcon} onClick={this._increaseMonth} className="AllEntries-iconContainer" height="25px"></img>;
+        let leftIconCode = <img src={"https://storage.googleapis.com/tagheart/leftIcon.svg"} onClick={this._decreaseMonth} className="AllEntries-iconContainer" height="25px"></img>;
+        let rightIconCode = this.state.month.clone().add(1, 'hour') > moment() ? null : <img src={"https://storage.googleapis.com/tagheart/rightIcon.svg"} onClick={this._increaseMonth} className="AllEntries-iconContainer" height="25px"></img>;
 
         return(
             <div>
@@ -164,23 +154,21 @@ class AllEntries extends Component{
                     <div className="AllEntries-rightHeader u-flex u-flex-alignCenter">
 
                     <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="See Mood Tracker">
-                        <div className="AllEntries-border"><Link to="/MoodTracker"><img src={MOOD} height="180" className="AllEntries-happySun"></img></Link></div>
+                        <div className="AllEntries-border"><Link to="/MoodTracker"><img src={"https://storage.googleapis.com/tagheart/MOOD.svg"} height="180" className="AllEntries-happySun"></img></Link></div>
                     </Tooltip>
 
                     <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Create New Entry!">
-                        <Link to="/NewEntry"><img src={EditPen} className="AllEntries-editPen u-editPen"></img></Link>
+                        <Link to="/NewEntry"><img src={"https://storage.googleapis.com/tagheart/EditPen.svg"} className="AllEntries-editPen u-editPen"></img></Link>
                     </Tooltip>
 
                     </div>
                 </div>
                 <hr style={{"borderStyle":"double", "margin":"0 16px"}}></hr>
-                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Ooh~ What happened on this day?">
                 <div className={this.state.viewMode ? "u-flexColumn" : "u-flexRow u-flex-justifyCenter u-flexWrap"}>
                     {entriesList}
                 
                     {/* {addEntryButton} */}
                 </div>
-                </Tooltip>
             </div>
         )
     }

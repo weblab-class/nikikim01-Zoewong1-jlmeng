@@ -139,7 +139,7 @@ export default JournalsDropdown;
 //                 </div>
 //             </div>
 //             {open && (
-//                 <ul className="JournalDropdown-list u-flex" >
+//                 <ul className="JournalDropdown-list u-flex" key={item.id} >
 //                     {items.map((item) => (
 //                         <li className="JournalDropdown-list-item" key={item.id}>
 //                             <button className="JournalDropdown-button" type="button" onClick={() => handleOnClick(item)}>

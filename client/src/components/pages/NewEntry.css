@@ -76,7 +76,7 @@
     left: 50%;
     top: 10%;
 
-    background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(../../public/images/dark-leather.png);
+    background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(https://storage.googleapis.com/tagheart/dark-leather.png);
     border: 1px solid #2e2626;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -90,7 +90,7 @@
     left: 3%;
     top: 10%;
 
-    background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(../../public/images/dark-leather.png);
+    background: linear-gradient(0deg, rgba(80, 27, 0, 0.5), rgba(80, 27, 0, 0.5)), url(https://storage.googleapis.com/tagheart/dark-leather.png);
     border: 1px solid #2e2626;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -135,7 +135,7 @@
     vertical-align: middle;
     overflow: hidden;
     font-weight: bold;
-    background-image: url(../../public/images/sickFace.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/sickFace.svg);
     background-repeat: no-repeat;
     background-size: 95%;
     background-position: center;
@@ -149,7 +149,7 @@
 }
 .btnSick:active {/*onClick*/
     background-size: 100%;
-    background-image: url(../../public/images/sickFace.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/sickFace.svg);
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
     border-bottom: none;
 }
@@ -166,7 +166,7 @@
     vertical-align: middle;
     overflow: hidden;
     font-weight: bold;
-    background-image: url(../../public/images/Mad.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Mad.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
@@ -180,7 +180,7 @@
     line-height: 80px;
 }
 .btnMad:active {/*onClick*/
-    background-image: url(../../public/images/Mad.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Mad.svg);
     background-size: 85%;
     background-position: center;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
@@ -199,7 +199,7 @@
     vertical-align: middle;
     overflow: hidden;
     font-weight: bold;
-    background-image: url(../../public/images/Happy.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Happy.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
@@ -213,7 +213,7 @@
     line-height: 80px;
 }
 .btnHappy:active {/*onClick*/
-    background-image: url(../../public/images/Happy.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Happy.svg);
     background-size: 85%;
     background-position: center;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
@@ -232,7 +232,7 @@
     vertical-align: middle;
     overflow: hidden;
     font-weight: bold;
-    background-image: url(../../public/images/SadTears.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/SadTears.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
@@ -246,7 +246,7 @@
     line-height: 80px;
 }
 .btnTears:active {/*onClick*/
-    background-image: url(../../public/images/SadTears.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/SadTears.svg);
     background-size: 85%;
     background-position: center;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
@@ -265,7 +265,7 @@
     vertical-align: middle;
     overflow: hidden;
     font-weight: bold;
-    background-image: url(../../public/images/KissWink.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/KissWink.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
@@ -279,7 +279,7 @@
     line-height: 80px;
 }
 .btnKiss:active {/*onClick*/
-    background-image: url(../../public/images/KissWink.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/KissWink.svg);
     background-size: 85%;
     background-position: center;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
@@ -299,7 +299,7 @@
     vertical-align: middle;
     overflow: hidden;
     font-weight: bold;
-    background-image: url(../../public/images/Surprise.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Surprise.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
@@ -313,7 +313,7 @@
     line-height: 80px;
 }
 .btnSurprise:active {/*onClick*/
-    background-image: url(../../public/images/Surprise.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Surprise.svg);
     background-size: 85%;
     background-position: center;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
@@ -333,7 +333,7 @@
     vertical-align: middle;
     overflow: hidden;
     font-weight: bold;
-    background-image: url(../../public/images/Dead.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Dead.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
@@ -347,7 +347,7 @@
     line-height: 80px;
 }
 .btnDead:active {/*onClick*/
-    background-image: url(../../public/images/Dead.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Dead.svg);
     background-size: 85%;
     background-position: center;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
@@ -367,7 +367,7 @@
     vertical-align: middle;
     overflow: hidden;
     font-weight: bold;
-    background-image: url(../../public/images/Laugh.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Laugh.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
@@ -381,7 +381,7 @@
     line-height: 80px;
 }
 .btnLaugh:active {/*onClick*/
-    background-image: url(../../public/images/Laugh.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Laugh.svg);
     background-size: 85%;
     background-position: center;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
@@ -399,7 +399,7 @@
     vertical-align: middle;
     overflow: hidden;
     font-weight: bold;
-    background-image: url(../../public/images/Ugh.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Ugh.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
@@ -413,7 +413,7 @@
     line-height: 80px;
 }
 .btnUgh:active {/*onClick*/
-    background-image: url(../../public/images/Ugh.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Ugh.svg);
     background-size: 85%;
     background-position: center;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
@@ -431,7 +431,7 @@
     vertical-align: middle;
     overflow: hidden;
     font-weight: bold;
-    background-image: url(../../public/images/Meh.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Meh.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
@@ -445,7 +445,7 @@
     line-height: 80px;
 }
 .btnMeh:active {/*onClick*/
-    background-image: url(../../public/images/Meh.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Meh.svg);
     background-size: 85%;
     background-position: center;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
@@ -463,7 +463,7 @@
     vertical-align: middle;
     overflow: hidden;
     font-weight: bold;
-    background-image: url(../../public/images/Smile.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Smile.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 80%;
@@ -477,7 +477,7 @@
     line-height: 80px;
 }
 .btnSmile:active {/*onClick*/
-    background-image: url(../../public/images/Smile.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/Smile.svg);
     background-size: 85%;
     background-position: center;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);

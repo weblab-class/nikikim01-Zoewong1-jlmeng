@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import {get} from "../../utilities.js"
 // import {useLocation} from "react-router-dom";
-import editIcon from "../../public/images/editIcon.svg";
-import samoyed from "../../public/images/samoyed.jpg";
 import "./SpecificEntry.css";
 
 class SpecificEntry extends Component {
@@ -62,7 +60,7 @@ class SpecificEntry extends Component {
                 <p className="SpecificEntry-entryContent">{this.state.content}</p>
             </div>
             <div className="u-flexRow" style={{justifyContent:"space-evenly", width:"988px"}}>
-                <img src={samoyed} className="SpecificEntry-entryImage"></img>
+                <img src={"https://storage.googleapis.com/tagheart/samoyed.jpg"} className="SpecificEntry-entryImage"></img>
                 <div className="SpecificEntry-heartRate">
                   <p style={{textAlign:"center"}}>Heart Rate Here</p>
                 </div>
@@ -71,7 +69,7 @@ class SpecificEntry extends Component {
                 </div>
             </div>
         </div>
-        <img src={editIcon} className="SpecificEntry-editIcon" onClick={() => {console.log("I want to edit!")}}></img>
+        <img src={"https://storage.googleapis.com/tagheart/editIcon.svg"} className="SpecificEntry-editIcon" onClick={() => {console.log("I want to edit!")}}></img>
         
         </>
     );

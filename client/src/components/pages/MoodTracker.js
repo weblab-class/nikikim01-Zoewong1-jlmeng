@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PaintBrush from "../../public/images/PaintBrush.svg";
 
 class MoodTracker extends Component {
     constructor(props){
@@ -11,7 +10,7 @@ class MoodTracker extends Component {
     render(){
         return (
             <div>
-                <img src={PaintBrush} height="800"/>
+                <img src={"https://storage.googleapis.com/tagheart/PaintBrush.svg"} height="800"/>
             </div>
         );
     }

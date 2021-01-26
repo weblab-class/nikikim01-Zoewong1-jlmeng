@@ -8,7 +8,6 @@ import Creatable from 'react-select/creatable';
 import { get, post } from "../../utilities";
 import Webcam from "react-webcam";
 import HeartMonitor from "../modules/HeartMonitor.js";
-import SaveBookmark from "../../public/images/SaveBookmark.svg";
 
 import {EditorState, RichUtils, convertToRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
@@ -340,7 +339,7 @@ class NewEntry extends Component{
               {/* save button [start] */}
               <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Save Me!">
                 <button className="NewEntry-saveButton" onClick={this.addEntry}>
-                  <img className="NewEntry-bookmark" src={SaveBookmark}></img>
+                  <img className="NewEntry-bookmark" src={"https://storage.googleapis.com/tagheart/SaveBookmark.svg"}></img>
                 </button>
                 </Tooltip>
               {/* save button [end] */}
