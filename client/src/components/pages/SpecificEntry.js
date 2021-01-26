@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {get, post} from "../../utilities.js"
-// import {useLocation} from "react-router-dom";
 import "./SpecificEntry.css";
 import Creatable from 'react-select/creatable';
 import {EditorState, RichUtils, convertToRaw, convertFromRaw} from "draft-js";
@@ -280,7 +279,11 @@ readImage = (blob) => {
                     </div>;
     } else{
       titleBox = <h1 className="SpecificEntry-entryTitle" style={{"color":"#".concat(this.state.colorMood), display:"inline-block"}}>{this.state.title}</h1>;
-      contentBox = <p className="SpecificEntry-entryContent">{this.state.content}</p>;
+      contentBox = <Editor
+                    editorState={this.state.editorState}
+                    editorStyle={{ overflowY: scroll}, {height: "60vh"}, {padding:"0% 3%"}}
+                    toolbarStyle={{display:"none"}}
+                    readOnly/>;
       if (this.state.imageName !== "") imageBox = <img src={this.state.imageURL} className="SpecificEntry-entryImage"></img>;
       tagsList = this.state.tags.map((tag) => (<div className="SingleEntry-tag">{tag}</div>));
     }
