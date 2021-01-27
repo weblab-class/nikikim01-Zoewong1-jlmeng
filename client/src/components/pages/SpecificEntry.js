@@ -316,7 +316,7 @@ readImage = (blob) => {
         let link = (this.state.imageName !== "") ? this.state.imageURL : "https://icon-library.net/images/upload-photo-icon/upload-photo-icon-21.jpg";
         deleteButton = (this.state.imageName !== "") ? <button type="button" onClick={this.deleteImage} style={{top:"1%", position:"absolute"}}>X</button> : null;
         imageBox = <div className="SpecificEntry-entryImageEdit polaroid">
-                      <label for="file-input">
+                      <label htmlFor="file-input">
                         <img src={link} style={{margin:"32px 28px 32px 32px", width:"18vw"}}/>
                       </label>
                       <input id="file-input" type="file" style={{display:"none"}} onChange={this.uploadImage}/>
