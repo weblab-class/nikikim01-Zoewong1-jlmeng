@@ -6,6 +6,7 @@ import {EditorState, RichUtils, convertToRaw, convertFromRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from "draft-convert";
+import Tooltip from '@material-ui/core/Tooltip';
 import Plot from 'react-plotly.js';
 
 const style = {
@@ -105,9 +106,12 @@ class SpecificEntry extends Component {
     console.group('Value Changed');
     console.log(newValue);
     console.groupEnd();
-    const temp = newValue.map((val) => (val.label));
-    console.log(temp);
-    this.setState({tags: temp,});
+    if (newValue === null){
+      this.setState({tags: []});
+    } else { const temp = newValue.map((val) => (val.label));
+      console.log(temp);
+      this.setState({tags: temp,});
+    }
   };
   changeColor = (newColor, mood) => {
     this.setState({colorMood: newColor});
@@ -329,7 +333,6 @@ readImage = (blob) => {
 
     return (
         <>
-
        
         <div className="NewEntry-entirety">
           <div className="NewEntry-backCover">
@@ -339,16 +342,15 @@ readImage = (blob) => {
             </div>
           </div>
 
-
           <div className="u-flexColumn u-flex-alignCenter ">
             <div className="u-flex-alignCenter u-flexRow  SpecificEntry-dateBox" style={{backgroundColor:"#".concat(this.state.colorMood)}}>
-                    <div className="u-flex u-flexRow u-flex-alignCenter">
-                    <p className="SpecificEntry-month">{this.state.month}</p>
-                      <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SpecificEntry-circle">
-                        <p className="SpecificEntry-day" style={{"color":"#".concat(this.state.colorMood)}}>{this.state.day}</p>
-                      </div>
-                    </div>
-                    <p className="SpecificEntry-year">{this.state.year}</p>
+                <div className="u-flex u-flexRow u-flex-alignCenter">
+                <p className="SpecificEntry-month">{this.state.month}</p>
+                <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SpecificEntry-circle">
+                  <p className="SpecificEntry-day" style={{"color":"#".concat(this.state.colorMood)}}>{this.state.day}</p>
+                </div>
+                <p className="SpecificEntry-year">{this.state.year}</p>
+              </div>
 
             </div>
             <div className="SpecificEntry-entryBox">

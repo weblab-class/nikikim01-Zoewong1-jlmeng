@@ -37,17 +37,17 @@ for (let i = numOfYears; i>0; i--) {
 const monthList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const dayList31 = ["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"];
 
-// temporary values
-const tags = [{
-        value: 'fake1',
-        label: 'School'
-    },{
-        value: 'fake2',
-        label: 'Really Good Day'
-    },{
-        value: 'fake3',
-        label: 'Read when in need of pick me up'
-    }]
+// // temporary values
+// const tags = [{
+//         value: 'fake1',
+//         label: 'School'
+//     },{
+//         value: 'fake2',
+//         label: 'Really Good Day'
+//     },{
+//         value: 'fake3',
+//         label: 'Read when in need of pick me up'
+//     }]
 
 // const journals = [{
 //         value: 'Journal1',
@@ -85,7 +85,8 @@ class NewEntry extends Component{
             tags: [],
             imageURL: "",
             imageName: "",
-            heartrates: []
+            heartrates: [],
+            userTags: [],
         }
     }
 
@@ -94,6 +95,10 @@ class NewEntry extends Component{
       //   this.loadImage();
       // };
       document.title="Create a new entry!";
+      get("/api/tags",{user_id:Object(this.props.userId)}).then((tags) => {
+        console.log(tags);
+        this.setState({userTags: tags.map((tag) => {return this.createOption(tag)})});
+      })
     }
 
   componentDidUpdate(prevProps, prevState){
@@ -107,6 +112,10 @@ class NewEntry extends Component{
       }
     
     }
+    createOption = (label) => ({
+      label,
+      value: label.toLowerCase().replace(/\W/g, ''),
+    });
 
     refreshPage = () => {
       // window.location = window.location;
@@ -202,9 +211,14 @@ class NewEntry extends Component{
     console.group('Value Changed');
     console.log(newValue);
     console.groupEnd();
-    const temp = newValue.map((val) => (val.label));
-    console.log(temp);
-    this.setState({tags: temp,});
+    if (newValue === null){
+      this.setState({tags: []});
+    }
+    else{
+      const temp = (newValue).map((val) => (val.label));
+      console.log(temp);
+      this.setState({tags: temp,});
+    }
   };
   changeEditorState = (state) => {
     console.log("Called editorStateChange");
@@ -230,6 +244,15 @@ class NewEntry extends Component{
       alert("Congratulations");
       this.refreshPage();
       console.log("Submitted Entry");
+
+      let newTags = this.state.userTags.map(userTag => (userTag.label));
+      console.log(newTags);
+      this.state.tags.forEach(tag => {
+        let temp = this.state.userTags.find(userTag => userTag.label === tag);
+        if (!temp){ newTags = [...newTags, tag];}
+      });
+      console.log(newTags);
+
       post("/api/entries",{
           user_id: this.props.userId,
           title: this.state.title,
@@ -246,19 +269,7 @@ class NewEntry extends Component{
           avgHR: document.getElementById("avgHR").textContent,
           imageName: this.state.imageName,
       })
-      // .then((response) => {
-      //     console.log(response)});
-      //   this.setState({
-      //     month: moment().format("MMMM"),
-      //     year: moment().format("YYYY"),
-      //     day: moment().format("D"),
-      //     colorMood: null,
-      //     title: null,
-      //     content: null,
-      //     saved: true, 
-      //     tags: [],
-
-      //   });
+      post("/api/tags", {newTags:newTags});
     }
   
   };
@@ -276,6 +287,7 @@ class NewEntry extends Component{
       console.log("The title is ", this.state.title);
       console.log("Current Input: ", this.state.content);
       console.log('Currently set mood color is', this.state.colorMood);
+      console.log(this.state.tags);
       
       let deleteButton = null;
       let image = null;
@@ -383,7 +395,7 @@ class NewEntry extends Component{
                 isMulti
                 isClearable
                 onChange={this.changeTag}
-                options = {tags}
+                options = {this.state.userTags}
                 placeholder='Tag(s)'
               />
               {/* tags [end] */}

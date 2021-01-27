@@ -80,6 +80,7 @@ class App extends Component {
       console.log(user._id.valueOf());
       post("/api/initsocket", { socketid: socket.id });
     });
+    // window.location.replace("/");
   };
 
   handleLogout = () => {

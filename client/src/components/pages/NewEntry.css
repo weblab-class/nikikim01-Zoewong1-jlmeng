@@ -527,7 +527,7 @@ div.rdw-option-wrapper{
 }
 .rdw-editor-main{
     max-height: 50vh;
-  overflow: scroll;
+  /* overflow: scroll; */
   box-sizing: border-box;
 }
 
