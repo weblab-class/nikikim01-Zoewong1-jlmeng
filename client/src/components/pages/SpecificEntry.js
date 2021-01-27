@@ -284,7 +284,7 @@ readImage = (blob) => {
                   </div>;
         let link = (this.state.imageName !== "") ? this.state.imageURL : "https://icon-library.net/images/upload-photo-icon/upload-photo-icon-21.jpg";
         deleteButton = (this.state.imageName !== "") ? <button type="button" onClick={this.deleteImage}>X</button> : null;
-        imageBox = <div className="SpecificEntry-entryImageEdit">
+        imageBox = <div className="SpecificEntry-entryImageEdit polaroid">
                       <label for="file-input">
                         <img src={link} style={{margin:"32px 28px 32px 32px", width:"18vw"}}/>
                       </label>
@@ -298,7 +298,7 @@ readImage = (blob) => {
                     editorStyle={{ overflowY: scroll}, {height: "60vh"}, {padding:"0% 3%"}}
                     toolbarStyle={{display:"none"}}
                     readOnly/>;
-      if (this.state.imageName !== "") imageBox = <img src={this.state.imageURL} className="SpecificEntry-entryImage"></img>;
+      if (this.state.imageName !== "") imageBox = <img src={this.state.imageURL} className="SpecificEntry-entryImage polaroid"></img>;
       tagsList = this.state.tags.map((tag) => (<div className="SingleEntry-tag">{tag}</div>));
       heartRatePlot=
       <div className="SpecificEntry-heartRate">

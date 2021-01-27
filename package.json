@@ -6,8 +6,7 @@
   "scripts": {
     "hotloader": "webpack serve --config ./webpack.config.js --mode development --port 5000",
     "start": "nodemon --ignore client/",
-    "build": "webpack",
-    "postbuild": "purgecss --css build/static/css/*.css --content build/index.html build/static/js/*.js --output build/static/css"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -27,7 +26,6 @@
     "@testing-library/jest-dom": "^5.11.9",
     "connect-ensure-login": "^0.1.1",
     "core-js": "^3.8.3",
-    "dangerously-set-html-content": "^1.0.8",
     "dotenv": "^8.2.0",
     "draft-convert": "^2.1.10",
     "draft-js": "^0.11.7",
