@@ -44,11 +44,11 @@ function ProcessVideo() {
             cap.read(src);
             cv.flip(src, dst,1);
 
-            if ((last_detected_frame==0) || (frame - last_detected_frame>FPS)) {
+            /* if ((last_detected_frame==0) || (frame - last_detected_frame>FPS)) { */
                 cv.cvtColor(dst, gray, cv.COLOR_RGBA2GRAY, 0);
                 // detect faces.
                 face_cascade.detectMultiScale(gray, faces, 1.1, 3, 0, msize, msize);
-            }
+            /* } */
 
             if (faces.size()>0) {
                 last_detected_frame = frame;
