@@ -86,6 +86,7 @@ class NewEntry extends Component{
             tags: [],
             imageURL: "",
             imageName: "",
+            heartrates: []
         }
     }
 
@@ -96,7 +97,7 @@ class NewEntry extends Component{
       document.title="Create a new entry!";
     }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps, prevState){
       if (this.state.saved){
         console.log("Create Entry toggle");
         this.setState({saved:false,});
@@ -105,6 +106,7 @@ class NewEntry extends Component{
         // just logged in. reload images
         this.loadImage();
       }
+    
     }
 
     refreshPage = () => {
@@ -239,11 +241,11 @@ class NewEntry extends Component{
           jsonContent: this.state.jsonContent,
           colorMood: this.state.colorMood,
           tags: this.state.tags,
-          lastModDate: new Date(),
-          heartRateData: [77,88],
-          samplingRate: 100,
+          creationDate: new Date(),
+          heartRateData:  document.getElementById("hrArray").textContent,
+          timeHRData: document.getElementById("timeArray").textContent,
+          avgHR: document.getElementById("avgHR").textContent,
           imageName: this.state.imageName,
-
       })
       // .then((response) => {
       //     console.log(response)});
@@ -309,7 +311,7 @@ class NewEntry extends Component{
 
               {/* title [start] */}
               <div className="NewEntry-titleBox">
-                <input className="NewEntry-title" placeholder='Title' onChange={this.changeTitle}></input>
+                <input className="NewEntry-title" placeholder='Title (max 50 characters)' onChange={this.changeTitle} maxLength="50"></input>
               </div>
               {/* title [end] */}
 
@@ -354,7 +356,7 @@ class NewEntry extends Component{
             {/* whitepage left [start] */}
             <div className="NewEntry-leftpage u-flex u-flexColumn">
               <div className="u-flexRow u-justifyCenter">
-                {/* <HeartMonitor className="NewEntry-HeartMonitor"/> */}
+                {/* <HeartMonitor className="NewEntry-HeartMonitor" style={{height:"5vw", width:"10vw"}}/> */}
                 <HeartRateContainer/>
               </div>
 

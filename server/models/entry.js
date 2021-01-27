@@ -8,11 +8,12 @@ const EntrySchema = new mongoose.Schema({
   day: String,
   content: String,
   jsonContent: mongoose.Schema.Types.Mixed,
-  lastModDate: Date,
+  creationDate: Date,
   tags: Array,
   colorMood: String,
   heartRateData: Array,
-  samplingRate: Number,
+  timeHRData: Array,
+  avgHR: Number,
   imageName: String,
 });
 

@@ -40,37 +40,36 @@ function ProcessVideo() {
             face_cascade.detectMultiScale(gray, faces, 1.1, 3, 0, msize, msize);
 
             for (let i = 0; i < faces.size(); ++i) {
-		let face = faces.get(i);
-		let roi_dst = dst.roi(face);
+                let face = faces.get(i);
+                let roi_dst = dst.roi(face);
 
-		let point1 = new cv.Point(face.x, face.y);
-		let point2 = new cv.Point(face.x + face.width, face.y + face.height);
-		cv.rectangle(dst, point1, point2, [255, 0, 0, 255]);
+                let point1 = new cv.Point(face.x, face.y);
+                let point2 = new cv.Point(face.x + face.width, face.y + face.height);
+                cv.rectangle(dst, point1, point2, [255, 0, 0, 255]);
 
-		/*
-		let roi_gray = gray.roi(face);
-		eye_cascade.detectMultiScale(roi_gray, eyes);
-		for (let j = 0; j < eyes.size(); ++j) {
-		    let eye = eyes.get(j);
-		    let point1 = new cv.Point(eye.x, eye.y);
-		    let point2 = new cv.Point(eye.x + eye.width, eye.y + eye.height);
-		    cv.rectangle(roi_dst, point1, point2, [0, 0, 255, 255]);
-		    roi_dst.roi(eye).setTo(s); 		    //set eye to black
-		}
+                /*
+                let roi_gray = gray.roi(face);
+                eye_cascade.detectMultiScale(roi_gray, eyes);
+                for (let j = 0; j < eyes.size(); ++j) {
+                    let eye = eyes.get(j);
+                    let point1 = new cv.Point(eye.x, eye.y);
+                    let point2 = new cv.Point(eye.x + eye.width, eye.y + eye.height);
+                    cv.rectangle(roi_dst, point1, point2, [0, 0, 255, 255]);
+                    roi_dst.roi(eye).setTo(s); 		    //set eye to black
+                }
 
-		roi_gray.delete();
-		*/
-		
-		//Calculate the intensities of the red channel of face ROI
-		let intensity = cv.mean(roi_dst)[0]; //red
+                roi_gray.delete();
+                */
+                
+                //Calculate the intensities of the red channel of face ROI
+                let intensity = cv.mean(roi_dst)[0]; //red
 
-		intensities.push(intensity);
+                intensities.push(intensity);
 
-		roi_dst.delete();
-		if (i==0) { break;}
+                roi_dst.delete();
+                if (i==0) { break;}
             }
             cv.imshow('canvasOutput', dst);
-
 
 	    pollctx();
             // schedule the next one.
@@ -86,8 +85,6 @@ function ProcessVideo() {
 
     // schedule the first one.
     setTimeout(processVideo, 0);
-
-
 
 
     // copied from copy.js
@@ -137,17 +134,25 @@ function ProcessVideo() {
 
             heartrate = heartrate + ( maxInd*curPollFreq/arrLen*30 - heartrate)*.01;
             heartrateIndicator = document.getElementById('heartrate')
-	    // need to calibrate again, quick *4 fix for now
-            heartrateIndicator.textContent = "Predicted heartrate: " + Math.round(heartrate)*3 + " BPM"
+	    // need to calibrate again, quick *3 fix for now
+            heartrateIndicator.textContent = Math.round(heartrate)*3 + " BPM"
+
             if (!isNaN(heartrate)) {
                 heartrates.push(Math.round(heartrate)*3);
-                console.log(heartrates)
+                /* console.log(heartrates) */
                 actualTimes.push(Math.round(performance.now()-tstart)/1000);
-                console.log(actualTimes)
+                /* console.log(actualTimes) */
                 const avg = heartrates => heartrates.reduce((a,b) => a+b, 0) / heartrates.length;
                 avgHeartrate = Math.round(avg(heartrates));
-                console.log(avgHeartrate);
+                /* console.log(avgHeartrate); */
             }
+
+            heartrateArray = document.getElementById('hrArray');
+            heartrateArray.textContent = heartrates;
+            timeArray = document.getElementById('timeArray');
+            timeArray.textContent = actualTimes;
+            avgHR = document.getElementById('avgHR');
+            avgHR.textContent = avgHeartrate;
     }
     
   
@@ -155,7 +160,6 @@ function ProcessVideo() {
 	t0 = performance.now();
 //	requestAnimationFrame(pollctx);
     }
-
     async function calcFFT(){
 
 	tmp = fftr1.forward(intensities);
@@ -177,5 +181,4 @@ function ProcessVideo() {
 //    pollctx();
 
 };
-
 
