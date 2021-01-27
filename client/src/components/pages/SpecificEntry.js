@@ -52,6 +52,7 @@ class SpecificEntry extends Component {
       heartRateData: [],
       timeHRData: [],
       avgHR: null,
+      userTags: [],
     }
   }
 
@@ -63,6 +64,13 @@ class SpecificEntry extends Component {
 
     get("/api/entry",{_id:Object(param)}).then((response) => {
       console.log(response);
+
+      let tags = [];
+      if (response[0].tags !== []){
+        tags = response[0].tags.map((tag) => {return this.createOption(tag)});
+      } 
+      console.log(tags);
+
       this.setState({
         id: param,
         month: response[0].month,
@@ -74,7 +82,7 @@ class SpecificEntry extends Component {
         editorState: EditorState.createWithContent(convertFromRaw(JSON.parse(response[0].jsonContent))),
         title: response[0].title,
         content: response[0].content,
-        tags: response[0].tags,
+        tags: tags,
         imageName: response[0].imageName,
         heartRateData: JSON.parse(response[0].heartRateData),
         timeHRData: JSON.parse(response[0].timeHRData),
@@ -108,9 +116,8 @@ class SpecificEntry extends Component {
     console.groupEnd();
     if (newValue === null){
       this.setState({tags: []});
-    } else { const temp = newValue.map((val) => (val.label));
-      console.log(temp);
-      this.setState({tags: temp,});
+    } else {
+      this.setState({tags: newValue,});
     }
   };
   changeColor = (newColor, mood) => {
@@ -141,7 +148,13 @@ class SpecificEntry extends Component {
 
   editEntry = () => {
     if (!this.state.isEditing){
-      this.setState({isEditing: true});
+      get("/api/tags",{user_id:Object(this.props.userId)}).then((tags) => {
+        console.log(tags);
+        this.setState({
+          userTags: tags.map((tag) => {return this.createOption(tag)}),
+          isEditing: true
+        });
+      })
     } else {
       this.saveEntry()
       this.setState({isEditing: false});
@@ -149,6 +162,18 @@ class SpecificEntry extends Component {
   }
 
   saveEntry = () => {
+    let newTags = this.state.userTags.map(userTag => (userTag.label));
+    console.log(newTags);
+    this.state.tags.forEach(tag => {
+      let temp = this.state.userTags.find(userTag => userTag.label === tag.label);
+      if (!temp){ newTags = [...newTags, tag.label];}
+    });
+    console.log(newTags);
+    post("/api/tags", {newTags:newTags});
+
+    let tags = [];
+    if (this.state.tags !== []) tags = this.state.tags.map((tag) => (tag.label));
+
     post("/api/editEntry", {
       _id: Object(this.state.id),
       title: this.state.title,
@@ -156,9 +181,14 @@ class SpecificEntry extends Component {
       jsonContent: this.state.jsonContent,
       colorMood: this.state.colorMood,
       imageName: this.state.imageName,
-      tags: this.state.tags,
+      tags: tags,
     })
   }
+
+  createOption = (label) => ({
+    label,
+    value: label.toLowerCase().replace(/\W/g, ''),
+  });
 
   loadImage = (receivedImage=this.state.imageName) => {
     console.log(receivedImage);
@@ -259,15 +289,16 @@ readImage = (blob) => {
                     onEditorStateChange={this.changeEditorState}/>;
         tagsBar = <Creatable
                     className="SpecificEntry-tagsBar"
-                    value={this.state.tags}
+                    // value={this.state.tags}
                     styles={style}
                     components={{
                       IndicatorSeparator: () => null}}
                     isMulti
                     isClearable
                     onChange={this.changeTag}
-                    options = {tags}
+                    options = {this.state.userTags}
                     placeholder='Tag(s)'
+                    defaultValue={this.state.tags}
                   />;
         moodBox = <div className="SpecificEntry-moods " style={{padding:"8px"}}>
                     <div className="btnHappy" onClick={() => this.changeColor("FFD300", 'Happy')}></div>
@@ -299,7 +330,7 @@ readImage = (blob) => {
                     toolbarStyle={{display:"none"}}
                     readOnly/>;
       if (this.state.imageName !== "") imageBox = <img src={this.state.imageURL} className="SpecificEntry-entryImage polaroid"></img>;
-      tagsList = this.state.tags.map((tag) => (<div className="SingleEntry-tag">{tag}</div>));
+      tagsList = this.state.tags.map((tag) => (<div className="SingleEntry-tag">{tag.label}</div>));
       heartRatePlot=
       <div className="SpecificEntry-heartRate">
         <Plot
