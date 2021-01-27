@@ -354,11 +354,15 @@ class NewEntry extends Component{
           {/* frontcover [start] */}
           <div className="NewEntry-frontCover">
             {/* whitepage left [start] */}
-            <div className="NewEntry-leftpage u-flex u-flexColumn u-flex-justifyCenter">
-              <div className="u-flexColumn u-alignCenter">
-                {/* <HeartMonitor className="NewEntry-HeartMonitor" style={{height:"5vw", width:"10vw"}}/> */}
-                <HeartRateContainer/>
+            <div className="NewEntry-leftpage u-flex u-flexColumn">
+              <div className="u-flexColumn u-flex-alignCenter">
+                <div style={{alignContent: "center"}}>
+                  {/* <HeartMonitor className="NewEntry-HeartMonitor" style={{height:"5vw", width:"10vw"}}/> */}
+                  <HeartRateContainer/>
+                </div>
+
               </div>
+  
 
               {/* gcp [start] */}
               <div className="NewEntry-imageControls">
