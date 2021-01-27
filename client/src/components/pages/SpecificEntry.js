@@ -262,39 +262,13 @@ readImage = (blob) => {
     let imageBox = null;
     let deleteButton = null;
     let tagsList = null;
-    let heartRatePlot = <div className="SpecificEntry-heartRate">
-                          <Plot
-                            data={[{
-                              x: this.state.timeHRData,
-                              y: this.state.heartRateData,
-                              type: 'scatter',
-                              marker: {color: 'red'},
-                            }]}
-                            layout={{
-                              title: 'Heartrate',
-                              xaxis: {
-                                title: 'Time Elapsed (sec)', 
-                                titlefont: {
-                                  family: 'Alegreya Sans', 
-                                  size: 15}
-                                },
-                                yaxis: {
-                                  title: {text: 'Heartrate (BPM)', font: {
-                                  family: 'Alegreya Sans',
-                                  size: 15
-                                },
-                              autosize: true}},
-                            }} 
-                            useResizeHandler={true}
-                            style={{width: "100%", height: "100%"}}
-                          />
-                        </div>;
+    let heartRatePlot = null;
 
     if (this.state.isEditing){
       titleBox = <input className="NewEntry-title" value={this.state.title} style={{"color":"#".concat(this.state.colorMood), margin:"0% 3%"}} onChange={this.changeTitle}></input>;
       contentBox = <Editor
                     editorState={this.state.editorState}
-                    editorStyle={{maxHeight: "60vh"}}
+                    editorStyle={{maxHeight: "35vh"}}
                     toolbar={{
                       options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list',
                       'colorPicker', 'link', 'embedded', 'emoji', 'image','history'],
@@ -348,6 +322,33 @@ readImage = (blob) => {
                       <input id="file-input" type="file" style={{display:"none"}} onChange={this.uploadImage}/>
                       {deleteButton}
                     </div>;
+          heartRatePlot = <div className="SpecificEntry-heartRate" style={{top:"45%"}}>
+                            <Plot
+                              data={[{
+                                x: this.state.timeHRData,
+                                y: this.state.heartRateData,
+                                type: 'scatter',
+                                marker: {color: 'red'},
+                              }]}
+                              layout={{
+                                title: 'Heartrate',
+                                xaxis: {
+                                  title: 'Time Elapsed (sec)', 
+                                  titlefont: {
+                                    family: 'Alegreya Sans', 
+                                    size: 15}
+                                  },
+                                  yaxis: {
+                                    title: {text: 'Heartrate (BPM)', font: {
+                                    family: 'Alegreya Sans',
+                                    size: 15
+                                  },
+                                autosize: true}},
+                              }} 
+                              useResizeHandler={true}
+                              style={{width: "100%", height: "100%"}}
+                            />
+                          </div>;
     } else{
       titleBox = <h1 className="SpecificEntry-entryTitle" style={{"color":"#".concat(this.state.colorMood), display:"inline-block"}}>{this.state.title}</h1>;
       contentBox = <Editor
@@ -357,6 +358,33 @@ readImage = (blob) => {
                     readOnly/>;
       if (this.state.imageName !== "") imageBox = <img src={this.state.imageURL} className="SpecificEntry-entryImage polaroid"></img>;
       tagsList = this.state.tags.map((tag) => (<div className="SingleEntry-tag">{tag.label}</div>));
+      heartRatePlot = <div className="SpecificEntry-heartRate" style={{top:"55%"}}>
+                          <Plot
+                            data={[{
+                              x: this.state.timeHRData,
+                              y: this.state.heartRateData,
+                              type: 'scatter',
+                              marker: {color: 'red'},
+                            }]}
+                            layout={{
+                              title: 'Heartrate',
+                              xaxis: {
+                                title: 'Time Elapsed (sec)', 
+                                titlefont: {
+                                  family: 'Alegreya Sans', 
+                                  size: 15}
+                                },
+                                yaxis: {
+                                  title: {text: 'Heartrate (BPM)', font: {
+                                  family: 'Alegreya Sans',
+                                  size: 15
+                                },
+                              autosize: true}},
+                            }} 
+                            useResizeHandler={true}
+                            style={{width: "100%", height: "100%"}}
+                          />
+                        </div>;
     }
 
     return (
@@ -366,8 +394,6 @@ readImage = (blob) => {
           <div className="NewEntry-backCover">
             <div className="NewEntry-clasp"/>
             <div className="NewEntry-rightpage">
-              {tagsBar}
-              {moodBox}
             </div>
           </div>
 
@@ -394,7 +420,10 @@ readImage = (blob) => {
           <div className="NewEntry-frontCover">
             {/* whitepage left [start] */}
             <div className="NewEntry-leftpage">
-              {imageBox}{heartRatePlot}
+              {imageBox}
+              {heartRatePlot}
+              {tagsBar}
+              {moodBox}
             </div>
           
               
