@@ -9,6 +9,7 @@ import Creatable from 'react-select/creatable';
 import { get, post } from "../../utilities";
 import Webcam from "react-webcam";
 import HeartMonitor from "../modules/HeartMonitor.js";
+import HeartRateContainer from "../modules/HeartRateContainer.js";
 
 import {EditorState, RichUtils, convertToRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
@@ -352,9 +353,10 @@ class NewEntry extends Component{
           <div className="NewEntry-frontCover">
             {/* whitepage left [start] */}
             <div className="NewEntry-leftpage u-flex u-flexColumn">
-              {/* <div className="u-flexRow u-justifyCenter">
-                <HeartMonitor className="NewEntry-HeartMonitor"/>
-              </div> */}
+              <div className="u-flexRow u-justifyCenter">
+                {/* <HeartMonitor className="NewEntry-HeartMonitor"/> */}
+                <HeartRateContainer/>
+              </div>
 
               {/* gcp [start] */}
               <div className="NewEntry-imageControls">
