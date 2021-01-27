@@ -357,7 +357,7 @@ class NewEntry extends Component{
           {/* save button [start] */}
           <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Save Me!">
             <button className="NewEntry-saveButton" onClick={this.addEntry}>
-              <img className="NewEntry-bookmark" src={"https://storage.googleapis.com/tagheart/SaveBookmark.svg"}></img>
+              <img className="NewEntry-bookmark" src={"https://storage.googleapis.com/tagheart/saveBookmark.svg"}></img>
             </button>
           </Tooltip>
           {/* save button [end] */}
@@ -402,17 +402,17 @@ class NewEntry extends Component{
 
               {/* moods [start] */}
               <div className="NewEntry-moods ">
-                <div className={this.state.colorMood === "FFD300" ? "btnHappyActive btnHappy" : "btnHappy"} onClick={() => this.changeColor("FFD300", 'Happy')}></div>
-                <div className={this.state.colorMood === "965AEA" ? "btnLaughActive btnLaugh" : "btnLaugh"} onClick={() => this.changeColor("965AEA", 'Laugh')}></div>
-                <div className={this.state.colorMood === "F173D2" ? "btnKissActive btnKiss" : "btnKiss"} onClick={() => this.changeColor("F173D2", 'Kiss')}></div>
-                <div className={this.state.colorMood === "0BB5FF" ? "btnSmileActive btnSmile" : "btnSmile"} onClick={() => this.changeColor("0BB5FF", 'Smile')}></div>
-                <div className={this.state.colorMood === "FEC085" ? "btnSurpriseActive btnSurprise" : "btnSurprise"} onClick={() => this.changeColor("FEC085", "Surprise")}></div>
-                <div className={this.state.colorMood === "9A6A44" ? "btnUghActive btnUgh" : "btnUgh"} onClick={() => this.changeColor("9A6A44", "Ugh")}></div>
-                <div className={this.state.colorMood === "717D7E" ? "btnMehActive btnMeh" : "btnMeh"} onClick={() => this.changeColor("717D7E", "Meh")}></div>
-                <div className={this.state.colorMood === "000000" ? "btnDeadActive btnDead" : "btnDead"} onClick={() => this.changeColor("000000", 'Dead')}></div>
-                <div className={this.state.colorMood === "54C452" ? "btnSickActive btnSick" : "btnSick"} onClick={() => this.changeColor("54C452", "Sick")}></div>
-                <div className={this.state.colorMood === "6BA0FC" ? "btnTearsActive btnTears" : "btnTears"} onClick={() => this.changeColor("6BA0FC", "Tears")}></div>
-                <div className={this.state.colorMood === "E35B5B" ? "btnMadActive btnMad" : "btnMad"} onClick={() => this.changeColor("E35B5B", "Mad")}></div>
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="HAPPY HAPPY SUNSHINE!!!"><div className={this.state.colorMood === "FFD300" ? "btnHappyActive btnHappy" : "btnHappy"} onClick={() => this.changeColor("FFD300", 'Happy')}></div></Tooltip>
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="LOL AHAHA LMAO ROFL BWAHAHA"><div className={this.state.colorMood === "965AEA" ? "btnLaughActive btnLaugh" : "btnLaugh"} onClick={() => this.changeColor("965AEA", 'Laugh')}></div></Tooltip>
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="mwuah teehee"><div className={this.state.colorMood === "F173D2" ? "btnKissActive btnKiss" : "btnKiss"} onClick={() => this.changeColor("F173D2", 'Kiss')}></div></Tooltip>
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="hehe smiles *^-^*"><div className={this.state.colorMood === "0BB5FF" ? "btnSmileActive btnSmile" : "btnSmile"} onClick={() => this.changeColor("0BB5FF", 'Smile')}></div></Tooltip>
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="huh? omg!"><div className={this.state.colorMood === "FEC085" ? "btnSurpriseActive btnSurprise" : "btnSurprise"} onClick={() => this.changeColor("FEC085", "Surprise")}></div></Tooltip>
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="ugh"><div className={this.state.colorMood === "9A6A44" ? "btnUghActive btnUgh" : "btnUgh"} onClick={() => this.changeColor("9A6A44", "Ugh")}></div></Tooltip>
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="meh"><div className={this.state.colorMood === "717D7E" ? "btnMehActive btnMeh" : "btnMeh"} onClick={() => this.changeColor("717D7E", "Meh")}></div></Tooltip>
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Dead Tired..."><div className={this.state.colorMood === "000000" ? "btnDeadActive btnDead" : "btnDead"} onClick={() => this.changeColor("000000", 'Dead')}></div></Tooltip>
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="blEhHh sICk"><div className={this.state.colorMood === "54C452" ? "btnSickActive btnSick" : "btnSick"} onClick={() => this.changeColor("54C452", "Sick")}></div></Tooltip>
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="sniffle sniffle tears... sadness..."><div className={this.state.colorMood === "6BA0FC" ? "btnTearsActive btnTears" : "btnTears"} onClick={() => this.changeColor("6BA0FC", "Tears")}></div></Tooltip>
+                <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="ANGGERRYYY"><div className={this.state.colorMood === "E35B5B" ? "btnMadActive btnMad" : "btnMad"} onClick={() => this.changeColor("E35B5B", "Mad")}></div></Tooltip>
               </div>
               {/* moods [end]*/}
 

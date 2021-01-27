@@ -32,8 +32,9 @@
   
   .NavBar-logInOutSettings {
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
     margin-right: 2vw;
   }
 
@@ -41,4 +42,10 @@
     margin: 0 var(--s);
   }
 
+  .NavBar-InfoButton{
+    width: 45px;
+    height: auto;
+    margin: 10px;
+    
+  }
   

@@ -28,6 +28,7 @@ const GOOGLE_CLIENT_ID = "982536960811-6taskpv3uhgkihm76ej75g5i03u1g0mf.apps.goo
                     {/* <Link to={"/Profile/"+ this.props.userId} className="NavBar-link">Profile</Link> */}
                 </div>
                 <div className="NavBar-logInOutSettings">
+                <Link to="/Info" className="NavBar-InfoButton"><img src={"https://storage.googleapis.com/tagheart/questionMark.svg"}></img></Link>
                 <GoogleLogout
                     clientId={GOOGLE_CLIENT_ID}
                     buttonText="Logout"

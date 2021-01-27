@@ -6,6 +6,7 @@ import Fade from '@material-ui/core/Fade';
 import {_decreaseMonth, _increaseMonth, _filterByMonth, changeColor} from "./AllEntries.js";
 import moment from 'moment';
 import { get } from "../../utilities";
+import { each } from "jquery";
 
 
 // const colorMoodsDict = [
@@ -60,6 +61,20 @@ class MoodTracker extends Component {
             });
     }
 
+    _decrementMonth = () => {
+        this.setState(
+            prevState => ({ month: prevState.month.subtract(1, 'month') }),
+            this._filterByMonth
+        );
+    }
+
+    _incrementMonth = () => {
+        this.setState(
+            prevState => ({ month: prevState.month.add(1, 'month') }),
+            this._filterByMonth
+        );
+    }
+
     _decreaseMonth = () => {
         this.setState(
             prevState => ({ 
@@ -88,7 +103,56 @@ class MoodTracker extends Component {
             year:this.state.month.format("YYYY"), 
             user_id:Object(this.props.userId),
         }).then((entryObjs) => {
-            this.setState({entries: entryObjs});
+                let blackHeartEntries= [];
+                let happyBlueHeartEntries= [];
+                let greenHeartEntries= [];
+                let redHeartEntries= [];
+                let greyHeartEntries= [];
+                let purpleHeartEntries= [];
+                let brownHeartEntries= [];
+                let pinkHeartEntries= [];
+                let orangeHeartEntries= [];
+                let yellowHeartEntries= [];
+                let sadBlueHeartEntries= [];
+
+                entryObjs.forEach((entryObj) => {
+                        if (entryObj.colorMood === "000000"){
+                                blackHeartEntries.push(entryObj)
+                        } else if (entryObj.colorMood === "FFD300"){
+                                yellowHeartEntries.push(entryObj)
+                        } else if (entryObj.colorMood === "965AEA"){
+                                purpleHeartEntries.push(entryObj)
+                        } else if (entryObj.colorMood === "F173D2"){
+                                pinkHeartEntries.push(entryObj)
+                        } else if (entryObj.colorMood === "6BA0FC"){
+                                sadBlueHeartEntries.push(entryObj)
+                        } else if (entryObj.colorMood === "FEC085"){
+                                orangeHeartEntries.push(entryObj)
+                        } else if (entryObj.colorMood === "9A6A44"){
+                                brownHeartEntries.push(entryObj)
+                        } else if (entryObj.colorMood === "717D7E"){
+                                greyHeartEntries.push(entryObj)
+                        } else if (entryObj.colorMood === "E35B5B"){
+                                redHeartEntries.push(entryObj)
+                        } else if (entryObj.colorMood === "54C452"){
+                                greenHeartEntries.push(entryObj)
+                        } else if (entryObj.colorMood === "0BB5FF"){
+                                happyBlueHeartEntries.push(entryObj)
+                        } 
+                });
+                this.setState({
+                        blackHeartEntries: blackHeartEntries,
+                        yellowHeartEntries: yellowHeartEntries,
+                        purpleHeartEntries: purpleHeartEntries,
+                        pinkHeartEntries: pinkHeartEntries,
+                        sadBlueHeartEntries: sadBlueHeartEntries,
+                        orangeHeartEntries: orangeHeartEntries,
+                        brownHeartEntries: brownHeartEntries,
+                        greyHeartEntries: greyHeartEntries,
+                        redHeartEntries: redHeartEntries,
+                        greenHeartEntries: greenHeartEntries,
+                        happyBlueHeartEntries:happyBlueHeartEntries,
+                })
         });
     }
 
