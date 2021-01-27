@@ -4,7 +4,7 @@ const UserSchema = new mongoose.Schema({
   name: String,
   googleid: String,
   avgRBPM: Number,
-  // imageNames: [String],
+  tags: Array,
 });
 
 // compile model from schema

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Creatable from 'react-select/creatable';
 
 import "./CreateEntry1.css";
-import "../modules/Dropdown.css";
 import moment from "moment";
 
 import {post} from "../../utilities.js"

@@ -48,6 +48,7 @@ router.post("/initsocket", (req, res) => {
 
 // ENTRIES
 router.get("/entry",(req,res) => {
+  console.log(req.query._id);
   Entry.find({
     _id:req.query._id
   }).then((entry) => {
@@ -57,6 +58,7 @@ router.get("/entry",(req,res) => {
 
 router.get("/entries",(req,res) => {
   console.log(req.query);
+  console.log(req.query.user_id);
   if (req.query.colorMood !== 'null' && req.query.colorMood){
     Entry.find({
       month:req.query.month, 
@@ -103,11 +105,6 @@ router.post("/entries",(req,res) => {
     // }
     // res.send(response);
   })
-  const response = {
-    message: "Successfullly sent post request to API\n".concat(req.body.journal),
-    tags: req.body.tags
-  }
-  res.send(response);
 });
 
 router.post("/editEntry", (req,res) => {
@@ -139,13 +136,33 @@ router.post("/user", (req, res) => {
     name: req.body.name,
     googleid: req.body.googleid,
     avgRBPM: req.body.avgRBPM,
+    tags: [],
   });
   newEntry.save().then(()=> {
     console.log("We got a new User!");
   })
 });
 
-// JOURNAL
+// tags
+router.get("/tags", auth.ensureLoggedIn, (req,res) => {
+  User.findById(req.user._id).then(user => {
+    console.log(user.tags);
+    res.send(user.tags);
+  })
+})
+
+router.post("/tags", auth.ensureLoggedIn, (req,res) => {
+  console.log(req.body.newTags);
+  console.log(Object(req.user._id));
+  User.updateOne(
+    {_id: Object(req.user._id)},
+    { $set: {
+      tags: req.body.newTags,
+    }}
+  ).then((response) => {
+    res.send(response);
+  })
+})
 
 //images
 router.post("/uploadImage", auth.ensureLoggedIn, (req, res) => {

@@ -20,8 +20,6 @@ const GOOGLE_CLIENT_ID = "982536960811-6taskpv3uhgkihm76ej75g5i03u1g0mf.apps.goo
      render() {
          return (
              <>
-
-
             <nav className = "NavBar-container">
                 {this.props.userId ? (
                 <>
