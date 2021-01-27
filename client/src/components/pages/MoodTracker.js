@@ -50,32 +50,99 @@ class MoodTracker extends Component {
     componentDidMount(){
         document.title = "Mood Tracker";
 
-        get("/api/entries",{
-                month:this.state.month.format("MMMM"), 
-                year:this.state.month.format("YYYY"), 
-                user_id:Object(this.props.userId),
-            }).then((entryObjs) => {
-                this.setState({
-                    entries: entryObjs,
-                });
-            });
+        const temp = window.location.href;
+        const param = temp.split(window.location.pathname)[1].split("?")[1];
+        console.log(param);
+
+        let count = 0;
+
+        if (param){
+                const paramArray = param.split("=");
+                count = parseInt(paramArray[1].split("&")[0],10);
+        }
+
+        if (count <= 0) this._decreaseMonth(count);
+        else {this._increaseMonth(count)};
+
+        // get("/api/entries",{
+        //         month:this.state.month.format("MMMM"), 
+        //         year:this.state.month.format("YYYY"), 
+        //         user_id:Object(this.props.userId),
+        //     }).then((entryObjs) => {
+        //             let blackHeartEntries= [];
+        //             let happyBlueHeartEntries= [];
+        //             let greenHeartEntries= [];
+        //             let redHeartEntries= [];
+        //             let greyHeartEntries= [];
+        //             let purpleHeartEntries= [];
+        //             let brownHeartEntries= [];
+        //             let pinkHeartEntries= [];
+        //             let orangeHeartEntries= [];
+        //             let yellowHeartEntries= [];
+        //             let sadBlueHeartEntries= [];
+    
+        //             entryObjs.forEach((entryObj) => {
+        //                     if (entryObj.colorMood === "000000"){
+        //                             blackHeartEntries.push(entryObj)
+        //                     } else if (entryObj.colorMood === "FFD300"){
+        //                             yellowHeartEntries.push(entryObj)
+        //                     } else if (entryObj.colorMood === "965AEA"){
+        //                             purpleHeartEntries.push(entryObj)
+        //                     } else if (entryObj.colorMood === "F173D2"){
+        //                             pinkHeartEntries.push(entryObj)
+        //                     } else if (entryObj.colorMood === "6BA0FC"){
+        //                             sadBlueHeartEntries.push(entryObj)
+        //                     } else if (entryObj.colorMood === "FEC085"){
+        //                             orangeHeartEntries.push(entryObj)
+        //                     } else if (entryObj.colorMood === "9A6A44"){
+        //                             brownHeartEntries.push(entryObj)
+        //                     } else if (entryObj.colorMood === "717D7E"){
+        //                             greyHeartEntries.push(entryObj)
+        //                     } else if (entryObj.colorMood === "E35B5B"){
+        //                             redHeartEntries.push(entryObj)
+        //                     } else if (entryObj.colorMood === "54C452"){
+        //                             greenHeartEntries.push(entryObj)
+        //                     } else if (entryObj.colorMood === "0BB5FF"){
+        //                             happyBlueHeartEntries.push(entryObj)
+        //                     } 
+        //             });
+        //             this.setState({
+        //                     blackHeartEntries: blackHeartEntries,
+        //                     yellowHeartEntries: yellowHeartEntries,
+        //                     purpleHeartEntries: purpleHeartEntries,
+        //                     pinkHeartEntries: pinkHeartEntries,
+        //                     sadBlueHeartEntries: sadBlueHeartEntries,
+        //                     orangeHeartEntries: orangeHeartEntries,
+        //                     brownHeartEntries: brownHeartEntries,
+        //                     greyHeartEntries: greyHeartEntries,
+        //                     redHeartEntries: redHeartEntries,
+        //                     greenHeartEntries: greenHeartEntries,
+        //                     happyBlueHeartEntries:happyBlueHeartEntries,
+        //             })
+        //     });
+    }
+
+    _decreaseMonth = (count) => {
+        this.setState(
+            prevState => ({ 
+                    month: moment().subtract(Math.abs(count), 'month'),
+                    count: count,
+                }),
+            this._filterByMonth
+        );
+    }
+
+    _increaseMonth = (count) => {
+        this.setState(
+            prevState => ({ 
+                    month: moment().add(count, 'month'),
+                    count: count,
+                 }),
+            this._filterByMonth
+        );
     }
 
     _decrementMonth = () => {
-        this.setState(
-            prevState => ({ month: prevState.month.subtract(1, 'month') }),
-            this._filterByMonth
-        );
-    }
-
-    _incrementMonth = () => {
-        this.setState(
-            prevState => ({ month: prevState.month.add(1, 'month') }),
-            this._filterByMonth
-        );
-    }
-
-    _decreaseMonth = () => {
         this.setState(
             prevState => ({ 
                 month: prevState.month.subtract(1, 'month'),
@@ -85,7 +152,7 @@ class MoodTracker extends Component {
         );
     }
 
-    _increaseMonth = () => {
+    _incrementMonth = () => {
         this.setState(
             prevState => ({ 
                     month: prevState.month.add(1, 'month'),
@@ -259,8 +326,8 @@ class MoodTracker extends Component {
                 sadBlueHeight = 10 * this.state.sadBlueHeartEntries.length;
         }
 
-        let leftIconCode = <img src={"https://storage.googleapis.com/tagheart/leftIcon.svg"} onClick={this._decreaseMonth} className="AllEntries-iconContainer" height="25px"></img>;
-        let rightIconCode = this.state.month.clone().add(1, 'hour') > moment() ? null : <img src={"https://storage.googleapis.com/tagheart/rightIcon.svg"} onClick={this._increaseMonth} className="AllEntries-iconContainer" height="25px"></img>;
+        let leftIconCode = <img src={"https://storage.googleapis.com/tagheart/leftIcon.svg"} onClick={this._decrementMonth} className="AllEntries-iconContainer" height="25px"></img>;
+        let rightIconCode = this.state.month.clone().add(1, 'hour') > moment() ? null : <img src={"https://storage.googleapis.com/tagheart/rightIcon.svg"} onClick={this._incrementMonth} className="AllEntries-iconContainer" height="25px"></img>;
 
         
         return (

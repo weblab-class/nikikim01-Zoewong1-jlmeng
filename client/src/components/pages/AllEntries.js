@@ -46,6 +46,7 @@ class AllEntries extends Component{
             month:moment(),
             selectedOption: null,
             colorMood: null,
+            count: 0,
         }
     }
 
@@ -60,39 +61,43 @@ class AllEntries extends Component{
         const temp = window.location.href;
         const param = temp.split(window.location.pathname)[1].split("?")[1];
         console.log(param);
+        let count = 0;
+        let color = null;
         
-        if (!param){
-            get("/api/entries",{
-                month:this.state.month.format("MMMM"), 
-                year:this.state.month.format("YYYY"), 
-                user_id:Object(this.props.userId),
-            }).then((entryObjs) => {
-                this.setState({
-                    entries: entryObjs,
-                });
-            });
-        } else{
+        // if (!param){
+        //     get("/api/entries",{
+        //         month:this.state.month.format("MMMM"), 
+        //         year:this.state.month.format("YYYY"), 
+        //         user_id:Object(this.props.userId),
+        //     }).then((entryObjs) => {
+        //         this.setState({
+        //             entries: entryObjs,
+        //         });
+        //     });
+        // } else{
+        if (param){
             const paramArray = param.split("=");
             let count = parseInt(paramArray[1].split("&")[0],10);
             const color = paramArray[2].split("&")[0]; 
 
-            this._decreaseMonth(Math.abs(count),color);
+            if (count <= 0) this._decreaseMonth(Math.abs(count),color);
+            else this._increaseMonth(count,color);
             
         }
         
-        const color = (param) ? param : null;
+        // const color = (param) ? param : null;
 
-        get("/api/entries",{
-            month:this.state.month.format("MMMM"), 
-            year:this.state.month.format("YYYY"), 
-            user_id:Object(this.props.userId),
-            colorMood: color,
-        }).then((entryObjs) => {
-            this.setState({
-                entries: entryObjs,
-                colorMood: color,
-            });
-        });
+        // get("/api/entries",{
+        //     month:this.state.month.format("MMMM"), 
+        //     year:this.state.month.format("YYYY"), 
+        //     user_id:Object(this.props.userId),
+        //     colorMood: color,
+        // }).then((entryObjs) => {
+        //     this.setState({
+        //         entries: entryObjs,
+        //         colorMood: color,
+        //     });
+        // });
     }
 
     componentDidUpdate(){}
@@ -102,14 +107,20 @@ class AllEntries extends Component{
 
     _decrementMonth = () => {
         this.setState(
-            prevState => ({ month: prevState.month.subtract(1, 'month') }),
+            prevState => ({ 
+                month: prevState.month.subtract(1, 'month'),
+                count: prevState.count - 1,
+            }),
             this._filterByMonth
         );
     }
 
     _incrementMonth = () => {
         this.setState(
-            prevState => ({ month: prevState.month.add(1, 'month') }),
+            prevState => ({ 
+                month: prevState.month.add(1, 'month'),
+                count: prevState.count + 1,
+             }),
             this._filterByMonth
         );
     }
@@ -117,7 +128,8 @@ class AllEntries extends Component{
     _decreaseMonth = (count, newColor) => {
         this.setState(
             prevState => ({ 
-                month: prevState.month.subtract(count, 'month'),
+                month: moment().subtract(count, 'month'),
+                count: -count,
                 colorMood: newColor,
             }),
             this._filterByMonth
@@ -126,7 +138,11 @@ class AllEntries extends Component{
 
     _increaseMonth = (count, newColor) => {
         this.setState(
-            prevState => ({ month: prevState.month.add(count, 'month') }),
+            prevState => ({ 
+                month: moment().add(count, 'month'),
+                count: count,
+                colorMood: newColor,
+             }),
             this._filterByMonth
         );
     }
@@ -228,7 +244,7 @@ class AllEntries extends Component{
 
                     <div className="dropdown">
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Click me to filter by mood!">
-                            <Link to="/MoodTracker"><img src={"https://storage.googleapis.com/tagheart/MOOD.svg"} className="AllEntries-MOOD" style={{color:"#".concat(color),  height:"180"}}></img></Link>
+                            <Link to={`/MoodTracker?count=${this.state.count}`}><img src={"https://storage.googleapis.com/tagheart/MOOD.svg"} className="AllEntries-MOOD" style={{color:"#".concat(color),  height:"180"}}></img></Link>
                         </Tooltip>
                         <div className="dropdown-content">{this.moodImgs}{this.deleteMoodButton}</div>
                     </div>
