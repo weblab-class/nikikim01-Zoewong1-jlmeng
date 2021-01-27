@@ -91,7 +91,8 @@ router.post("/entries",(req,res) => {
     tags: req.body.tags,
     colorMood: req.body.colorMood,
     heartRateData: req.body.heartRateData,
-    samplingRate: req.body.samplingRate,
+    timeHRData: req.body.timeHRData,
+    avgHR: req.body.avgHR,
     imageName: req.body.imageName,
   });
   newEntry.save().then(() => {

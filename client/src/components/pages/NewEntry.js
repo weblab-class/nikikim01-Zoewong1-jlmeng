@@ -8,7 +8,6 @@ import moment from "moment";
 import Creatable from 'react-select/creatable';
 import { get, post } from "../../utilities";
 import Webcam from "react-webcam";
-import HeartMonitor from "../modules/HeartMonitor.js";
 import HeartRateContainer from "../modules/HeartRateContainer.js";
 
 import {EditorState, RichUtils, convertToRaw} from "draft-js";
@@ -16,7 +15,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from "draft-convert";
 
-const style = {
+const Entrystyle = {
   control: base => ({
     ...base,
     fontFamily: 'Alegreya Sans',
@@ -242,7 +241,7 @@ class NewEntry extends Component{
           colorMood: this.state.colorMood,
           tags: this.state.tags,
           creationDate: new Date(),
-          heartRateData:  document.getElementById("hrArray").textContent,
+          heartRateData: document.getElementById("hrArray").textContent,
           timeHRData: document.getElementById("timeArray").textContent,
           avgHR: document.getElementById("avgHR").textContent,
           imageName: this.state.imageName,
@@ -319,7 +318,7 @@ class NewEntry extends Component{
               <div className="NewEntry-contentBox">
                 <Editor
                   editorState={this.state.editorState}
-                  editorStyle={{ overflowY: scroll}, {height: "60vh"}, {padding:"0% 3%"}}
+                  editorStyle={{ overflow: scroll}, {height: "60vh"}, {padding:"0% 3%"}, {maxHeight: "60vh"}}
                   toolbar={{
                     options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list',
                     'colorPicker', 'link', 'embedded', 'emoji', 'image','history'],
@@ -354,9 +353,9 @@ class NewEntry extends Component{
           {/* frontcover [start] */}
           <div className="NewEntry-frontCover">
             {/* whitepage left [start] */}
-            <div className="NewEntry-leftpage u-flex u-flexColumn">
+            <div className="NewEntry-leftpage u-flex u-flexColumn" style={{alignContent: "center"}}>
               <div className="u-flexColumn u-flex-alignCenter">
-                <div style={{alignContent: "center"}}>
+                <div style={{alignContent: "center", width: "500"}}>
                   {/* <HeartMonitor className="NewEntry-HeartMonitor" style={{height:"5vw", width:"10vw"}}/> */}
                   <HeartRateContainer/>
                 </div>
@@ -378,7 +377,7 @@ class NewEntry extends Component{
               {/* tags [start] */}
               <Creatable
                 className="NewEntry-tagsBar"
-                styles={style}
+                styles={Entrystyle}
                 components={{
                   IndicatorSeparator: () => null}}
                 isMulti

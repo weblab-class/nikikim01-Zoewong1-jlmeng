@@ -148,9 +148,9 @@ function ProcessVideo() {
             }
 
             heartrateArray = document.getElementById('hrArray');
-            heartrateArray.textContent = heartrates;
+            heartrateArray.textContent = JSON.stringify(heartrates);
             timeArray = document.getElementById('timeArray');
-            timeArray.textContent = actualTimes;
+            timeArray.textContent = JSON.stringify(actualTimes);
             avgHR = document.getElementById('avgHR');
             avgHR.textContent = avgHeartrate;
     }

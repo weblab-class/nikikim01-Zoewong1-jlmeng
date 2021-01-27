@@ -6,13 +6,15 @@ import {EditorState, RichUtils, convertToRaw, convertFromRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from "draft-convert";
+import Tooltip from '@material-ui/core/Tooltip';
+import Fade from '@material-ui/core/Fade';
 import Plot from 'react-plotly.js';
 
 const style = {
   control: base => ({
     ...base,
     fontFamily: 'Alegreya Sans',
-    backgroundColor: '#fafbf5',
+    backgroundColor: '#ffffff',
     // This line disable the blue border
     boxShadow: "none",
   })
@@ -48,6 +50,9 @@ class SpecificEntry extends Component {
       isEditing: false,
       imageName: "",
       imageURL: "",
+      heartRateData: [],
+      timeHRData: [],
+      avgHR: null,
     }
   }
 
@@ -72,7 +77,13 @@ class SpecificEntry extends Component {
         content: response[0].content,
         tags: response[0].tags,
         imageName: response[0].imageName,
+        // heartRateData: JSON.parse(response[0].heartRateData),
+        // timeHRData: JSON.parse(response[0].timeHRData),
+        avgHR: response[0].avgHR,
       });
+
+      console.log(this.state.heartRateData)
+
       if (response[0].imageName !== "") {
         console.log("Entry has image (componentDidMount)");
         this.loadImage(response[0].imageName);
@@ -219,6 +230,7 @@ readImage = (blob) => {
     let imageBox = null;
     let deleteButton = null;
     let tagsList = null;
+    let heartRatePlot = null;
 
     if (this.state.isEditing){
       titleBox = <input className="NewEntry-title" value={this.state.title} style={{"color":"#".concat(this.state.colorMood)}} onChange={this.changeTitle}></input>;
@@ -270,9 +282,9 @@ readImage = (blob) => {
                   </div>;
         let link = (this.state.imageName !== "") ? this.state.imageURL : "https://icon-library.net/images/upload-photo-icon/upload-photo-icon-21.jpg";
         deleteButton = (this.state.imageName !== "") ? <button type="button" onClick={this.deleteImage}>X</button> : null;
-        imageBox = <div className="u-flex u-flex-alignCenter u-flex-alignCenter SpecificEntry-entryImage" style={{backgroundColor:"#B8D4FF"}}>
+        imageBox = <div className="SpecificEntry-entryImageEdit">
                       <label for="file-input">
-                        <img src={link} style={{margin:"32px 28px 32px 32px", width:"87px"}}/>
+                        <img src={link} style={{margin:"32px 28px 32px 32px", width:"18vw"}}/>
                       </label>
                       <input id="file-input" type="file" style={{display:"none"}} onChange={this.uploadImage}/>
                       {deleteButton}
@@ -286,53 +298,85 @@ readImage = (blob) => {
                     readOnly/>;
       if (this.state.imageName !== "") imageBox = <img src={this.state.imageURL} className="SpecificEntry-entryImage"></img>;
       tagsList = this.state.tags.map((tag) => (<div className="SingleEntry-tag">{tag}</div>));
+      heartRatePlot=
+      <div className="SpecificEntry-heartRate">
+        <Plot 
+        style={{width: "50%"}}
+        data={[{
+          x: this.state.timeHRData,
+          y: this.state.heartRateData,
+          type: 'scatter',
+          marker: {color: 'red'},
+        }]}
+        layout={ 
+          {width: '.5vw' , 
+          height: '0.25vw', 
+          title: 'Heartrate',
+    
+            xaxis: {title: 'Time Elapsed (sec)', titlefont: {
+              family: 'Alegreya Sans', size: 15}
+            },
+            yaxis: {title: {text: 'Heartrate (BPM)', font: {
+              family: 'Alegreya Sans',
+              size: 15
+            },}},
+            
+          }}
+      />
+      </div>
     }
 
     return (
         <>
-        <div className="u-flexColumn u-flex-alignCenter">
-            <div className="u-flexRow u-flex-alignCenter SpecificEntry-dateBox" style={{backgroundColor:"#".concat(this.state.colorMood)}}>
-                <div className="u-flexRow SpecificEntry-firstHalf">
+
+       
+        <div className="NewEntry-entirety">
+          <div className="NewEntry-backCover">
+            <div className="NewEntry-clasp"/>
+            <div className="NewEntry-rightpage">
+            
+            </div>
+          </div>
+
+
+          <div className="u-flexColumn u-flex-alignCenter ">
+            <div className="u-flex-alignCenter u-flexRow  SpecificEntry-dateBox" style={{backgroundColor:"#".concat(this.state.colorMood)}}>
+                    <div className="u-flex u-flexRow u-flex-alignCenter">
                     <p className="SpecificEntry-month">{this.state.month}</p>
-                    <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SpecificEntry-circle">
-                      <p className="SpecificEntry-day" style={{"color":"#".concat(this.state.colorMood)}}>{this.state.day}</p>
+                      <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SpecificEntry-circle">
+                        <p className="SpecificEntry-day" style={{"color":"#".concat(this.state.colorMood)}}>{this.state.day}</p>
+                      </div>
                     </div>
-                </div>
-                  <p className="SpecificEntry-year">{this.state.year}</p>
+                    <p className="SpecificEntry-year">{this.state.year}</p>
+
             </div>
             <div className="SpecificEntry-entryBox">
-              <div className="u-flex u-flex-alignCenter">
                 {titleBox} {tagsList}
-              </div>
-              {contentBox}
+                {contentBox}
+              
             </div>
-            <div className="u-flexRow" style={{justifyContent:"space-evenly", width:"988px"}}>
+           
+        <img src={"https://storage.googleapis.com/tagheart/editIcon.svg"} className="SpecificEntry-editIcon" onClick={this.editEntry}></img>
+        
+
+
+          {/* frontcover [start] */}
+          <div className="NewEntry-frontCover">
+            {/* whitepage left [start] */}
+            <div className="NewEntry-leftpage">
+              
                 {imageBox}
-                <div className="SpecificEntry-heartRate">
-                  <p style={{textAlign:"center"}}>Heart Rate Here</p>
-                  <Plot 
-                    style={{height: "100%"}}
-                    data={[{
-                      x: [1, 2, 3],
-                      y: [2, 6, 3],
-                      yaxis: 'Heartrate (BPM)',
-                      xaxis: 'Time Elapsed (sec)',
-                      type: 'scatter',
-                      marker: {color: 'red'},
-                    }]}
-                    layout={ {width: '1vw' , height: '0.5vw', title: 'A Fancy Plot'} }
-                  />
-                </div>
-                <div className="SpecificEntry-Analysis">
-                <p style={{textAlign:"center"}}>Analysis Here</p>
-                </div>
-            </div>
+
+            {heartRatePlot}
             {tagsBar}
             {moodBox}
         </div>
-        <img src={"https://storage.googleapis.com/tagheart/editIcon.svg"} className="SpecificEntry-editIcon" onClick={this.editEntry}></img>
-        
-        </>
+          
+              
+            </div> {/* whitepage left [end] */}
+          </div> {/* front cover [end] */}
+        </div>
+      </>
     );
   }
 }

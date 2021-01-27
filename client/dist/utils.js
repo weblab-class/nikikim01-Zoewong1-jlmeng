@@ -179,7 +179,7 @@ let streaming = false;
 let videoInput = document.getElementById('videoInput');
 let startAndStop = document.getElementById('startAndStop');
 let canvasOutput = document.getElementById('canvasOutput');
-//let canvasContext = canvasOutput.getContext('2d');
+let canvasContext = canvasOutput.getContext('2d');
 
 
 
