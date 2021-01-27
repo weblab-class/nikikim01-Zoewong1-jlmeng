@@ -117,7 +117,7 @@
 .SpecificEntry-day{
     font-style: normal;
     font-weight: bold;
-    font-size: 5.5vh;
+    font-size: 6vh;
     line-height: 7vh;
     display: flex;
     align-items: center;
@@ -129,7 +129,7 @@
 .SpecificEntry-year{
     font-style: normal;
     font-weight: bold;
-    font-size: 7vh;
+    font-size: 6vh;
     line-height: 7vh;
     max-height: 7vh;
     text-transform: uppercase;
