@@ -14,6 +14,7 @@ import {EditorState, RichUtils, convertToRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from "draft-convert";
+import { redirectTo } from "@reach/router";
 
 const Entrystyle = {
   control: base => ({
@@ -233,6 +234,10 @@ class NewEntry extends Component{
     });
   }
 
+  goToAll = () => {
+    window.location.assign('/AllEntries');
+  }
+
   addEntry = () => {
     if (this.state.title === null){
       alert("Your journal entry needs a title!");
@@ -242,7 +247,8 @@ class NewEntry extends Component{
       alert("You still have to choose a color Mood for this journal entry!");
     } else{
       alert("Congratulations");
-      this.refreshPage();
+      // this.refreshPage();
+      this.goToAll();
       console.log("Submitted Entry");
 
       let newTags = this.state.userTags.map(userTag => (userTag.label));
