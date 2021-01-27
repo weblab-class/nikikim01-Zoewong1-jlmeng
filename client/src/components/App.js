@@ -110,6 +110,7 @@ class App extends Component {
             <Profile path="/Profile:userId"
               userId = {this.state.userId}
             />
+            <Info userId={this.state.userId} username={this.state.username} path="/Info"/>
             <EntriesByMood userId={this.state.userId} username={this.state.username} path="/EntriesByMood"/>
             <NewEntry userId={this.state.userId} username={this.state.username} path="/NewEntry"/>
             <MoodTracker userId={this.state.userId} username={this.state.username} path="/MoodTracker"/>

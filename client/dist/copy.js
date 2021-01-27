@@ -1,3 +1,9 @@
+/* CREDIT: 
+Taken from Andy Kong (2020)
+WebPulse-Leaderboard Source Code
+https://github.com/kongmunist/WebPulse-Leaderboard
+ */
+
 var ctx
 var canvas
 var video

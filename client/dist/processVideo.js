@@ -1,3 +1,9 @@
+/* CREDIT: 
+Adapted from Andy Kong (2020)
+WebPulse-Leaderboard Source Code
+https://github.com/kongmunist/WebPulse-Leaderboard
+ */
+
 function ProcessVideo() {
     let video = document.getElementById('videoInput');
     let src = new cv.Mat(video.height, video.width, cv.CV_8UC4);

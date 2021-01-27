@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import SingleEntry from "../modules/SingleEntry.js";
 import { get } from "../../utilities";
-import Select from "react-select";
 
 
 import "../../utilities.css";

@@ -1,15 +1,16 @@
 .MoodTracker-container{
     width: 100vw;
-    height: 100vh;
+    height: 67vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 8%;
 
     background-image: url(https://storage.googleapis.com/tagheart/MoodTrackerTitle.png);
     background-repeat: no-repeat;
-    background-size: 100%;
-    background-position-x: 13%;
-    background-position-y: 80%;
+    background-size: 80%;
+    background-position-x: 50%;
+    background-position-y: 70%;
 }
 
 
@@ -20,17 +21,15 @@
     justify-items: center;
     justify-content: center;
     grid-template-columns: 15vw 15vw 15vw 15vw 15vw 15vw ;
-    grid-template-rows: 14vw 14vw;
-    margin: 2vh;
+    grid-template-rows: 16vw 16vw;
 }
 
 .MoodTracker-Heart{
-    margin: 1.4%;
+    margin: 1.6%;
 }
 
 .blackHeart{
     transform: rotate(-3deg);
-    height: 40%;
 }
 
 .happyBlueHeart{
