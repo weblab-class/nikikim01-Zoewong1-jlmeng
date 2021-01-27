@@ -144,6 +144,7 @@
 .SpecificEntry-entryBox{
     position: absolute;
     top: 25%;
+
     width: 40%;
     right: 8%;
     background: var(--white);

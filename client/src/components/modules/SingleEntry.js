@@ -66,7 +66,6 @@ class SingleEntry extends Component{
         if (response) {
             post("/api/entry",{_id: this.props._id}).then((resp) => {
                 console.log(resp);
-                // window.refresh("/AllEntries");
             })
         }
     }
@@ -85,6 +84,8 @@ class SingleEntry extends Component{
             console.log(preview);
             console.log(this.props.imageName);
 
+            console.log("/AllEntries?".concat(this.props.urlParam));
+
             return (
                 <div className="u-flexRow u-flex-alignCenter u-flex-justifyCenter">
                     <Link to={url} className="SingleEntry-date" style={{ textDecoration: 'none' }}>{this.props.day}</Link>
@@ -93,7 +94,9 @@ class SingleEntry extends Component{
                             <Link to={url} style={{ textDecoration: 'none' }}>
                                 <h1 className="SingleEntry-title" style={{color:"#".concat(this.props.colorMood)}}>{this.props.title}</h1>
                             </Link>
-                            <button type="button" onClick={this.deleteEntry} style={{backgroundColor:"transparent", border: "None"}}>X</button>
+                            {/* <Link to={"/AllEntries?".concat(this.props.urlParam)}> */}
+                                <button type="button" onClick={this.deleteEntry} style={{backgroundColor:"transparent", border: "None"}}>X</button>
+                                {/* </Link> */}
                         </div>
                         {/* <p className="SingleEntry-content">{this.props.content}</p> */}
                         <p className="SingleEntry-content">{preview}</p>

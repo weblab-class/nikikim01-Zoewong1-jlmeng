@@ -48,6 +48,7 @@ class AllEntries extends Component{
             colorMood: null,
             userTags: [],
             count: 0,
+            urlParam:""
         }
     }
 
@@ -65,7 +66,7 @@ class AllEntries extends Component{
         })
 
         const temp = window.location.href;
-        const param = temp.split(window.location.pathname)[1].split("?")[1];
+        let param = temp.split(window.location.pathname)[1].split("?")[1];
         console.log(param);
         let count = 0;
         let color = null;
@@ -74,10 +75,13 @@ class AllEntries extends Component{
             const paramArray = param.split("=");
             count = parseInt(paramArray[1].split("&")[0],10);
             color = paramArray[2].split("&")[0];             
+        } else{
+            param = "";
         }
 
-        if (count <= 0) this._decreaseMonth(Math.abs(count),color);
-        else this._increaseMonth(count,color);
+        console.log(param);
+        if (count <= 0) this._decreaseMonth(Math.abs(count),color,param);
+        else this._increaseMonth(count,color,param);
     }
 
     componentDidUpdate(){}
@@ -105,23 +109,25 @@ class AllEntries extends Component{
         );
     }
 
-    _decreaseMonth = (count, newColor) => {
+    _decreaseMonth = (count, newColor, param) => {
         this.setState(
             prevState => ({ 
                 month: moment().subtract(count, 'month'),
                 count: -count,
                 colorMood: newColor,
+                urlParam: param
             }),
             this._filterByMonth
         );
     }
 
-    _increaseMonth = (count, newColor) => {
+    _increaseMonth = (count, newColor, param) => {
         this.setState(
             prevState => ({ 
                 month: moment().add(count, 'month'),
                 count: count,
                 colorMood: newColor,
+                urlParam: param,
              }),
             this._filterByMonth
         );
@@ -148,12 +154,15 @@ class AllEntries extends Component{
             user_id:Object(this.props.userId),
             colorMood: newColor,
         }).then((entryObjs) => {
+            const temp = newColor === null ? "" : "count=".concat(this.state.count.toString(),"&color=",newColor);
             this.setState({
                 entries: entryObjs,
-                colorMood: newColor
+                colorMood: newColor,
+                urlParam: temp,
             });
         });
         console.log('mood is', mood);
+        console.log(newColor === null ? "" : "count=".concat(this.state.count.toString(),"&color=",newColor));
     }
 
     render(){
@@ -183,6 +192,7 @@ class AllEntries extends Component{
                     jsonContent={entryObj.jsonContent}
                     imageName={entryObj.imageName}
                     viewMode={this.state.viewMode}
+                    urlParam={this.state.urlParam}
                 />
             });
             

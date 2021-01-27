@@ -96,13 +96,13 @@ async function loadCanvas(){
     pollctx();
 }
 
-async function drawWebcam(){
+/* async function drawWebcam(){
     ctx.drawImage(video,0,0,canvas.width, canvas.height);
 //    console.log('webcam drawn');
 
     requestAnimationFrame(drawWebcam);
 }
-
+ */
 
 // Use with below code to get only red, maybe improve SNR
 //    videoDataSum = filter(videoData, everyFourth)
