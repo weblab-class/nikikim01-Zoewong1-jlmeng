@@ -21,6 +21,20 @@ const style = {
     })
   };
 
+const moodLinks = ["https://storage.googleapis.com/tagheart/deadAndHeart.svg",
+                    "https://storage.googleapis.com/tagheart/happyAndHeart.svg",
+                    "https://storage.googleapis.com/tagheart/kisswinkAndHeart.svg",
+                    "https://storage.googleapis.com/tagheart/laughAndHeart.svg",
+                    "https://storage.googleapis.com/tagheart/madAndHeart.svg",
+                    "https://storage.googleapis.com/tagheart/mehAndHeart.svg",
+                    "https://storage.googleapis.com/tagheart/sadtearsAndHeart.svg",
+                    "https://storage.googleapis.com/tagheart/sickFaceAndHeart.svg",
+                    "https://storage.googleapis.com/tagheart/smileAndHeart.svg",
+                    "https://storage.googleapis.com/tagheart/surpriseAndHeart.svg",
+                    "https://storage.googleapis.com/tagheart/ughAndHeart.svg"]
+
+const moodImgs = moodLinks.map((link) => (<li><img src={link}/></li>));
+
 /**
  * @param userId
  * @param username
@@ -78,23 +92,23 @@ class AllEntries extends Component{
     }
 
 
-    moodOption = (props) => (
-        <Option {... props}>
-          <div>
-          <img src={"https://storage.googleapis.com/tagheart/deadAndHeart.svg"} />
-          <img src={"https://storage.googleapis.com/tagheart/happyAndHeart.svg"} />
-          <img src={"https://storage.googleapis.com/tagheart/kisswinkAndHeart.svg"} />
-          <img src={"https://storage.googleapis.com/tagheart/laughAndHeart.svg"} />
-          <img src={"https://storage.googleapis.com/tagheart/madAndHeart.svg"} />
-          <img src={"https://storage.googleapis.com/tagheart/mehAndHeart.svg"} />
-          <img src={"https://storage.googleapis.com/tagheart/sadtearsAndHeart.svg"} />
-          <img src={"https://storage.googleapis.com/tagheart/sickFaceAndHeart.svg"} />
-          <img src={"https://storage.googleapis.com/tagheart/smileAndHeart.svg"} />
-          <img src={"https://storage.googleapis.com/tagheart/surpriseAndHeart.svg"} />
-          <img src={"https://storage.googleapis.com/tagheart/ughAndHeart.svg"} />
-          </div>
-        </Option>
-      );
+    // moodOption = (props) => (
+    //     <Option {... props}>
+    //       <div>
+    //       <img src={"https://storage.googleapis.com/tagheart/deadAndHeart.svg"} />
+    //       <img src={"https://storage.googleapis.com/tagheart/happyAndHeart.svg"} />
+    //       <img src={"https://storage.googleapis.com/tagheart/kisswinkAndHeart.svg"} />
+    //       <img src={"https://storage.googleapis.com/tagheart/laughAndHeart.svg"} />
+    //       <img src={"https://storage.googleapis.com/tagheart/madAndHeart.svg"} />
+    //       <img src={"https://storage.googleapis.com/tagheart/mehAndHeart.svg"} />
+    //       <img src={"https://storage.googleapis.com/tagheart/sadtearsAndHeart.svg"} />
+    //       <img src={"https://storage.googleapis.com/tagheart/sickFaceAndHeart.svg"} />
+    //       <img src={"https://storage.googleapis.com/tagheart/smileAndHeart.svg"} />
+    //       <img src={"https://storage.googleapis.com/tagheart/surpriseAndHeart.svg"} />
+    //       <img src={"https://storage.googleapis.com/tagheart/ughAndHeart.svg"} />
+    //       </div>
+    //     </Option>
+    //   );
     
 
     render(){
@@ -167,6 +181,12 @@ class AllEntries extends Component{
                         <div className="AllEntries-mood"><Link to="/MoodTracker"><img src={"https://storage.googleapis.com/tagheart/MOOD.svg"} height="180" className="AllEntries-MOOD"></img></Link></div>
                     </Tooltip>
 
+                    <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Click me to filter by mood!">
+                        <div className="AllEntries-mood">
+                            <img src={"https://storage.googleapis.com/tagheart/MOOD.svg"} height="180" className="AllEntries-MOOD"></img>
+                        </div>
+                    </Tooltip>
+
                     {/* <Select
                        styles={style}
                        components={{
@@ -178,8 +198,6 @@ class AllEntries extends Component{
                     //    onChange={this.handleChange}
                        options={this.moodOption}
                     /> */}
-
-
 
                     <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Create New Entry!">
                         <Link to="/NewEntry"><img src={"https://storage.googleapis.com/tagheart/EditPen.svg"} className="AllEntries-editPen u-editPen"></img></Link>

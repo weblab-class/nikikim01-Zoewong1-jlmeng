@@ -8,7 +8,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from "draft-convert";
 import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';
-// import Plot from 'react-plotly.js';
+import Plot from 'react-plotly.js';
 
 const style = {
   control: base => ({
@@ -334,6 +334,18 @@ readImage = (blob) => {
                 <div className="SpecificEntry-heartRateWrapper">
                   <div className="SpecificEntry-heartRate">
                     <p style={{textAlign:"center"}}>Heart Rate Here</p>
+                    <Plot 
+                    style={{height: "100%"}}
+                    data={[{
+                      x: [1, 2, 3],
+                      y: [2, 6, 3],
+                      yaxis: 'Heartrate (BPM)',
+                      xaxis: 'Time Elapsed (sec)',
+                      type: 'scatter',
+                      marker: {color: 'red'},
+                    }]}
+                    layout={ {width: '1vw' , height: '0.5vw', title: 'A Fancy Plot'} }
+                  />
                   </div>
                   <div className="SpecificEntry-Analysis">
                   <p style={{textAlign:"center"}}>Analysis Here</p>
