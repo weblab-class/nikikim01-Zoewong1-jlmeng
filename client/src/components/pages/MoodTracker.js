@@ -39,7 +39,7 @@ class MoodTracker extends Component {
                 sadBlueHeartEntries: [],
 
                 month: moment(),
-
+                count:0,
         }
         
     }
@@ -62,14 +62,20 @@ class MoodTracker extends Component {
 
     _decreaseMonth = () => {
         this.setState(
-            prevState => ({ month: prevState.month.subtract(1, 'month') }),
+            prevState => ({ 
+                month: prevState.month.subtract(1, 'month'),
+                count: prevState.count - 1,
+        }),
             this._filterByMonth
         );
     }
 
     _increaseMonth = () => {
         this.setState(
-            prevState => ({ month: prevState.month.add(1, 'month') }),
+            prevState => ({ 
+                    month: prevState.month.add(1, 'month'),
+                    count: prevState.count + 1,
+                }),
             this._filterByMonth
         );
     }
@@ -204,37 +210,37 @@ class MoodTracker extends Component {
                     
                     <div className="MoodTracker-Hearts">
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Dead Tired...">
-                        <Link to={`/AllEntries?month=${this.state.month.format('MMMM')}&year=${this.state.month.format('YYYY')}&color=000000`}><img className="MoodTracker-Heart blackHeart" src={'https://storage.googleapis.com/tagheart/heart_000000.svg'} 
+                        <Link to={`/AllEntries?count=${this.state.count}&color=000000`}><img className="MoodTracker-Heart blackHeart" src={'https://storage.googleapis.com/tagheart/heart_000000.svg'} 
                                 height={`${blackHeartHeight.toString()}%`}/></Link></Tooltip>
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="hehe smiles *^-^*">
-                        <Link to={`/AllEntries?month=${this.state.month.format('MMMM')}&year=${this.state.month.format('YYYY')}&color=0BB5FF`}><img className="MoodTracker-Heart happyBlueHeart" src={'https://storage.googleapis.com/tagheart/heart_0BB5FF.svg'} 
+                        <Link to={`/AllEntries?count=${this.state.count}&color=0BB5FF`}><img className="MoodTracker-Heart happyBlueHeart" src={'https://storage.googleapis.com/tagheart/heart_0BB5FF.svg'} 
                                 height={`${happyBlueHeartHeight.toString()}%`}/></Link></Tooltip>
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="blEhHh sICk">
-                        <Link to={`/AllEntries?month=${this.state.month.format('MMMM')}&year=${this.state.month.format('YYYY')}&color=54c452`}><img className="MoodTracker-Heart greenHeart" src={'https://storage.googleapis.com/tagheart/heart_54c452.svg'} 
+                        <Link to={`/AllEntries?count=${this.state.count}&color=54c452`}><img className="MoodTracker-Heart greenHeart" src={'https://storage.googleapis.com/tagheart/heart_54c452.svg'} 
                                 height={`${greenHeartHeight.toString()}%`}/></Link></Tooltip>
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="ANGGERRYYY">
-                        <Link to={`/AllEntries?month=${this.state.month.format('MMMM')}&year=${this.state.month.format('YYYY')}&color=E35B5B`}><img className="MoodTracker-Heart redHeart" src={'https://storage.googleapis.com/tagheart/heart_E35B5B.svg'} 
+                        <Link to={`/AllEntries?count=${this.state.count}&color=E35B5B`}><img className="MoodTracker-Heart redHeart" src={'https://storage.googleapis.com/tagheart/heart_E35B5B.svg'} 
                                 height={`${redHeartHeight.toString()}%`}/></Link></Tooltip>
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="meh">
-                        <Link to={`/AllEntries?month=${this.state.month.format('MMMM')}&year=${this.state.month.format('YYYY')}&color=717D7E`}><img className="MoodTracker-Heart greyHeart" src={'https://storage.googleapis.com/tagheart/heart_717D7E.svg'} 
+                        <Link to={`/AllEntries?count=${this.state.count}&color=717D7E`}><img className="MoodTracker-Heart greyHeart" src={'https://storage.googleapis.com/tagheart/heart_717D7E.svg'} 
                                 height={`${greyHeartHeight.toString()}%`}/></Link></Tooltip>
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="LOL AHAHA LMAO ROFL BWAHAHA">
-                        <Link to={`/AllEntries?month=${this.state.month.format('MMMM')}&year=${this.state.month.format('YYYY')}&color=965AEA`}><img className="MoodTracker-Heart purpleHeart" src={'https://storage.googleapis.com/tagheart/heart_965AEA.svg'} 
+                        <Link to={`/AllEntries?count=${this.state.count}&color=965AEA`}><img className="MoodTracker-Heart purpleHeart" src={'https://storage.googleapis.com/tagheart/heart_965AEA.svg'} 
                                 height={`${purpleHeartHeight.toString()}%`}/></Link></Tooltip>
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="ugh">
-                        <Link to={`/AllEntries?month=${this.state.month.format('MMMM')}&year=${this.state.month.format('YYYY')}&color=9a6a44`}><img className="MoodTracker-Heart brownHeart" src={'https://storage.googleapis.com/tagheart/heart_9a6a44.svg'} 
+                        <Link to={`/AllEntries?count=${this.state.count}&color=9a6a44`}><img className="MoodTracker-Heart brownHeart" src={'https://storage.googleapis.com/tagheart/heart_9a6a44.svg'} 
                                 height={`${brownHeartHeight.toString()}%`}/></Link></Tooltip>
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="mwuah teehee">
-                        <Link to={`/AllEntries?month=${this.state.month.format('MMMM')}&year=${this.state.month.format('YYYY')}&color=F173D2`}><img className="MoodTracker-Heart pinkHeart" src={'https://storage.googleapis.com/tagheart/heart_F173D2.svg'} 
+                        <Link to={`/AllEntries?count=${this.state.count}&color=F173D2`}><img className="MoodTracker-Heart pinkHeart" src={'https://storage.googleapis.com/tagheart/heart_F173D2.svg'} 
                                 height={`${pinkHeartHeight.toString()}%`}/></Link></Tooltip>
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="huh? omg!">
-                        <Link to={`/AllEntries?month=${this.state.month.format('MMMM')}&year=${this.state.month.format('YYYY')}&color=FEC085`}><img className="MoodTracker-Heart orangeHeart" src={'https://storage.googleapis.com/tagheart/heart_FEC085.svg'} 
+                        <Link to={`/AllEntries?count=${this.state.count}&color=FEC085`}><img className="MoodTracker-Heart orangeHeart" src={'https://storage.googleapis.com/tagheart/heart_FEC085.svg'} 
                                 height={`${orangeHeartHeight.toString()}%`} /></Link></Tooltip>
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="HAPPY HAPPY SUNSHINE!!!">
-                        <Link to={`/AllEntries?month=${this.state.month.format('MMMM')}&year=${this.state.month.format('YYYY')}&color=FFD300`}><img className="MoodTracker-Heart yellowHeart" src={'https://storage.googleapis.com/tagheart/heart_FFD300.svg'} 
+                        <Link to={`/AllEntries?count=${this.state.count}&color=FFD300`}><img className="MoodTracker-Heart yellowHeart" src={'https://storage.googleapis.com/tagheart/heart_FFD300.svg'} 
                                 height={`${yellowHeartHeight.toString()}%`}/></Link></Tooltip>
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="sniffle sniffle tears... sadness...">
-                        <Link to={`/AllEntries?month=${this.state.month.format('MMMM')}&year=${this.state.month.format('YYYY')}&color=6BA0FC`}><img className="MoodTracker-Heart sadBlueHeart" src={'https://storage.googleapis.com/tagheart/heart_6BA0FC.svg'} 
+                        <Link to={`/AllEntries?count=${this.state.count}&color=6BA0FC`}><img className="MoodTracker-Heart sadBlueHeart" src={'https://storage.googleapis.com/tagheart/heart_6BA0FC.svg'} 
                                 height={`${sadBlueHeight.toString()}%`}/></Link></Tooltip>
                     
                     

@@ -73,29 +73,13 @@ class AllEntries extends Component{
             });
         } else{
             const paramArray = param.split("=");
-            const month = paramArray[1].split("&")[0];
-            const year = paramArray[2].split("&")[0];
-            const color = paramArray[3].split("&")[0];
+            let count = parseInt(paramArray[1].split("&")[0],10);
+            const color = paramArray[2].split("&")[0]; 
 
-            console.log(month);
-            console.log(year);
-            console.log(color);
-
-            get("/api/entries",{
-                month: month, 
-                year: year, 
-                user_id:Object(this.props.userId),
-                colorMood: color,
-            }).then((entryObjs) => {
-                this.setState({
-                    month: month, 
-                    year: year,
-                    entries: entryObjs,
-                    colorMood: color,
-                });
-            });
+            this._decreaseMonth(Math.abs(count),color);
+            
         }
-
+        
         const color = (param) ? param : null;
 
         get("/api/entries",{
@@ -116,16 +100,33 @@ class AllEntries extends Component{
     pressMenuIcon = () => {this.setState({viewMode: true})};
     pressViewIcon = () => {this.setState({viewMode: false})};
 
-    _decreaseMonth = () => {
+    _decrementMonth = () => {
         this.setState(
             prevState => ({ month: prevState.month.subtract(1, 'month') }),
             this._filterByMonth
         );
     }
 
-    _increaseMonth = () => {
+    _incrementMonth = () => {
         this.setState(
             prevState => ({ month: prevState.month.add(1, 'month') }),
+            this._filterByMonth
+        );
+    }
+
+    _decreaseMonth = (count, newColor) => {
+        this.setState(
+            prevState => ({ 
+                month: prevState.month.subtract(count, 'month'),
+                colorMood: newColor,
+            }),
+            this._filterByMonth
+        );
+    }
+
+    _increaseMonth = (count, newColor) => {
+        this.setState(
+            prevState => ({ month: prevState.month.add(count, 'month') }),
             this._filterByMonth
         );
     }
@@ -207,8 +208,8 @@ class AllEntries extends Component{
             }
         }
 
-        let leftIconCode = <img src={"https://storage.googleapis.com/tagheart/leftIcon.svg"} onClick={this._decreaseMonth} className="AllEntries-iconContainer" height="25px"></img>;
-        let rightIconCode = this.state.month.clone().add(1, 'hour') > moment() ? null : <img src={"https://storage.googleapis.com/tagheart/rightIcon.svg"} onClick={this._increaseMonth} className="AllEntries-iconContainer" height="25px"></img>;
+        let leftIconCode = <img src={"https://storage.googleapis.com/tagheart/leftIcon.svg"} onClick={this._decrementMonth} className="AllEntries-iconContainer" height="25px"></img>;
+        let rightIconCode = this.state.month.clone().add(1, 'hour') > moment() ? null : <img src={"https://storage.googleapis.com/tagheart/rightIcon.svg"} onClick={this._incrementMonth} className="AllEntries-iconContainer" height="25px"></img>;
 
         let color = this.state.colorMood !== null ? this.state.colorMood : "FFFFFF"
         return(
