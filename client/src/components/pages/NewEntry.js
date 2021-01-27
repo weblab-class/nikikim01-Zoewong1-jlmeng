@@ -60,7 +60,6 @@ const tags = [{
 
 // const tagList = ["School","Really Good Day","Read when in need of pick me up"];
 // const journalList = ['School Journal','Work Journal'];
-
 const months = monthList.map((month) => (<option value={month}>{month}</option>));
 const days31 = dayList31.map((day) => (<option value={day}>{day}</option>));
 const days30 = dayList31.filter((day) => (parseInt(day,10) < 31)).map((day) => (<option value={day}>{day}</option>));
@@ -307,6 +306,7 @@ class NewEntry extends Component{
                   <select className="NewEntry-selectContent" value={this.state.year} onChange={this.changeYear}>{years}</select>
                 </div>
               </div>
+        
               {/* date [end] */}
 
               {/* title [start] */}

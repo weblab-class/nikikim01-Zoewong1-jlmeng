@@ -531,10 +531,10 @@ div.rdw-option-wrapper{
     align-content: center;
     justify-content: center;
     position: absolute;
-    /* left: 60%;
-    bottom: -2%; */
-    right: -80px;
-    bottom: -8px;
+    left: 80%;
+    bottom: 4%;
+    /* right: -80px;
+    bottom: -8px; */
     transform: rotate(-10deg);
     z-index: 5;
     border: none;

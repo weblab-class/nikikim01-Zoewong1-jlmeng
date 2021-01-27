@@ -15,6 +15,7 @@ import Calendar from "./pages/Calendar.js";
 import NewEntry from "./pages/NewEntry.js";
 import MoodTracker from "./pages/MoodTracker.js";
 import Info from "./pages/Info.js";
+import EntriesByMood from "./pages/EntriesByMood.js";
 
 import "../utilities.css";
 
@@ -112,6 +113,7 @@ class App extends Component {
             <Profile path="/Profile:userId"
               userId = {this.state.userId}
             />
+            <EntriesByMood userId={this.state.userId} username={this.state.username} path="/EntriesByMood"/>
             <NewEntry userId={this.state.userId} username={this.state.username} path="/NewEntry"/>
             <MoodTracker userId={this.state.userId} username={this.state.username} path="/MoodTracker"/>
             <NotFound default />

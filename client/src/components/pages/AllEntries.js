@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import SingleEntry from "../modules/SingleEntry.js";
 import { get } from "../../utilities";
+import Select from "react-select";
 
 
 import "../../utilities.css";
@@ -10,6 +11,15 @@ import moment from "moment";
 import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';
 
+const style = {
+    control: base => ({
+      ...base,
+      border: 0,
+      // This line disable the blue border
+      boxShadow: "none",
+      
+    })
+  };
 
 /**
  * @param userId
@@ -21,7 +31,8 @@ class AllEntries extends Component{
         this.state = {
             entries:[],
             viewMode: true, //boolean 0: menu list, 1: view mode
-            month:moment()
+            month:moment(),
+            selectedOption: null,
         }
     }
 
@@ -65,6 +76,26 @@ class AllEntries extends Component{
             this.setState({entries: entryObjs});
         });
     }
+
+
+    moodOption = (props) => (
+        <Option {... props}>
+          <div>
+          <img src={"https://storage.googleapis.com/tagheart/deadAndHeart.svg"} />
+          <img src={"https://storage.googleapis.com/tagheart/happyAndHeart.svg"} />
+          <img src={"https://storage.googleapis.com/tagheart/kisswinkAndHeart.svg"} />
+          <img src={"https://storage.googleapis.com/tagheart/laughAndHeart.svg"} />
+          <img src={"https://storage.googleapis.com/tagheart/madAndHeart.svg"} />
+          <img src={"https://storage.googleapis.com/tagheart/mehAndHeart.svg"} />
+          <img src={"https://storage.googleapis.com/tagheart/sadtearsAndHeart.svg"} />
+          <img src={"https://storage.googleapis.com/tagheart/sickFaceAndHeart.svg"} />
+          <img src={"https://storage.googleapis.com/tagheart/smileAndHeart.svg"} />
+          <img src={"https://storage.googleapis.com/tagheart/surpriseAndHeart.svg"} />
+          <img src={"https://storage.googleapis.com/tagheart/ughAndHeart.svg"} />
+          </div>
+        </Option>
+      );
+    
 
     render(){
 
@@ -125,16 +156,30 @@ class AllEntries extends Component{
                     <div className="AllEntries-leftHeader">
                         <h1 className="u-flex u-flex-alignCenter AllEntries-date">
                             {leftIconCode}
-                            <span>{this.state.month.format('MMMM YYYY')}</span>
+                            <div className="AllEntries-monthYear" onClick={this.showDateOptions}>{this.state.month.format('MMMM YYYY')}</div>
                             {rightIconCode}
                             {menuIcon} {viewIcon}
                         </h1>
                     </div>
                     <div className="AllEntries-rightHeader u-flex u-flex-alignCenter">
 
-                    <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="See Mood Tracker">
-                        <div className="AllEntries-border"><Link to="/MoodTracker"><img src={"https://storage.googleapis.com/tagheart/MOOD.svg"} height="180" className="AllEntries-happySun"></img></Link></div>
+                    <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Click me to filter by mood!">
+                        <div className="AllEntries-mood"><Link to="/MoodTracker"><img src={"https://storage.googleapis.com/tagheart/MOOD.svg"} height="180" className="AllEntries-MOOD"></img></Link></div>
                     </Tooltip>
+
+                    {/* <Select
+                       styles={style}
+                       components={{
+                         IndicatorSeparator: () => null
+                       }}
+                    //    className = "CreateEntry-dropdownButton DaysDropdown-button"
+                       placeholder="MOOD IMAGE"
+                       value={this.state.selectedOption}
+                    //    onChange={this.handleChange}
+                       options={this.moodOption}
+                    /> */}
+
+
 
                     <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Create New Entry!">
                         <Link to="/NewEntry"><img src={"https://storage.googleapis.com/tagheart/EditPen.svg"} className="AllEntries-editPen u-editPen"></img></Link>
