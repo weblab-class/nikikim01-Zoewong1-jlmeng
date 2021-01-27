@@ -143,7 +143,6 @@ class SpecificEntry extends Component {
       colorMood: this.state.colorMood,
       imageName: this.state.imageName,
       tags: this.state.tags,
-      lastModDate: new Date(),
     })
   }
 

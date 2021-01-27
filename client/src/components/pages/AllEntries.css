@@ -34,12 +34,13 @@
 }
 
 .AllEntries-addBox{
-    width: 1192px;
-    height: 47px;
-    background: var(--bluegrey);
+    /* width: 1192px;
+    height: 47px; */
+    background: var(--CreamyBlush);
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
     border-radius: 15px;
     margin: var(--m) var(--s);
+    padding: var(--s);
 }
 
 .AllEntries-add{

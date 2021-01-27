@@ -240,7 +240,7 @@ class NewEntry extends Component{
           jsonContent: this.state.jsonContent,
           colorMood: this.state.colorMood,
           tags: this.state.tags,
-          lastModDate: new Date(),
+          creationDate: new Date(),
           heartRateData: [77,88],
           samplingRate: 100,
           imageName: this.state.imageName,
@@ -309,7 +309,7 @@ class NewEntry extends Component{
 
               {/* title [start] */}
               <div className="NewEntry-titleBox">
-                <input className="NewEntry-title" placeholder='Title' onChange={this.changeTitle}></input>
+                <input className="NewEntry-title" placeholder='Title (max 50 characters)' onChange={this.changeTitle} maxLength="50"></input>
               </div>
               {/* title [end] */}
 

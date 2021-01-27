@@ -61,7 +61,7 @@ router.get("/entries",(req,res) => {
     year: req.query.year,
     user_id: req.query.user_id, 
     // journal:req.query.journal
-  }).sort({day: -1}).then((entries) => {
+  }).sort({day: -1, creationDate: -1}).then((entries) => {
     res.send(entries);
   });
 });
@@ -75,7 +75,7 @@ router.post("/entries",(req,res) => {
     day: req.body.day,
     content: req.body.content,
     jsonContent: req.body.jsonContent,
-    lastModDate: req.body.lastModDate,
+    creationDate: req.body.creationDate,
     tags: req.body.tags,
     colorMood: req.body.colorMood,
     heartRateData: req.body.heartRateData,
@@ -107,7 +107,6 @@ router.post("/editEntry", (req,res) => {
         colorMood: req.body.colorMood,
         imageName: req.body.imageName,
         tags: req.body.tags,
-        lastModDate: req.body.lastModDate,
       }
     }).then((response) => {
       console.log(response);
