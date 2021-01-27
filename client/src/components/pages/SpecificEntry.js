@@ -77,8 +77,8 @@ class SpecificEntry extends Component {
         content: response[0].content,
         tags: response[0].tags,
         imageName: response[0].imageName,
-        // heartRateData: JSON.parse(response[0].heartRateData),
-        // timeHRData: JSON.parse(response[0].timeHRData),
+        heartRateData: JSON.parse(response[0].heartRateData),
+        timeHRData: JSON.parse(response[0].timeHRData),
         avgHR: response[0].avgHR,
       });
 
@@ -300,8 +300,7 @@ readImage = (blob) => {
       tagsList = this.state.tags.map((tag) => (<div className="SingleEntry-tag">{tag}</div>));
       heartRatePlot=
       <div className="SpecificEntry-heartRate">
-        <Plot 
-        style={{width: "50%"}}
+        <Plot
         data={[{
           x: this.state.timeHRData,
           y: this.state.heartRateData,
@@ -309,8 +308,7 @@ readImage = (blob) => {
           marker: {color: 'red'},
         }]}
         layout={ 
-          {width: '.5vw' , 
-          height: '0.25vw', 
+          {
           title: 'Heartrate',
     
             xaxis: {title: 'Time Elapsed (sec)', titlefont: {
@@ -319,9 +317,14 @@ readImage = (blob) => {
             yaxis: {title: {text: 'Heartrate (BPM)', font: {
               family: 'Alegreya Sans',
               size: 15
-            },}},
+            },
+          autosize: true}},
             
-          }}
+          }} 
+
+        useResizeHandler={true}
+        style={{width: "100%", height: "100%"}}
+
       />
       </div>
     }

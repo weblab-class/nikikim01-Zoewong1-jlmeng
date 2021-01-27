@@ -26,15 +26,25 @@ class HomePage extends Component {
             <>  
             <div className="HomePage-container">
                 <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Create New Entry!">
-                    <div><Link to="/NewEntry"><img src={"https://storage.googleapis.com/tagheart/EditPen.svg"} className="HomePage-button HomePage-editPen u-editPen"></img></Link></div>
+                    <div className="u-flex u-flexRow">
+                        <div style={{justifyContent: "center"}}>
+                            <Link to="/NewEntry"><img src={"https://storage.googleapis.com/tagheart/EditPen.svg"} className="HomePage-button HomePage-editPen u-editPen"></img></Link>
+                        </div>
+                    </div>
                 </Tooltip>
                     
                 <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="See All Entries">
-                    <Link to="/AllEntries" className="HomePage-journalPic HomePage-name">{this.props.username}</Link>
+                    <div className="u-flex u-flexRow">
+                        <Link to="/AllEntries" className="HomePage-journalPic HomePage-name">{this.props.username}</Link>
+                    </div>
                 </Tooltip>
 
                 <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="See Mood Tracker">
-                    <div><Link to="/MoodTracker"><img className="HomePage-button" src={"https://storage.googleapis.com/tagheart/RedFlower.svg"}/></Link></div>
+                    <div className="u-flex u-flexRow">
+                        <div style={{justifyContent: "center"}}>
+                            <Link to="/MoodTracker"><img className="HomePage-button" src={"https://storage.googleapis.com/tagheart/RedFlower.svg"}/></Link>
+                        </div>
+                    </div>
                 </Tooltip>
                     
                 

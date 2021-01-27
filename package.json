@@ -59,6 +59,7 @@
     "react-router-dom": "^5.2.0",
     "react-script-tag": "^1.1.2",
     "react-select": "^3.2.0",
+    "react-sizeme": "^2.6.12",
     "react-webcam": "^5.2.2",
     "react-with-important-style": "^0.2.2",
     "socket.io": "^2.4.1",
