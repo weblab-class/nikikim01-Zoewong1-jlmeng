@@ -26,6 +26,7 @@ import "./SingleEntry.css";
 class SingleEntry extends Component{
     constructor(props){
         super(props);
+        console.log(props);
         this.state = {
             imageIncluded: false, //true if entry has image attached, false otherwise
             imageUrl: "",
@@ -33,32 +34,30 @@ class SingleEntry extends Component{
     }
 
     componentDidMount(){
-        console.log(this.props.jsonContent);
-
+        console.log("Single Entries componentDidMount");
         let jsonContent = JSON.parse(this.props.jsonContent);
-        console.log(jsonContent);
         let state = EditorState.createWithContent(convertFromRaw(jsonContent));
-        console.log(convertToHTML(state.getCurrentContent()));
-
-        this.setState({
-            imageIncluded: this.props.imageName !== "",
-        });
-        if (this.props.imageName !== ""){
-            this.loadImage(this.props.imageName);
-        } else{
-            
-        }
-
+        console.log(this.props.imageName);
+        this.loadImage(this.props.imageName)
     }
 
-    loadImage = (receivedImage=this.state.imageName) => {
+    loadImage = (receivedImage) => {
+        console.log("LOADING IMAGE");
         console.log(receivedImage);
-        get("/api/getImage",{image: receivedImage }).then(data => {
-          console.log(data);
-          this.setState({ 
-            imageURL: data.image,
-          });
-        });
+        if (receivedImage !== ""){
+            get("/api/getImage",{image: receivedImage }).then(data => {
+                console.log(data);
+                this.setState({ 
+                    imageURL: data.image,
+                    imageIncluded: receivedImage !== "",
+                });
+            });
+        } else{
+            this.setState({ 
+                imageURL: "",
+                imageIncluded: receivedImage !== "",
+            });
+        }
     }
 
     render(){
@@ -73,6 +72,7 @@ class SingleEntry extends Component{
             let jsonContent = JSON.parse(this.props.jsonContent);
             let preview = jsonContent.blocks[0].text;
             console.log(preview);
+            console.log(this.props.imageName);
 
             return (
                 <div className="u-flexRow u-flex-alignCenter u-flex-justifyCenter">
@@ -90,6 +90,8 @@ class SingleEntry extends Component{
         } else{
             let dateImg = null;
             let image = null;
+
+            console.log(this.props.imageName);
 
             if (this.state.imageIncluded){
                 image = <img src={this.state.imageURL} className="SingleEntry-img"/>;

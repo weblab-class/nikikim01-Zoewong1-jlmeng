@@ -62,6 +62,39 @@ class AllEntries extends Component{
         const param = temp.split(window.location.pathname)[1].split("?")[1];
         console.log(param);
         
+        if (!param){
+            get("/api/entries",{
+                month:this.state.month.format("MMMM"), 
+                year:this.state.month.format("YYYY"), 
+                user_id:Object(this.props.userId),
+            }).then((entryObjs) => {
+                this.setState({
+                    entries: entryObjs,
+                });
+            });
+        } else{
+            const paramArray = param.split("=");
+            const month = paramArray[1].split("&")[0];
+            const year = paramArray[2].split("&")[0];
+            const color = paramArray[3].split("&")[0];
+
+            console.log(month);
+            console.log(year);
+            console.log(color);
+
+            get("/api/entries",{
+                month: month, 
+                year: year, 
+                user_id:Object(this.props.userId),
+                colorMood: color,
+            }).then((entryObjs) => {
+                this.setState({
+                    entries: entryObjs,
+                    colorMood: color,
+                });
+            });
+        }
+
         const color = (param) ? param : null;
 
         get("/api/entries",{
@@ -104,7 +137,8 @@ class AllEntries extends Component{
             year:this.state.month.format("YYYY"), 
             user_id:Object(this.props.userId),
         }).then((entryObjs) => {
-            this.setState({entries: entryObjs});
+            console.log(entryObjs);
+            this.setState({entries: entryObjs,});
         });
     }
 
@@ -124,7 +158,6 @@ class AllEntries extends Component{
     }
 
     render(){
-        console.log(this.moodImgs);
 
         let haveEntries = this.state.entries.length !== 0;
         let entriesList = null;
@@ -138,8 +171,9 @@ class AllEntries extends Component{
                             </div>
                         </div>;
         } else{
+            console.log(this.state.entries);
             entriesList = this.state.entries.map((entryObj) => {
-                console.log(entryObj);
+                console.log(entryObj.imageName);
                 return <SingleEntry 
                     _id={entryObj._id}
                     title={entryObj.title} 
@@ -154,7 +188,6 @@ class AllEntries extends Component{
             });
             
             if (this.state.viewMode){
-                console.log("Menu List");
                 menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconSelected" style={{margin:"4px 4px 4px 16px"}}>
                                 <img src={"https://storage.googleapis.com/tagheart/menuListIcon.svg"} className="AllEntries-icon"></img>
                             </div>;
@@ -163,7 +196,6 @@ class AllEntries extends Component{
                             </div>;
                 
             } else{
-                console.log("View Mode");
                 menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconUnselected" style={{margin:"4px 4px 4px 16px"}}>
                                 <img src={"https://storage.googleapis.com/tagheart/menuListIcon.svg"} className="AllEntries-icon" onClick={this.pressMenuIcon}></img>
                             </div>;

@@ -513,7 +513,7 @@
 
 div.rdw-editor-toolbar{
     font-family: 'Alegreya Sans', sans-serif;
-    background-color: #fafbf5;
+    background-color: transparent;
     border: none;
 }
 
@@ -526,6 +526,7 @@ div.rdw-option-wrapper{
     
 }
 .rdw-editor-main{
+    margin-left: 3%;
     max-height: 50vh;
   /* overflow: scroll; */
   box-sizing: border-box;
@@ -555,10 +556,12 @@ div.rdw-option-wrapper{
 
 .NewEntry-title{
     color: black;
-    background-color: #fafbf5;
+    background-color: transparent;
     z-index: 0;
     width: 90%;
     font-size: 24px;
+    border: none;
+    font-family: 'Alegreya Sans';
 }
 
 .NewEntry-titleBox{
