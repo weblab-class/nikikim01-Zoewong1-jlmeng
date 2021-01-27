@@ -59,12 +59,22 @@ class AllEntries extends Component{
     componentDidMount(){
         document.title = "All Entries";
 
+        const temp = window.location.href;
+        const param = temp.split(window.location.pathname)[1].split("?")[1];
+        console.log(param);
+        
+        const color = (param) ? param : null;
+
         get("/api/entries",{
             month:this.state.month.format("MMMM"), 
             year:this.state.month.format("YYYY"), 
             user_id:Object(this.props.userId),
+            colorMood: color,
         }).then((entryObjs) => {
-            this.setState({entries: entryObjs});
+            this.setState({
+                entries: entryObjs,
+                colorMood: color,
+            });
         });
     }
 
