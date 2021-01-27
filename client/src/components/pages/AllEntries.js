@@ -88,6 +88,8 @@ class AllEntries extends Component{
                 colorMood: color,
             }).then((entryObjs) => {
                 this.setState({
+                    month: month, 
+                    year: year,
                     entries: entryObjs,
                     colorMood: color,
                 });
