@@ -24,12 +24,12 @@ class Info extends Component {
     render() {
         return (
             <div className="u-flex u-flexColumn u-flex-alignCenter" style={{justifyContent: "center", alignContent: "center"}}>
-              <Hover img1="https://storage.googleapis.com/tagheart/homesc.jpeg" img2="https://storage.googleapis.com/tagheart/homehovered.jpeg"/>
-              <Hover img1="https://i.vimeocdn.com/portrait/58832_300x300" img2="http://www.toptipsclub.com/Images/page-img/keep-calm-and-prepare-for-a-test.png"/>
-              <Hover img1="https://i.vimeocdn.com/portrait/58832_300x300" img2="http://www.toptipsclub.com/Images/page-img/keep-calm-and-prepare-for-a-test.png"/>
-              <Hover img1="https://i.vimeocdn.com/portrait/58832_300x300" img2="http://www.toptipsclub.com/Images/page-img/keep-calm-and-prepare-for-a-test.png"/>
-              <Hover img1="https://i.vimeocdn.com/portrait/58832_300x300" img2="http://www.toptipsclub.com/Images/page-img/keep-calm-and-prepare-for-a-test.png"/>
-              <Hover img1="https://i.vimeocdn.com/portrait/58832_300x300" img2="http://www.toptipsclub.com/Images/page-img/keep-calm-and-prepare-for-a-test.png"/>
+              <p> Welcome to Tag Heart, hover over the images to learn more! </p>
+              <Hover img1="https://storage.googleapis.com/tagheart/homesc.png" img2="https://storage.googleapis.com/tagheart/homehovered.png"/>
+              <Hover img1="https://storage.googleapis.com/tagheart/allentriessc.png" img2="https://storage.googleapis.com/tagheart/allentrieshovered.png"/>
+              <Hover img1="https://storage.googleapis.com/tagheart/newentrysc.png" img2="https://storage.googleapis.com/tagheart/newentryhovered.png"/>
+              <Hover img1="https://storage.googleapis.com/tagheart/entrysc.png" img2="https://storage.googleapis.com/tagheart/entryhovered.png"/>
+              <Hover img1="https://storage.googleapis.com/tagheart/moodsc.png" img2="https://storage.googleapis.com/tagheart/moodhovered.png"/>
             </div>
         );
     }   

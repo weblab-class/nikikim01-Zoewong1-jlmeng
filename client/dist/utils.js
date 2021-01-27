@@ -1,3 +1,5 @@
+/* FROM OPENCV LIIBRARY, SEE OPENCV.JS FOR CITATION */
+
 function Utils(errorOutputId) { // eslint-disable-line no-unused-vars
     let self = this;
     this.errorOutput = document.getElementById(errorOutputId);
