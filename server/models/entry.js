@@ -12,7 +12,8 @@ const EntrySchema = new mongoose.Schema({
   tags: Array,
   colorMood: String,
   heartRateData: Array,
-  samplingRate: Number,
+  timeHRData: Array,
+  avgHR: Number,
   imageName: String,
 });
 

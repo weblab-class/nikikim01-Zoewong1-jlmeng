@@ -108,24 +108,6 @@
     margin: var(--m);
     height: 244px;
   }
-  .item .polaroid:before {
-    /* content: '';
-    transition: all 0.35s; */
-  }
   .item:hover {
     filter: none;
-    /* transform: scale(1, 1) rotate(0deg) !important;
-    transition: all 0.35s; */
   }
-  .item:hover .polaroid:before {
-    /* content: '';
-    position: absolute;
-    z-index: -1;
-    height: 90%;
-    width: 90%;
-    bottom: 0%;
-    right: 5%; */
-    /* box-shadow: 0 1rem 3rem rgba(0,0,0,0.2); */
-    transition: all 0.35s;
-  }
-  

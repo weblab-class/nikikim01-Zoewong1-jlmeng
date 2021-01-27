@@ -87,6 +87,7 @@ class NewEntry extends Component{
             tags: [],
             imageURL: "",
             imageName: "",
+            heartrates: []
         }
     }
 
@@ -97,7 +98,7 @@ class NewEntry extends Component{
       document.title="Create a new entry!";
     }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps, prevState){
       if (this.state.saved){
         console.log("Create Entry toggle");
         this.setState({saved:false,});
@@ -106,6 +107,7 @@ class NewEntry extends Component{
         // just logged in. reload images
         this.loadImage();
       }
+    
     }
 
     refreshPage = () => {
@@ -241,10 +243,10 @@ class NewEntry extends Component{
           colorMood: this.state.colorMood,
           tags: this.state.tags,
           creationDate: new Date(),
-          heartRateData: [77,88],
-          samplingRate: 100,
+          heartRateData:  document.getElementById("hrArray").textContent,
+          timeHRData: document.getElementById("timeArray").textContent,
+          avgHR: document.getElementById("avgHR").textContent,
           imageName: this.state.imageName,
-
       })
       // .then((response) => {
       //     console.log(response)});
