@@ -352,8 +352,8 @@ readImage = (blob) => {
                       marker: {color: 'red'},
                     }]}
                     layout={ 
-                    {width: '1vw' , 
-                    height: '0.5vw', 
+                    {width: 400 , 
+                    height: 300, 
                     title: 'Heartrate',
               
                       xaxis: {title: 'Time Elapsed (sec)', titlefont: {

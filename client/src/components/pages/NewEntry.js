@@ -8,7 +8,6 @@ import moment from "moment";
 import Creatable from 'react-select/creatable';
 import { get, post } from "../../utilities";
 import Webcam from "react-webcam";
-import HeartMonitor from "../modules/HeartMonitor.js";
 import HeartRateContainer from "../modules/HeartRateContainer.js";
 
 import {EditorState, RichUtils, convertToRaw} from "draft-js";
