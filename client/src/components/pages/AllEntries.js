@@ -78,12 +78,11 @@ class AllEntries extends Component{
         if (param){
             const paramArray = param.split("=");
             let count = parseInt(paramArray[1].split("&")[0],10);
-            const color = paramArray[2].split("&")[0]; 
-
-            if (count <= 0) this._decreaseMonth(Math.abs(count),color);
-            else this._increaseMonth(count,color);
-            
+            const color = paramArray[2].split("&")[0];             
         }
+
+        if (count <= 0) this._decreaseMonth(Math.abs(count),color);
+        else this._increaseMonth(count,color);
         
         // const color = (param) ? param : null;
 
