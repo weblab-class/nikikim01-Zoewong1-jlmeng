@@ -50,7 +50,7 @@ router.post("/initsocket", (req, res) => {
 // |------------------------------|
 
 // ENTRIES
-router.get("/entry",(req,res) => {
+router.get("/entry", auth.ensureLoggedIn, (req,res) => {
   console.log(req.query._id);
   Entry.find({
     _id:req.query._id
@@ -59,7 +59,7 @@ router.get("/entry",(req,res) => {
   })
 });
 
-router.get("/entries",(req,res) => {
+router.get("/entries", auth.ensureLoggedIn, (req,res) => {
   console.log(req.query);
   console.log(req.query.user_id);
   if (req.query.colorMood !== 'null' && req.query.colorMood){
@@ -83,7 +83,7 @@ router.get("/entries",(req,res) => {
   }
 });
 
-router.post("/entries",(req,res) => {
+router.post("/entries", auth.ensureLoggedIn, (req,res) => {
   const newEntry = new Entry({
     user_id: req.body.user_id,
     title: req.body.title,
@@ -110,7 +110,7 @@ router.post("/entries",(req,res) => {
   })
 });
 
-router.post("/editEntry", (req,res) => {
+router.post("/editEntry", auth.ensureLoggedIn, (req,res) => {
   Entry.updateOne(
     {_id: req.body._id},
     { $set: {
