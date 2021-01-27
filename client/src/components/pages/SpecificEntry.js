@@ -201,13 +201,17 @@ class SpecificEntry extends Component {
     });
   }
 
+
+
   deleteImage = () => {
     post("/api/deleteImage", {image: this.state.imageName}).then(() => {
       this.setState({
         imageURL: "",
         imageName: "",
-      })
+      });
     });
+    
+
   }
 
   uploadImage = (event) => {

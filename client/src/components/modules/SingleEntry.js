@@ -60,12 +60,18 @@ class SingleEntry extends Component{
         }
     }
 
+    refreshPage = () => {
+        // window.location = window.location;
+        window.location.reload();
+      }
+
     deleteEntry = () => {
         const response = confirm("Do you want to delete the ".concat(this.props.title," Entry?"));
         console.log(response);
         if (response) {
             post("/api/entry",{_id: this.props._id}).then((resp) => {
                 console.log(resp);
+                this.refreshPage();
             })
         }
     }
