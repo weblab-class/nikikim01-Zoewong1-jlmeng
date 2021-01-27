@@ -135,6 +135,7 @@ class AllEntries extends Component{
             month:this.state.month.format("MMMM"), 
             year:this.state.month.format("YYYY"), 
             user_id:Object(this.props.userId),
+            colorMood: this.state.colorMood,
         }).then((entryObjs) => {
             console.log(entryObjs);
             this.setState({entries: entryObjs,});

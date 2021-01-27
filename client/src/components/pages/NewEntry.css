@@ -1,6 +1,5 @@
 /* FontAwesome Icons used: https://fontawesome.com/ */
 
-
 .NewEntry-entirety{
     display: flex;
     flex-direction: row-reverse;
@@ -547,6 +546,11 @@ div.rdw-option-wrapper{
     background: none;
     padding: 0;
     
+}
+
+.NewEntry-saveButton:focus {
+    outline: none;
+    box-shadow: none;
 }
 
 .NewEntry-bookmark{
