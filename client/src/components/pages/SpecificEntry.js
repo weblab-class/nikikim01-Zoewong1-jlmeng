@@ -50,6 +50,9 @@ class SpecificEntry extends Component {
       isEditing: false,
       imageName: "",
       imageURL: "",
+      heartRateData: [],
+      timeHRData: [],
+      avgHR: null,
     }
   }
 
@@ -74,7 +77,13 @@ class SpecificEntry extends Component {
         content: response[0].content,
         tags: response[0].tags,
         imageName: response[0].imageName,
+        // heartRateData: JSON.parse(response[0].heartRateData),
+        // timeHRData: JSON.parse(response[0].timeHRData),
+        avgHR: response[0].avgHR,
       });
+
+      console.log(this.state.heartRateData)
+
       if (response[0].imageName !== "") {
         console.log("Entry has image (componentDidMount)");
         this.loadImage(response[0].imageName);
@@ -221,6 +230,7 @@ readImage = (blob) => {
     let imageBox = null;
     let deleteButton = null;
     let tagsList = null;
+    let heartRatePlot = null;
 
     if (this.state.isEditing){
       titleBox = <input className="NewEntry-title" value={this.state.title} style={{"color":"#".concat(this.state.colorMood)}} onChange={this.changeTitle}></input>;
@@ -288,6 +298,32 @@ readImage = (blob) => {
                     readOnly/>;
       if (this.state.imageName !== "") imageBox = <img src={this.state.imageURL} className="SpecificEntry-entryImage"></img>;
       tagsList = this.state.tags.map((tag) => (<div className="SingleEntry-tag">{tag}</div>));
+      heartRatePlot=
+      <div className="SpecificEntry-heartRate">
+        <Plot 
+        style={{width: "50%"}}
+        data={[{
+          x: this.state.timeHRData,
+          y: this.state.heartRateData,
+          type: 'scatter',
+          marker: {color: 'red'},
+        }]}
+        layout={ 
+          {width: '.5vw' , 
+          height: '0.25vw', 
+          title: 'Heartrate',
+    
+            xaxis: {title: 'Time Elapsed (sec)', titlefont: {
+              family: 'Alegreya Sans', size: 15}
+            },
+            yaxis: {title: {text: 'Heartrate (BPM)', font: {
+              family: 'Alegreya Sans',
+              size: 15
+            },}},
+            
+          }}
+      />
+      </div>
     }
 
     return (
@@ -331,22 +367,7 @@ readImage = (blob) => {
               
                 {imageBox}
 
-                {/* heart rate stuff [start] */}
-                  <div className="SpecificEntry-heartRate">
-                    <Plot 
-                    style={{width: "100%"}}
-                    data={[{
-                      x: [1, 2, 3],
-                      y: [2, 6, 3],
-                      yaxis: 'Heartrate (BPM)',
-                      xaxis: 'Time Elapsed (sec)',
-                      type: 'scatter',
-                      marker: {color: 'red'},
-                    }]}
-                    layout={ {width: '100%' , height: '50%', title: 'A Fancy Plot'} }
-                  />
-                  </div>
-                {/* heart rate stuff [end] */}
+            {heartRatePlot}
             {tagsBar}
             {moodBox}
         </div>
