@@ -1,28 +1,28 @@
-.AllEntries-iconContainer{
+.EntriesByMood-iconContainer{
     width: 40px;
     height: 40px;
     padding: var(--xs);
     margin: var(--m);
 }
 
-.AllEntries-iconSelected{
+.EntriesByMood-iconSelected{
     background: var(--bluegrey);
     border: 1px solid var(--lightblue);
     box-sizing: border-box;
 }
 
-.AllEntries-iconUnselected{
+.EntriesByMood-iconUnselected{
     background: #FAf9f9;
     border: 1px solid  #FAf9f9;
     box-sizing: border-box;
 }
 
-.AllEntries-icon{
+.EntriesByMood-icon{
     width: 30px;
     height: 30px;
 }
 
-.AllEntries-date{
+.EntriesByMood-date{
     font-style: normal;
     font-weight: bold;
     font-size: 72px;
@@ -33,7 +33,7 @@
     color: var(--midblue);
 }
 
-.AllEntries-addBox{
+.EntriesByMood-addBox{
     width: 1192px;
     height: 47px;
     background: var(--bluegrey);
@@ -42,7 +42,7 @@
     margin: var(--m) var(--s);
 }
 
-.AllEntries-add{
+.EntriesByMood-add{
     text-decoration: none;
     font-style: normal;
     font-weight: bold;
@@ -52,7 +52,7 @@
     color: #888383;
 }
 
-.AllEntries-addImg{
+.EntriesByMood-addImg{
     width: 244px;
     height: 243px;
     background: var(--bluegrey);
@@ -61,32 +61,23 @@
     margin: var(--m);
 }
 
-.AllEntries-MOOD{
+.EntriesByMood-happySun{
     display: flex;
     height: 4vh;
-    padding: 20px;
-    margin-right: 20px;
-
+    padding-right: 5vw;
 }
 
-/* 
-.AllEntries-happySun:hover, .AllEntries-happySun:focus {
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-    border-radius: 15px;
-  } */
-
-.AllEntries-editPen{
+.EntriesByMood-border{
+    border: .25vw;
+}
+.EntriesByMood-editPen{
     height: 18vh;
     transform: rotate(-160deg);
     padding-left: 5vw;
 }
 
-.AllEntries-Header{
+.EntriesByMood-Header{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-}
-
-.DateOptions-wrapper{
-    border-width: 2px;
 }

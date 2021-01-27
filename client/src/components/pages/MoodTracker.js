@@ -38,10 +38,11 @@ class MoodTracker extends Component {
                         <Link to="/"><img className="MoodTracker-Heart sadBlueHeart" src={'https://storage.googleapis.com/tagheart/heart_6BA0FC.svg'} 
                                 height="40%"/></Link>
                     </div>
+                    
                     </div>
                     
                 </div>
-                <div className="MoodTracker-palette"><img src="https://storage.googleapis.com/tagheart/Palette.svg"></img></div>
+                
                 <div className="MoodTracker-brush">
                     <img src={"https://storage.googleapis.com/tagheart/PaintBrush.svg"} height="60%"/>
                 </div>

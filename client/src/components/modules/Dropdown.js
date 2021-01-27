@@ -4,9 +4,6 @@ import Select from "react-select";
 import "./Dropdown.css";
 
 
-const options = []
-
-
 function Dropdown({ title, items, multiSelect = false}) {
     const [open, setOpen] = useState(false);
     const [selection, setSelection] = useState([]); 
@@ -62,7 +59,7 @@ function Dropdown({ title, items, multiSelect = false}) {
                                 {item.value} {isItemInSelection(item)}
                             </button>
                         </li>
-                    ))}
+                    ))} essentially this is what the code looked like but instead of an array of strings we want an array of images but it doesnt seem to accept images
                 </ul>
             )}
 
