@@ -7,13 +7,6 @@ import Webcam from "react-webcam";
 
 class HeartRateContainer extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			heartrates: [0]
-		};
-	  }
-
 	render() {
 		/* updateHeartrates(); */
 		return (
@@ -27,8 +20,7 @@ class HeartRateContainer extends React.Component {
 				<script src="/processVideo.js"></script>
 				<script src="/utils.js"></script>
 				</Helmet>
-				<br></br>
-				<br></br>
+		
 				<div className="control"><button id="startAndStop" disabled>Start</button></div>
 				
 				<br></br>
@@ -47,7 +39,7 @@ class HeartRateContainer extends React.Component {
 						</tr>
 						</thead>
 					</table>
-					<p id="heartrate">Calibrating...</p>
+					<p id="heartrate"> -- BPM </p>
 					<p id="hrArray" style={{display: "none"}}> [0] </p>
 					<p id="timeArray" style={{display: "none"}}> [0]</p> 
 					<p id="avgHR" style={{display: "none"}}> 0 </p>
