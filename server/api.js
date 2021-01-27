@@ -25,6 +25,7 @@ const socketManager = require("./server-socket");
 
 //for uploading images
 const { uploadImagePromise, deleteImagePromise, downloadImagePromise } = require("./storageTalk.js");
+const { ObjectId } = require("mongodb");
 
 
 
@@ -57,6 +58,20 @@ router.get("/entry",(req,res) => {
   }).then((entry) => {
     res.send(entry);
   })
+});
+
+router.post("/entry", (req,res) => {
+  console.log(ObjectId(req.body._id));
+  try {
+    Entry.deleteOne({
+      _id: Object(req.body._id),
+    }).then((response) => {
+      res.send(response);
+    })
+  }catch (e){
+    console.log(e);
+  }
+  // res.send(ObjectId(req.query._id));
 });
 
 router.get("/entries",(req,res) => {

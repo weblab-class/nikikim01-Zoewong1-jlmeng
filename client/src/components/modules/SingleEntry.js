@@ -5,7 +5,7 @@ import {EditorState, RichUtils, convertToRaw, convertFromRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML} from 'draft-convert';
 
-import {get} from "../../utilities";
+import {get, post} from "../../utilities";
 import "../../utilities.css";
 import "./SingleEntry.css";
 
@@ -60,6 +60,17 @@ class SingleEntry extends Component{
         }
     }
 
+    deleteEntry = () => {
+        const response = confirm("Do you want to delete the ".concat(this.props.title," Entry?"));
+        console.log(response);
+        if (response) {
+            post("/api/entry",{_id: this.props._id}).then((resp) => {
+                console.log(resp);
+                // window.refresh("/AllEntries");
+            })
+        }
+    }
+
     render(){
         let url = "/SpecificEntry?".concat(this.props._id);
 
@@ -78,9 +89,12 @@ class SingleEntry extends Component{
                 <div className="u-flexRow u-flex-alignCenter u-flex-justifyCenter">
                     <Link to={url} className="SingleEntry-date" style={{ textDecoration: 'none' }}>{this.props.day}</Link>
                     <div className="SingleEntry-container">
-                        <Link to={url} style={{ textDecoration: 'none' }}>
-                            <h1 className="SingleEntry-title" style={{color:"#".concat(this.props.colorMood)}}>{this.props.title}</h1>
-                        </Link>
+                        <div className="u-flex" style={{justifyContent:"space-between", alignItems:"flex-start"}}>
+                            <Link to={url} style={{ textDecoration: 'none' }}>
+                                <h1 className="SingleEntry-title" style={{color:"#".concat(this.props.colorMood)}}>{this.props.title}</h1>
+                            </Link>
+                            <button type="button" onClick={this.deleteEntry} style={{backgroundColor:"transparent", border: "None"}}>X</button>
+                        </div>
                         {/* <p className="SingleEntry-content">{this.props.content}</p> */}
                         <p className="SingleEntry-content">{preview}</p>
                         {tagsList}
