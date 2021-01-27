@@ -6,7 +6,6 @@
 }
 
 .AllEntries-iconSelected{
-    /* background: var(--bluegrey); */
     border: 2px solid black;
     box-sizing: border-box;
 }
