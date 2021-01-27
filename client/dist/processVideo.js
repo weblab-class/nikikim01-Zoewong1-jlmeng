@@ -16,7 +16,9 @@ function ProcessVideo() {
     eye_cascade.load('haarcascade_eye.xml');
 
     let msize = new cv.Size(0, 0);
-    const FPS = 7.5;
+    const FPS = 15;
+    let frame = 0;
+    let last_detected_frame = 0;
 
     function processVideo() {
 	try {
@@ -35,10 +37,17 @@ function ProcessVideo() {
             // start processing.
             cap.read(src);
             cv.flip(src, dst,1);
-            cv.cvtColor(dst, gray, cv.COLOR_RGBA2GRAY, 0);
-            // detect faces.
-            face_cascade.detectMultiScale(gray, faces, 1.1, 3, 0, msize, msize);
 
+            if ((last_detected_frame==0) || (frame - last_detected_frame>FPS)) {
+                cv.cvtColor(dst, gray, cv.COLOR_RGBA2GRAY, 0);
+                // detect faces.
+                face_cascade.detectMultiScale(gray, faces, 1.1, 3, 0, msize, msize);
+            }
+
+            if (faces.size()>0) {
+                last_detected_frame = frame;
+            }
+            
             for (let i = 0; i < faces.size(); ++i) {
                 let face = faces.get(i);
                 let roi_dst = dst.roi(face);
@@ -47,20 +56,6 @@ function ProcessVideo() {
                 let point2 = new cv.Point(face.x + face.width, face.y + face.height);
                 cv.rectangle(dst, point1, point2, [255, 0, 0, 255]);
 
-                /*
-                let roi_gray = gray.roi(face);
-                eye_cascade.detectMultiScale(roi_gray, eyes);
-                for (let j = 0; j < eyes.size(); ++j) {
-                    let eye = eyes.get(j);
-                    let point1 = new cv.Point(eye.x, eye.y);
-                    let point2 = new cv.Point(eye.x + eye.width, eye.y + eye.height);
-                    cv.rectangle(roi_dst, point1, point2, [0, 0, 255, 255]);
-                    roi_dst.roi(eye).setTo(s); 		    //set eye to black
-                }
-
-                roi_gray.delete();
-                */
-                
                 //Calculate the intensities of the red channel of face ROI
                 let intensity = cv.mean(roi_dst)[0]; //red
 
@@ -77,6 +72,7 @@ function ProcessVideo() {
 	    //console.log('delay: ' + delay);
 	    delay = (delay<0) ? 0 : delay;
             setTimeout(processVideo, delay);
+        frame += 1;
 
 	} catch (err) {
             utils.printError(err);
@@ -91,7 +87,7 @@ function ProcessVideo() {
 
     // FFT stuff
     var fftr1;
-    var arrLen = 128;
+    var arrLen = 256;
     var maxInd, maxVal;
 
     var t0 = performance.now();
@@ -127,6 +123,7 @@ function ProcessVideo() {
 	if (times.length > timesLen){
             times.shift();
             curPollFreq = 1/(times.reduce((a, b) => a + b, 0)/timesLen/1000);
+
             if (isNaN(heartrate)){
                 heartrate = maxInd*curPollFreq/arrLen*30;
                 tstart = performance.now();
@@ -134,7 +131,7 @@ function ProcessVideo() {
 
             heartrate = heartrate + ( maxInd*curPollFreq/arrLen*30 - heartrate)*.01;
             heartrateIndicator = document.getElementById('heartrate')
-	    // need to calibrate again, quick *3 fix for now
+	        // should calibrate again
             heartrateIndicator.textContent = Math.round(heartrate)*3 + " BPM"
 
             if (!isNaN(heartrate)) {
