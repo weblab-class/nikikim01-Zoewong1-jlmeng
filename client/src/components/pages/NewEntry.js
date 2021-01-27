@@ -242,7 +242,7 @@ class NewEntry extends Component{
           colorMood: this.state.colorMood,
           tags: this.state.tags,
           creationDate: new Date(),
-          heartRateData:  document.getElementById("hrArray").textContent,
+          heartRateData: document.getElementById("hrArray").textContent,
           timeHRData: document.getElementById("timeArray").textContent,
           avgHR: document.getElementById("avgHR").textContent,
           imageName: this.state.imageName,

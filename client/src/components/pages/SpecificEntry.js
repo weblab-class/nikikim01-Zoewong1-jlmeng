@@ -50,6 +50,9 @@ class SpecificEntry extends Component {
       isEditing: false,
       imageName: "",
       imageURL: "",
+      heartRateData: [],
+      timeHRData: [],
+      avgHR: null,
     }
   }
 
@@ -74,7 +77,13 @@ class SpecificEntry extends Component {
         content: response[0].content,
         tags: response[0].tags,
         imageName: response[0].imageName,
+        heartRateData: JSON.parse(response[0].heartRateData),
+        timeHRData: JSON.parse(response[0].timeHRData),
+        avgHR: response[0].avgHR,
       });
+
+      console.log(this.state.heartRateData)
+
       if (response[0].imageName !== "") {
         console.log("Entry has image (componentDidMount)");
         this.loadImage(response[0].imageName);
@@ -337,14 +346,25 @@ readImage = (blob) => {
                     <Plot 
                     style={{height: "100%"}}
                     data={[{
-                      x: [1, 2, 3],
-                      y: [2, 6, 3],
-                      yaxis: 'Heartrate (BPM)',
-                      xaxis: 'Time Elapsed (sec)',
+                      x: this.state.timeHRData,
+                      y: this.state.heartRateData,
                       type: 'scatter',
                       marker: {color: 'red'},
                     }]}
-                    layout={ {width: '1vw' , height: '0.5vw', title: 'A Fancy Plot'} }
+                    layout={ 
+                    {width: '1vw' , 
+                    height: '0.5vw', 
+                    title: 'Heartrate',
+              
+                      xaxis: {title: 'Time Elapsed (sec)', titlefont: {
+                        family: 'Alegreya Sans', size: 15}
+                      },
+                      yaxis: {title: {text: 'Heartrate (BPM)', font: {
+                        family: 'Alegreya Sans',
+                        size: 15
+                      },}},
+                      
+                    }}
                   />
                   </div>
                   <div className="SpecificEntry-Analysis">
