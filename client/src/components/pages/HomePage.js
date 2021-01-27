@@ -20,6 +20,9 @@ class HomePage extends Component {
         }
     }
 
+    componentDidMount() {
+        document.title = "Home";
+    }
 
     render() {
         return (
