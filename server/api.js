@@ -56,14 +56,26 @@ router.get("/entry",(req,res) => {
 });
 
 router.get("/entries",(req,res) => {
-  Entry.find({
-    month:req.query.month, 
-    year: req.query.year,
-    user_id: req.query.user_id, 
-    // journal:req.query.journal
-  }).sort({day: -1, creationDate: -1}).then((entries) => {
-    res.send(entries);
-  });
+  console.log(req.query);
+  if (req.query.colorMood !== 'null' && req.query.colorMood){
+    Entry.find({
+      month:req.query.month, 
+      year: req.query.year,
+      user_id: req.query.user_id, 
+      colorMood: req.query.colorMood,
+    }).sort({day: -1, creationDate: -1}).then((entries) => {
+      res.send(entries);
+    });
+  } else{
+    Entry.find({
+      month:req.query.month, 
+      year: req.query.year,
+      user_id: req.query.user_id, 
+      // journal:req.query.journal
+    }).sort({day: -1, creationDate: -1}).then((entries) => {
+      res.send(entries);
+    });
+  }
 });
 
 router.post("/entries",(req,res) => {
