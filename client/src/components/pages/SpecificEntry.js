@@ -6,6 +6,7 @@ import {EditorState, RichUtils, convertToRaw, convertFromRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from "draft-convert";
+import Plot from 'react-plotly.js';
 
 const style = {
   control: base => ({
@@ -310,6 +311,18 @@ readImage = (blob) => {
                 {imageBox}
                 <div className="SpecificEntry-heartRate">
                   <p style={{textAlign:"center"}}>Heart Rate Here</p>
+                  <Plot data={[
+                  {
+                    x: [1, 2, 3],
+                    y: [2, 6, 3],
+                    yaxis: 'Heartrate (BPM)',
+                    xaxis: 'Time Elapsed (sec)',
+                    type: 'scatter',
+                    marker: {color: 'red'},
+                  }
+                ]}
+                  layout={ {width: '1vw' , height: '0.5vw', title: 'A Fancy Plot'} }
+                />
                 </div>
                 <div className="SpecificEntry-Analysis">
                 <p style={{textAlign:"center"}}>Analysis Here</p>
