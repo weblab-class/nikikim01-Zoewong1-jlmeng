@@ -8,7 +8,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from "draft-convert";
 import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';
-import Plot from 'react-plotly.js';
+import Plot from './react-plotly.js';
 
 const style = {
   control: base => ({
@@ -77,8 +77,8 @@ class SpecificEntry extends Component {
         content: response[0].content,
         tags: response[0].tags,
         imageName: response[0].imageName,
-        heartRateData: JSON.parse(response[0].heartRateData),
-        timeHRData: JSON.parse(response[0].timeHRData),
+        // heartRateData: JSON.parse(response[0].heartRateData),
+        // timeHRData: JSON.parse(response[0].timeHRData),
         avgHR: response[0].avgHR,
       });
 

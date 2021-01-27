@@ -4,32 +4,11 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-}
 
-.MoodTracker-easel{
-    background-image: url(https://storage.googleapis.com/tagheart/CanvasPalette.svg);
+    background-image: url(https://storage.googleapis.com/tagheart/MoodTrackerTitle.png);
     background-repeat: no-repeat;
-    position: absolute;
-
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    height: 130%;
-    width: 50%;
-}
-
-.MoodTracker-canvas{
-    position: absolute;
-    height: 80vh;
-}
-
-.MoodTracker-brush{
-    position: absolute;
-    z-index: 20;
-    width: 100vw;
-    height: 100vh;
-    left: 55%;
-    top: -4%;
+    background-position-x: 13%;
+    background-position-y: 80%;
 }
 
 
@@ -39,8 +18,8 @@
     display: inline-grid;
     justify-items: center;
     justify-content: center;
-    grid-template-columns: 12vw 12vw 12vw 12vw ;
-    grid-template-rows: 14vw 14vw 14vw;
+    grid-template-columns: 15vw 15vw 15vw 15vw 15vw 15vw ;
+    grid-template-rows: 14vw 14vw;
     margin: 2vh;
 }
 
@@ -92,18 +71,3 @@
 .sadBlueHeart{
     transform: rotate(-3deg);
 }
-
-.AllEntries-moodDropdown a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-
-  .AllEntries-moodHidden {
-    display: none;
-  }
-  
-  .AllEntries-MOOD:hover + .AllEntries-moodHidden {
-    display: block;
-  }
