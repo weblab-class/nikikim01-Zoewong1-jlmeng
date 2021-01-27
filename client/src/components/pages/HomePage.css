@@ -45,9 +45,10 @@ text-shadow:-3px -3px rgba(0, 0, 0, .2);
 font-family: Alegreya Sans;
 font-style: normal;
 font-weight: 700;
-font-size: 8vw;
-line-height: 30vw;
+font-size: 5vw;
+line-height: 8vw;
 text-align: center;
+padding: 3vw;
 
 text-decoration: none;
 
