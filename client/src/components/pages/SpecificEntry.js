@@ -6,8 +6,6 @@ import {EditorState, RichUtils, convertToRaw, convertFromRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from "draft-convert";
-import Tooltip from '@material-ui/core/Tooltip';
-import Fade from '@material-ui/core/Fade';
 import Plot from 'react-plotly.js';
 
 const style = {
