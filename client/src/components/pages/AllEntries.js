@@ -46,6 +46,7 @@ class AllEntries extends Component{
             month:moment(),
             selectedOption: null,
             colorMood: null,
+            userTags: [],
             count: 0,
         }
     }
@@ -58,46 +59,25 @@ class AllEntries extends Component{
     componentDidMount(){
         document.title = "All Entries";
 
+        get("/api/tags",{user_id:Object(this.props.userId)}).then((tags) => {
+            console.log(tags);
+            this.setState({userTags: tags});
+        })
+
         const temp = window.location.href;
         const param = temp.split(window.location.pathname)[1].split("?")[1];
         console.log(param);
         let count = 0;
         let color = null;
         
-        // if (!param){
-        //     get("/api/entries",{
-        //         month:this.state.month.format("MMMM"), 
-        //         year:this.state.month.format("YYYY"), 
-        //         user_id:Object(this.props.userId),
-        //     }).then((entryObjs) => {
-        //         this.setState({
-        //             entries: entryObjs,
-        //         });
-        //     });
-        // } else{
         if (param){
             const paramArray = param.split("=");
             let count = parseInt(paramArray[1].split("&")[0],10);
-            const color = paramArray[2].split("&")[0]; 
-
-            if (count <= 0) this._decreaseMonth(Math.abs(count),color);
-            else this._increaseMonth(count,color);
-            
+            const color = paramArray[2].split("&")[0];             
         }
-        
-        // const color = (param) ? param : null;
 
-        // get("/api/entries",{
-        //     month:this.state.month.format("MMMM"), 
-        //     year:this.state.month.format("YYYY"), 
-        //     user_id:Object(this.props.userId),
-        //     colorMood: color,
-        // }).then((entryObjs) => {
-        //     this.setState({
-        //         entries: entryObjs,
-        //         colorMood: color,
-        //     });
-        // });
+        if (count <= 0) this._decreaseMonth(Math.abs(count),color);
+        else this._increaseMonth(count,color);
     }
 
     componentDidUpdate(){}
