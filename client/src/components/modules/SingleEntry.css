@@ -95,6 +95,7 @@
     background: #fff;
     padding: var(--s);
     border: 1px solid var(--grey);
+    margin: var(--m) var(--m) var(--l) var(--m);
     
   }
   .caption {
@@ -105,7 +106,7 @@
   .item {
     display: inline-block;
     filter: grayscale(100%);
-    margin: var(--m);
+    margin: var(--m) var(--m) var(--l) var(--m);
     height: 244px;
   }
   .item:hover {
