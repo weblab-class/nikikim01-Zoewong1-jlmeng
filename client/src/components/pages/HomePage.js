@@ -35,7 +35,7 @@ class HomePage extends Component {
                     
                 <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="See All Entries">
                     <div className="u-flex u-flexRow">
-                        <Link to="/AllEntries" className="HomePage-journalPic HomePage-name">{/* {this.props.username} */}Niki Kim</Link>
+                        <Link to="/AllEntries" className="HomePage-journalPic HomePage-name">{this.props.username}</Link>
                     </div>
                 </Tooltip>
 
