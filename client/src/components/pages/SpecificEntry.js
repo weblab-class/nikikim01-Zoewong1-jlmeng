@@ -6,7 +6,9 @@ import {EditorState, RichUtils, convertToRaw, convertFromRaw} from "draft-js";
 import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { convertToHTML } from "draft-convert";
-import Plot from 'react-plotly.js';
+import Tooltip from '@material-ui/core/Tooltip';
+import Fade from '@material-ui/core/Fade';
+// import Plot from 'react-plotly.js';
 
 const style = {
   control: base => ({
@@ -290,8 +292,19 @@ readImage = (blob) => {
 
     return (
         <>
-        <div className="u-flexColumn u-flex-alignCenter">
-            <div className="u-flexRow u-flex-alignCenter SpecificEntry-dateBox" style={{backgroundColor:"#".concat(this.state.colorMood)}}>
+
+       
+        <div className="NewEntry-entirety">
+          <div className="NewEntry-backCover">
+            <div className="NewEntry-clasp"/>
+            <div className="NewEntry-rightpage">
+            
+            </div>
+          </div>
+
+
+          <div className="u-flexColumn u-flex-alignCenter ">
+            <div className="u-flexRow  SpecificEntry-dateBox" style={{backgroundColor:"#".concat(this.state.colorMood)}}>
                 <div className="u-flexRow SpecificEntry-firstHalf">
                     <p className="SpecificEntry-month">{this.state.month}</p>
                     <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SpecificEntry-circle">
@@ -301,37 +314,41 @@ readImage = (blob) => {
                   <p className="SpecificEntry-year">{this.state.year}</p>
             </div>
             <div className="SpecificEntry-entryBox">
-              <div className="u-flex u-flex-alignCenter">
                 {titleBox} {tagsList}
-              </div>
-              {contentBox}
+                {contentBox}
+              
             </div>
-            <div className="u-flexRow" style={{justifyContent:"space-evenly", width:"988px"}}>
+           
+        <img src={"https://storage.googleapis.com/tagheart/editIcon.svg"} className="SpecificEntry-editIcon" onClick={this.editEntry}></img>
+        
+
+
+          {/* frontcover [start] */}
+          <div className="NewEntry-frontCover">
+            {/* whitepage left [start] */}
+            <div className="NewEntry-leftpage u-flex u-flexColumn">
+              
                 {imageBox}
-                <div className="SpecificEntry-heartRate">
-                  <p style={{textAlign:"center"}}>Heart Rate Here</p>
-                  <Plot 
-                  data={[{
-                    x: [1, 2, 3],
-                    y: [2, 6, 3],
-                    yaxis: 'Heartrate (BPM)',
-                    xaxis: 'Time Elapsed (sec)',
-                    type: 'scatter',
-                    marker: {color: 'red'},
-                  }]}
-                  layout={ {width: '1vw' , height: '0.5vw', title: 'A Fancy Plot'} }
-                />
+
+                {/* heart rate stuff [start] */}
+                <div className="SpecificEntry-heartRateWrapper">
+                  <div className="SpecificEntry-heartRate">
+                    <p style={{textAlign:"center"}}>Heart Rate Here</p>
+                  </div>
+                  <div className="SpecificEntry-Analysis">
+                  <p style={{textAlign:"center"}}>Analysis Here</p>
+                  </div>
                 </div>
-                <div className="SpecificEntry-Analysis">
-                <p style={{textAlign:"center"}}>Analysis Here</p>
-                </div>
-            </div>
+                {/* heart rate stuff [end] */}
             {tagsBar}
             {moodBox}
         </div>
-        <img src={"https://storage.googleapis.com/tagheart/editIcon.svg"} className="SpecificEntry-editIcon" onClick={this.editEntry}></img>
-        
-        </>
+          
+              
+            </div> {/* whitepage left [end] */}
+          </div> {/* front cover [end] */}
+        </div>
+      </>
     );
   }
 }
