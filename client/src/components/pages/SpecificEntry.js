@@ -144,7 +144,6 @@ class SpecificEntry extends Component {
       colorMood: this.state.colorMood,
       imageName: this.state.imageName,
       tags: this.state.tags,
-      lastModDate: new Date(),
     })
   }
 
@@ -311,16 +310,15 @@ readImage = (blob) => {
                 {imageBox}
                 <div className="SpecificEntry-heartRate">
                   <p style={{textAlign:"center"}}>Heart Rate Here</p>
-                  <Plot data={[
-                  {
+                  <Plot 
+                  data={[{
                     x: [1, 2, 3],
                     y: [2, 6, 3],
                     yaxis: 'Heartrate (BPM)',
                     xaxis: 'Time Elapsed (sec)',
                     type: 'scatter',
                     marker: {color: 'red'},
-                  }
-                ]}
+                  }]}
                   layout={ {width: '1vw' , height: '0.5vw', title: 'A Fancy Plot'} }
                 />
                 </div>

@@ -33,13 +33,21 @@ class HeartRateContainer extends React.Component {
 				
 				<br></br>
 				<br></br>
-				<div className="u-flexColumn u-flex-alignCenter" style={{justifyContent: "center"}}>
+				<div className="HeartRateContainer-div u-flexColumn u-flex-alignCenter" style={{textAlign: "center", justifyContent: "center"}}>
 				
-							<video id="videoInput" width="320" height="240" style={{display: "none"}}></video>
-					
-							<canvas className='center HeartRateContainer-webcam' width="320" height="240" id="canvasOutput"></canvas>
-				
-					<p id="heartrate"> -- BPM</p>
+					<table cellPadding="0" cellSpacing="0" width="0" border="0">
+						<thead>
+						<tr>
+							<td>
+								<video id="videoInput" width="320" height="240" style={{display: "none"}}></video>
+							</td>
+							<td>
+							<	canvas className='center HeartRateContainer-webcam' id="canvasOutput"></canvas>
+							</td>
+						</tr>
+						</thead>
+					</table>
+					<p id="heartrate">Calibrating...</p>
 					<p id="hrArray" style={{display: "none"}}> [0] </p>
 					<p id="timeArray" style={{display: "none"}}> [0]</p> 
 					<p id="avgHR" style={{display: "none"}}> 0 </p>

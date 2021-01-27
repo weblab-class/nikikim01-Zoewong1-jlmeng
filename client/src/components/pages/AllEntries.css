@@ -6,14 +6,14 @@
 }
 
 .AllEntries-iconSelected{
-    background: var(--bluegrey);
-    border: 1px solid var(--lightblue);
+    /* background: var(--bluegrey); */
+    border: 2px solid black;
     box-sizing: border-box;
 }
 
 .AllEntries-iconUnselected{
-    background: #FAf9f9;
-    border: 1px solid  #FAf9f9;
+    background: var(--background-color);
+    border: 2px solid  var(--background-color);
     box-sizing: border-box;
 }
 
@@ -34,12 +34,13 @@
 }
 
 .AllEntries-addBox{
-    width: 1192px;
-    height: 47px;
-    background: var(--bluegrey);
+    /* width: 1192px;
+    height: 47px; */
+    background: var(--CreamyBlush);
     box-shadow: 0px var(--xs) var(--xs) var(--midblue);
     border-radius: 15px;
     margin: var(--m) var(--s);
+    padding: var(--s);
 }
 
 .AllEntries-add{

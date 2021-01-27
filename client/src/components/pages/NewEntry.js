@@ -242,8 +242,8 @@ class NewEntry extends Component{
           jsonContent: this.state.jsonContent,
           colorMood: this.state.colorMood,
           tags: this.state.tags,
-          lastModDate: new Date(),
-          heartRateData: document.getElementById("hrArray").textContent,
+          creationDate: new Date(),
+          heartRateData:  document.getElementById("hrArray").textContent,
           timeHRData: document.getElementById("timeArray").textContent,
           avgHR: document.getElementById("avgHR").textContent,
           imageName: this.state.imageName,
@@ -311,7 +311,7 @@ class NewEntry extends Component{
 
               {/* title [start] */}
               <div className="NewEntry-titleBox">
-                <input className="NewEntry-title" placeholder='Title' onChange={this.changeTitle}></input>
+                <input className="NewEntry-title" placeholder='Title (max 50 characters)' onChange={this.changeTitle} maxLength="50"></input>
               </div>
               {/* title [end] */}
 
@@ -355,8 +355,8 @@ class NewEntry extends Component{
           <div className="NewEntry-frontCover">
             {/* whitepage left [start] */}
             <div className="NewEntry-leftpage u-flex u-flexColumn">
-              <div className="u-flex-alignCenter" style={{width: "60%"}}>
-                {/* <HeartMonitor className="NewEntry-HeartMonitor"/> */}
+              <div className="u-flexRow u-justifyCenter">
+                {/* <HeartMonitor className="NewEntry-HeartMonitor" style={{height:"5vw", width:"10vw"}}/> */}
                 <HeartRateContainer/>
               </div>
 

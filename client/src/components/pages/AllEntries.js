@@ -67,9 +67,19 @@ class AllEntries extends Component{
     }
 
     render(){
+
         let haveEntries = this.state.entries.length !== 0;
         let entriesList = null;
-        if (haveEntries){
+        let menuIcon = null;
+        let viewIcon = null;
+
+        if (!haveEntries){
+            entriesList = <div className="u-flexRow u-flex-justifyCenter">
+                            <div className="AllEntries-addBox">
+                                <p className="u-textCenter u-margin-s AllEntries-add" style={{"fontSize":"32px"}}>You have no entries for this month yet!</p>
+                            </div>
+                        </div>;
+        } else{
             entriesList = this.state.entries.map((entryObj) => {
                 console.log(entryObj);
                 return <SingleEntry 
@@ -80,60 +90,29 @@ class AllEntries extends Component{
                     tags={entryObj.tags}
                     colorMood={entryObj.colorMood}
                     jsonContent={entryObj.jsonContent}
+                    imageName={entryObj.imageName}
                     viewMode={this.state.viewMode}
                 />
             });
-        }
-
-        let menuIcon = null;
-        let viewIcon = null;
-        let addEntryButton = null;
-
-        if (this.state.viewMode){
-            console.log("Menu List");
-            menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconSelected">
-                            <img src={"https://storage.googleapis.com/tagheart/menuListIcon.svg"} className="AllEntries-icon"></img>
-                        </div>;
-            viewIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconUnselected">
-                            <img src={"https://storage.googleapis.com/tagheart/viewModeIcon.svg"} className="AllEntries-icon" onClick={this.pressViewIcon}></img>
-                        </div>;
-            addEntryButton = <div className="u-flex u-flex-justifyCenter">
-                                <Link to="/CreateEntry" className="AllEntries-addBox" style={{ textDecoration: 'none' }}>
-                                    <p className="u-textCenter u-margin-s AllEntries-add">+ Add Entry</p>
-                                </Link>
-                            </div>;
-            if(!haveEntries){
-                console.log("No Entries!");
-                entriesList = <div className="u-flexRow u-flex-justifyCenter">
-                                    <div className="AllEntries-addBox">
-                                        <p className="u-textCenter u-margin-s AllEntries-add" style={{"fontSize":"32px"}}>NO STORIES IN MONGODB YET! ;(</p>
-                                    </div>
-                                </div>;
-            };
             
-        } else{
-            console.log("View Mode");
-            menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconUnselected">
-                            <img src={"https://storage.googleapis.com/tagheart/menuListIcon.svg"} className="AllEntries-icon" onClick={this.pressMenuIcon}></img>
-                        </div>;
-            viewIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconSelected">
-                            <img src={"https://storage.googleapis.com/tagheart/viewModeIcon.svg"} className="AllEntries-icon"></img>
-                        </div>;
-            addEntryButton = <div className="u-flexColumn u-flex-justifyCenter">
-                                <Link to="/CreateEntry" className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-addImg" style={{ textDecoration: 'none' }}>
-                                        <img src={"https://storage.googleapis.com/tagheart/plusSign.svg"} height="98px" width="98px"></img>
-                                </Link>
-                                <p className="u-textCenter u-margin-xs AllEntries-add">Add Entry</p>
+            if (this.state.viewMode){
+                console.log("Menu List");
+                menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconSelected" style={{margin:"4px 4px 4px 16px"}}>
+                                <img src={"https://storage.googleapis.com/tagheart/menuListIcon.svg"} className="AllEntries-icon"></img>
                             </div>;
-            if(!haveEntries){
-                console.log("No Entries!");
-                entriesList = <div className="u-flexColumn u-flex-justifyCenter">
-                                    <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-addImg">
-                                        <p className="u-textCenter u-margin-s AllEntries-add" style={{"font-size":"32px"}}>NO STORIES IN MONGODB YET! ;(</p>
-                                    </div>
-                                    <p className="u-textCenter u-margin-xs AllEntries-add">Awe man ;(</p>
-                                </div>;
-            };
+                viewIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconUnselected" style={{margin:"4px"}}>
+                                <img src={"https://storage.googleapis.com/tagheart/viewModeIcon.svg"} className="AllEntries-icon" onClick={this.pressViewIcon}></img>
+                            </div>;
+                
+            } else{
+                console.log("View Mode");
+                menuIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconUnselected" style={{margin:"4px 4px 4px 16px"}}>
+                                <img src={"https://storage.googleapis.com/tagheart/menuListIcon.svg"} className="AllEntries-icon" onClick={this.pressMenuIcon}></img>
+                            </div>;
+                viewIcon = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter AllEntries-iconContainer AllEntries-iconSelected" style={{margin:"4px"}}>
+                                <img src={"https://storage.googleapis.com/tagheart/viewModeIcon.svg"} className="AllEntries-icon"></img>
+                            </div>;
+            }
         }
 
         let leftIconCode = <img src={"https://storage.googleapis.com/tagheart/leftIcon.svg"} onClick={this._decreaseMonth} className="AllEntries-iconContainer" height="25px"></img>;
@@ -148,7 +127,7 @@ class AllEntries extends Component{
                             {leftIconCode}
                             <span>{this.state.month.format('MMMM YYYY')}</span>
                             {rightIconCode}
-                            {/* {menuIcon} {viewIcon} */}
+                            {menuIcon} {viewIcon}
                         </h1>
                     </div>
                     <div className="AllEntries-rightHeader u-flex u-flex-alignCenter">
@@ -166,8 +145,6 @@ class AllEntries extends Component{
                 <hr style={{"borderStyle":"double", "margin":"0 16px"}}></hr>
                 <div className={this.state.viewMode ? "u-flexColumn" : "u-flexRow u-flex-justifyCenter u-flexWrap"}>
                     {entriesList}
-                
-                    {/* {addEntryButton} */}
                 </div>
             </div>
         )
