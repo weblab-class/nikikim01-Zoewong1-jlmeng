@@ -319,7 +319,7 @@ class NewEntry extends Component{
               <div className="NewEntry-contentBox">
                 <Editor
                   editorState={this.state.editorState}
-                  editorStyle={{ overflowY: scroll}, {height: "60vh"}, {padding:"0% 3%"}}
+                  editorStyle={{ overflow: scroll}, {height: "60vh"}, {padding:"0% 3%"}, {maxHeight: "60vh"}}
                   toolbar={{
                     options: ['inline', 'blockType', 'fontSize', 'fontFamily', 'list',
                     'colorPicker', 'link', 'embedded', 'emoji', 'image','history'],

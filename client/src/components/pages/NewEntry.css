@@ -525,6 +525,11 @@ div.rdw-option-wrapper{
     background: #c3cde6;
     
 }
+.rdw-editor-main{
+    max-height: 50vh;
+  overflow: scroll;
+  box-sizing: border-box;
+}
 
 .NewEntry-saveButton{
     display: flex;

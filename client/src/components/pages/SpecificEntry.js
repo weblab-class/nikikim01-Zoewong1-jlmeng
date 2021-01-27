@@ -14,7 +14,7 @@ const style = {
   control: base => ({
     ...base,
     fontFamily: 'Alegreya Sans',
-    backgroundColor: '#fafbf5',
+    backgroundColor: '#ffffff',
     // This line disable the blue border
     boxShadow: "none",
   })
@@ -272,9 +272,9 @@ readImage = (blob) => {
                   </div>;
         let link = (this.state.imageName !== "") ? this.state.imageURL : "https://icon-library.net/images/upload-photo-icon/upload-photo-icon-21.jpg";
         deleteButton = (this.state.imageName !== "") ? <button type="button" onClick={this.deleteImage}>X</button> : null;
-        imageBox = <div className="u-flex u-flex-alignCenter u-flex-alignCenter SpecificEntry-entryImage" style={{backgroundColor:"#B8D4FF"}}>
+        imageBox = <div className="SpecificEntry-entryImageEdit">
                       <label for="file-input">
-                        <img src={link} style={{margin:"32px 28px 32px 32px", width:"87px"}}/>
+                        <img src={link} style={{margin:"32px 28px 32px 32px", width:"18vw"}}/>
                       </label>
                       <input id="file-input" type="file" style={{display:"none"}} onChange={this.uploadImage}/>
                       {deleteButton}
@@ -304,14 +304,15 @@ readImage = (blob) => {
 
 
           <div className="u-flexColumn u-flex-alignCenter ">
-            <div className="u-flexRow  SpecificEntry-dateBox" style={{backgroundColor:"#".concat(this.state.colorMood)}}>
-                <div className="u-flexRow SpecificEntry-firstHalf">
+            <div className="u-flex-alignCenter u-flexRow  SpecificEntry-dateBox" style={{backgroundColor:"#".concat(this.state.colorMood)}}>
+                    <div className="u-flex u-flexRow u-flex-alignCenter">
                     <p className="SpecificEntry-month">{this.state.month}</p>
-                    <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SpecificEntry-circle">
-                      <p className="SpecificEntry-day" style={{"color":"#".concat(this.state.colorMood)}}>{this.state.day}</p>
+                      <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SpecificEntry-circle">
+                        <p className="SpecificEntry-day" style={{"color":"#".concat(this.state.colorMood)}}>{this.state.day}</p>
+                      </div>
                     </div>
-                </div>
-                  <p className="SpecificEntry-year">{this.state.year}</p>
+                    <p className="SpecificEntry-year">{this.state.year}</p>
+
             </div>
             <div className="SpecificEntry-entryBox">
                 {titleBox} {tagsList}
@@ -326,16 +327,14 @@ readImage = (blob) => {
           {/* frontcover [start] */}
           <div className="NewEntry-frontCover">
             {/* whitepage left [start] */}
-            <div className="NewEntry-leftpage u-flex u-flexColumn">
+            <div className="NewEntry-leftpage">
               
                 {imageBox}
 
                 {/* heart rate stuff [start] */}
-                <div className="SpecificEntry-heartRateWrapper">
                   <div className="SpecificEntry-heartRate">
-                    <p style={{textAlign:"center"}}>Heart Rate Here</p>
                     <Plot 
-                    style={{height: "100%"}}
+                    style={{width: "100%"}}
                     data={[{
                       x: [1, 2, 3],
                       y: [2, 6, 3],
@@ -344,13 +343,9 @@ readImage = (blob) => {
                       type: 'scatter',
                       marker: {color: 'red'},
                     }]}
-                    layout={ {width: '1vw' , height: '0.5vw', title: 'A Fancy Plot'} }
+                    layout={ {width: '100%' , height: '50%', title: 'A Fancy Plot'} }
                   />
                   </div>
-                  <div className="SpecificEntry-Analysis">
-                  <p style={{textAlign:"center"}}>Analysis Here</p>
-                  </div>
-                </div>
                 {/* heart rate stuff [end] */}
             {tagsBar}
             {moodBox}
