@@ -77,8 +77,8 @@ class SpecificEntry extends Component {
         content: response[0].content,
         tags: response[0].tags,
         imageName: response[0].imageName,
-        heartRateData: JSON.parse(response[0].heartRateData),
-        timeHRData: JSON.parse(response[0].timeHRData),
+        // heartRateData: JSON.parse(response[0].heartRateData),
+        // timeHRData: JSON.parse(response[0].timeHRData),
         avgHR: response[0].avgHR,
       });
 
