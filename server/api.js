@@ -3,6 +3,7 @@
 | api.js -- server routes
 |--------------------------------------------------------------------------
 |
+
 | This file defines the routes for your server.
 |
 */
@@ -24,6 +25,8 @@ const socketManager = require("./server-socket");
 
 //for uploading images
 const { uploadImagePromise, deleteImagePromise, downloadImagePromise } = require("./storageTalk.js");
+
+
 
 router.post("/login", auth.login);
 router.post("/logout", auth.logout);

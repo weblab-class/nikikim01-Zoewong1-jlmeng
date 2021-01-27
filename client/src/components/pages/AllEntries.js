@@ -10,7 +10,6 @@ import "./AllEntries.css";
 import moment from "moment";
 import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';
-import xCircle from '../../public/xCircle.svg';
 
 const style = {
     control: base => ({
@@ -33,7 +32,7 @@ const moods = [{link: "https://storage.googleapis.com/tagheart/happyAndHeart.svg
                 {link: "https://storage.googleapis.com/tagheart/sickAndHeart.svg", color: "54C452", mood: "Sick"},
                 {link: "https://storage.googleapis.com/tagheart/sadtearsAndHeart.svg", color: "6BA0FC", mood: "Tears"},
                 {link: "https://storage.googleapis.com/tagheart/madAndHeart.svg", color: "E35B5B", mood: "Mad"},
-                {link: xCircle, color: null, mood:"None"}]
+                {link: "https://storage.googleapis.com/tagheart/xCircle.svg", color: null, mood:"None"}]
 
 /**
  * @param userId
