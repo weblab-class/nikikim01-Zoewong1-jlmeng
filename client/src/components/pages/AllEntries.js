@@ -10,6 +10,7 @@ import "./AllEntries.css";
 import moment from "moment";
 import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';
+import xCircle from '../../public/xCircle.svg';
 
 const style = {
     control: base => ({
@@ -21,19 +22,18 @@ const style = {
     })
   };
 
-const moodLinks = ["https://storage.googleapis.com/tagheart/deadAndHeart.svg",
-                    "https://storage.googleapis.com/tagheart/happyAndHeart.svg",
-                    "https://storage.googleapis.com/tagheart/kisswinkAndHeart.svg",
-                    "https://storage.googleapis.com/tagheart/laughAndHeart.svg",
-                    "https://storage.googleapis.com/tagheart/madAndHeart.svg",
-                    "https://storage.googleapis.com/tagheart/mehAndHeart.svg",
-                    "https://storage.googleapis.com/tagheart/sadtearsAndHeart.svg",
-                    "https://storage.googleapis.com/tagheart/sickFaceAndHeart.svg",
-                    "https://storage.googleapis.com/tagheart/smileAndHeart.svg",
-                    "https://storage.googleapis.com/tagheart/surpriseAndHeart.svg",
-                    "https://storage.googleapis.com/tagheart/ughAndHeart.svg"]
-
-const moodImgs = moodLinks.map((link) => (<li><img src={link}/></li>));
+const moods = [{link: "https://storage.googleapis.com/tagheart/happyAndHeart.svg", color: "FFD300", mood: "Happy"},
+                {link: "https://storage.googleapis.com/tagheart/laughAndHeart.svg", color: "965AEA", mood: "Laugh"},
+                {link: "https://storage.googleapis.com/tagheart/kisswinkAndHeart.svg", color: "F173D2", mood: "Kiss"},
+                {link: "https://storage.googleapis.com/tagheart/smileAndHeart.svg", color: "0BB5FF", mood: "Smile"},
+                {link: "https://storage.googleapis.com/tagheart/surpriseAndHeart.svg", color: "FEC085", mood: "Surprise"},
+                {link: "https://storage.googleapis.com/tagheart/ughAndHeart.svg", color: "9A6A44", mood: "Ugh"},
+                {link: "https://storage.googleapis.com/tagheart/mehAndHeart.svg", color: "717D7E", mood: "Meh"},
+                {link:"https://storage.googleapis.com/tagheart/deadAndHeart.svg", color: "000000", mood: "Dead"},
+                {link: "https://storage.googleapis.com/tagheart/sickAndHeart.svg", color: "54C452", mood: "Sick"},
+                {link: "https://storage.googleapis.com/tagheart/sadtearsAndHeart.svg", color: "6BA0FC", mood: "Tears"},
+                {link: "https://storage.googleapis.com/tagheart/madAndHeart.svg", color: "E35B5B", mood: "Mad"},
+                {link: xCircle, color: null, mood:"None"}]
 
 /**
  * @param userId
@@ -47,8 +47,14 @@ class AllEntries extends Component{
             viewMode: true, //boolean 0: menu list, 1: view mode
             month:moment(),
             selectedOption: null,
+            colorMood: null,
         }
     }
+
+    moodImgs = moods.map((mood) => {
+        if (mood.mood != "None") return (<img src={mood.link} className="AllEntries-moodImgs" onClick={() => {this.changeColor(mood.color,mood.mood)}}/>);
+        return <img src={mood.link} className="AllEntries-moodImgs" style={{width:"35.05px"}} onClick={() => {this.changeColor(mood.color,mood.mood)}}/>
+    });
 
     componentDidMount(){
         document.title = "All Entries";
@@ -61,6 +67,8 @@ class AllEntries extends Component{
             this.setState({entries: entryObjs});
         });
     }
+
+    componentDidUpdate(){}
 
     pressMenuIcon = () => {this.setState({viewMode: true})};
     pressViewIcon = () => {this.setState({viewMode: false})};
@@ -91,27 +99,23 @@ class AllEntries extends Component{
         });
     }
 
-
-    // moodOption = (props) => (
-    //     <Option {... props}>
-    //       <div>
-    //       <img src={"https://storage.googleapis.com/tagheart/deadAndHeart.svg"} />
-    //       <img src={"https://storage.googleapis.com/tagheart/happyAndHeart.svg"} />
-    //       <img src={"https://storage.googleapis.com/tagheart/kisswinkAndHeart.svg"} />
-    //       <img src={"https://storage.googleapis.com/tagheart/laughAndHeart.svg"} />
-    //       <img src={"https://storage.googleapis.com/tagheart/madAndHeart.svg"} />
-    //       <img src={"https://storage.googleapis.com/tagheart/mehAndHeart.svg"} />
-    //       <img src={"https://storage.googleapis.com/tagheart/sadtearsAndHeart.svg"} />
-    //       <img src={"https://storage.googleapis.com/tagheart/sickFaceAndHeart.svg"} />
-    //       <img src={"https://storage.googleapis.com/tagheart/smileAndHeart.svg"} />
-    //       <img src={"https://storage.googleapis.com/tagheart/surpriseAndHeart.svg"} />
-    //       <img src={"https://storage.googleapis.com/tagheart/ughAndHeart.svg"} />
-    //       </div>
-    //     </Option>
-    //   );
-    
+    changeColor = (newColor, mood) => {
+        get("/api/entries",{
+            month:this.state.month.format("MMMM"), 
+            year:this.state.month.format("YYYY"), 
+            user_id:Object(this.props.userId),
+            colorMood: newColor,
+        }).then((entryObjs) => {
+            this.setState({
+                entries: entryObjs,
+                colorMood: newColor
+            });
+        });
+        console.log('mood is', mood);
+    }
 
     render(){
+        console.log(this.moodImgs);
 
         let haveEntries = this.state.entries.length !== 0;
         let entriesList = null;
@@ -163,6 +167,7 @@ class AllEntries extends Component{
         let leftIconCode = <img src={"https://storage.googleapis.com/tagheart/leftIcon.svg"} onClick={this._decreaseMonth} className="AllEntries-iconContainer" height="25px"></img>;
         let rightIconCode = this.state.month.clone().add(1, 'hour') > moment() ? null : <img src={"https://storage.googleapis.com/tagheart/rightIcon.svg"} onClick={this._increaseMonth} className="AllEntries-iconContainer" height="25px"></img>;
 
+        let color = this.state.colorMood !== null ? this.state.colorMood : "FFFFFF"
         return(
             <div>
                 
@@ -177,27 +182,12 @@ class AllEntries extends Component{
                     </div>
                     <div className="AllEntries-rightHeader u-flex u-flex-alignCenter">
 
-                    <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Click me to filter by mood!">
-                        <div className="AllEntries-mood"><Link to="/MoodTracker"><img src={"https://storage.googleapis.com/tagheart/MOOD.svg"} height="180" className="AllEntries-MOOD"></img></Link></div>
-                    </Tooltip>
-
-                    <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Click me to filter by mood!">
-                        <div className="AllEntries-mood">
-                            <img src={"https://storage.googleapis.com/tagheart/MOOD.svg"} height="180" className="AllEntries-MOOD"></img>
-                        </div>
-                    </Tooltip>
-
-                    {/* <Select
-                       styles={style}
-                       components={{
-                         IndicatorSeparator: () => null
-                       }}
-                    //    className = "CreateEntry-dropdownButton DaysDropdown-button"
-                       placeholder="MOOD IMAGE"
-                       value={this.state.selectedOption}
-                    //    onChange={this.handleChange}
-                       options={this.moodOption}
-                    /> */}
+                    <div className="dropdown">
+                        <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Click me to filter by mood!">
+                            <Link to="/MoodTracker"><img src={"https://storage.googleapis.com/tagheart/MOOD.svg"} className="AllEntries-MOOD" style={{color:"#".concat(color),  height:"180"}}></img></Link>
+                        </Tooltip>
+                        <div className="dropdown-content">{this.moodImgs}{this.deleteMoodButton}</div>
+                    </div>
 
                     <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Create New Entry!">
                         <Link to="/NewEntry"><img src={"https://storage.googleapis.com/tagheart/EditPen.svg"} className="AllEntries-editPen u-editPen"></img></Link>
