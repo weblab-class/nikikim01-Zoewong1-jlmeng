@@ -23,7 +23,7 @@ class HeartMonitor extends Component {
             <h1 className="HeartMonitor-text">Lightly place your finger on the webcam.</h1>
             <canvas className="HeartMonitor-webcam center" id="output"></canvas>
             <video className='center' hidden playsInline autoPlay></video>
-            <p id="heartrate">Calibrating...</p>
+            <p id="heartrate"> -- BPM </p>
           </div>
           <canvas id="myChart" height="5%" style={{visibility: "hidden"}}></canvas>
 

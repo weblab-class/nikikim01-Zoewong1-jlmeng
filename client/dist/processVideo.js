@@ -138,7 +138,7 @@ function ProcessVideo() {
             heartrate = heartrate + ( maxInd*curPollFreq/arrLen*30 - heartrate)*.01;
             heartrateIndicator = document.getElementById('heartrate')
 	    // need to calibrate again, quick *3 fix for now
-            heartrateIndicator.textContent = "Predicted heartrate: " + Math.round(heartrate)*3 + " BPM"
+            heartrateIndicator.textContent = Math.round(heartrate)*3 + " BPM"
 
             if (!isNaN(heartrate)) {
                 heartrates.push(Math.round(heartrate)*3);

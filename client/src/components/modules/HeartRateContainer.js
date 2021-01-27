@@ -2,6 +2,7 @@ import React from "react";
 import {Helmet} from "react-helmet";
 import "./HeartRateContainer.css";
 import "../../utilities.css"
+import Webcam from "react-webcam";
 /* import {heartrates} from "../../../dist/processVideo.js"; */
 
 class HeartRateContainer extends React.Component {
@@ -17,7 +18,7 @@ class HeartRateContainer extends React.Component {
 		/* updateHeartrates(); */
 		return (
 			
-			<div className="HeartRateContainer-div" style={{justifyContent: "center", textAlign: "center"}}>
+			<div style={{textAlign: "center"}}>
 				<Helmet>
 				<script src="https://webrtc.github.io/adapter/adapter-5.0.4.js"></script>
 				<script src="/utils.js" type="text/javascript"></script>
@@ -32,21 +33,13 @@ class HeartRateContainer extends React.Component {
 				
 				<br></br>
 				<br></br>
-				<div className="HeartRateContainer-div u-flexColumn u-flex-justifyCenter" style={{textAlign: "center", justifyContent: "center"}}>
+				<div className="u-flexColumn u-flex-alignCenter" style={{justifyContent: "center"}}>
 				
-					<table cellPadding="0" cellSpacing="0" width="0" border="0">
-						<thead>
-						<tr>
-							<td>
 							<video id="videoInput" width="320" height="240" style={{display: "none"}}></video>
-							</td>
-							<td>
-							<canvas className='center HeartRateContainer-webcam' id="canvasOutput"></canvas>
-							</td>
-						</tr>
-						</thead>
-					</table>
-					<p id="heartrate">Calibrating...</p>
+					
+							<canvas className='center HeartRateContainer-webcam' width="320" height="240" id="canvasOutput"></canvas>
+				
+					<p id="heartrate"> -- BPM</p>
 					<p id="hrArray" style={{display: "none"}}> [0] </p>
 					<p id="timeArray" style={{display: "none"}}> [0]</p> 
 					<p id="avgHR" style={{display: "none"}}> 0 </p>
