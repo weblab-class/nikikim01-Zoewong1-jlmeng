@@ -21,6 +21,12 @@ class Info extends Component {
 
         }
     }
+
+    componentDidMount(){
+      document.title = "Info";
+
+    }
+
     render() {
         return (
             <div className="u-flex u-flexColumn u-flex-alignCenter" style={{justifyContent: "center", alignContent: "center"}}>

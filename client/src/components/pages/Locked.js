@@ -19,6 +19,9 @@ class Locked extends Component {
         }
     }
 
+    componentDidMount(){
+        document.title = "Locked";
+    }
 
     render() {
         return (
