@@ -98,6 +98,10 @@ form {
   justify-content: center;
 }
 
+.u-flex-itemsEnd{
+  align-items: flex-end;
+}
+
 .u-flex-alignCenter {
   align-items: center;
 }

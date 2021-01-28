@@ -48,7 +48,8 @@ class AllEntries extends Component{
             colorMood: null,
             userTags: [],
             count: 0,
-            urlParam:""
+            urlParam:"",
+            showingDate: false,
         }
     }
 
@@ -226,6 +227,7 @@ class AllEntries extends Component{
                         <h1 className="u-flex u-flex-alignCenter AllEntries-date">
                             {leftIconCode}
                             <div className="AllEntries-monthYear" onClick={this.showDateOptions}>{this.state.month.format('MMMM YYYY')}</div>
+                            
                             {rightIconCode}
                             {menuIcon} {viewIcon}
                         </h1>
@@ -238,7 +240,7 @@ class AllEntries extends Component{
                         </Tooltip>
                         <div className="dropdown-content">{this.moodImgs}{this.deleteMoodButton}</div>
                     </div>
-
+                    
                     <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Create New Entry!">
                         <Link to="/NewEntry"><img src={"https://storage.googleapis.com/tagheart/EditPen.svg"} className="AllEntries-editPen u-editPen"></img></Link>
                     </Tooltip>
