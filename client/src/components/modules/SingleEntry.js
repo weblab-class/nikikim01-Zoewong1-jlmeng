@@ -130,6 +130,7 @@ class SingleEntry extends Component{
                                     {image}
                                     <div className="u-flex u-flex-justifyCenter SingleEntry-titleContainer">
                                         <div className="SingleEntry-viewTitle" style={{color:"#".concat(this.props.colorMood)}}>{this.props.title}</div>
+                                        <button type="button" onClick={this.deleteEntry} style={{backgroundColor:"transparent", border: "None", height: "30px", width: "30px"}}>X</button>
                                     </div>
                                 </div>
                             </Link>;
