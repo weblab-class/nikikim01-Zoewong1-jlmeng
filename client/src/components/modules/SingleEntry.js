@@ -125,15 +125,17 @@ class SingleEntry extends Component{
                         </div>;
             }
 
-            dateImg = <Link to={url} className="item" style={{ textDecoration: 'none' }}>
+            dateImg = <div className="u-flex u-flexColumn u-flex-itemsEnd" ><Link to={url} className="item" style={{ textDecoration: 'none' }}>
                                 <div className="u-flexColumn u-flex-alignCenter polaroid">
                                     {image}
                                     <div className="u-flex u-flex-justifyCenter SingleEntry-titleContainer">
                                         <div className="SingleEntry-viewTitle" style={{color:"#".concat(this.props.colorMood)}}>{this.props.title}</div>
-                                        <button type="button" onClick={this.deleteEntry} style={{backgroundColor:"transparent", border: "None", height: "30px", width: "30px"}}>X</button>
+                                        
                                     </div>
                                 </div>
-                            </Link>;
+                            </Link>
+                            <button type="button" onClick={this.deleteEntry} style={{backgroundColor:"transparent", border: "None", height: "30px", width: "30px", position: 'absolute',}}>X</button>
+                            </div>;
 
             return (
                 <div className="u-flexColumn u-flex-justifyCenter">
