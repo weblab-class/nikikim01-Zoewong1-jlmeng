@@ -120,8 +120,9 @@ class SingleEntry extends Component{
             if (this.state.imageIncluded){
                 image = <img key={Date.now()} src={this.state.imageURL} className="SingleEntry-img"/>;
             } else{
+                const date = (this.props.colorMood === "000000") ? <h1 className="SingleEntry-date" style={{color:"white"}}>{this.props.day}</h1> : <h1 className="SingleEntry-date">{this.props.day}</h1>
                 image = <div className="u-flex u-flex-justifyCenter u-flex-alignCenter SingleEntry-img" style={{backgroundColor:"#".concat(this.props.colorMood)}}>
-                            <h1 className="SingleEntry-date">{this.props.day}</h1>
+                            {date}
                         </div>;
             }
 
