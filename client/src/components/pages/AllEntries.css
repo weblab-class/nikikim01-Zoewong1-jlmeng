@@ -94,6 +94,7 @@
     height: 18vh;
     transform: rotate(-160deg);
     padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 .AllEntries-Header{
