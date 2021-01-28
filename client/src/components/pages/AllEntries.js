@@ -9,6 +9,7 @@ import "./AllEntries.css";
 import moment from "moment";
 import Tooltip from '@material-ui/core/Tooltip';
 import Fade from '@material-ui/core/Fade';
+import MOOD from "../../public/MOOD.svg";
 
 const style = {
     control: base => ({
@@ -218,7 +219,8 @@ class AllEntries extends Component{
         let leftIconCode = <img src={"https://storage.googleapis.com/tagheart/leftIcon.svg"} onClick={this._decrementMonth} className="AllEntries-iconContainer" height="25px"></img>;
         let rightIconCode = this.state.month.clone().add(1, 'hour') > moment() ? null : <img src={"https://storage.googleapis.com/tagheart/rightIcon.svg"} onClick={this._incrementMonth} className="AllEntries-iconContainer" height="25px"></img>;
 
-        let color = this.state.colorMood !== null ? this.state.colorMood : "FFFFFF"
+        let color = this.state.colorMood !== null ? this.state.colorMood : "000000";
+
         return(
             <div>
                 
@@ -236,7 +238,21 @@ class AllEntries extends Component{
 
                     <div className="dropdown">
                         <Tooltip TransitionComponent={Fade} TransitionProps={{ timeout: 600 }} title="Click me to filter by mood!">
-                            <Link to={`/MoodTracker?count=${this.state.count}`}><img src={"https://storage.googleapis.com/tagheart/MOOD.svg"} className="AllEntries-MOOD" style={{color:"#".concat(color),  height:"180"}}></img></Link>
+                            {/* <Link to={`/MoodTracker?count=${this.state.count}`}><img src={"https://storage.googleapis.com/tagheart/MOOD.svg"} className="AllEntries-MOOD" style={{color:"#".concat(color),  height:"180"}}></img></Link> */}
+                            <Link to={`/MoodTracker?count=${this.state.count}`}>
+                            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 891.59 209.16" className="AllEntries-MOOD"><defs></defs>
+                                <path style={{fill:"#".concat(color)}} d="M746.82,241.88V41.8h42q30.19,0,47.69,6a89.32,89.32,0,0,1,34.09,19.82q31,28.26,31,74.26t-32.27,74.64q-16.2,14.27-33.95,19.83-16.59,5.56-47,5.57ZM777,213.5h13.61q20.34,0,33.82-4.27a68.79,68.79,0,0,0,24.37-14.39q22.28-20.34,22.28-53,0-32.91-22-53.39-19.83-18.27-58.44-18.27H777Z" transform="translate(-9.95 -38.04)"/>
+                                {/* <polygon className="cls-1" points="165.86 1.16 61.57 1.16 110.79 157.14 165.86 1.16"/> */}
+                                <polygon style={{fill:"#".concat(color)}} points="110.79 159.14 61.57 3.16 36.38 3.16 0 205.75 31.23 205.75 52.74 74.85 102.41 209.16 118.39 209.16 169.5 74.98 188.81 205.75 219.78 205.75 190.89 3.16 165.86 3.16 110.79 159.14"/>
+                                <path style={{fill:"#".concat(color)}} d="M604.13,38Q560.86,38,530,68.36t-31,72.57Q499,189,533,218.69q30.84,26.81,69.58,26.82,43.81,0,74.78-30.19t30.84-73.22q0-42.88-30.71-73.48T604.13,38Z" transform="translate(-9.95 -38.04)"/>
+                                <circle className="cls-2" cx="556.66" cy="73.74" r="7.5"/><circle class="cls-2" cx="630.66" cy="72.74" r="7.5"/>
+                                <line className="cls-3" x1="545.14" y1="145.44" x2="642.18" y2="145.44"/>
+                                <path style={{fill:"#".concat(color)}} d="M367.09,39Q323.8,39,293,69.36t-31,72.57q0,48.09,34,77.76,30.82,26.81,69.58,26.82,43.8,0,74.77-30.19t30.84-73.22q0-42.88-30.7-73.48T367.09,39Z" transform="translate(-9.95 -38.04)"/>
+                                <path style={{fill:"#".concat(color)}} className="cls-3" d="M303.25,174.12a62.63,62.63,0,0,0,17.46,24.4Q340.81,216,366.06,216q28.56,0,48.74-19.68a66,66,0,0,0,15.08-21.73" transform="translate(-9.95 -38.04)"/>
+                                <circle className="cls-2" cx="319.61" cy="74.74" r="7.5"/><circle class="cls-2" cx="393.61" cy="73.74" r="7.5"/>
+                            </svg>
+                                {/* <img src={MOOD} className="AllEntries-MOOD" style={{color:"#".concat(color),  height:"180"}}></img> */}
+                            </Link>
                         </Tooltip>
                         <div className="dropdown-content">{this.moodImgs}{this.deleteMoodButton}</div>
                     </div>
